@@ -318,7 +318,6 @@ def grades_average(grades_input):
   return average
 print grades_average(grades)
 ```
----
 ### We're going to use the average for computing the variance. The variance allows us to see how widespread the grades were from the average.
 16. **The Variance**
 Let's see how the grades varied against the average. This is called computing the variance.
@@ -393,6 +392,7 @@ def grades_std_deviation(variance):
 variance = grades_variance(grades)
 print grades_std_deviation(variance)
 ```
+---
 **Review**
 You've done a great job completing this program.
 We've created quite a few meaningful functions. Namely, we've created helper functions to print a list of grades, compute the sum, average, variance, and standard deviation about a set of grades.
