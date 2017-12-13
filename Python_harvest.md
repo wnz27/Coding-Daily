@@ -2,12 +2,13 @@
 
 ## **Iterating over a list in a function**
 Now that we've learned about range, we have two ways of iterating through a list.
-Method 1 - for item in list:
+
+**Method 1** - for item in list:
 ```
 for item in list:
   print item
 ```
-Method 2 - iterate through indexes:
+**Method 2** - iterate through indexes:
 ```
 for i in range(len(list)):
   print list[i]
@@ -37,7 +38,7 @@ else:
 In this example, the loop will break if a 5 is generated, and the else will not execute. Otherwise, after 3 numbers are generated, the loop condition will become false and the else will execute.
 
 ## **practice:**
-1. Write a function called digit_sum that takes a positive integer n as input and returns the sum of all that number's digits. For example: digit_sum(1234) should return 10 which is 1 + 2 + 3 + 4. (Assume that the number you are given will always be positive.)
+**1.** Write a function called digit_sum that takes a positive integer n as input and returns the sum of all that number's digits. For example: digit_sum(1234) should return 10 which is 1 + 2 + 3 + 4. (Assume that the number you are given will always be positive.)
 method 1:hard version
 ```
 def digit_sum (n):
@@ -58,7 +59,7 @@ def digit_sum (n):
     result += int(i)
   return result
 ```
-2. Factorial
+**2. Factorial**
 Let's try a factorial problem.
 To calculate the factorial of a non-negative integer x, just multiply all the integers from 1 through x. For example:
 factorial(4) would equal 4 * 3 * 2 * 1, which is 24.
@@ -73,7 +74,7 @@ def factorial (x):
   return result
 
 ```
-3. is_prime
+**3. is_prime**
 A prime number is a positive integer greater than 1 that has no positive divisors other than 1 and itself. 
 质数是一个除了1和它本身以外没有任何正的除数的数。
 In other words, if you want to test if a number in a variable x is prime, then no other number should go into x evenly besides 1 and x. So 2 and 5 and 11 are all prime, but 4 and 18 and 21 are not.
@@ -88,7 +89,7 @@ def is_prime(x):
                 return False
         return True
 ```
-4. Define a function called reverse that takes a string textand returns that string in reverse. For example: reverse("abcd") should return "dcba".
+**4.** Define a function called reverse that takes a string textand returns that string in reverse. For example: reverse("abcd") should return "dcba".
 You may not use reversed or [::-1] to help you with this.
 You may get a string containing special characters (for example, !, @, or “#").
 ```
@@ -98,7 +99,7 @@ def reverse (text):
     result += i
   return "".join(result)
 ```
-5. Define a function called anti_vowel that takes one string, text, as input and returns the text with all of the vowels removed.
+**5.** Define a function called anti_vowel that takes one string, text, as input and returns the text with all of the vowels removed.
 For example: anti_vowel("Hey You!") should return "Hy Y!". Don't count Y as a vowel. Make sure to remove lowercase and uppercase vowels.
 ```
 def anti_vowel(text):
@@ -112,7 +113,7 @@ def anti_vowel(text):
         t=t+c
     return t
 ```
-6. scrabble_score
+**6. scrabble_score**
 Scrabble is a game where players get points by spelling words. Words are scored by adding together the point values of each individual letter (we'll leave out the double and triple letter and word scores for now).
 To the right is a dictionary containing all of the letters in the alphabet with their corresponding Scrabble point values.
 ```
@@ -138,7 +139,7 @@ def scrabble_score (word):
       result += score[item.lower()]
   return result
 ```
-7. Write a function called censor that takes two strings, text and word, as input. It should return the text with the word you chose replaced with asterisks. For example:
+**7.** Write a function called censor that takes two strings, text and word, as input. It should return the text with the word you chose replaced with asterisks. For example:
 ```
 censor("this hack is wack hack", "hack") 
 ```
@@ -174,7 +175,7 @@ the result display in console is:
 ```
 ['', ' hao woshi']
 ```
-8. Define a function called count that has two arguments called sequence and item.
+**8.** Define a function called count that has two arguments called sequence and item.
 Return the number of times the item occurs in the list.
 For example: count([1, 2, 1, 1], 1) should return 3 (because 1 appears 3 times in the list).
 There is a list method in Python that you can use for this, but you should do it the long way for practice.
@@ -189,7 +190,7 @@ def count (sequence,item):
       sum += 1
   return sum
 ```
-9. Define a function called purify that takes in a list of numbers, removes all odd numbers in the list, and returns the result. For example, purify([1,2,3]) should return [2].
+**9.** Define a function called purify that takes in a list of numbers, removes all odd numbers in the list, and returns the result. For example, purify([1,2,3]) should return [2].
 Do not directly modify the list you are given as input; instead, return a new list with only the even numbers. (even numbers : 偶数)
 ```
 def purify(lst):
@@ -199,7 +200,7 @@ def purify(lst):
             res.append(ele)
     return res
 ```
-10. Define a function called product that takes a list of integers as input and returns the product of all of the elements in the list. For example: product([4, 5, 5]) should return 100 (because 4 * 5 * 5 is 100).
+**10.** Define a function called product that takes a list of integers as input and returns the product of all of the elements in the list. For example: product([4, 5, 5]) should return 100 (because 4 * 5 * 5 is 100).
 Don't worry about the list being empty.
 Your function should return an integer. 
 ```
@@ -209,7 +210,7 @@ def product (numbers):
     result *= number
   return result
 ```
-11.  Write a function ~remove_duplicates~ that takes in a list and removes elements of the list that are the same.
+**11.**  Write a function ~remove_duplicates~ that takes in a list and removes elements of the list that are the same.
 For example: remove_duplicates([1, 1, 2, 2]) should return [1, 2].
 Don't remove every occurrence, since you need to keep a single occurrence of a number.
 The order in which you present your output does not matter. So returning [1, 2, 3] is the same as returning [3, 1, 2].
@@ -232,7 +233,7 @@ def remove_duplicates(inputlist):
         
     return outputlist
 ```
-12. median
+**12. median**
 Great work! You've covered a lot in these exercises. Last but not least, let's write a function to find the median of a list.
 The median is the middle number in a sorted sequence of numbers.
 Finding the median of [7, 12, 3, 1, 6] would first consist of sorting the sequence into [1, 3, 6, 7, 12] and then locating the middle value, which would be 6.
@@ -259,7 +260,7 @@ def median (lst):
     else:
       return tem[len(tem) / 2]
 ```
-13. Define a function on line 3 called print_grades with one argument, a list called grades_input.
+**13.** Define a function on line 3 called print_grades with one argument, a list called grades_input.
 Inside the function, iterate through grades_input and print each item on its own line.
 After your function, call print_grades with the grades list as the parameter.
 ```
@@ -272,7 +273,7 @@ def print_grades(grades_input):
   print ",".join(string_list)
 print_grades(grades)
 ```
-14. 
+**14.** 
 
 
 
