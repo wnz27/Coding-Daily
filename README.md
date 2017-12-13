@@ -1,5 +1,5 @@
 # Cultivate__harvest
-                 ---------- Accumulation of code
+                 ---------- Accumulation of code and read
 * Practice of Python
 * Practice of C
 * Practice of ........
