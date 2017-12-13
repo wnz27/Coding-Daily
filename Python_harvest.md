@@ -392,12 +392,62 @@ def grades_std_deviation(variance):
 variance = grades_variance(grades)
 print grades_std_deviation(variance)
 ```
----
+
 **Review**
 You've done a great job completing this program.
 We've created quite a few meaningful functions. Namely, we've created helper functions to print a list of grades, compute the sum, average, variance, and standard deviation about a set of grades.
 Let's wrap up by printing out all of the statistics.
 Who needs to pay for grade calculation software when you can write your own? :)
+
+---
+
+18. **Iterators for Dictionaries**
+Let's start with iterating over a dictionary. Recall that a dictionary is just a collection of keys and values.
+Note that the .items() method doesn't return key/value pairs **in any specific order**.like this:
+```
+d = {
+  "Name": "Guido",
+  "Age": 56,
+  "BDFL": True
+}
+print d.items()
+# => [('BDFL', True), ('Age', 56), ('Name', 'Guido')]
+```
+Q:
+Create your own Python dictionary, my_dict, in the editor to the right with two or three key/value pairs.
+Then, print the result of calling the my_dict.items().
+```
+my_dict = {
+  "Name":27,
+  "Gender":True,
+  "genre":"666",
+}
+print my_dict.items()
+```
+display in console:
+[(‘genre', '666'), ('Gender', True), ('Name', 27)]
+
+19. **keys() and values()**
+While **.items()** returns an array of tuples with each tuple consisting of a key/value pair from the dictionary:
+The **.keys()** method returns a list of the dictionary's keys, and
+The **.values()** method returns a list of the dictionary's values.
+Again, these methods will not return the keys or values from the dictionary in any specific order.
+You can think of a tuple as an immutable (that is, unchangeable) list. Tuples are surrounded by ()s and can contain any data type.
+Q:
+Remove your call to .items() and replace it with a call to .keys() and a call to .values(), each on its own line. Make sure to print both!
+```
+my_dict = {
+  "Name":27,
+  "Gender":True,
+  "genre":"666",
+}
+print my_dict.keys()
+print my_dict.values()
+```
+display in console:
+['genre', 'Gender', 'Name']
+['666', True, 27]
+has no any specific order
 
 
 
