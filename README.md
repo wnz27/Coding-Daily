@@ -1,7 +1,7 @@
 # Cultivate__harvest  丨   如果生命不曾记录，就像没有活过一样
 
-             Accumulation of code and read
-                 
+                Accumulation of code and read
+                 ---
 * Practice of Python
 * Practice of C
 * Practice of ........
