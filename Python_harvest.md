@@ -487,8 +487,10 @@ for key in my_dict:
 21. **Building Lists**
 Let's say you wanted to build a list of the numbers from 0 to 50 (inclusive). We could do this pretty easily:
 `my_list = range(51)`
-But what if we wanted to generate a list according to some logic—for example, a list of all the even numbers from 0 to 50?
-Python's answer to this is the list comprehension. List comprehensions are a powerful way to generate lists using the for/in and if keywords we've learned.
+But what if we wanted to generate a list according to some logic—for example, 
+a list of all the even numbers from 0 to 50?
+Python's answer to this is the list comprehension. 
+List comprehensions are a powerful way to generate lists using the for/in and if keywords we've learned.
 ```
 evens_to_50 = [i for i in range(51) if i % 2 == 0]
 print evens_to_50
@@ -514,7 +516,8 @@ doubles_by_3 = [x * 2 for x in range(1, 6) if (x * 2) % 3 == 0]
 ```
 Q:
 Use a list comprehension to build a list called even_squares in the editor.
-Your even_squares list should include the squares of the even numbers between 1 to 11. Your list should start [4, 16, 36...] and go from there.
+Your even_squares list should include the squares of the even numbers between 1 to 11. 
+Your list should start [4, 16, 36...] and go from there.
 ```
 doubles_by_3 = [x * 2 for x in range(1, 6) if (x * 2) % 3 == 0]
 # Complete the following line. Use the line above for help.
@@ -541,12 +544,20 @@ print cubes_by_four
 ```
 
 24. **List Slicing Syntax**
-Sometimes we only want part of a Python list. Maybe we only want the first few elements; maybe we only want the last few. Maybe we want every other element!
-List slicing allows us to access elements of a list in a concise manner. The syntax looks like this:
+Sometimes we only want part of a Python list. 
+Maybe we only want the first few elements;
+maybe we only want the last few.
+Maybe we want every other element!
+List slicing allows us to access elements of a list in a concise manner.
+The syntax looks like this:
 `[start:end:stride]`
-Where start describes where the slice starts (inclusive), end is where it ends (exclusive), and stride describes the space between items in the sliced list. For example, a stride of 2 would select every other item from the original list to place in the sliced list.
+Where start describes where the slice starts (inclusive), 
+end is where it ends (exclusive), and stride describes the space between items in the sliced list. 
+For example, a stride of 2 would select every other item from the original list to place in the sliced list.
 Q：
-We've generated a list with a list comprehension in the editor to the right, and we're about to print a selection from the list using list slicing. Can you guess what will be printed out? Click Run when you think you know!
+We've generated a list with a list comprehension in the editor to the right,
+and we're about to print a selection from the list using list slicing. 
+Can you guess what will be printed out? Click Run when you think you know!
 
 ```
 l = [i ** 2 for i in range(1, 11)]
@@ -555,6 +566,119 @@ print l[2:9:2]
 ```
 display on console:
 [9, 25, 49, 81]
+
+25. **Omitting Indices**
+If you don't pass a particular index to the list slice,
+Python will pick a default.
+```
+to_five = ['A', 'B', 'C', 'D', 'E']
+
+print to_five[3:]
+# prints ['D', 'E'] 
+
+print to_five[:2]
+# prints ['A', 'B']
+
+print to_five[::2]
+# print ['A', 'C', 'E']
+```
+* The default starting index is 0.
+* The default ending index is the end of the list.
+* The default stride is 1.
+Q:
+Use list slicing to print out every odd element of my_list from start to finish.
+Omit the start and end index. You only need to specify a stride.
+```
+my_list = range(1, 11) # List of numbers 1 - 10
+# Add your code below!
+print my_list[::2]
+```
+
+26. **Reversing a List**
+We have seen that a positive stride progresses through the list from left to right.
+A negative stride progresses through the list from right to left.
+```
+letters = ['A', 'B', 'C', 'D', 'E']
+print letters[::-1]
+```
+In the example above, we print out ['E', 'D', 'C', 'B', 'A'].
+Q:
+Create a variable called backwards and set it equal to the reversed version of my_list.
+Make sure to reverse the list in the editor by passing your list slice a negative stride, like in the example above.
+```
+my_list = range(1, 11)
+# Add your code below!
+backwards = my_list[::-1]
+```
+
+27. **Stride Length**
+A positive stride length traverses the list from left to right, 
+and a negative one traverses the list from right to left.
+Further, a stride length of 1 traverses the list "by ones," 
+a stride length of 2 traverses the list "by twos," and so on.
+Q:
+Create a variable, backwards_by_tens, 
+and set it equal to the result of going backwards through to_one_hundred by tens.
+Go ahead and print backwards_by_tens to the console.
+(反方向每十个数遍历to_one_hundred，并打印到控制台。)
+```
+to_one_hundred = range(101)
+# Add your code below!
+backwards_by_tens = to_one_hundred[::-10]
+print backwards_by_tens
+```
+
+28. **Let's do one more, just to prove you really know your stuff.**  
+Create a list, to_21, that's just the numbers from 1 to 21, inclusive.
+Create a second list, odds, that contains only the odd numbers in the to_21 list (1, 3, 5, and so on). 
+Use list slicing for this one instead of a list comprehension.
+Finally, create a third list, middle_third, that's equal to the middle third of to_21, from 8 to 14, inclusive.
+```
+to_21 = range(1,22)
+odds = to_21[::2]
+#odds = range(1,22)[::2]
+#说明第一个方法没有改变to_21的变量，是复制的操作
+#it means the first odds's method has not change the to_21, slice is a duplicate manipulate
+middle_third = to_21[len(to_21)/3:len(to_21) * 2 / 3:]
+```
+reason, I try on editor this:
+```
+to_21 = range(1,22)
+odds = to_21[::2]
+print to_21
+print odds
+```
+and this :
+```
+to_21 = range(1,22)
+odds = range(1,22)[::2]
+print to_21
+print odds
+```
+above all display on console always:
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+[1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21]
+**so I said:**
+**说明第一个方法没有改变to_21的变量，是复制的操作**
+**（it means the first odds's method has not change the to_21, slice is a duplicate manipulate）**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
