@@ -4,7 +4,9 @@
 * Practice of C
 * Practice of ........
 * Recommendation of Books and Essays
-* 
+* Computer Science 
+* About Math
+*
 
 ## Practice of Python ~~~~
 Python的小白探索之旅，日常练习：[Python_practice](https://github.com/wnz27/Cultivate__harvest/blob/master/Python_harvest.md)
@@ -26,6 +28,18 @@ Python的小白探索之旅，日常练习：[Python_practice](https://github.co
 *  **《学习之道》** （芭芭拉 奥克利 教育无边界字幕组 译） 很多学习的靠谱观点，学会学习再去学习！
 *  **《超级阅读术》** （斋藤孝）名字神叨叨，但内容很不错。
 *  **《高效人士用超级笔记术》** （小西利行著 易哲译 ） 日常笔记简洁之道，很不错的给零碎笔记附能的简单易行的方法。
+
+## Computer Science 
+             ------[Learn about some university curriculum](https://github.com/wnz27/Computer-Science)
+*  **《How Net works Work》**  [**《网络是怎样连接的》**]()
+
+
+
+## About Math
+             ------[Path to Math](https://github.com/wnz27/About-Math)
+*  **《The Caculalus Lifesaver》** [**《普林斯顿微积分读本》**]()
+*  **《Linear Algebra and its Application (Fourth Edition)》**[**《线性代数及其应用》**]()
+
 
 
 
