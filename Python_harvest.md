@@ -496,6 +496,52 @@ print evens_to_50
 display on console:
 [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
 
+22. List Comprehension Syntax
+Here's a simple example of list comprehension syntax:
+```
+new_list = [x for x in range(1, 6)]
+# => [1, 2, 3, 4, 5]
+```
+This will create a new_list populated by the numbers one to five. If you want those numbers doubled, you could use:
+```
+doubles = [x * 2 for x in range(1, 6)]
+# => [2, 4, 6, 8, 10]
+```
+And if you only wanted the doubled numbers that are evenly divisible by three:
+```
+doubles_by_3 = [x * 2 for x in range(1, 6) if (x * 2) % 3 == 0]
+# => [6]
+```
+Q:
+Use a list comprehension to build a list called even_squares in the editor.
+Your even_squares list should include the squares of the even numbers between 1 to 11. Your list should start [4, 16, 36...] and go from there.
+```
+doubles_by_3 = [x * 2 for x in range(1, 6) if (x * 2) % 3 == 0]
+# Complete the following line. Use the line above for help.
+even_squares = [x ** 2 for x in range(1,12) if x % 2 == 0]
+
+print even_squares
+```
+
+23. **Now You Try List Comprehension**
+Great work! Now it's time for you to create a list comprehension all on your own.
+```
+c = ['C' for x in range(5) if x < 3]
+print c
+```
+The example above creates and prints out a list containing ['C', 'C', 'C'].
+Q:
+Use a list comprehension to create a list, cubes_by_four.
+The comprehension should consist of the cubes of the numbers 1 through 10 only if the cube is evenly divisible by four.
+Finally, print that list to the console.
+Note that in this case, the cubed number should be evenly divisible by 4, not the original number.
+```
+cubes_by_four = [x ** 3 for x in range(1, 11) if ((x ** 3) % 4) == 0]
+print cubes_by_four
+```
+
+
+
 
 
 
