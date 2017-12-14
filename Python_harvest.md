@@ -548,6 +548,14 @@ Where start describes where the slice starts (inclusive), end is where it ends (
 Q：
 We've generated a list with a list comprehension in the editor to the right, and we're about to print a selection from the list using list slicing. Can you guess what will be printed out? Click Run when you think you know!
 
+```
+l = [i ** 2 for i in range(1, 11)]
+# Should be [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+print l[2:9:2]
+```
+display on console:
+[9, 25, 49, 81]
+
 
 
 
