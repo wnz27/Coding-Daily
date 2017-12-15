@@ -498,7 +498,7 @@ print evens_to_50
 display on console:
 [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]
 
-22. List Comprehension Syntax
+22. **List Comprehension Syntax**
 Here's a simple example of list comprehension syntax:
 ```
 new_list = [x for x in range(1, 6)]
@@ -706,6 +706,116 @@ languages = ["HTML", "JavaScript", "Python", "Ruby"]
 # Add arguments to the filter()
 print filter(lambda x: x == "Python", languages)
 ```
+
+31. **Time to test out filter() and lambda expressions.**
+```
+cubes = [x ** 3 for x in range(1, 11)]
+filter(lambda x: x % 3 == 0, cubes)
+```
+The example above is just a reminder of the syntax.
+Q:
+Create a list, squares, that consists of the squares of the numbers 1 to 10. A **list comprehension** could be useful here!
+Use filter() and a lambda expression to print out only the squares that are between 30 and 70 (inclusive).
+```
+squares = [x**2 for x in range(1,11)]
+print filter(lambda x: x >= 30 and x <=70,squares)
+```
+
+32. **Iterating Over Dictionaries**
+First, let's review iterating over a dict.
+Call the appropriate method on movies such that it will print out all the items (hint, hint) in the dictionary—that is, each key and each value.
+```
+movies = {
+  "Monty Python and the Holy Grail": "Great",
+  "Monty Python's Life of Brian": "Good",
+  "Monty Python's Meaning of Life": "Okay"
+}
+print movies.items()
+```
+display on console is:
+```
+[("Monty Python's Life of Brian", 'Good'), ("Monty Python's Meaning of Life", 'Okay'), ('Monty Python and the Holy Grail', 'Great')]
+```
+
+33. **Comprehending Comprehensions**(理解列表解析器)
+Now let's take another look at list comprehensions.
+`squares = [x ** 2 for x in range(5)]`
+Use a list comprehension to create a list, threes_and_fives, that consists only of the numbers between 1 and 15 (inclusive) that are evenly divisible by 3 or 5.(找1-15中能被3或5整除的数)
+```
+threes_and_fives = [x for x in range(1,16) if x % 3 == 0 or x % 5 == 0]
+print threes_and_fives
+```
+display on console:
+`[3, 5, 6, 9, 10, 12, 15]`
+
+
+34. **List Slicing**
+Next up: list slicing.
+```
+str = "ABCDEFGHIJ"
+start, end, stride = 1, 6, 2
+str[start:end:stride]
+```
+You can think of a Python string as a list of characters.
+The string in the editor is garbled in two ways:
+Our message is backwards.
+The letter we want is every other letter.
+Use list slicing to extract the message and save it to a variable called message.
+```
+garbled = "!XeXgXaXsXsXeXmX XtXeXrXcXeXsX XeXhXtX XmXaX XI"
+message = garbled[::-2]
+print message
+```
+display on console is:
+`I am the secret message!`
+
+
+35. **Lambda Expressions**
+Last but not least, let's look over some lambdas.
+```
+my_list = range(16)
+filter(lambda x: x % 3 == 0, my_list)
+```
+We've given you another (slightly different) garbled. Sort it out with a filter() and a lambda.
+Q:
+Create a new variable called message.
+Set it to the result of calling filter() with the appropriate lambda that will filter out the "X"s. The second argument will be garbled.
+Finally, print your message to the console.
+```
+garbled = "IXXX aXXmX aXXXnXoXXXXXtXhXeXXXXrX sXXXXeXcXXXrXeXt mXXeXsXXXsXaXXXXXXgXeX!XX"
+message = filter(lambda x:x != 'X',garbled)
+print message
+```
+display on console :
+`I am another secret message!`
+
+---
+
+## INTRODUCTION TO BITWISE OPERATORS
+**Just a Little BIT**
+Welcome to an intro level explanation of bitwise operations in Python!
+Bitwise operations might seem a little esoteric and tricky at first, but you'll get the hang of them pretty quickly.
+Bitwise operations are operations that directly manipulate bits. In all computers, numbers are represented with bits, a series of zeros and ones. In fact, pretty much everything in a computer is represented by bits. This course will introduce you to the basic bitwise operations and then show you what you can do with them.
+Bitwise operators often tend to puzzle and mystify new programmers, so don't worry if you are a little bit confused at first. To be honest, you aren't really going to see bitwise operators in everyday programming. However, they do pop up from time to time, and when they do, you should have a general idea of what is going on. 
+In the editor are the 6 basic bitwise operations. Click Run and see what the console prints out. All of them will be explained in due time!
+```
+print 5 >> 4  # Right Shift
+print 5 << 1  # Left Shift
+print 8 & 5   # Bitwise AND
+print 9 | 4   # Bitwise OR
+print 12 ^ 42 # Bitwise XOR
+print ~88     # Bitwise NOT
+```
+display on console:
+```
+0
+10
+0
+13
+38
+-89
+```
+
 
 
 
