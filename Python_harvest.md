@@ -884,7 +884,7 @@ twelve = 0b1100
 
 3. **The bin() Function**
 Excellent! The biggest hurdle you have to jump over in order to understand bitwise operators is learning how to count in base 2. Hopefully the lesson should be easier for you from here on out.
-There are Python functions that can aid you with bitwise operations. In order to print a number in its binary representation, you can use the bin() function. bin() takes an integer as input and returns the binary representation of that integer ~**in a string**~. (Keep in mind that after using the bin function, you can no longer operate on the value like a number.)(在使用bin函数后你不能再像数字一样操作它)
+There are Python functions that can aid you with bitwise operations. In order to print a number in its binary representation, you can use the bin() function. bin() takes an integer as input and returns the binary representation of that integer **in a string**. (Keep in mind that after using the bin function, you can no longer operate on the value like a number.)(在使用bin函数后你不能再像数字一样操作它)
 You can also represent numbers in base 8 and base 16 using the oct() and hex() functions. (We won't be dealing with those here, however.)
 Q:
 We've provided an example of the bin function in the editor. Go ahead and use print and bin() to print out the binary representations of the numbers 2 through 5, each on its own line.
