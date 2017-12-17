@@ -882,6 +882,60 @@ eleven = 0b1011
 twelve = 0b1100
 ```
 
+3. **The bin() Function**
+Excellent! The biggest hurdle you have to jump over in order to understand bitwise operators is learning how to count in base 2. Hopefully the lesson should be easier for you from here on out.
+There are Python functions that can aid you with bitwise operations. In order to print a number in its binary representation, you can use the bin() function. bin() takes an integer as input and returns the binary representation of that integer ~**in a string**~. (Keep in mind that after using the bin function, you can no longer operate on the value like a number.)(在使用bin函数后你不能再像数字一样操作它)
+You can also represent numbers in base 8 and base 16 using the oct() and hex() functions. (We won't be dealing with those here, however.)
+Q:
+We've provided an example of the bin function in the editor. Go ahead and use print and bin() to print out the binary representations of the numbers 2 through 5, each on its own line.
+```
+print bin(1)
+#console: 0b1
+print bin(2)
+#console: 0b10
+print bin(3)
+#console: 0b11
+print bin(4)
+#console: 0b100
+print bin(5)
+@console: 0b101
+```
+
+4. **int()'s Second Parameter**
+Python has an int() function that you've seen a bit of already. It can turn non-integer input into an integer, like this:
+```
+int("42")
+# ==> 42
+```
+What you might not know is that the int function actually has an optional second parameter.
+```
+int("110", 2)
+# ==> 6
+```
+When given a string containing a number and the base that number is in, the function will return the value of that number converted to base ten.
+Q:
+In the console are several different ways that you can use the int function's second parameter.On line 7, use int to print the base 10 equivalent of the binary number 11001001.
+```
+print int("1",2)
+print int("10",2)
+print int("111",2)
+print int("0b100",2)
+print int(bin(5),2)
+# because bin() return a string of binary
+# Print out the decimal equivalent of the binary 11001001.
+print int("11001001",2)
+```
+console:
+```
+1
+2
+7
+4
+5
+201
+```
+
+
 
 
 
