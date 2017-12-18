@@ -935,8 +935,217 @@ console:
 201
 ```
 
+5. **Slide to the Left! Slide to the Right!**
+The next two operations we are going to talk about are the left and right shift bitwise operators. These operators work by shifting the bits of a number over by a designated number of slots.
+The block below shows how these operators work on the bit level. Note that in the diagram, the shift is always a positive integer:
+```
+# Left Bit Shift (<<)  
+0b000001 << 2 == 0b000100 (1 << 2 = 4)
+0b000101 << 3 == 0b101000 (5 << 3 = 40)       
+
+# Right Bit Shift (>>)
+0b0010100 >> 3 == 0b000010 (20 >> 3 = 2)
+0b0000010 >> 2 == 0b000000 (2 >> 2 = 0)
+```
+Shift operations are similar to rounding down after dividing and multiplying by 2 (respectively) for every time you shift, but it's often easier just to think of it as shifting all the 1s and 0s left or right by the specified number of slots.
+Note that you can only do bitwise operations on an integer. Trying to do them on strings or floats will result in nonsensical output!
+```
+shift_right = 0b1100
+shift_left = 0b1
+# Your code here!
+shift_right = shift_right >> 2
+shift_left = shift_left << 2
+print bin(shift_right)
+print bin(shift_left)
+```
+可见，位移操作不会对原有二进制的数进行修改。So, bitwise operations has never change original binary number
 
 
+6. **A BIT of This AND That**
+The bitwise AND (&) operator compares two numbers on a bit level and returns a number where the bits of that number are turned on if the corresponding bits of both numbers are 1. For example:
+```
+     a:   00101010   42
+     b:   00001111   15       
+===================
+ a & b:   00001010   10
+```
+As you can see, the 2's bit and the 8's bit are the only bits that are on in both a and b, so a & b only contains those bits. Note that using the & operator can only result in a number that is less than or equal to the smaller of the two values.
+So remember, for every given bit in a and b:
+```
+0 & 0 = 0
+0 & 1 = 0
+1 & 0 = 0
+1 & 1 = 1
+```
+Therefore,
+`0b111 (7) & 0b1010 (10) = 0b10`
+which equals two.
+Q:
+print out the result of calling bin() on 0b1110 & 0b101.
+See if you can guess what the output will be!
+`print bin(0b1110 & 0b101)`
+
+
+7. **A BIT of This OR That**
+The bitwise OR (|) operator compares two numbers on a bit level and returns a number where the bits of that number are turned on if either of the corresponding bits of either number are 1. For example:
+```
+    a:  00101010  42
+    b:  00001111  15       
+================
+a | b:  00101111  47
+```
+Note that the bitwise | operator can only create results that are greater than or equal to the larger of the two integer inputs.
+So remember, for every given bit in a and b:
+```
+0 | 0 = 0
+0 | 1 = 1 
+1 | 0 = 1
+1 | 1 = 1
+```
+Meaning
+`110 (6) | 1010 (10) = 1110 (14)`
+Q:
+For practice, print out the result of using | on 0b1110 and 0b101 as a binary string. Try to do it on your own without using the | operator if you can help it.
+`print bin(0b1110 | 0b101)`
+
+
+8. **This XOR That?**
+The XOR (^) or exclusive or operator compares two numbers on a bit level and returns a number where the bits of that number are turned on if either of the corresponding bits of the two numbers are 1, but not both.
+```
+    a:  00101010   42
+    b:  00001111   15       
+================
+a ^ b:  00100101   37
+```
+**Keep in mind that if a bit is off in both numbers, it stays off in the result. Note that XOR-ing a number with itself will always result in 0.**(有点小小疑问。off怎么理解？A little bit question，what mean “off”？)
+So remember, for every given bit in a and b:
+```
+0 ^ 0 = 0
+0 ^ 1 = 1
+1 ^ 0 = 1
+1 ^ 1 = 0
+```
+Therefore:
+`111 (7) ^ 1010 (10) = 1101 (13)`
+Q:
+For practice, print the result of using ^ on 0b1110 and 0b101 as a binary string. Try to do it on your own without using the ^ operator.
+`print bin(0b1110 ^ 0b101)`
+
+
+
+9. **See? This is NOT That Hard!**
+The bitwise NOT operator (~) just flips all of the bits in a single number. What this actually means to the computer is actually very complicated, so we're not going to get into it. Just know that mathematically, this is equivalent to adding one to the number and then making it negative.
+And with that, you've seen all of the basic bitwise operators! We'll see what we can do with these in the next section.
+Click Run and observe what the console prints out.
+```
+print ~1
+print ~2
+print ~3
+print ~42
+print ~123
+```
+display on console
+```
+-2
+-3
+-4
+-43
+-124
+```
+
+
+10. **The Man Behind the Bit Mask**
+A bit mask is just a variable that aids you with bitwise operations. A bit mask can help you turn specific bits on, turn others off, or just collect data from an integer about which bits are on or off.
+```
+num  = 0b1100
+mask = 0b0100
+desired = num & mask
+if desired > 0:
+  print "Bit was on"
+```
+In the example above, we want to see if the third bit from the right is on.
+* First, we first create a variable num containing the number 12, or 0b1100.
+* Next, we create a mask with the third bit on.
+* Then, we use a bitwise-and operation to see if the third bit from the right of num is on.
+* If desired is greater than zero, then the third bit of num must have been one.
+Q:
+Define a function, check_bit4, with one argument, input, an integer.
+It should check to see if the fourth bit from the right is on.
+If the bit is on, return "on" (not print!)
+If the bit is off, return "off".
+Check the Hint for some examples!
+```
+def check_bit4(input):
+  mask = 0b1000
+  result = input & mask
+  if result > 0 :
+    return "on"
+  else:
+    return "off"
+```
+
+
+11. **Turn It On**
+You can also use masks to turn a bit in a number on using |. For example, let's say I want to make sure the rightmost bit of number a is turned on. I could do this:
+```
+a = 0b110 # 6
+mask = 0b1 # 1
+desired =  a | mask # 0b111, or 7
+```
+**Using the bitwise | operator will turn a corresponding bit on if it is off and leave it on if it is already on.**
+Q：
+In the editor is a variable, a. Use a bitmask and the value a in order to achieve a result where the third bit from the right of a is turned on. Be sure to print your answer as a bin() string!
+```
+a = 0b10111011
+mask = 0b100
+print bin(a | mask)
+```
+
+
+12. **Just Flip Out(翻转)**
+Using the XOR (^) operator is very useful for flipping bits. Using ^ on a bit with the number one will return a result where that bit is flipped.
+For example, let's say I want to flip all of the bits in a. I might do this:
+```
+a = 0b110 # 6
+mask = 0b111 # 7
+desired =  a ^ mask # 0b1
+```
+Q:
+In the editor is the 8 bit variable a. Use a bitmask and the value a in order to achieve a result where all of the bits in a are flipped. Be sure to print your answer as a bin() string!
+```
+a = 0b11101110
+mask = 0b11111111
+print bin(a ^ mask)
+```
+
+
+13. **Slip and Slide**
+Finally, you can also use the left shift (<<) and right shift (>>) operators to slide masks into place.
+```
+a = 0b101 
+# Tenth bit mask
+mask = (0b1 << 9)  # One less than ten 
+desired = a ^ mask
+```
+Let's say that I want to turn on the 10th bit from the right of the integer a.
+Instead of writing out the entire number, we slide a bit over using the << operator.
+We use 9 because we only need to slide the mask nine places over from the first bit to reach the tenth bit.
+Q:
+Define a function called flip_bit that takes the inputs (number, n).
+Flip the nth bit (with the ones bit being the first bit) and store it in result.
+Return the result of calling bin(result).
+```
+def flip_bit(number,n):
+  mask = 0b1 << (n-1)
+  result = number ^ mask
+  return bin(result)
+
+print flip_bit(0b011,4)
+```
+display on console:
+`0b1011`
+
+---
 
 
 
