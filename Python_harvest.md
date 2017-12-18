@@ -1227,6 +1227,32 @@ class Animal(object):
 ```
 
 
+5. **Instantiating Your First Object**
+Perfect! Now we're ready to start creating objects.
+We can access attributes of our objects using dot notation. Here's how it works:
+```
+class Square(object):
+  def __init__(self):
+#初始化的时候不需要给任何属性。看下面。iniate don't need any attribute ,just like below
+    self.sides = 4
+my_shape = Square()
+print my_shape.sides
+```
+* First we create a class named Square with an attribute sides.
+* Outside the class definition, we create a new instance of Square named my_shape and access that attribute using my_shape.sides.
+Q:
+Outside the Animal class definition, create a variable named zebra and set it equal to Animal("Jeffrey").
+Then print out zebra's name.
+```
+class Animal(object):
+  def __init__(self, name):
+    self.name = name
+zebra = Animal("Jeffrey")
+print zebra.name
+```
+
+
+
 
 
 
