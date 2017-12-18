@@ -1251,6 +1251,78 @@ zebra = Animal("Jeffrey")
 print zebra.name
 ```
 
+6. **More on init() and self**
+Now that you're starting to understand how classes and objects work, it's worth delving a bit more into __init__() and self. They can be confusing!
+As mentioned, you can think of __init__() as the method that "boots up" a class' instance object: the init bit is short for "initialize."
+The first argument __init__() gets is used to refer to the instance object, and by convention, that argument is called self. If you add additional arguments—for instance, a name and age for your animal—setting each of those equal to self.name and self.age in the body of __init__() will make it so that when you create an instance object of your Animal class, you need to give each instance a name and an age, and those will be associated with the particular instance you create.
+Check out the examples in the editor. See how __init__() "boots up" each object to expect a name and an age, then uses self.name and self.age to assign those names and ages to each object? Add a third attribute, is_hungry to __init__(), and click Run to see the results.
+```
+# Class definition
+class Animal(object):
+  """Makes cute animals."""
+  # For initializing our instance objects
+  def __init__(self, name, age,is_hungry):
+    self.name = name
+    self.age = age
+    self.is_hungry = is_hungry
+# Note that self is only used in the __init__()
+# function definition; we don't need to pass it
+# to our instance objects.
+zebra = Animal("Jeffrey", 2, True)
+giraffe = Animal("Bruce", 1, False)
+panda = Animal("Chad", 7, True)
+
+print zebra.name, zebra.age, zebra.is_hungry
+print giraffe.name, giraffe.age, giraffe.is_hungry
+print panda.name, panda.age, panda.is_hungry
+```
+
+
+7. **Class Scope**
+Another important aspect of Python classes is scope. The scope of a variable is the context in which it's visible to the program.
+It may surprise you to learn that not all variables are accessible to all parts of a Python program at all times. When dealing with classes, you can have variables that are available everywhere (global variables), variables that are only available to members of a certain class (member variables), and variables that are only available to particular instances of a class (instance variables).
+The same goes for functions: some are available everywhere, some are only available to members of a certain class, and still others are only available to particular instance objects.
+Check out the code in the editor. Note that each individual animal gets its own name and age (since they're all initialized individually), but they all have access to the member variable is_alive, since they're all members of the Animal class. Click Run to see the output!
+```
+class Animal(object):
+  """Makes cute animals."""
+  is_alive = True
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+zebra = Animal("Jeffrey", 2)
+giraffe = Animal("Bruce", 1)
+panda = Animal("Chad", 7)
+
+print zebra.name, zebra.age, zebra.is_alive
+print giraffe.name, giraffe.age, giraffe.is_alive
+print panda.name, panda.age, panda.is_alive
+```
+display on console:
+Jeffrey 2 True
+Bruce 1 True
+Chad 7 True
+
+
+8. **A Methodical Approach**
+When a class has its own functions, those functions are called methods. You've already seen one such method: __init__(). But you can also define your own methods!
+Add a method, description, to your Animal class. Using two separate print statements, it should print out the name and age of the animal it's called on. Then, create an instance of Animal, hippo (with whatever name and age you like), and call its description method.
+```
+class Animal(object):
+  """Makes cute animals."""
+  is_alive = True
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+  # Add your method here!
+  def description(self):
+    print self.name
+    print self.age
+    
+hippo = Animal("kitty",3)
+hippo.description()
+```
 
 
 
