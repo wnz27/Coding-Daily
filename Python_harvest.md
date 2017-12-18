@@ -1325,6 +1325,156 @@ hippo.description()
 ```
 
 
+9. **They're Multiplying!**
+A class can have any number of member variables. These are variables that are available to all members of a class.
+```
+hippo = Animal("Jake", 12)
+cat = Animal("Boots", 3)
+print hippo.is_alive
+hippo.is_alive = False
+print hippo.is_alive
+print cat.is_alive
+```
+
+* In the example above, we create two instances of an Animal.
+* Then we print out True, the default value stored in hippo's is_alive member variable.
+* Next, we set that to False and print it out to make sure.
+* Finally, we print out True, the value stored in cat's is_alive member variable. We only changed the variable in hippo, not in cat.
+Let's add another member variable to Animal.
+```
+class Animal(object):
+  """Makes cute animals."""
+  is_alive = True #line 3
+  health = "good"
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+  # Add your method here!
+  def description(self):
+    print self.name
+    print self.age
+ 
+sloth = Animal("lalal",4)
+ocelot = Animal("hahah",7)
+hippo = Animal("kitty",3)
+hippo.description()
+  
+print hippo.health
+print sloth.health
+print ocelot.health
+```
+display on console:
+kitty
+3
+good
+good
+good
+
+
+10. **It's Not All Animals and Fruits**
+Classes like Animal and Fruit make it easy to understand the concepts of classes and instances, but you probably won't see many zebras or lemons in real-world programs.
+However, classes and objects are often used to model real-world objects. The code in the editor is a more realistic demonstration of the kind of classes and objects you might find in commercial software. Here we have a basic ShoppingCart class for creating shopping cart objects for website customers; though basic, it's similar to what you'd see in a real program.
+Q:
+Create an instance of ShoppingCart called my_cart. Initialize it with any values you like, then use the add_item method to add an item to your cart.
+```
+class ShoppingCart(object):
+  """Creates shopping cart objects
+  for users of our fine website."""
+  items_in_cart = {}
+  def __init__(self, customer_name):
+    self.customer_name = customer_name
+
+  def add_item(self, product, price):
+    """Add product to the cart."""
+    if not product in self.items_in_cart:
+      self.items_in_cart[product] = price
+      print product + " added."
+    else:
+      print product + " is already in the cart."
+
+  def remove_item(self, product):
+    """Remove product from the cart."""
+    if product in self.items_in_cart:
+      del self.items_in_cart[product]
+      print product + " removed."
+    else:
+      print product + " is not in the cart."
+ 
+my_cart = ShoppingCart("fzk27")
+my_cart.add_item("iPad",7000)
+```
+
+
+11. Warning: Here Be Dragons
+Inheritance is a tricky concept, so let's go through it step by step.
+Inheritance is the process by which one class takes on the attributes and methods of another, and it's used to express an is-a relationship. For example, a Panda is a bear, so a Panda class could inherit from a Bear class. However, a Toyota is not a Tractor, so it shouldn't inherit from the Tractor class (even if they have a lot of attributes and methods in common). Instead, both Toyota and Tractor could ultimately inherit from the same Vehicle class.
+Check out the code in the editor. We've defined a class, Customer, as well as a ReturningCustomer class that inherits from Customer. Note that we don't define the display_cart method in the body of ReturningCustomer, but it will still have access to that method via inheritance. Click Run to see for yourself!
+```
+class Customer(object):
+  """Produces objects that represent customers."""
+  def __init__(self, customer_id):
+    self.customer_id = customer_id
+
+  def display_cart(self):
+    print "I'm a string that stands in for the contents of your shopping cart!"
+
+class ReturningCustomer(Customer):
+  """For customers of the repeat variety."""
+  def display_order_history(self):
+    print "I'm a string that stands in for your order history!"
+
+monty_python = ReturningCustomer("ID: 12345")
+monty_python.display_cart()
+monty_python.display_order_history()
+```
+display on console:
+```
+I'm a string that stands in for the contents of your shopping cart!
+I'm a string that stands in for your order history!
+```
+
+
+12. **Inheritance Syntax**
+In Python, inheritance works like this:
+```
+class DerivedClass(BaseClass):
+  # code goes here
+```
+where DerivedClass is the new class you're making and BaseClass is the class from which that new class inherits.
+Q:
+On lines 1-4, we've created a class named Shape.
+* Create your own class, Triangle, that inherits from Shape, like this:
+```
+class Triangle(Shape):
+# code goes here
+```
+* Inside the Triangle class, write an __init__() function that takes four arguments: self, side1, side2, and side3.
+* Inside the __init__() function, set self.side1 = side1, self.side2 = side2, and self.side3 = side3.
+```
+class Shape(object):
+  """Makes shapes!"""
+  def __init__(self, number_of_sides):
+    self.number_of_sides = number_of_sides
+
+# Add your Triangle class below!
+class Triangle(Shape):
+  def __init__(self,side1,side2,side3):
+    self.side1 = side1
+    self.side2 = side2
+    self.side3 = side3
+```
+Click "Stuck? Get a hint!" for an example.
+Your code should look something like this:
+```
+class Triangle(Shape):
+#Attention class name input first letter must capitalization!
+  def __init__(self, side1, side2, side3):
+   self.side1 = side1
+   self.side2 = side2
+   self.side3 = side3
+```
+
+
 
 
 
