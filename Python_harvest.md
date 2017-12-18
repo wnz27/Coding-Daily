@@ -1147,6 +1147,84 @@ display on console:
 
 ---
 
+## Introduction to Classes
+Classes are a crucial part of object-oriented programming (OOP). In this lesson, we'll explain what classes are, why they're important, and how to use them effectively.
+1. **Why Use Classes?**
+Python is an object-oriented programming language, which means it manipulates programming constructs called objects. You can think of an object as a single data structure that contains data as well as functions; the functions of an object are called its methods. For example, any time you call
+`len("Eric")`
+Python is checking to see whether the string object you passed it has a length, and if it does, it returns the value associated with that attribute. When you call
+`my_dict.items()`
+Python checks to see if my_dict has an items() method (which all dictionaries have) and executes that method if it finds it.
+But what makes "Eric" a string and my_dict a dictionary? The fact that they're instances of the str and dict classes, respectively. A class is just a way of organizing and producing objects with similar attributes and methods.
+Check out the code in the editor to the below. We've defined our own class, Fruit, and created a lemon instance.When you're ready, click Run to get started creating classes and objects of your own.
+```
+class Fruit(object):
+  """A class that makes various tasty fruits."""
+  def __init__(self, name, color, flavor, poisonous):
+    self.name = name
+    self.color = color
+    self.flavor = flavor
+    self.poisonous = poisonous
+
+  def description(self):
+    print "I'm a %s %s and I taste %s." % (self.color, self.name, self.flavor)
+
+  def is_edible(self):
+    if not self.poisonous:
+      print "Yep! I'm edible."
+    else:
+      print "Don't eat me! I am super poisonous."
+
+lemon = Fruit("lemon", "yellow", "sour", False)
+
+lemon.description()
+lemon.is_edible()
+```
+display on console:
+I'm a yellow lemon and I taste sour.
+Yep! I'm edible.
+
+
+2. **Class Syntax**
+A basic class consists only of the class keyword, the name of the class, and the class from which the new class inherits in parentheses. (We'll get to inheritance soon.) For now, our classes will inherit from the object class, like so:
+```
+class NewClass(object):
+  # Class magic here
+```
+This gives them the powers and abilities of a Python object. By convention, user-defined Python class names start with a capital letter.
+Q:
+Create a class called Animal in the editor. For now, in the body of your class, use the pass keyword. (pass doesn't do anything, but it's useful as a placeholder in areas of your code where Python expects an expression.)
+```
+class Animal(object):
+  pass
+```
+
+
+3. **Classier Classes**
+We'd like our classes to do more than... well, nothing, so we'll have to replace our pass with something else.
+You may have noticed in our example back in the first exercise that we started our class definition off with an odd-looking function: __init__(). This function is required for classes, and it's used to initialize the objects it creates. __init__() always takes at least one argument, self, that refers to the object being created. You can think of __init__() as the function that "boots up" each object the class creates.
+Q:
+Remove the pass statement in your class definition, then go ahead and define an __init__() function for your Animal class. Pass it the argument self for now; we'll explain how this works in greater detail in the next section. Finally, put the pass into the body of the __init__() definition, since it will expect an indented block.
+```
+class Animal(object):
+  def __init__(self):
+    pass
+```
+
+
+4. **Let's Not Get Too Selfish**
+Excellent! Let's make one more tweak to our class definition, then go ahead and instantiate (create) our first object.
+So far, __init__() only takes one parameter: self. This is a Python convention; there's nothing magic about the word self. However, it's overwhelmingly common to use self as the first parameter in __init__(), so you should do this so that other people will understand your code.
+The part that is magic is the fact that self is the first parameter passed to __init__(). Python will use the first parameter that __init__() receives to refer to the object being created; this is why it's often called self, since this parameter gives the object being created its identity.
+Q:
+Let's do two things in the editor:
+Pass __init__() a second parameter, name.
+In the body of __init__(), let the function know that name refers to the created object's name by typing self.name = name. (This will become crystal clear in the next section.)
+```
+class Animal(object):
+  def __init__(self,name):
+    self.name = name
+```
 
 
 
