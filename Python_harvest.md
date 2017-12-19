@@ -2045,6 +2045,15 @@ with open("text.txt", "w") as textfile:
 ```
 
 
+8. **Try It Yourself**
+It worked! Our Python program successfully wrote to text.txt.
+Q:
+Now you try: write any data you like to a file called text.txt using with...as. Give your file object the usual name: my_file.
+```
+with open("text.txt","w") as my_file:
+  my_file.write("hahhhaa")
+#write method must string or letter or character as input
+```
 
 
 
