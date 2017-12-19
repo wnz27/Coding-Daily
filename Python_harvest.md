@@ -1906,7 +1906,35 @@ print my_point
 Now that you understand Python syntax and have been introduced to some Python best practices, 
 let's apply what you've learned to a real-world application: writing data to a file.
 
-1. 
+1. 1. **See It to Believe It**
+Until now, the Python code you've been writing comes from one source and only goes to one place: you type it in at the keyboard and its results are displayed in the console. But what if you want to read information from a file on your computer, and/or write that information to another file?
+This process is called file I/O (the "I/O" stands for "input/output"), and Python has a number of built-in functions that handle this for you.
+Check out the code in the editor to the right.
+Click Run! You just wrote all the contents of my_list to a text file called output.txt.
+```
+my_list = [i ** 2 for i in range(1, 11)]
+# Generates a list of squares of the numbers 1 - 10
+f = open("output.txt", "w")
+for item in my_list:
+  f.write(str(item) + "\n")
+f.close()
+```
+the output.txt file content is :
+```
+1
+4
+9
+16
+25
+36
+49
+64
+81
+100
+```
+
+
+
 
 
 
