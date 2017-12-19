@@ -1742,6 +1742,66 @@ print my_car.mpg
 ```
 
 
+7. **Creating class methods**
+Besides member variables, classes can also have their own methods. For example:
+```
+class Square(object):
+  def __init__(self, side):
+    self.side = side
+
+  def perimeter(self):
+    return self.side * 4
+```
+The perimeter() class method is identical to defining any other function, except that it is written inside of the Square class definition.
+Just like when we defined __init__(), you need to provide self **as the first argument of any class method.**
+Q:
+Inside the Car class, add a method named display_car to Car that will reference the Car's member variables to return the string, "This is a [color] [model] with [mpg] MPG." You can use the str() function to turn your mpg into a string when creating the display string.
+Replace the individual print statements with a single print command that displays the result of calling my_car.display_car()
+```
+class Car(object):
+  condition = "new"
+  def __init__(self, model, color, mpg):
+    self.model = model
+    self.color = color
+    self.mpg   = mpg
+   
+  def display_car(self):
+    print "This is a %s %s with %s MPG." % (self.color, self.model, str(self.mpg))
+
+my_car = Car("DeLorean", "silver", 88)
+my_car.display_car()
+```
+
+8. Modifying member variables
+We can modify variables that belong to a class the same way that we initialize those member variables. This can be useful when we want to change the value a variable takes on based on something that happens inside of a class method.
+Inside the Car class, add a method drive_car that sets self.condition to the string "used".
+Remove the call to my_car.display_car() and instead print only the condition of your car.
+Then drive your car by calling the drive_car method.
+Finally, print the condition of your car again to see how its value changes.
+```
+class Car(object):
+  condition = "new"
+  def __init__(self, model, color, mpg):
+    self.model = model
+    self.color = color
+    self.mpg   = mpg
+   
+  def display_car(self):
+    print "This is a %s %s with %s MPG." % (self.color, self.model, str(self.mpg))
+  
+  def drive_car(self):
+    self.condition = "used"
+
+my_car = Car("DeLorean", "silver", 88)
+print my_car.condition
+my_car.drive_car()
+print my_car.condition
+```
+
+
+
+
+
 
 
 
