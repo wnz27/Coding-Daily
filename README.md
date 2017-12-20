@@ -20,7 +20,8 @@ Python的小白探索之旅，日常练习：[Python_practice](https://github.co
 ---
 
 ## Database's Learn record
-![database's pre(数据库初探)](https://github.com/wnz27/Database-s-Learn-Note/blob/master/SQL's%20pre.md)
+### SQL
+![SQL's pre(SQL初探)](https://github.com/wnz27/Database-s-Learn-Note/blob/master/SQL's%20pre.md)
 
 ---
 ## Practice of C
