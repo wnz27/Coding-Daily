@@ -9,13 +9,18 @@
 * Recommendation of Books and Essays
 * Computer Science 
 * About Math
-*
+* Database's Learn record
+* 
 
 ---
 
 ## Practice of Python ~~~~
 Python的小白探索之旅，日常练习：[Python_practice](https://github.com/wnz27/Cultivate__harvest/blob/master/Python_harvest.md)
 
+---
+
+## Database's Learn record
+![database's pre(数据库初探)](https://github.com/wnz27/Database-s-Learn-Note/blob/master/SQL's%20pre.md)
 
 ---
 ## Practice of C
