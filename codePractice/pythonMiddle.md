@@ -50,7 +50,7 @@ print isfile(r'/data/webroot/conf/app.conf')
 ```
 
 ## python中动态导入模块
-* **如果导入的模块不存在，Python解释器会报 ImportError 错误** *：
+** *如果导入的模块不存在，Python解释器会报 ImportError 错误* **：
 ```
 >>> import something
 Traceback (most recent call last):
