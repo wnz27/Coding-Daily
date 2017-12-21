@@ -17,11 +17,13 @@
 ## Practice of Python ~~~~
 Python的小白探索之旅，日常练习：[Python_practice](https://github.com/wnz27/Cultivate__harvest/blob/master/Python_harvest.md)
 
+Python中级进阶,日常练习：[Python middle practice](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/pythonMiddle.md)
+
 ---
 
 ## Database's Learn record
 ### SQL
-![SQL's pre(SQL初探)](https://github.com/wnz27/Database-s-Learn-Note/blob/master/SQL's%20pre.md)
+[SQL's pre(SQL初探)](https://github.com/wnz27/Database-s-Learn-Note/blob/master/SQL's%20pre.md)
 
 ---
 ## Practice of C
