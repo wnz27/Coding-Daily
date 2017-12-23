@@ -466,6 +466,8 @@ p1 = Person('Bob', 90)
 print p1.get_grade
 print p1.get_grade()
 ```
+* **直接把 lambda 函数赋值给 self.get_grade 和绑定方法有所不同，函数调用不需要传入 self，但是方法调用需要传入 self。**
+
 
 
 
