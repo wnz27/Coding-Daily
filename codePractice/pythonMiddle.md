@@ -694,6 +694,7 @@ class D(B, C):
         print 'init D...'
 ```
 看下图:
+
 ![](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/someImg/54daf037000142d207580552.jpg)
 像这样，D 同时继承自 B 和 C，也就是 D 拥有了 A、B、C 的全部功能。多重继承通过 super()调用__init__()方法时，A 虽然被继承了两次，但__init__()只调用一次：
 ```
