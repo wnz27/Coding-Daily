@@ -581,6 +581,26 @@ s 是Student类型，不是Teacher类型，这很容易理解。但是，s 也�
 这说明在一条继承链上，一个实例可以看成它本身的类型，也可以看成它父类的类型。
 * 任务
 请根据继承链的类型转换，依次思考 t 是否是 Person，Student，Teacher，object 类型，并使用isinstance()判断来验证您的答案。
+```
+class Person(object):
+    def __init__(self, name, gender):
+        self.name = name
+        self.gender = gender
+class Student(Person):
+    def __init__(self, name, gender, score):
+        super(Student, self).__init__(name, gender)
+        self.score = score
+class Teacher(Person):
+    def __init__(self, name, gender, course):
+        super(Teacher, self).__init__(name, gender)
+        self.course = course
+
+t = Teacher('Alice', 'Female', 'English')
+print isinstance(t,Person)
+print isinstance(t,Student)
+print isinstance(t,Teacher)
+print isinstance(t,object)
+```
 
 
 
