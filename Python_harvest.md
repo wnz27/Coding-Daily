@@ -261,6 +261,7 @@ def median (lst):
       return tem[len(tem) / 2]
 ```
 ---
+
 **13.** Define a function on line 3 called print_grades with one argument, a list called grades_input.
 Inside the function, iterate through grades_input and print each item on its own line.
 After your function, call print_grades with the grades list as the parameter.
