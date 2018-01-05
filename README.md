@@ -5,7 +5,7 @@
 * Practice of Python
 * Practice of C
 * Practice of Web
-* Practice of ........
+* Practice of .......
 * Recommendation of Books and Essays
 * Computer Science 
 * About Math
