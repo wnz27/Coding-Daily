@@ -33,7 +33,7 @@
 
 ---
 ## Practice of Git
-[Git skills](https://github.com/wnz27/gitskills）
+[Git skills](https://github.com/wnz27/gitskills)
 
 ---
 ## Practice of .......
