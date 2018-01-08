@@ -32,8 +32,8 @@
 * [HTML&CSS](https://github.com/wnz27/webLearn/blob/master/HTML&CSS_practice.md)
 
 ---
-## Practice of Git
-[Git skills](https://github.com/wnz27/gitskills)
+## Practice of [Git](https://github.com/wnz27/gitskills)
+[Skills](https://github.com/wnz27/gitskills/blob/master/git%E4%B9%A0%E5%BE%97.md)
 
 ---
 ## Practice of .......
