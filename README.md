@@ -11,7 +11,8 @@
 * Database's Learn record
 * About Math
 * Recommendation of Books and Essays
-* 
+* Recommendation of web
+*
 
 ---
 
@@ -19,6 +20,8 @@
 * Python的小白探索之旅，日常练习：[Python_practice](https://github.com/wnz27/Cultivate__harvest/blob/master/Python_harvest.md)
 
 * Python中级进阶,日常练习：[Python_middle_practice](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/pythonMiddle.md)
+
+
 
 ---
 ## Practice of C
@@ -70,6 +73,15 @@
 *  **《学习之道》** （芭芭拉 奥克利 教育无边界字幕组 译） 很多学习的靠谱观点，学会学习再去学习！
 *  **《超级阅读术》** （斋藤孝）名字神叨叨，但内容很不错。
 *  **《高效人士用超级笔记术》** （小西利行著 易哲译 ） 日常笔记简洁之道，很不错的给零碎笔记附能的简单易行的方法。
+
+---
+## Recommendation of web
+    [网站推荐]（https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/CollectionOfPython.md）
+    
+- [Python最佳实践指南！](http://pythonguidecn.readthedocs.io/zh/latest/)
+- [Google 开源项目风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/contents/)
+
+
 
 
 
