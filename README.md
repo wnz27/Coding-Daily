@@ -28,7 +28,7 @@
 
 ---
 ## Practice of Web
-      Learn about Web
+   Learn about Web
    
 * [HTML_Practice](https://github.com/wnz27/webLearn/blob/master/HTML_Practice.md)
 * [CSS_Practice](https://github.com/wnz27/webLearn/blob/master/CSS_Practice.md)
@@ -43,20 +43,20 @@
 
 ---
 ## Computer Science 
-    Learn about some university curriculum
+  Learn about some university curriculum
    
 *  **《How Net works Work》**  [**《网络是怎样连接的》**](https://github.com/wnz27/Computer-Science/blob/master/%E7%BD%91%E7%BB%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
 
 ---
 ## Database's Learn record
-     Process of Learn Database
+   Process of Learn Database
      
 ### SQL
 * [SQL's pre(SQL初探)](https://github.com/wnz27/Database-s-Learn-Note/blob/master/SQL's%20pre.md)
 
 ---
 ## About Math
-     Path to Math
+   Path to Math
    
 *  **《The Calculalus Lifesaver》** [**《普林斯顿微积分读本》**](https://github.com/wnz27/About-Math/blob/master/%E3%80%8AThe%20Calculalus%20Lifesaver%E3%80%8B%20%E3%80%8A%E6%99%AE%E6%9E%97%E6%96%AF%E9%A1%BF%E5%BE%AE%E7%A7%AF%E5%88%86%E8%AF%BB%E6%9C%AC%E3%80%8B.md)
 
@@ -77,7 +77,7 @@
 
 ---
 ## Recommendation of web
-    网站推荐
+   网站推荐
     
 - [Python最佳实践指南！](http://pythonguidecn.readthedocs.io/zh/latest/)
 - [Google 开源项目风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/contents/)
