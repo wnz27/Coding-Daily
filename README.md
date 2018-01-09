@@ -10,8 +10,8 @@
 * Computer Science 
 * Database's Learn record
 * About Math
-* Recommendation of Books and Essays
-* Recommendation of web
+* Recommendation of Books
+* Recommendation of Essays
 *
 
 ---
@@ -63,7 +63,7 @@
 *  **《Linear Algebra and its Application (Fourth Edition)》**[**《线性代数及其应用》**](https://github.com/wnz27/About-Math/blob/master/%E3%80%8ALinear%20Algebra%20and%20its%20Application%20(Fourth%20Edition)%E3%80%8B%E3%80%8A%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E3%80%8B.md)
 
 ---
-## Recommendation of Books and Essays
+## Recommendation of Books
 
 *  **《自控力》**    从心理和实践帮你重塑对自控的认识
 *  **《如何有效阅读一本书》**   奥野宣之
@@ -76,7 +76,7 @@
 *  **《高效人士用超级笔记术》** （小西利行著 易哲译 ） 日常笔记简洁之道，很不错的给零碎笔记附能的简单易行的方法。
 
 ---
-## Recommendation of web
+## Recommendation of Essays
    网站推荐
    
 - *Program Language*
