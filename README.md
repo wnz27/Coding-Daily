@@ -76,8 +76,7 @@
 
 ---
 ## Recommendation of web
-  [网站推荐]（https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/CollectionOfPython.md）
-    
+    [网站推荐](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/CollectionOfPython.md)
 - [Python最佳实践指南！](http://pythonguidecn.readthedocs.io/zh/latest/)
 - [Google 开源项目风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
