@@ -4,7 +4,7 @@
 ---
 -
         - Practice of Python
-        * Practice of C
+        - Practice of C
         * Practice of Web
         * Practice of Git
         * Practice of .......
