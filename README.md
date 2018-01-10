@@ -12,6 +12,7 @@
 * About Math
 * Recommendation of Books
 * Recommendation of Essays
+* Other
 *
 
 ---
@@ -81,11 +82,11 @@
    
 - **Program Language**
     - [Google 开源项目风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/contents/)
-    - [ C++ 风格指南 ](http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)
-    - [Objective-C 风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/google-objc-styleguide/)
-    - [ Python 风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/)
-    - [JSON风格指南](https://github.com/darcyliu/google-styleguide/blob/master/JSONStyleGuide.md)
-    - [Shell 风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/google-shell-styleguide/)
+        - [ C++ 风格指南 ](http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/)
+        - [Objective-C 风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/google-objc-styleguide/)
+        - [ Python 风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/)
+        - [JSON风格指南](https://github.com/darcyliu/google-styleguide/blob/master/JSONStyleGuide.md)
+        - [Shell 风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/google-shell-styleguide/)
     
 - **Python**
     - [Python最佳实践指南！](http://pythonguidecn.readthedocs.io/zh/latest/)
@@ -99,7 +100,11 @@
     - [【译文】构建积极友好的 UI](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/%E8%AF%91%E6%96%87/%E3%80%90%E8%AF%91%E6%96%87%E3%80%91%E6%9E%84%E5%BB%BA%E7%A7%AF%E6%9E%81%E5%8F%8B%E5%A5%BD%E7%9A%84%20UI.md)----------------------------------------翻译：[ecmadao](https://github.com/ecmadao)
     - [【译文】Material Design 新手？来瞅瞅你需要知道的12条原则](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/%E8%AF%91%E6%96%87/%E3%80%90%E8%AF%91%E6%96%87%E3%80%91Material%20Design%20%E6%96%B0%E6%89%8B%EF%BC%9F%E6%9D%A5%E7%9E%85%E7%9E%85%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%8412%E6%9D%A1%E5%8E%9F%E5%88%99.md)-------翻译：[ecmadao](https://github.com/ecmadao)
 
-
+---
+## Other
+  其他
+  
+- [Markdown-skills]()
 
 
 
