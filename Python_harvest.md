@@ -1,6 +1,6 @@
 # Python
 
-- [INTRODUCTION TO BITWISE OPERATORS](## INTRODUCTION TO BITWISE OPERATORS "jump")
+- [INTRODUCTION TO BITWISE OPERATORS](## INTRODUCTION TO BITWISE OPERATORS)
 
 ## **Iterating over a list in a function**
 Now that we've learned about range, we have two ways of iterating through a list.
@@ -1150,7 +1150,7 @@ display on console:
 
 ---
 
-<a id = "jump"> ## Introduction to Classes </a>
+## Introduction to Classes 
 Classes are a crucial part of object-oriented programming (OOP). In this lesson, we'll explain what classes are, why they're important, and how to use them effectively.
 1. **Why Use Classes?**
 Python is an object-oriented programming language, which means it manipulates programming constructs called objects. You can think of an object as a single data structure that contains data as well as functions; the functions of an object are called its methods. For example, any time you call
