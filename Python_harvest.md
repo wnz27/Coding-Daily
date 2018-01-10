@@ -2097,7 +2097,6 @@ if not my_file.closed:
 #test closed
 print my_file.closed
 ```
-#jump jump here
 
 
 
