@@ -1,7 +1,6 @@
 # Python
 
-- <a her = "#1"> 1234123441234</a>
-ç
+
 ## **Iterating over a list in a function**
 Now that we've learned about range, we have two ways of iterating through a list.
 
@@ -794,7 +793,7 @@ display on console :
 
 ---
 
-<a name = "1">## INTRODUCTION TO BITWISE OPERATORS</a>
+## INTRODUCTION TO BITWISE OPERATORS
 **Just a Little BIT**
 Welcome to an intro level explanation of bitwise operations in Python!
 Bitwise operations might seem a little esoteric and tricky at first, but you'll get the hang of them pretty quickly.
