@@ -18,7 +18,8 @@
 
 ---
 
-<a id = "1">## Practice of Python ~~~~ </a>
+<a id = "1"> </a> 
+## Practice of Python ~~~~
 
 * Python的小白探索之旅，日常练习：[Python_practice](https://github.com/wnz27/Cultivate__harvest/blob/master/Python_harvest.md)
 
@@ -27,10 +28,12 @@
 
 
 ---
-## Practice of C <a id = "2"></a>
+<a id = "2"></a>
+## Practice of C 
 
 ---
-## Practice of Web <a id = "3"></a>
+<a id = "3"></a>
+## Practice of Web 
    Learn about Web
    
 * [HTML_Practice](https://github.com/wnz27/webLearn/blob/master/HTML_Practice.md)
@@ -38,27 +41,32 @@
 * [HTML&CSS](https://github.com/wnz27/webLearn/blob/master/HTML&CSS_practice.md)
 
 ---
-## Practice of Git <a id = "4"></a>
+<a id = "4"></a>
+## Practice of Git 
 - [Skills](https://github.com/wnz27/gitskills/blob/master/git%E4%B9%A0%E5%BE%97.md)
 
 ---
-## Practice of ....... <a id = "5"></a>
+<a id = "5"></a>
+## Practice of ....... 
 
 ---
-## Computer Science <a id = "6"></a>
+<a id = "6"></a>
+## Computer Science 
   Learn about some university curriculum
    
 *  **《How Net works Work》**  [**《网络是怎样连接的》**](https://github.com/wnz27/Computer-Science/blob/master/%E7%BD%91%E7%BB%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
 
 ---
-## Database's Learn record <a id = "7"></a>
+<a id = "7"></a>
+## Database's Learn record 
    Process of Learn Database
      
 ### SQL 
 * [SQL's pre(SQL初探)](https://github.com/wnz27/Database-s-Learn-Note/blob/master/SQL's%20pre.md)
 
 ---
-## About Math <a id = "8"></a>
+<a id = "8"></a>
+## About Math 
    Path to Math
    
 *  **《The Calculalus Lifesaver》** [**《普林斯顿微积分读本》**](https://github.com/wnz27/About-Math/blob/master/%E3%80%8AThe%20Calculalus%20Lifesaver%E3%80%8B%20%E3%80%8A%E6%99%AE%E6%9E%97%E6%96%AF%E9%A1%BF%E5%BE%AE%E7%A7%AF%E5%88%86%E8%AF%BB%E6%9C%AC%E3%80%8B.md)
@@ -66,7 +74,8 @@
 *  **《Linear Algebra and its Application (Fourth Edition)》**[**《线性代数及其应用》**](https://github.com/wnz27/About-Math/blob/master/%E3%80%8ALinear%20Algebra%20and%20its%20Application%20(Fourth%20Edition)%E3%80%8B%E3%80%8A%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E3%80%8B.md)
 
 ---
-## Recommendation of Books <a id = "9"></a>
+<a id = "9"></a>
+## Recommendation of Books 
 
 *  **《自控力》**    从心理和实践帮你重塑对自控的认识
 *  **《如何有效阅读一本书》**   奥野宣之
@@ -79,7 +88,8 @@
 *  **《高效人士用超级笔记术》** （小西利行著 易哲译 ） 日常笔记简洁之道，很不错的给零碎笔记附能的简单易行的方法。
 
 ---
-## Recommendation of Essays <a id = "10"></a>
+<a id = "10"></a>
+## Recommendation of Essays 
    网站推荐
    
 - **Program Language**
@@ -103,7 +113,8 @@
     - [【译文】Material Design 新手？来瞅瞅你需要知道的12条原则](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/%E8%AF%91%E6%96%87/%E3%80%90%E8%AF%91%E6%96%87%E3%80%91Material%20Design%20%E6%96%B0%E6%89%8B%EF%BC%9F%E6%9D%A5%E7%9E%85%E7%9E%85%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%8412%E6%9D%A1%E5%8E%9F%E5%88%99.md)-------翻译：[ecmadao](https://github.com/ecmadao)
 
 ---
-## Other <a id = "11"></a>
+<a id = "11"></a>
+## Other 
   其他
   
 - [Markdown-skills](https://github.com/wnz27/Cultivate__harvest/blob/master/Other_Learn/Markdown_skills.md)
