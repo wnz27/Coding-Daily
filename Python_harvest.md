@@ -1,6 +1,6 @@
 # Python
 
-- ## 3. is_prime
+- ## INTRODUCTION TO BITWISE OPERATORS
 
 ## **Iterating over a list in a function**
 Now that we've learned about range, we have two ways of iterating through a list.
