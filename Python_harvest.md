@@ -1,6 +1,6 @@
 # Python
 
-<span id="jump">Hello World</span>
+<a name="jump">Hello World</a>
 
 ## **Iterating over a list in a function**
 Now that we've learned about range, we have two ways of iterating through a list.
@@ -2097,8 +2097,7 @@ if not my_file.closed:
 #test closed
 print my_file.closed
 ```
-[jump here]（#jump）
-
+#jump jump here
 
 
 
