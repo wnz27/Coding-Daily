@@ -1,6 +1,5 @@
 # Python
 
-[124](#1)
 
 ## **Iterating over a list in a function**
 Now that we've learned about range, we have two ways of iterating through a list.
@@ -91,8 +90,6 @@ def is_prime(x):
                 return False
         return True
 ```
-
-<h2 id = "1"> asdfdadfda</h2>
 
 **4.** Define a function called reverse that takes a string textand returns that string in reverse. For example: reverse("abcd") should return "dcba".
 You may not use reversed or [::-1] to help you with this.
