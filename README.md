@@ -15,7 +15,8 @@
         * [Recommendation of Books](#9)
         * [Recommendation of Essays](#10)
         * [Other](#11)
-        *
+        * [Linux_Learn](#12)
+        * 
 
 ---
 
@@ -119,6 +120,15 @@
   其他
   
 - [Markdown-skills](https://github.com/wnz27/Cultivate__harvest/blob/master/Other_Learn/Markdown_skills.md)
+
+---
+<a id = "12"></a>
+## Linux_Learn
+  Linux学习
+  
+- [Linux_习得](https://github.com/wnz27/Learn_Linux/blob/master/Learn_Linux.md)
+
+
 
 ---
 ------------------------------------------------------------------------------------------------------------[返回顶部](#0)
