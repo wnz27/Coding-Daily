@@ -19,10 +19,11 @@
   - [practice 15](#p15)
   - [practice 16](#16)
   - [practice 17](#17)
-  - [practice 18](#18)
+  - [practice 18](#18)
+
 - [Bitwise operators](#bit_ope)
-  - [](#b1)
-  - [](#b2)
+  - [b1](#b1)
+  - [b2](#b2)
 
 
 ## **Iterating over a list in a function**
