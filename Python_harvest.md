@@ -23,7 +23,7 @@
 
 - [Bitwise operators](#bit_ope)
   - [The Base 2 Number System](#b1)
-  - [b2](#b2)
+  - [b2](#b2)
 
 
 ## **Iterating over a list in a function**
