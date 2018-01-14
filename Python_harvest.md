@@ -2,29 +2,57 @@
 
 
 - [Practice while/else](#w/e)
-    -[practice 1](#p1)
-    -
-  
+  - [practice 1 分割求和](#p1)
+  - [practice 2 求阶乘](#p2)
+  - [practice 3 判断质数](#p3)
+  - [practice 4 反转字符串](#p4)
+  - [practice 5](#p5)
+  - [practice 6](#p6)
+  - [practice 7](#p7)
+  - [practice 8](#p8)
+  - [practice 9](#p9)
+  - [practice 10](#p10)
+  - [practice 11](#p11)
+  - [practice 12](#p12)
+  - [practice 13](#p13)
+  - [practice 14](#p14)
+  - [practice 15](#p15)
 
 ## **Iterating over a list in a function**
+
 Now that we've learned about range, we have two ways of iterating through a list.
 
 **Method 1** - for item in list:
+
 ```
 for item in list:
   print item
 ```
+
 **Method 2** - iterate through indexes:
+
 ```
 for i in range(len(list)):
   print list[i]
 ```
+
 **Method 1** is useful to loop through the list, but it's not possible to modify the list this way.
-**Method 2** uses indexes to loop through the list, making it possible to also modify the list if needed. Because if you want to modify the list, you need indexes.
+
+**Method 2** uses indexes to loop through the list, making it possible to also modify the list if needed. 
+Because if you want to modify the list, you need indexes.
 
 <a id = "w/e"></a>
 ## **While / else**
-Something completely different about Python is the while/else construction. while/else is similar to if/else, but there is a difference: the else block will execute anytime the loop condition is evaluated to False. This means that it will execute if the loop is never entered or if the loop exits normally. If the loop exits as the result of a break, the else will not be executed.
+Something completely different about Python is the while/else construction. 
+
+`while/else` is similar to `if/else`, but there is a difference: 
+
+the else block will execute anytime the loop condition is evaluated to False. 
+
+This means that it will execute if the loop is never entered or if the loop exits normally. 
+
+If the loop exits as the result of a break, the else will not be executed.
+
 ```
 import random
 
@@ -42,13 +70,22 @@ while count < 3:
 else:
   print "You win!"
 ```
-In this example, the loop will break if a 5 is generated, and the else will not execute. Otherwise, after 3 numbers are generated, the loop condition will become false and the else will execute.
+
+In this example, the loop will break if a 5 is generated, and the else will not execute. 
+
+Otherwise, after 3 numbers are generated, the loop condition will become false and the else will execute.
 
 ## **practice:**
 
 <a id = "p1"></a>
-**1.** Write a function called digit_sum that takes a positive integer n as input and returns the sum of all that number's digits. For example: digit_sum(1234) should return 10 which is 1 + 2 + 3 + 4. (Assume that the number you are given will always be positive.)
+**1.** Write a function called digit_sum that takes a positive integer n as input 
+and returns the sum of all that number's digits. 
+
+For example: digit_sum(1234) should return 10 which is 1 + 2 + 3 + 4. 
+(Assume that the number you are given will always be positive.)
+
 method 1:hard version
+
 ```
 def digit_sum (n):
   n_times = len(str(n))
@@ -59,7 +96,9 @@ def digit_sum (n):
     n_times -= 1
   return result
 ```
+
 method 2:  easy version
+
 ```
 def digit_sum (n):
   n_times = str(n)
@@ -68,12 +107,21 @@ def digit_sum (n):
     result += int(i)
   return result
 ```
+
+<a id = "2"></a>
 **2. Factorial**
 Let's try a factorial problem.
-To calculate the factorial of a non-negative integer x, just multiply all the integers from 1 through x. For example:
+
+To calculate the factorial of a non-negative integer x, just multiply all the integers from 1 through x. 
+
+For example:
+
 factorial(4) would equal 4 * 3 * 2 * 1, which is 24.
+
 factorial(1) would equal 1.
+
 factorial(3) would equal 3 * 2 * 1, which is 6.
+
 ```
 def factorial (x):
   result = 1
@@ -83,11 +131,20 @@ def factorial (x):
   return result
 
 ```
+
+<a id = "3"></a>
 **3. is_prime**
+
 A prime number is a positive integer greater than 1 that has no positive divisors other than 1 and itself. 
 质数是一个除了1和它本身以外没有任何正的除数的数。
-In other words, if you want to test if a number in a variable x is prime, then no other number should go into x evenly besides 1 and x. So 2 and 5 and 11 are all prime, but 4 and 18 and 21 are not.
+
+In other words, if you want to test if a number in a variable x is prime, 
+then no other number should go into x evenly besides 1 and x. 
+
+So 2 and 5 and 11 are all prime, but 4 and 18 and 21 are not.
+
 If there is a number between 1 and x that goes in evenly, then x is not prime.
+
 ```
 def is_prime(x):
     if x < 2:
@@ -99,9 +156,15 @@ def is_prime(x):
         return True
 ```
 
-**4.** Define a function called reverse that takes a string textand returns that string in reverse. For example: reverse("abcd") should return "dcba".
+<a id = "4"></a>
+**4.** Define a function called reverse that takes a string textand returns that string in reverse. 
+
+For example: reverse("abcd") should return "dcba".
+
 You may not use reversed or [::-1] to help you with this.
+
 You may get a string containing special characters (for example, !, @, or “#").
+
 ```
 def reverse (text):
   result = []
