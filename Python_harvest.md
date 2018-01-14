@@ -2,8 +2,8 @@
 
 
 - [Practice while/else](#w/e)
-  -[practice 1](#p1)
-  -
+    -[practice 1](#p1)
+    -
   
 
 ## **Iterating over a list in a function**
