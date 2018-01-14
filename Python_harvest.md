@@ -6,7 +6,7 @@
   - [practice 2 求阶乘](#p2)
   - [practice 3 判断质数](#p3)
   - [practice 4 反转字符串](#p4)
-  - [practice 5](#p5)
+  - [practice 5 过滤掉元音字母](#p5)
   - [practice 6](#p6)
   - [practice 7](#p7)
   - [practice 8](#p8)
@@ -17,6 +17,9 @@
   - [practice 13](#p13)
   - [practice 14](#p14)
   - [practice 15](#p15)
+  - []()
+  - []()
+  - []()
 
 ## **Iterating over a list in a function**
 
