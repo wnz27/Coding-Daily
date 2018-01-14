@@ -1,5 +1,9 @@
 # Python
 
+- [Practice while/else](# w/e)
+  -[practice 1](# p1)
+  -
+  
 
 ## **Iterating over a list in a function**
 Now that we've learned about range, we have two ways of iterating through a list.
@@ -17,6 +21,7 @@ for i in range(len(list)):
 **Method 1** is useful to loop through the list, but it's not possible to modify the list this way.
 **Method 2** uses indexes to loop through the list, making it possible to also modify the list if needed. Because if you want to modify the list, you need indexes.
 
+<a id = "w/e"></a>
 ## **While / else**
 Something completely different about Python is the while/else construction. while/else is similar to if/else, but there is a difference: the else block will execute anytime the loop condition is evaluated to False. This means that it will execute if the loop is never entered or if the loop exits normally. If the loop exits as the result of a break, the else will not be executed.
 ```
@@ -39,6 +44,8 @@ else:
 In this example, the loop will break if a 5 is generated, and the else will not execute. Otherwise, after 3 numbers are generated, the loop condition will become false and the else will execute.
 
 ## **practice:**
+
+<a id = "p1"></a>
 **1.** Write a function called digit_sum that takes a positive integer n as input and returns the sum of all that number's digits. For example: digit_sum(1234) should return 10 which is 1 + 2 + 3 + 4. (Assume that the number you are given will always be positive.)
 method 1:hard version
 ```
