@@ -1,7 +1,9 @@
 # Python
 
-- [Practice while/else](# w/e)
-  -[practice 1](# p1)
+
+- [Practice while/else](#w/e)
+
+  -[practice 1](#p1)
   -
   
 
