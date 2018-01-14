@@ -19,7 +19,11 @@
   - [practice 15](#p15)
   - [practice 16](#16)
   - [practice 17](#17)
-  - [practice 18](#18)
+  - [practice 18](#18)
+- [Bitwise operators](#bit_ope)
+  - [](#b1)
+  - [](#b2)
+
 
 ## **Iterating over a list in a function**
 
@@ -876,13 +880,28 @@ display on console :
 
 ---
 
+<a id="bit_ope"></a>
 ## INTRODUCTION TO BITWISE OPERATORS
+
 **Just a Little BIT**
 Welcome to an intro level explanation of bitwise operations in Python!
+
 Bitwise operations might seem a little esoteric and tricky at first, but you'll get the hang of them pretty quickly.
-Bitwise operations are operations that directly manipulate bits. In all computers, numbers are represented with bits, a series of zeros and ones. In fact, pretty much everything in a computer is represented by bits. This course will introduce you to the basic bitwise operations and then show you what you can do with them.
-Bitwise operators often tend to puzzle and mystify new programmers, so don't worry if you are a little bit confused at first. To be honest, you aren't really going to see bitwise operators in everyday programming. However, they do pop up from time to time, and when they do, you should have a general idea of what is going on. 
-In the editor are the 6 basic bitwise operations. Click Run and see what the console prints out. All of them will be explained in due time!
+
+Bitwise operations are operations that directly manipulate bits. 
+In all computers, numbers are represented with bits, a series of zeros and ones. 
+In fact, pretty much everything in a computer is represented by bits. 
+This course will introduce you to the basic bitwise operations and then show you what you can do with them.
+
+Bitwise operators often tend to puzzle and mystify new programmers, 
+so don't worry if you are a little bit confused at first. 
+
+To be honest, you aren't really going to see bitwise operators in everyday programming. 
+However, they do pop up from time to time, and when they do, you should have a general idea of what is going on. 
+
+In the editor are the 6 basic bitwise operations. 
+Click Run and see what the console prints out. All of them will be explained in due time!
+
 ```
 print 5 >> 4  # Right Shift
 print 5 << 1  # Left Shift
@@ -891,7 +910,9 @@ print 9 | 4   # Bitwise OR
 print 12 ^ 42 # Bitwise XOR
 print ~88     # Bitwise NOT
 ```
+
 display on console:
+
 ```
 0
 10
@@ -902,6 +923,7 @@ display on console:
 ```
 
 1. **Lesson 1、0: The Base 2 Number System**
+
 When we count, we usually do it in base 10. That means that each place in a number can hold one of ten values, 0-9. In binary we count in base two, where each place can hold one of two values: 0 or 1. The counting pattern is the same as in base 10 except when you carry over to a new column, you have to carry over every time a place goes higher than one (as opposed to higher than 9 in base 10).（计算模式类似10进制，当超过1的时候你需要一个新列（进位），就像十进制中你超过9了的时候要进位一样。
 For example, the numbers one and zero are the same in base 10 and base 2. But in base 2, once you get to the number 2 you have to carry over the one, resulting in the representation "10". Adding one again results in "11" (3) and adding one again results in "100" (4).
 Contrary to counting in base 10, where each decimal place represents a power of 10, each place in a binary number represents a power of two (or a bit). The rightmost bit is the 1's bit (two to the zero power), the next bit is the 2's bit (two to the first), then 4, 8, 16, 32, and so on.
