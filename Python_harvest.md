@@ -6,7 +6,7 @@
   - [practice 2 求阶乘](#p2)
   - [practice 3 判断质数](#p3)
   - [practice 4 反转字符串](#p4)
-  - [practice 5 过滤掉元音字母](#p5)
+  - [practice 5 过滤掉元音字母](#p5)
   - [practice 6](#p6)
   - [practice 7](#p7)
   - [practice 8](#p8)
@@ -110,7 +110,7 @@ def digit_sum (n):
   return result
 ```
 
-<a id = "2"></a>
+<a id = "p2"></a>
 **2. Factorial**
 Let's try a factorial problem.
 
@@ -134,7 +134,7 @@ def factorial (x):
 
 ```
 
-<a id = "3"></a>
+<a id = "p3"></a>
 **3. is_prime**
 
 A prime number is a positive integer greater than 1 that has no positive divisors other than 1 and itself. 
@@ -158,7 +158,7 @@ def is_prime(x):
         return True
 ```
 
-<a id = "4"></a>
+<a id = "p4"></a>
 **4.** Define a function called reverse that takes a string textand returns that string in reverse. 
 
 For example: reverse("abcd") should return "dcba".
@@ -175,7 +175,7 @@ def reverse (text):
   return "".join(result)
 ```
 
-<a id = "5"></a>
+<a id = "p5"></a>
 **5.** Define a function called anti_vowel that takes one string, text, as input 
 and returns the text with all of the vowels removed.
 
