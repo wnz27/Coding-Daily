@@ -17,9 +17,9 @@
   - [practice 13](#p13)
   - [practice 14](#p14)
   - [practice 15](#p15)
-  - []()
-  - []()
-  - []()
+  - [practice 16](#16)
+  - [practice 17](#17)
+  - [practice 18](#18)
 
 ## **Iterating over a list in a function**
 
