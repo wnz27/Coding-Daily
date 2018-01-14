@@ -2,7 +2,7 @@
 
 
 - [Practice while/else](#w/e)
-  - [practice 1 分割求和](#p1)
+  - [practice 1 分割求和](#p1)
   - [practice 2 求阶乘](#p2)
   - [practice 3 判断质数](#p3)
   - [practice 4 反转字符串](#p4)
@@ -76,7 +76,6 @@ In this example, the loop will break if a 5 is generated, and the else will not 
 Otherwise, after 3 numbers are generated, the loop condition will become false and the else will execute.
 
 ## **practice:**
-
 <a id = "p1"></a>
 **1.** Write a function called digit_sum that takes a positive integer n as input 
 and returns the sum of all that number's digits. 
@@ -172,8 +171,15 @@ def reverse (text):
     result += i
   return "".join(result)
 ```
-**5.** Define a function called anti_vowel that takes one string, text, as input and returns the text with all of the vowels removed.
-For example: anti_vowel("Hey You!") should return "Hy Y!". Don't count Y as a vowel. Make sure to remove lowercase and uppercase vowels.
+
+<a id = "5"></a>
+**5.** Define a function called anti_vowel that takes one string, text, as input 
+and returns the text with all of the vowels removed.
+
+For example: anti_vowel("Hey You!") should return "Hy Y!". 
+Don't count Y as a vowel. 
+Make sure to remove lowercase and uppercase vowels.
+
 ```
 def anti_vowel(text):
     t=""
@@ -186,6 +192,8 @@ def anti_vowel(text):
         t=t+c
     return t
 ```
+
+
 **6. scrabble_score**
 Scrabble is a game where players get points by spelling words. Words are scored by adding together the point values of each individual letter (we'll leave out the double and triple letter and word scores for now).
 To the right is a dictionary containing all of the letters in the alphabet with their corresponding Scrabble point values.
