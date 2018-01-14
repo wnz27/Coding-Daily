@@ -22,8 +22,8 @@
   - [practice 18](#18)
 
 - [Bitwise operators](#bit_ope)
-  - [The Base 2 Number System](#b1)
-  - [b2](#b2)
+  - [The Base 2 Number System 二进制系统](#b1)
+  - [二进制的形式从1填到12](#b2)
 
 
 ## **Iterating over a list in a function**
