@@ -2,8 +2,7 @@
 
 
 - [Practice while/else](#w/e)
-
-  -[practice 1](#p1)
+  -[practice 1](#p1)
   -
   
 
