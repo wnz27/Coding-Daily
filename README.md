@@ -104,7 +104,7 @@
     
 - **Python**
     - [Python最佳实践指南！](http://pythonguidecn.readthedocs.io/zh/latest/)
-    - [Python Practice Book--Python练习手册](http://anandology.com/python-practice-book/index.html)
+    - [Python Practice Book--Python练习手册](http://anandology.com/python-practice-book/index.html)
     
 - **Web**
     - [【译文】网页设计中隐藏在色彩之后的情感和心理学](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/%E8%AF%91%E6%96%87/%E3%80%90%E8%AF%91%E6%96%87%E3%80%91%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1%E4%B8%AD%E9%9A%90%E8%97%8F%E5%9C%A8%E8%89%B2%E5%BD%A9%E4%B9%8B%E5%90%8E%E7%9A%84%E6%83%85%E6%84%9F%E5%92%8C%E5%BF%83%E7%90%86%E5%AD%A6.md#%E4%BA%92%E8%A1%A5%E8%89%B2)-----------------翻译：[ecmadao](https://github.com/ecmadao)
