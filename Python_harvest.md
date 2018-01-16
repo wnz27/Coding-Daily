@@ -7,8 +7,8 @@
   - [practice 3 判断质数](#p3)
   - [practice 4 反转字符串](#p4)
   - [practice 5 过滤掉元音字母](#p5)
-  - [practice 6](#p6)
-  - [practice 7](#p7)
+  - [practice 6 拼字游戏](#p6)
+  - [practice 7 用星号`*`替换指定字](#p7)
   - [practice 8](#p8)
   - [practice 9](#p9)
   - [practice 10](#p10)
@@ -203,8 +203,14 @@ def anti_vowel(text):
 
 
 **6. scrabble_score**
-Scrabble is a game where players get points by spelling words. Words are scored by adding together the point values of each individual letter (we'll leave out the double and triple letter and word scores for now).
+
+Scrabble is a game where players get points by spelling words. 
+
+Words are scored by adding together the point values of each individual letter 
+(we'll leave out the double and triple letter and word scores for now).
+
 To the right is a dictionary containing all of the letters in the alphabet with their corresponding Scrabble point values.
+
 ```
 score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2, 
          "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3, 
@@ -212,12 +218,19 @@ score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2,
          "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4, 
          "x": 8, "z": 10}
 ```
+
 For example: the word "Helix" would score 15 points due to the sum of the letters: 4 + 1 + 1 + 1 + 8.
+
 Define a function scrabble_score that takes a string word as input and returns the equivalent scrabble score for that word.
+
 Assume your input is only one word containing no spaces or punctuation.
+
 As mentioned, no need to worry about score multipliers!
+
 Your function should work even if the letters you get are uppercase, lowercase, or a mix.
+
 Assume that you're only given non-empty strings.
+
 ```
 def scrabble_score (word):
   result = 0
@@ -228,23 +241,34 @@ def scrabble_score (word):
       result += score[item.lower()]
   return result
 ```
-**7.** Write a function called censor that takes two strings, text and word, as input. It should return the text with the word you chose replaced with asterisks. For example:
+
+**7.** Write a function called censor that takes two strings, text and word, as input. 
+
+It should return the text with the word you chose replaced with asterisks. For example:
+
 ```
 censor("this hack is wack hack", "hack") 
 ```
+
 should return:
+
 ```
 "this **** is wack ****"
 ```
+
 Assume your input strings won't contain punctuation or upper case letters.
+
 The number of asterisks you put should correspond to the number of letters in the censored word.
+
 ```
 def censor (text,word):
   result = text.split(word)
   stars = len(word) * "*"
   return stars.join(result)
 ```
+
 Hint:
+
 You can use
 ```
 string.split()
@@ -252,18 +276,27 @@ string.split()
 " ".join(list)
 ```
 to help you here.
-Remember: "*" * 4 equals "****"
-After splitting the string with string.split(), you can loop through the indices in the list and replace the words you are looking for with their asterisk equivalent. Join the list at the end to get your sentence!
+
+Remember: `"*" * 4 equals "****"`
+
+After splitting the string with string.split(), you can loop through the indices in the list 
+and replace the words you are looking for with their asterisk equivalent. 
+
+Join the list at the end to get your sentence!
+
 string.split(),this method can construct a list ,item splited with a “”(none string).
+
 just like this example:
 ```
 string_new = "ni hao woshi"
 print string_new.split("ni")
 ```
+
 the result display in console is:
 ```
 ['', ' hao woshi']
 ```
+
 **8.** Define a function called count that has two arguments called sequence and item.
 Return the number of times the item occurs in the list.
 For example: count([1, 2, 1, 1], 1) should return 3 (because 1 appears 3 times in the list).
