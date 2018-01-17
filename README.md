@@ -33,6 +33,9 @@
 <a id = "2"></a>
 ## Practice of C 
 
+* C语言练习:[Practice_C](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/C_Practice.md)
+
+
 ---
 <a id = "3"></a>
 ## Practice of Web 
