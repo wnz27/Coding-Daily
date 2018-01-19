@@ -4,18 +4,18 @@
     Accumulation of code and read  丨   If life never recorded,like never born.          
 ---
 - [Practice of Python](#1)
-    - [Practice of C](#2)
-        * [Practice of Web](#3)
-        * [Practice of Git](#4)
-        * [Practice of .......](#5)
-        * [Computer Science ](#6)
-        * [Database's Learn record](#7)
-        * [About Math](#8)
-        * [Recommendation of Books](#9)
-        * [Recommendation of Essays](#10)
-        * [Other](#11)
-        * [Linux_Learn](#12)
-        * 
+- [Practice of C](#2)
+* [Practice of Web](#3)
+* [Practice of Git](#4)
+* [Practice of .......](#5)
+* [Computer Science ](#6)
+* [Database's Learn record](#7)
+* [About Math](#8)
+* [Recommendation of Books](#9)
+* [Recommendation of Essays](#10)
+* [Other](#11)
+* [Linux_Learn](#12)
+* 
 
 ---
 
