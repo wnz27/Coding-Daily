@@ -5,7 +5,7 @@
 ---
 -
     - [Practice of Python](#1)
-        - [Practice of C](#2)
+        - [Practice of C](#2)
         * [Practice of Web](#3)
         * [Practice of Git](#4)
         * [Practice of .......](#5)
