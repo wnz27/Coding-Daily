@@ -3,9 +3,8 @@
 
     Accumulation of code and read  丨   If life never recorded,like never born.          
 ---
--
-    - [Practice of Python](#1)
-        - [Practice of C](#2)
+- [Practice of Python](#1)
+    - [Practice of C](#2)
         * [Practice of Web](#3)
         * [Practice of Git](#4)
         * [Practice of .......](#5)
