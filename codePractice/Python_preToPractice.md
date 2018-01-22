@@ -1,4 +1,6 @@
-# 《Python编程：从入门到实践》------ Python_preToPractice
+# 《Python编程：从入门到实践》
+             Python_preToPractice
+---
 
 - [函数](#函数)
     - [规范](#规范)
