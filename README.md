@@ -27,7 +27,8 @@
 
 * Python中级进阶,日常练习：[Python_middle_practice](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/pythonMiddle.md)
 
-* Python书籍学习笔记，[《Python编程：从入门到实践》](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/Python_preToPractice.md)
+* Python类书籍学习笔记:
+    -[《Python编程：从入门到实践》](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/Python_preToPractice.md)
 
 
 
