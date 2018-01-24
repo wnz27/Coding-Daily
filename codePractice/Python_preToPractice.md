@@ -82,9 +82,15 @@ print musician
 **切片表示法`[:]`创建列表的副本**。比如：
 
 ```
-def list_exampla(names[:],ages):
+names = ["aaaaaa","bbbbb","ccccc"]
+def list_exampla(names,ages):
     '''处理姓名和年龄列表'''
+    for name in names:
+        names.pop()
+        print names
     print "this is a example!"
+list_exampla(names[:],18)
+print names
 ```
 
 这个函数处理的就是names这个列表的副本，而不是names列表的本身。
