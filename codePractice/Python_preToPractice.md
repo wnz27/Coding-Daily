@@ -34,6 +34,9 @@ def favoriate_book(title):
     print "One of my favoriate book is %s!" %title
 ```
 
+当然，还可以在程序段任意位置加入注释以让浏览你程序的人更快速明白你的意图。
+
+
 ---
 <a id = "传递参数"></a>
 ### 传递参数
