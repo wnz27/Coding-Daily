@@ -14,7 +14,8 @@ Python_preToPractice
         - [传递任意数量的实参](#传递任意数量的实参)
         - [使用任意数量的关键字实参](#使用任意数量的关键字实参)
     - [将函数存储在模块中](#将函数存储在模块中)
-        - [h]()
+        - [导入整个模块](#导入整个模块)
+        - [导入特定函数](#导入特定函数)
 
 
 ---
@@ -195,6 +196,87 @@ print user_profile
 
 将函数存储在独立文件中后，可与其他程序员共享这些文件而不是整个程序。知道如何导入函数还能让你使用其他程序员编写的函数库。
 
+<a id ="导入整个模块"></a>
+#### 导入整个模块
+
+比如你在`test.py`这个文件里写python程序，你想保证你这个文件里的代码简洁清晰，想把函数写在另一个文件里，这是可以的。
+最简单初始的方法就是整体导入。
+
+1. 在与`test.py`**相同的文件夹(同一目录)**里创建一个python文件（后缀为py的文件），用于写函数。
+
+2. 比如你这个用于写函数的文件名称为`testFun.py`，你在里面定义了这样一个函数：
+```
+def test_print(some_message):
+    '''打印传入的信息'''
+    print some_message 
+```
+
+3. 导入整个模块的方法是，你在`test.py`文件中用整体导入语句：
+```
+import testFun #使用需要导入的文件名，进行整体导入
+testFun.test_print("abc") #直接用导入的文件名，然后点语法+函数名就可直接使用。
+```
+
+<a id ="导入特定函数"></a>
+#### 导入特定函数
+
+* 方法是使用这样形式的语句：`from module_name import function_name`
+
+还拿上面的例子说，我先把`testFun.py`文件加一个函数：
+```
+def test_print(some_message):
+    '''打印传入的信息'''
+    print some_message
+def test_another_print(some_message):
+    '''打印另一条传入的信息'''
+    print "Another " + some_message
+```
+
+这时候你在`test.py`文件中使用上面给出的形式：
+```
+from testFun import test_another_print #调用testFun模块中的test_another_print
+testFun.test_print("abc")  #错误语句
+test_another_print("aaaa") #正确语句
+```
+
+如果你还留着上面整体导入的调用函数的语句，Python会给你报这样一个错误：
+```
+NameError: name 'testFun' is not defined
+```
+
+意思是testFun这个没有被定义。
+
+或者如果你调用第一个函数：
+```
+test_print("abc") #这个语句是正确的
+```
+
+但它也会给你报错：
+```
+NameError: name 'test_print' is not defined
+```
+
+也是告诉你test_print，没有定义。你会觉得明明在写函数的文件里了啊。
+
+造成这两个问题的原因相同：
+
+**因为这个导入函数的语法只导入特定的函数，只能调用导入的函数，不能使用未导入的函数，
+并且只需要函数名即可，也不需要像导入整体一样使用模块名和点语法。**
+
+* 看到这你们也许会有疑问，一次只导入一个函数岂不效率低下？Python是考虑到这个问题的，所以有多函数一起导入的方法：
+```
+from module_name import function_name1，function_name2, function_name3
+```
+
+把函数名用逗号隔开即可。
+
+
+<a id = "用as给"></a>
+#### 使用`as`给函数指定别名
+
+#### 使用`as`给模块指定别名
+
+#### 导入模块中的所有函数
 
 
 
