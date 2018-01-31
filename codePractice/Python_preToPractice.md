@@ -26,7 +26,9 @@ Python_preToPractice
         - [根据类创建实例](#根据类创建实例)
         - [访问属性](#访问属性)
         - [调用方法](#调用方法)
-        - [hahah]()
+        - [创建多个实例](#创建多个实例)
+    - [使用类和实例](#使用类和实例)
+        - [car类](#car类)
         - [lalala]()
         
         
@@ -510,6 +512,52 @@ Haha is rolled over!
 即便是从未见过的代码块，我们也能够轻松地推断出它是做什么的。
 
 
+<a id = "创建多个实例"></a>
+#### 创建多个实例
+
+可按需求根据类创建任意数量的实例。
+```
+my_dog = Dog("haha",3)
+print "My dog's name is " + my_dog.name.title() + "!"
+print "My dog's age is " + str(my_dog.age) + " years old!"
+my_dog.sit()
+my_dog.roll_over()
+
+your_dog = Dog("lala","4")
+print "Your dog's name is " + your_dog.name.title() + "!"
+print "Your dog's age is " + str(your_dog.age) + " years old!"
+your_dog.sit()
+your_dog.roll_over()
+```
+在上面例子中，我们创建了两条小狗，它们分别名为haha和lala。每条小狗都是一个独立的实例，有自己的一组属性，能够执行相同的操作:
+```
+My dog's name is Haha!
+My dog's age is 3 years old!
+Haha is now sitting!
+Haha is rolled over!
+Your dog's name is Lala!
+Your dog's age is 4 years old!
+Lala is now sitting!
+Lala is rolled over!
+```
+
+就算我们给第二条小狗指定同样的名字和年龄，Python依然会根据Dog类创建另一个实例。
+
+你可按需求根据一个类创建任意数量的实例，条件是将每个实例都存储在**不同的变量**中，或占用**列表或字典**的不同位置。
+
+
+<a id ="使用类和实例"></a>
+### 使用类和实例
+
+你可以使用类来模拟现实世界中的很多情景。类编写好后，你的大部分时间都将花在使用根据类创建的实例上。
+
+你需要执行的一个重要任务是修改实例的属性。你可以**直接修改**实例的属性，也可以**编写方法以特定的方式进行修改**。
+
+
+<a id = "car类"></a>
+#### car类
+
+下面来编写一个表示汽车的类，它存储了有关汽车的信息，还有一个汇总这些信息的方法:
 
 
 
