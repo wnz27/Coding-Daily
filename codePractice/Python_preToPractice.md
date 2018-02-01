@@ -569,11 +569,12 @@ class Car():
         self.year = year
 
     def get_descriptive_name(self):
+        '''返回整洁的描述性信息'''
         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
         return long_name.title()
 
-my_new_car = Car("audi","a4",2018)
-print my_new_car.get_descriptive_name()
+my_new_car = Car("audi","a4",2018)   # 创建 my_new_car 这个实例
+print my_new_car.get_descriptive_name() # 调用 描述方法
 ```
 
 控制台会输出：
