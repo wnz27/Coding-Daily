@@ -617,6 +617,25 @@ This car has 0 miles on it.
 <a id = "直接通过实例进行修改"></a>
 ##### 1、直接通过实例进行修改
 
+要修改属性的值，最简单的方式是通过实例直接访问它。下面的代码直接将里程表读数设置为27:
+```
+my_new_car.read_odometer() #调用 查看汽车里程的方法
+my_new_car.odometer_reading = 27
+my_new_car.read_odometer()
+```
+
+输出为：
+```
+This car has 0 miles on it.
+This car has 27 miles on it.
+```
+
+简单解释一下：我们使用句点表示法来直接访问并设置汽车的属性`odometer_reading`。
+这行代码让Python在实例`my_new_car`中找到属性`odometer_reading`，并将该属性的值设置为27。
+
+我们从输出的结果可以看到，没修改前是默认值0，修改后变成27，说明修改成功了。
+
+
 <a id = "通过方法进行设置"></a>
 ##### 2、通过方法进行设置
 
