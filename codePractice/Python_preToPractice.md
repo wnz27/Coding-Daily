@@ -29,6 +29,7 @@ Python_preToPractice
         - [创建多个实例](#创建多个实例)
     - [使用类和实例](#使用类和实例)
         - [car类](#car类)
+        - [给属性指定默认值](#给属性指定默认值)
         - [lalala]()
         
         
@@ -558,7 +559,36 @@ Lala is rolled over!
 #### car类
 
 下面来编写一个表示汽车的类，它存储了有关汽车的信息，还有一个汇总这些信息的方法:
+```
+class Car():
+    '''模拟汽车的尝试'''
+    def __init__(self,make,model,year):
+        '''初始化汽车实例的属性'''
+        self.make = make
+        self.model = model
+        self.year = year
 
+    def get_descriptive_name(self):
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+
+my_new_car = Car("audi","a4",2018)
+print my_new_car.get_descriptive_name()
+```
+
+控制台会输出：
+```
+2018 Audi A4
+```
+
+
+<a id = "给属性指定默认值"></a>
+#### 给属性指定默认值
+
+类中的每个属性都必须有初始值，哪怕这个值是0或空字符串。在有些情况下，如设置默认值时，在方法`__init__()`内指定这种初始值是可行的;
+如果你对某个属性这样做了，就**无需包含**为它提供初始值的**形参**。
+
+下面来添加一个名为`odometer_reading`的属性，其初始值总是为0。我们还添加了一个名为`read_odometer()`的方法，用于读取汽车的里程表:
 
 
 
