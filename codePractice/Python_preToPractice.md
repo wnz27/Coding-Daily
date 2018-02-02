@@ -614,6 +614,7 @@ This car has 0 miles on it.
 
 可以以**三种不同的方式**修改属性的值。
 
+
 <a id = "直接通过实例进行修改"></a>
 ##### 1、直接通过实例进行修改
 
@@ -638,6 +639,50 @@ This car has 27 miles on it.
 
 <a id = "通过方法进行设置"></a>
 ##### 2、通过方法进行设置
+
+如果有替你更新属性的方法，将大有裨益。这样，你就无需直接访问属性，而可将值传递给一个方法，由它在内部进行更新。
+下面的示例演示了一个名为`update_odometer()`的方法:
+```
+def update_odometer(self,mileage):
+        '''将里程表的值设定为指定值'''
+        self.odometer_reading = mileage
+```
+
+我们使用一下：
+```
+my_new_car.read_odometer() #调用 查看汽车里程的方法
+my_new_car.update_odometer(27) #使用方法修改里程数
+my_new_car.read_odometer()
+```
+
+输出的结果为：
+```
+This car has 0 miles on it.
+This car has 27 miles on it.
+```
+
+简单解释一下：
+
+方法接受一个里程值，并将其存储到`self.odometer_reading`中，例子中我们调用的时候提供了27，故而将里程的值设置为27，
+输出的结果也显示我们设置成功了。
+
+可对方法`update_odometer`进行扩展，使其在修改里程表读数时做些额外的工作。
+
+下面来修改一下上面的方法，添加一些逻辑，禁止任何人将里程表读数往回调:
+```
+ def update_odometer(self,mileage):
+        '''将里程表的值设定为指定值
+           禁止将里程表的读数往回调
+        '''
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print "You can't roll back an odometer!"
+```
+
+现在，`update_odometer()`在修改属性前检查指定的读数是否合理。如果新指定的里程(`mileage`)大于或等于原来的里程(`self.odometer_reading`)，
+就将里程表读数改为新指定的里程;否则就发出警告，指出不能将里程表往回拨。
+
 
 <a id = "通过方法进行递增"></a>
 ##### 3、通过方法进行递增（增加特定的值）
