@@ -687,9 +687,47 @@ This car has 27 miles on it.
 <a id = "通过方法进行递增"></a>
 ##### 3、通过方法进行递增（增加特定的值）
 
+有时候需要将属性值递增特定的量，而不是将其设置为全新的值。假设我们购买了一辆二手车，且从购买到登记期间增加了100英里的里程。
+
+下面的方法让我们能够传递这个增量，并相应地增加里程表读数:
+```
+def increment_odometer(self,miles):
+        '''将里程表读数增加指定的量
+           禁止增加负值把里程数回调 
+        '''
+        if miles >= 0:
+            self.odometer_reading += miles
+        else:
+            print "You can't roll back an odometer!"
+```
+测试一下：
+```
+my_new_car = Car("audi","a4",2018)   # 创建 my_new_car 这个实例
+print my_new_car.get_descriptive_name() # 调用 描述性方法
+my_new_car.read_odometer() #调用 查看汽车里程的方法
+
+my_new_car.update_odometer(23500) #更新my_new_car这个实例的里程数
+my_new_car.read_odometer() #现在是23500
+
+my_new_car.increment_odometer(100) #my_new_car这个实例增加100公里的里程
+my_new_car.read_odometer() #现在是23600
+
+```
+输出的结果为：
+```
+2018 Audi A4
+This car has 0 miles on it.
+This car has 23500 miles on it.
+This car has 23600 miles on it.
+```
+
 
 <a id = "继承"></a>
 ### 继承
+
+编写类时，并非总是要从空白开始。如果你要编写的类是另一个现成类的特殊版本，可使用继承。
+一个类继承另一个类时，它将自动获得另一个类的所有属性和方法;原有的类称为父类，而新类称为子类。
+子类继承了其父类的所有属性和方法，同时还可以定义自己的属性和方法。
 
 
 
