@@ -620,7 +620,7 @@ This car has 0 miles on it.
 要修改属性的值，最简单的方式是通过实例直接访问它。下面的代码直接将里程表读数设置为27:
 ```
 my_new_car.read_odometer() #调用 查看汽车里程的方法
-my_new_car.odometer_reading = 27
+my_new_car.odometer_reading = 27 #直接通过实例修改属性
 my_new_car.read_odometer()
 ```
 
