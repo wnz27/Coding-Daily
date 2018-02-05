@@ -848,6 +848,77 @@ def fill_gas_tank(self):
 <a id = "将实例用作属性"></a>
 #### 将实例用作属性
 
+使用代码模拟实物时，你可能会发现自己给类添加的细节越来越多:属性和方法清单以及文件都越来越长。
+在这种情况下，可能需要将类的一部分作为一个独立的类提取出来。
+你可以将大型类拆分成多个协同工作的小类。
+例
+如，不断给ElectricCar类添加细节时，我们可能会发现其中包含很多专门针对汽车电瓶的属性和方法。
+
+在这种情况下，我们可将这些属性和方法提取出来，放到另一个名为Battery的类中，并将一个Battery实例用作ElcetricCar类的一个属性，
+我们先创建一个Battery的类，然后再修改一下ElectricCar类的定义：
+
+```
+class Battery():
+    '''模拟电动车电瓶'''
+    def __init__(self,battery_size = 70):
+        '''初始化电瓶的属性'''
+        self.battery_size = battery_size
+    
+    def describe_battery(self):
+        '''打印一条描述电瓶容量的信息'''
+        print ("This car has a " + str(self.battery_size) + "-kwh battery!")
+
+class ElectricCar(Car): #必须在括号里指定父类的名称
+    '''电动汽车类的定义
+       先初始化父类的属性，再初始化电动车特有的属性。
+    '''
+    def __init__(self,make,model,year):
+        '''初始化父类的属性'''
+        super().__init__(make,model,year)
+        self.battery = Battery()  #电动车特有属性,Car的实例就不具有这个属性.把一个Battery类的实例变成电动车的battery属性
+        '''
+        这行代码让Python创建一个新的Battery实例(由于没有指定尺寸，因此为默认值为70)，并将该实例存储在属性self.battery中。每当方法__init__()被调用时，都将执行该操作;因此现在每个ElcetricCar实例都包含一个自动创建的Battery实例作为属性。
+        '''   
+    
+    def fill_gas_tank(self):
+        '''重写油箱的方法'''
+        print ("This car doesn't need a gas tank!")
+```
+测试一下这两个类：
+```
+my_electric_car = ElectricCar("tesla","model s","2017") #创建一个电车实例
+print (my_electric_car.get_descriptive_name()) #继承自Car类里的方法
+print (my_electric_car.odometer_reading) #继承自Car里的属性
+
+print (my_electric_car.battery.battery_size) #battery这个电车的属性也是一个实例，调用battery中的属性
+my_electric_car.battery.describe_battery() #battery这个电车的属性也是一个实例，调用battery中的类方法
+```
+这看似做了很多额外的工作，但现在我们想多详细地描述电瓶都可以，且不会导致ElectricCar类混乱不堪。
+下面再给Battery类添加一个方法，它根据电瓶容量报告汽车的续航里程:
+```
+def get_range(self):
+        '''打印一条消息，根据电瓶电量指出续航里程'''
+        if self.battery_size == 70: #如果电瓶容量为70，那么续航里程就为240英里
+            range = 240
+        elif self.battery_size == 85: #如果电瓶容量为85，那么续航里程就为270英里
+            range = 270
+        message = "This car can go approximately " + str(range)
+        message += " miles on a full charge."
+        print (message)
+```
+测试一下：
+```
+my_test_car = ElectricCar("xiaopeng","model peng","2018") #新建一个电车实例
+print (my_test_car.get_descriptive_name()) #调用Car里的描述信息
+my_test_car.battery.get_range() #通过电车的属性battery这个实例调用得到默认的续航里程信息
+my_test_car.battery.battery_size = 85 #把电量改到85
+my_test_car.battery.get_range() #通过电车的属性battery这个实例调用得到默认的续航里程信息
+```
+输出为：
+```
+2018 Xiaopeng Model Peng
+This car can go approximately 240 miles on a full charge.
+This car can go approximately 270 miles on a full charge.
 
 
 
