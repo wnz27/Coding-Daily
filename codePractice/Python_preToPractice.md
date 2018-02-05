@@ -902,7 +902,7 @@ def get_range(self):
             range = 240
         elif self.battery_size == 85: #如果电瓶容量为85，那么续航里程就为270英里
             range = 270
-        message = "This car can go approximately " + str(range)
+        message = "This car can go approximately " + str(range) #整理要打印的消息
         message += " miles on a full charge."
         print (message)
 ```
@@ -919,7 +919,7 @@ my_test_car.battery.get_range() #通过电车的属性battery这个实例调用�
 2018 Xiaopeng Model Peng
 This car can go approximately 240 miles on a full charge.
 This car can go approximately 270 miles on a full charge.
-
+```
 
 
 
