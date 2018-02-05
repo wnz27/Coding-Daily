@@ -39,10 +39,14 @@ Python_preToPractice
         - [给子类定义属性和方法](#给子类定义属性和方法)
         - [重写父类的方法](#重写父类的方法)
         - [将实例用作属性](#将实例用作属性)
-        - [hahah]()
+        - [模拟实物](#模拟实物)
+    - [导入类](#导入类)
+        - [导入单个类](#导入单个类)
+        - [hahahah]()
+        
         
         
-        
+
 ---
 <a id = "函数"></a>
 ## 函数
@@ -920,6 +924,107 @@ my_test_car.battery.get_range() #通过电车的属性battery这个实例调用�
 This car can go approximately 240 miles on a full charge.
 This car can go approximately 270 miles on a full charge.
 ```
+
+
+<a id = "模拟实物"></a>
+#### 模拟实物
+
+模拟较复杂的物件(如电动汽车)时，需要解决一些有趣的问题:
+
+续航里程是电瓶的属性还是汽车的属性呢?如果我们只需描述一辆汽车，那么将方法`get_range()`放在Battery类中也许是合适的;
+
+但如果要描述一家汽车制造商的整个产品线，也许应该将方法`get_range()`移到ElectricCar类中。
+在这种情况下，`get_range()`依然根据电瓶容量来确定续航里程，但报告的是**一款汽车**的续航里程。
+
+我们也可以这样做:将方法`get_range()`还留在Battery类中，但向它传递一个参数，如`car_model`;
+在这种情况下，方法`get_range()`将根据电瓶容量和汽车型号报告续航里程。
+
+这让你进入了程序员的另一个境界:解决上述问题时，你从较高的逻辑层面(而不是语法层面)考虑;你考虑的不是Python，而是如何使用代码来表示实物。
+
+到达这种境界后，你经常会发现，现实世界的建模方法并没有对错之分。有些方法的效率更高，但要找出效率最高的表示法，需要经过一定的实践。
+只要代码像你希望的那样运行，就说明你做得很好!
+
+即便你发现自己不得不多次尝试使用不同的方法来重写类，也不必气馁;要编写出高效、准确的代码，都得经过这样的过程。
+
+
+<a id = "导入类"></a>
+### 导入类
+
+随着你不断地给类添加功能，文件可能变得很长，即便你妥善地使用了继承亦如此。为遵循Python的总体理念，应让文件尽可能整洁。
+为在这方面提供帮助，Python允许你**将类存储在模块中**，然后在主程序中导入所需的模块。
+
+
+<a id = "导入单个类"></a>
+#### 导入单个类
+
+下面来创建一个只包含Car类的模块。我们把刚才写的Car的类的定义全部移动到`car.py`这个文件里：
+```
+'''表示汽车的类''' #解释见下方
+
+class Car():
+    '''模拟汽车的尝试'''
+    def __init__(self,make,model,year):
+        '''初始化汽车实例的属性'''
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0 # 设置读取里程属性的默认值
+
+    def get_descriptive_name(self):
+        '''返回整洁的描述性信息'''
+        long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        return long_name.title()
+
+    def read_odometer(self):
+        '''打印一条指出汽车里程的消息'''
+        print ("This car has " + str(self.odometer_reading) + " miles on it.")
+    
+    def update_odometer(self,mileage):
+        '''将里程表的值设定为指定值
+           禁止将里程表的读数往回调
+        '''
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print ("You can't roll back an odometer!")
+
+    def increment_odometer(self,miles):
+        '''将里程表读数增加指定的量
+           禁止增加负值把里程数回调 
+        '''
+        if miles >= 0:
+            self.odometer_reading += miles
+        else:
+            print ("You can't roll back an odometer!")
+    
+    def fill_gas_tank(self):
+        '''描述油箱信息'''
+        print ("This car has a gas tank!")
+```
+对第一行注释的解释：
+
+这里我们包含了一个模块级文档字符串，对该模块的内容做了简要的描述。你应为自己创建的每个模块都编写文档字符串。 
+
+为了区别一下我们可以把主程序文件命名为`my_car.py`。然后在主程序中导入Car类并创建它的实例：
+```
+from car import Car #导入Car类
+
+my_car = Car("paramela","s","2018")
+print (my_car.get_descriptive_name()) #创建 my_car 这个实例
+my_car.odometer_reading = 50 # 改变里程读数
+my_car.read_odometer() # 调用读取里程的方法
+```
+所以导入类的方法和导入模块的方法类似：
+```
+from file_name import class_name
+```
+导入完我们就可以照常使用了，就仿佛这个类是在当下文件定义的一样！下面是输出结果：
+```
+2018 Paramela S
+This car has 50 miles on it.
+```
+
+
 
 
 
