@@ -53,6 +53,8 @@
 - [文件和异常](#文件和异常)
     - [从文件中读取数据](#从文件中读取数据)
         - [读取整个文件](#读取整个文件)
+        - [文件路径](#文件路径)
+        - [逐行读取](#逐行读取)
         - [haha]()
         
         
@@ -1318,6 +1320,78 @@ with open("pi_digits.txt") as file_object: #读取文件pi_digit.txt的操作
 Python方法`rstrip()`删除(剥除)字符串末尾的空白。现在，输出与原始文件的内容完全相同。
 
 
+<a id = "文件路径"></a>
+#### 文件路径
+
+根据你组织文件的方式，有时可能要打开不在程序文件所属目录中的文件。
+
+例如你当下正在写的python程序在文件夹`Practice_Python`中，这个文件夹中还有另一个文件夹`test_folder`，用于存储程序文件操作的文本文件。
+
+虽然文件夹`test_folder`包含在文件夹`Practice_Python`中，但仅向`open()`传递位于该文件夹中的文件的名称也不可行，
+因为Python 只在文件夹`Practice_Python`中查找，而不会在其子文件夹`test_folder`中查找。
+
+要让Python打开不与程序文件位于同一个目录中的文件，需要提供文件路径 ，它让Python到系统的特定位置去查找。
+
+由于文件夹`test_folder`位于文件夹`Practice_Python`中，因此可使用**相对文件路**径来打开该文件夹中的文件。
+相对文件路径让Python到指定的位置去查找，而该位置是**相对于当前运行的程序所在目录**的。
+
+在Linux和OS X中，你可以这样编写代码:
+```
+with open("test_folder/file_name.txt") as file_object:
+```
+这行代码让Python到当前文件夹即`Practice_Python`下的文件夹`test_folder`中去查找指定的`.txt`文件。
+
+在Windows系统中，在文件路径中使用`反斜杠(\)`而不是`斜杠(/)`：
+```
+with open("test_folder\file_name.txt") as file_object:
+```
+比如我在文件夹`test_folder`中放一个文件，命名为`folder_file.txt`，我在里面放两行信息：
+```
+12345
+67890
+```
+我们试试上面的读取语句：
+```
+with open("test_folder/folder_file.txt") as file_object2: # 读取当前文件夹中test_folder文件夹中的文本文件folder_file.txt
+    contents2 = file_object2.read() #使用read()读取文件内容
+    print(contents2.rstrip()) #输出结果不带空行
+```
+输出成功。
+
+你还可以将文件在计算机中的准确位置告诉Python，这样就不用关心当前运行的程序存储在什么地方了。
+这称为**绝对文件路径** 。在相对路径行不通时，可使用绝对路径。
+
+例如， 如果`text_folder`并不在当前文件夹`Practice_Python`中，而在文件夹`other_files`中，
+则向`open()`传递路径`"test_folder/folder_file.txt"`行不通，因为Python只在文件夹python_work中查找该位置。
+为明确地指出你希望Python到哪里去查找，你需要提供完整的路径。
+
+绝对路径通常比相对路径更长，因此将其存储在一个变量中，再将该变量传递给`open()`会有所帮助。
+
+在Linux和OS X中，绝对路径类似于下面这样:
+```
+file_path = "/Users/fzk27/fzk27/Practice_Python/test_folder/folder_file.txt"
+with open(file_path) as file_objec3:
+```
+而在Windows系统中，它们类似于下面这样:
+```
+file_path = "\Users\fzk27\fzk27\Practice_Python\test_folder\folder_file.txt"
+with open(file_path) as file_objec3:
+```
+通过使用绝对路径，可读取**系统任何地方**的文件。就目前而言，最简单的做法是：
+
+1、要么将数据文件存储在程序文件所在的目录。
+
+2、要么将其存储在程序文件所在目录下的一个文件夹(如`test_folder`)中。
+
+注意：
+
+Windows系统有时能够正确地解读文件路径中的斜杠。如果你使用的是Windows系统，且结果不符合预期，请确保在文件路径中使用的是反斜杠。
+
+在Mac的系统里想用到文件路径可以选中文件然后使用快键键`command + i`，里面有一项位置属性，选中复制即可使用。
+
+
+<a id = "逐行读取"></a>
+#### 逐行读取
 
 
 
