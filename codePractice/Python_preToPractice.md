@@ -37,6 +37,7 @@ Python_preToPractice
     - [继承](#继承)
         - [子类的方法__init__()](#子类的方法)
         - [给子类定义属性和方法](#给子类定义属性和方法)
+        - [重写父类的方法](#重写父类的方法)
         - [hahah]()
         
         
@@ -787,6 +788,46 @@ print (my_electric_car.odometer_reading)
 
 下面来改一下刚才的代码，添加一个电动汽车特有的属性(电瓶)，以及一个描述该属性的方法。
 我们将存储电瓶容量，并编写一个打印电瓶描述的方法:
+```
+class ElectricCar(Car): #必须在括号里指定父类的名称
+    '''电动汽车类的定义
+       先初始化父类的属性，再初始化电动车特有的属性。
+    '''
+    def __init__(self,make,model,year):
+        '''初始化父类的属性'''
+        super().__init__(make,model,year)
+        self.battery_size = 70  #电动车特有属性,Car的实例就不具有这个属性
+    
+    def describe_battery(self):
+        '''打印一条描述电瓶容量的信息'''
+        print ("This car has a " + str(self.battery_size) + "-kwh battery!")
+```
+我们再试试属性和方法：
+```
+my_electric_car = ElectricCar("tesla","model s","2017")
+print (my_electric_car.battery_size)
+my_electric_car.describe_battery()
+```
+输出为：
+```
+70
+This car has a 70-kwh battery!
+```
+我们可以清晰地知道，我们子类创建的实例已经具有了它特有的属性和方法。
+
+对于例子的子类ElectricCar类的特殊化程度没有任何限制。模拟电动汽车时，你可以根据所需的准确程度添加**任意数量的属性和方法**。
+
+如果一个属性或方法是任何汽车都有的，而不是电动汽车特有的，就应将其加入到父类Car类而不是子类ElectricCar类中。
+这样，使用Car类的人将获得相应的功能，而ElectricCar类只包含处理电动汽车**特有属性和行为的代码。**
+
+
+<a id = "重写父类的方法"></a>
+#### 重写父类的方法
+
+对于父类的方法，只要它**不符合子类模拟的实物的行为**，都可对其进行重写。为此，可在子类中定义一个这样的方法，即**它与要重写的父类方法同名**。
+这样，Python将不会考虑这个父类方法，而只**关注你在子类中定义的相应方法，因为它会从本身先找（自下而上）**。
+
+
 
 
 
