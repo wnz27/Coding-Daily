@@ -46,7 +46,9 @@
         - [导入整个模块](#导入整个模块)
         - [导入模块中的所有类](#导入模块中的所有类)
         - [在一个模块中导入另一个模块](#在一个模块中导入另一个模块)
-        - [hahahah]()
+        - [自定义工作流程](#自定义工作流程)
+    - [hahahah]()
+        - [lalal]()
         
         
         
@@ -1106,6 +1108,47 @@ from module_name import *
 
 <a id = "在一个模块中导入另一个模块"></a>
 #### 在一个模块中导入另一个模块
+
+有时候，需要将类分散到多个模块中，以免模块太大，或在同一个模块中存储不相关的类。
+
+将类存储在多个模块中时，你可能会发现一个模块（a模块）中的类依赖于另一个模块（b模块）中的类。
+在这种情况下，可在前一个模块（a模块）中导入必要的类（b模块）。
+
+继续用刚才的三个类做例子，我们把Battery类和ElectricCar类移到新的文件当做电车的模块，把这个文件命名为`electricCar.py`：
+```
+'''一组描述电动汽车的类''' #不要忘了模块的描述
+from car import Car #导入Car类
+class Battery():
+省略
+class ElectricCar(Car): #必须在括号里指定父类的名称
+  省略
+```
+因为ElectricCar类需要访问它的父类Car，所以我们要把Car类导入到电动车的模块中，如果我们忘记了这一行，那么在创建ElectricCar实例时就会报错。
+
+现在我们分别导入就可以创建任意汽车了：
+```
+from car import Car # 导入Car类
+from electricCar import ElectricCar # 导入ElectricCar类
+
+my_beetle = Car("volkswagen","beetle","2016")
+print (my_beetle.get_descriptive_name())
+
+my_tesla = ElectricCar("tesla","roadster","2017")
+print(my_tesla.get_descriptive_name())
+```
+
+
+<a id = "自定义工作流程"></a>
+#### 自定义工作流程
+
+正如你看到的，在组织大型项目的代码方面，Python提供了很多选项。
+熟悉所有这些选项很重要，这样你才能确定哪种项目组织方式是最佳的，并能理解别人开发的项目。
+
+一开始应让代码结构尽可能简单。先尽可能在一个文件中完成所有的工作，确定一切都能正确运行后，再将类移到独立的模块中。
+
+如果你喜欢模块和文件的交互方式，可在项目开始时就尝试将类存储到模块中。
+
+先找出让你能够编写出可行代码的方式，再尝试让代码更为组织有序。
 
 
 
