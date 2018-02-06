@@ -83,7 +83,9 @@
         - [重构](#重构)
     - [文件与异常小结](#文件与异常小结)
 - [测试代码](#测试代码)
-    - [啊哈哈哈]()
+    - [测试函数](#测试函数)
+        - [单元测试和测试用例](#单元测试和测试用例)
+        - [可通过的测试](#可通过的测试)
         - [lalala]()
         - [haha]()
         
@@ -2221,16 +2223,153 @@ Welcome back qwe!
 
 这样的过程被称为**重构**。重构让代码更清晰、更易于理解、更容易扩展。
 
+要重构刚才的程序，可将其大部分逻辑放到一个或多个函数中。
+刚才写的程序的重点是问候用户，因此我们将其所有代码都放到一个名为`greet_user()`的函数中:
+```
+def greet_user():
+    '''问候用户，并指出其名字'''
+    #如果以前存储了用户名，就加载它
+    #否则就提示用户输入用户名并存储它
+    file_name_test = "username1.json"
+    try: #尝从文件中读取用户名信息
+        with open(file_name_test) as r_f_obj:
+            username = json.load(r_f_obj)
+    except FileNotFoundError:  #当文件不存在时，提示用户设置用户名，并写入文件存储
+        username = input("What is your name?")
+        with open(file_name_test,"w") as w_f_obj:
+            json.dump(username,w_f_obj)
+            print("We'll remember you when you come back " + username + "!")
+    else:# 如果文件存在并且加载成功，则问候用户
+        print("Welcome back " + username + "!")
 
+greet_user()
+```
+考虑到现在使用了一个函数，我们使用一个文档字符串来指出程序是做什么。
+
+这个程序更清晰些，但函数`greet_user()`所做的不仅仅是问候用户，还在存储了用户名时获取它，而在没有存储用户名时提示用户输入一个。
+
+下面来重构`greet_user()`，让它不执行这么多任务。为此，我们首先将获取存储的用户名的代码移到另一个函数中:
+```
+import json #导入json模块
+
+def get_stored_username():
+    '''如果存储了用户名，得到它'''
+    filename = "username1.json"
+    try:
+        with open(filename) as r_f_obj:
+            username = json.load(r_f_obj)
+    except FileNotFoundError:
+        return None
+    else:
+        return username
+
+def greet_user():
+    '''问候用户，并指出其名字'''
+    username = get_stored_username()
+    if username:
+        print("Welcome back " + username + "!")
+    else:
+        username = input("What is your name?")
+        filename = "username1.json"
+        with open(filename,"w") as w_f_obj:
+            json.dump(username,w_f_obj)
+            print("We'll remember you when you come back " + username + "!")
+
+greet_user()
+```
+新增的函数`get_stored_username()`目标明确，它的文档字符串指出了这一点。
+
+如果存储了用户名，这个函数就获取并返回它;如果文件`username1.json`不存在，这个函数 就返回`None`。
+这是一种不错的做法:函数要么返回预期的值，要么返回`None`;这让我们能够**使用函数的返回值做简单测试。**（更方便的当循环条件使用）
+
+在`greet_user()`的if语句中，如果成功地获取了用户名，就打印一条欢迎用户回来的消息，否则就提示用户输入用户名。
+
+我们还需将`greet_user()`中的另一个代码块提取出来:
+将没有存储用户名时提示用户输入的代码放在一个独立的函数中:
+```
+import json #导入json模块
+
+def get_stored_username():
+    '''如果存储了用户名，得到它'''
+    filename = "username1.json"
+    try:
+        with open(filename) as r_f_obj:
+            username = json.load(r_f_obj)
+    except FileNotFoundError:
+        return None
+    else:
+        return username
+
+def get_new_username():
+    '''提示用户输入用户名'''
+    username = input("What is your name?")
+    filename = "username1.json"
+    with open(filename,"w") as w_f_obj:
+        json.dump(username,w_f_obj) #将用户名写入文件
+    return username
+
+def greet_user():
+    '''问候用户，并指出其名字'''
+    username = get_stored_username()
+    if username:
+        print("Welcome back " + username + "!")
+    else:
+        username = get_new_username()
+        print("We'll remember you when you come back " + username + "!")
+
+greet_user()
+```
+在这个最终版本中，每个函数都执行单一而清晰的任务。我们调用`greet_user()`，它打印一条合适的消息:要么欢迎老用户回来，要么问候新用户。
+
+为此，它首先调用`get_stored_username()`，这个函数只负责获取存储的用户名(如果存储了的话)，
+再在必要时调用`get_new_username()`，这个函数只负责获取并存储新用户的用户名。
+
+要编写出清晰而易于维护和扩展的代码，这种划分工作必不可少。
 
 
 <a id = "文件与异常小结"></a>
 ### 文件与异常小结
 
+- 如何使用文件
+- 如何一次性读取整个文件
+- 如何以每次一行的方式读取文件的内容
+- 如何在with语句外读取文件内容
+- 如何写入文件
+- 如何将文本附加到文件末尾
+- 什么是异常
+- 如何处理程序可能引发的异常
+- 如何存储Python数据结构，以保存用户提供的信息，避免用户每次运行程序时都需要重新提供。
+
+
 
 ---
 <a id = "测试代码"></a>
 ## 测试代码
+
+- 你将学习高效的代码测试方式，这可帮助你确定代码正确无误，以及发现扩展现有程序时可能引入的bug。
+
+- 编写函数或类时，还可为其编写测试。通过测试，可确定代码面对各种输入都能够按要求的那样工作。
+测试让你信心满满，深信即便有更多的人使用你的程序，它也能正确地工作。
+
+- 在程序中添加新代码时，你也可以对其进行测试，确认它们不会破坏程序既有的行为。
+程序员都会犯错，因此每个程序员都必须经常测试其代码，在用户发现问题前找出它们。
+
+- 在本章中，你将学习如何使用Python模块`unittest`中的工具来测试代码。
+
+- 你将学习编写测试用例，核实一系列输入都将得到预期的输出。
+
+- 你将看到测试通过了是什么样子，测试未通过又是什么样子，还将知道测试未通过如何有助于改进代码。
+
+- 你将学习如何测试函数和类，并将知道该为项目编写多少个测试。
+
+
+<a id = "测试函数"></a>
+### 测试函数
+
+要学习测试，得有要测试的代码。下面是一个简单的函数，它接受名和姓并返回整洁的姓名:
+
+
+
 
 
 
