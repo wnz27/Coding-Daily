@@ -80,6 +80,10 @@
     - [存储数据](#存储数据)
         - [使用json.dump()和json.load()](#使用json.dump()和json.load())
         - [保存和读取用户生成的数据](#保存和读取用户生成的数据)
+        - [重构](#重构)
+    - [文件与异常小结](#文件与异常小结)
+- [测试代码](#测试代码)
+    - [啊哈哈哈]()
         - [lalala]()
         - [haha]()
         
@@ -2147,7 +2151,86 @@ print(numbers) #输出变量numbers看看
 下面来看一个这样的例子：用户首次运行程序时被提示输入自己的名字，这样再次运行程序时就记住他了。
 
 我们先来存储用户的名字:
+```
+import json #导入json模块
 
+username = input("What's your name?") #提示用户输入用户名
+
+file_username = "username.json" #指定存储用户名的文件名
+with open(file_username,"w") as w_f_obj: #生成文件对象，作为写入用户名的文件
+    json.dump(username,w_f_obj) #用json.dump()把用户名写入存放用户名的文件
+    print("We'll remember you when you come back, " + username + "!") #告知用户
+```
+我们提示输入用户名，并将其存储在一个变量中。接下来，我们调用`json.dump()`，并将用户名和一个文件对象传递给它，从而将用户名存储到文件中。
+
+然后，我们打印一条消息，指出我们存储了他输入的信息:
+```
+What's your name?abc
+We'll remember you when you come back, abc!
+```
+现在再编写一个程序，向其名字被存储的用户发出问候:
+```
+file_username = "username.json" #指定存储用户名的文件名
+# 读取用户名，问候用户
+with open(file_username) as r_f_obj: # 生成文件对象用于读取里面的数据
+    r_username = json.load(r_f_obj) # 把文件对象里存储的数据存放在变量r_username里
+    print("Welcome back " + r_username + "!") #问候用户
+```
+我们使用`json.load()`将存储在`username.json`中的信息读取到变量`r_username`中。恢复用户名后，我们就可以欢迎用户回来了。
+```
+Welcome back abc!
+```
+我们需要将这两个程序合并到一个程序中。因为`username.json`这个文件已经存在，不好测试，所以我们换一个文件名，
+当这个程序运行时，我们将尝试从文件`username1.json`中获取用户名，因此我们首先编写一个尝试读取用户名的`try`代码块。
+
+如果这个文件不存在，我们就在`except`代码块中提示用户输入用户名，
+并将其存储在`username1.json`中，以便程序再次运行时能够获取它:
+```
+import json #导入json模块
+
+#如果以前存储了用户名，就加载它
+#否则就提示用户输入用户名并存储它
+file_name_test = "username1.json"
+try: #尝从文件中读取用户名信息
+    with open(file_name_test) as r_f_obj:
+        username = json.load(r_f_obj)
+except FileNotFoundError:  #当文件不存在时，提示用户设置用户名，并写入文件存储
+    username = input("What is your name?")
+    with open(file_name_test,"w") as w_f_obj:
+        json.dump(username,w_f_obj)
+        print("We'll remember you when you come back " + username + "!")
+else:# 如果文件存在并且加载成功，则问候用户
+    print("Welcome back " + username + "!")
+```
+无论执行的是`except`代码块还是`else`代码块，都将显示用户名和合适的问候语。如果这个程序是首次运行，输出将如下:
+```
+What is your name?qwe
+We'll remember you when you come back qwe!
+```
+否则将输出如下：
+```
+Welcome back qwe!
+```
+这是程序之前至少运行了一次时的输出。
+
+
+<a id = "重构"></a>
+#### 重构
+
+你经常会遇到这样的情况:代码能够正确地运行，但可做进一步的改进——将代码**划分为**一系列完成具体工作的**函数**。
+
+这样的过程被称为**重构**。重构让代码更清晰、更易于理解、更容易扩展。
+
+
+
+
+<a id = "文件与异常小结"></a>
+### 文件与异常小结
+
+
+---
+<a id = "测试代码"></a>
+## 测试代码
 
 
 
