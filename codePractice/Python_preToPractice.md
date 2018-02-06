@@ -65,6 +65,8 @@
         - [写入多行](#写入多行)
         - [附加到文件](#附加到文件)
     - [异常](#异常)
+        - [处理ZeroDivisionError异常](#处理ZeroDivisionError异常)
+        - [使用try--except代码块](#使用try--except代码块)
         - [lalala]()
         - [haha]()
         
@@ -1681,6 +1683,30 @@ Because programing fell good!
 <a id = "异常"></a>
 ### 异常
 
+Python使用被称为**异常的特殊对象**来管理程序执行期间发生的错误。
+
+每当发生让Python不知所措的错误时，它都会创建一个异常对象。
+
+如果你编写了处理该异常的代码，程序将继续运行;如果你未对异常进行处理，程序将停止，并显示一个traceback，其中包含有关异常的报告。
+
+异常是使用`try--except`代码块处理的。
+
+`try--except`代码块让Python执行指定的操作，同时告诉Python发生异常时怎么办。
+
+使用了`try--except`代码块时，即便出现异常，程序也将继续运行，显示你编写的友好的错误消息，而不是令用户迷惑的traceback。
+
+
+<a id = "处理ZeroDivisionError异常"></a>
+#### 处理ZeroDivisionError异常
+
+下面来看一种导致Python引发异常的简单错误。你可能知道不能将一个数字除以0，但我们还是让Python这样做吧:
+```
+
+```
+
+
+<a id = "使用try--except代码块"></a>
+#### 使用`try--except`代码块
 
 
 
