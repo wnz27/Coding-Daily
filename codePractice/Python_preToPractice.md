@@ -1901,7 +1901,7 @@ Sorry,the file none.txt does not exist.
 你可以分析包含整本书的文本文件。很多经典文学作品都是以简单文本文件的方式提供的，因为它们不受版权限制。
 
 下面来提取童话`Alice in Wonderland`的文本，并尝试计算它包含多少个单词。我们把它放在当前程序目录中。
-我用的文件放在了这里[alice.txt]()。
+我用的文件放在了这里[alice.txt](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/some_text_file/alice.txt)。
 
 我们将使用方法`split()`，它根据一个字符串创建一个单词列表。
 下面是对只包含童话名`"Alice in Wonderland"`的字符串调用方法`split()`的结果:
