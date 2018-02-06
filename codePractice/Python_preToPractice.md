@@ -75,6 +75,7 @@
         - [处理FileNotFoundError异常](#处理FileNotFoundError异常)
         - [分析文本](#分析文本)
         - [使用多个文件](#使用多个文件)
+        - [失败时一声不吭](#失败时一声不吭)
         - [lalala]()
         - [haha]()
         
@@ -1946,6 +1947,60 @@ The alice.txt has about 17842 words.
 
 <a id = "使用多个文件"></a>
 #### 使用多个文件
+
+下面多分析几本书。这样做之前，我们先将这个程序的大部分代码移到一个名为`count_words`的函数中，这样对多本书进行分析时将更容易:
+```
+def count_words(file_name):
+    '''计算一个文件大致包含多少个单词'''
+    try:
+        with open(file_name) as f_obj:
+            contents = f_obj.read()
+    except FileNotFoundError:
+        msg = "Sorry,the file " + file_name + " does not exist."
+    else:
+        #计算文件大致包含多少个单词
+        words = contents.split()
+        num_words = len(words)
+        print("The " + file_name3 + " has about " + str(num_words) + " words.")
+```
+这些代码大都与原来一样，我们只是将它们移到了函数`count_words`中，并增加了缩进量。
+
+修改程序的同时更新注释是个不错的习惯，因此我们将注释改成了文档字符串，并稍微调整了一下措辞。
+
+现在可以编写一个简单的循环，计算要分析的任何文本包含多少个单词了。
+为此，我们将要分析的文件的名称存储在一个列表中，然后对列表中的每个文件都调用`count_words()`。
+
+我们将尝试计算[Alice in Aonderland](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/some_text_file/alice.txt)、[Siddhartha](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/some_text_file/siddhartha.txt)、[Moby Dick](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/some_text_file/moby%20dick.txt)和[Little Women](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/some_text_file/little%20women.txt)分别包含多少个单词，它们都不受版权限制。
+
+我故意没有将siddhartha.txt放到当前程序所在的目录中，让你能够看到这个程序在文件不存在时处理得有多出色:
+```
+file_names = ["alice.txt","little women.txt","siddhartha.txt","moby dick.txt"]
+for file_name in file_names:
+    count_words(file_name)
+```
+文件siddhartha.txt不存在，但这丝毫不影响这个程序处理其他文件:
+```
+The alice.txt has about 17842 words.
+The little women.txt has about 189079 words.
+Sorry,the file siddhartha.txt does not exist.
+The moby dick.txt has about 4594 words.
+```
+在这个示例中，使用`try--except`代码块提供了两个重要的优点:
+
+1、避免让用户看到traceback。
+
+2、让程序能够继续分析能够找到的其他文件。
+
+如果不捕获因找不到`siddhartha.txt`而引发的`FileNotFoundError`异常，用户将看到完整的traceback，
+而程序将在尝试分析`alice.txt`和`little women.txt`后停止运行——根本不分析`moby dick.txt`。
+
+
+<a id = "失败时一声不吭"></a>
+#### 失败时一声不吭
+
+
+
+
 
 
 
