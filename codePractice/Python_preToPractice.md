@@ -1660,6 +1660,28 @@ I also like football!
 如果指定的文件不存在，Python将为你创建一个空文件。
 
 我们再修改一下写入的操作：
+```
+file_name1 = "write_none.txt" # 把文件名放进变量里
+with open(file_name1,"a") as file_obj1: # 创建文件对象，附加模式
+    file_obj1.write("Because football is very good!\n") #添加一句话
+    file_obj1.write("Because programing fell good!\n") #添加另一句话
+```
+我们打开文件时指定了实参`"a"`，以便将内容附加到文件末尾，而不是覆盖文件原来的内容。
+
+我们又写入了两行，它们被添加到文件`write_none.txt`末尾:
+```
+I love programing!
+I also like football!
+Because football is very good!
+Because programing fell good!
+```
+最终的结果是，文件原来的内容还在，它们后面是我们刚添加的内容。
+
+
+<a id = "异常"></a>
+### 异常
+
+
 
 
 
