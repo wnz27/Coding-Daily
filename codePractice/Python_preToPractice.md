@@ -73,11 +73,14 @@
         - [使用异常避免崩溃](#使用异常避免崩溃)
         - [else代码块](#else代码块)
         - [处理FileNotFoundError异常](#处理FileNotFoundError异常)
+        - [分析文本](#分析文本)
+        - [使用多个文件](#使用多个文件)
         - [lalala]()
         - [haha]()
         
         
         
+
 
 ---
 <a id = "函数"></a>
@@ -1889,6 +1892,60 @@ except FileNotFoundError:
 ```
 Sorry,the file none.txt does not exist.
 ```
+如果文件不存在，这个程序什么都不做，因此错误处理代码的意义不大。下面来扩展这个示例，看看在你使用多个文件时，异常处理可提供什么样的帮助。
+
+
+<a id = "分析文本"></a>
+#### 分析文本
+
+你可以分析包含整本书的文本文件。很多经典文学作品都是以简单文本文件的方式提供的，因为它们不受版权限制。
+
+下面来提取童话`Alice in Wonderland`的文本，并尝试计算它包含多少个单词。我们把它放在当前程序目录中。
+我用的文件放在了这里[alice.txt]()。
+
+我们将使用方法`split()`，它根据一个字符串创建一个单词列表。
+下面是对只包含童话名`"Alice in Wonderland"`的字符串调用方法`split()`的结果:
+```
+title = "Alice in Wonderland"
+print (title.split())
+输出：
+['Alice', 'in', 'Wonderland']
+```
+方法`split()`以**空格为分隔符将**字符串分拆成多个部分，并将这些部分都存储到一个列表中。
+
+结果是一个包含字符串中所有单词的列表，虽然有些单词可能包含标点。
+
+为计算`Alice in Wonderland`包含多少个单词，我们将对整篇小说调用`split()`，再计算得到的列表包含多少个元素，从而确定整篇童话大致包含多少个单词：
+```
+file_name3 = "alice.txt"
+
+try:
+    with open(file_name3) as f_obj2:
+        contents = f_obj2.read()
+except FileNotFoundError:
+        msg = "Sorry,the file " + file_name3 + " does not exist."
+else:
+        #计算文件大致包含多少个单词
+        words = contents.split()
+        num_words = len(words)
+        print("The " + file_name3 + " has about " + str(num_words) + " words.")
+```
+我们把文件`alice.txt`移到了正确的目录中，让`try`代码块能够成功地执行。
+
+我们对变量`contents`(它现在是一个长长的字符串，包含童话`alice.txt`的全部文本)调用方法`split()`，以生成一个列表，其中包含这部童话中的所有单词。
+
+当我们使用`len()`来确定这个列表的长度时，就知道了原始字符串大致包含多少个单词。
+
+我们打印一条消息，指出文件包含多少个单词。这些代码都放在`else`代码块中，因为仅当`try`代码块成功执行时才执行它们。
+
+输出指出了文件alice.txt包含多少 个单词:
+```
+The alice.txt has about 17842 words.
+```
+
+
+<a id = "使用多个文件"></a>
+#### 使用多个文件
 
 
 
