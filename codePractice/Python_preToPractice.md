@@ -2,7 +2,7 @@
 学习笔记从第八章函数开始
 
 事先说明:
-**继承前的例子用Python2.7编译的**
+**继承前的例子是用Python2.7编译的**
 
 ---
 
@@ -1853,9 +1853,43 @@ Python尝试执行`try`代码块中的代码；只有可能引发异常的代码
 
 <a id = "处理FileNotFoundError异常"></a>
 #### 处理FileNotFoundError异常
+
 使用文件时，一种常见的问题是找不到文件：你要查找的文件可能在其他地方、文件名可能不正确或者这个文件根本就不存在。
 对于所有这些情形，都可使用`try--except--else`代码块以直观的方式进行处理。
+
 我们来尝试读取一个不存在的文件。下面的程序尝试读取文件none.txt的内容，但我没有将这个文件存储在当前程序所在的目录中:
+```
+file_name2 = "none.txt"
+
+with open(file_name2) as f_obj:
+    contents = f_obj.read()
+```
+Python无法读取不存在的文件，因此它引发一个异常:
+```
+Traceback (most recent call last):
+  File "/Users/fzk27/fzk27/Practice_Python/file_test.py", line 87, in <module>
+    with open(file_name2) as f_obj:
+FileNotFoundError: [Errno 2] No such file or directory: 'none.txt'
+```
+在上述traceback中，最后一行报告了`FileNotFoundError`异常，这是Python找不到要打开的文件时创建的异常。
+
+在这个示例中，这个错误是函数`open()`导致的，因此要处理这个错误，必须将`try`语句放在包含`open()`的代码行之前：
+```
+file_name2 = "none.txt"
+try:
+    with open(file_name2) as f_obj:
+        contents = f_obj.read()
+except FileNotFoundError:
+    msg = "Sorry,the file " + file_name2 + " does not exist."
+    print(msg)
+```
+在这个示例中，`try`代码块引发`FileNotFoundError`异常，因此Python找出与该错误匹配的`except`代码块，并运行其中的代码。
+
+最终的结果是显示一条友好的错误消息，而不是traceback：
+```
+Sorry,the file none.txt does not exist.
+```
+
 
 
 
