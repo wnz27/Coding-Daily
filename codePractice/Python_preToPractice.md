@@ -86,6 +86,7 @@
     - [测试函数](#测试函数)
         - [单元测试和测试用例](#单元测试和测试用例)
         - [可通过的测试](#可通过的测试)
+        - [不能通过的测试](#不能通过的测试)
         - [lalala]()
         - [haha]()
         
@@ -2435,6 +2436,69 @@ Python标准库中的模块`unittest`提供了代码测试工具。
 并**编写一系列方法对函数行为的不同方面进行测试**。
 
 下面是一个只包含一个方法的测试用例，它检查函数`get_formatted_name ()`在给定名和姓时能否正确地工作:
+```
+import unittest
+from test_prctice import get_formatted_name
+
+class NameTestCase(unittest.TestCase):
+    '''测试test_practice.py'''
+    def test_first_last_name(self):
+        '''能够正确处理Janis Joplin这样的姓名吗？'''
+        formatted_name = get_formatted_name("janis","joplin")
+        self.assertEqual(formatted_name,"Janis Joplin")
+
+unittest.main()
+```
+首先，我们导入了模块`unittest`和要测试的函数`get_formatted_name()`。
+
+我们创建了一个名为`NameTestCase`的类，用于包含一系列针对`get_formatted_name()`的单元测试。
+你可随便给这个类命名，但最好让它看起来与要测试的函数相关，并包含字样Test。
+
+这个类**必须继承**`unittest.TestCase`类，这样Python才知道如何运行你编写的测试。
+
+`NameTestCase`只包含一个方法，用于测试`get_formatted_name()`的一个方面。
+我们将这个方法命名为`test_first_last_name()`，因为我们要核实的是只有名和姓的姓名能否被正确地格式化。
+
+我们运行这个程序时，所有以`test`打头的方法都将**自动运行**。
+
+在这个方法中，我们调用了要测试的函数，并存储了要测试的返回值。
+在这个示例中，我们使用实参`janis`和`joplin`调用`get_formatted_name()`，并将结果存储到变量`formatted_name`中。
+
+然后，我们使用了`unittest`类最有用的功能之一:一个**断言**方法。断言方法用来核实得到的结果是否与期望的结果一致。
+在这里，我们知道`get_formatted_name()`应返回这样的姓名，即名和姓的首字母为大写，且它们之间有一个空格，
+因此我们期望`formatted_name`的值为`Janis Joplin`。
+
+为检查是否确实如此，我们调用`unittest`的方法`assertEqual()`，并向它传递`formatted_name`和`Janis Joplin`。
+代码行`self.assertEqual(formatted_name,"Janis Joplin")`的意思是 说:“将`formatted_name`的值同字符串`Janis Joplin`进行比较，
+如果它们相等，就万事大吉，如果它们不相等，跟我说一声!”
+
+代码行`unittest.main()`让Python运行这个文件中的测试。运行`test_name_function.py`时，得到的输出如下:
+```
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+```
+第1行的句点表明有一个测试通过了。
+
+接下来的一行指出Python运行了一个测试，消耗的时间不到0.001秒。
+
+最后的`OK`表明该测试用例中的所有单元测试都通过了。 
+
+上述输出表明，给定包含名和姓的姓名时，函数`get_formatted_name()`总是能正确地处理。
+
+修改`get_formatted_name()`后，可再次运行这个测试用例。如果它通过了，我们就知道在给定`Janis Joplin`这样的姓名时，这个函数依然能够正确地处理。
+
+
+<a id = "不能通过的测试"></a>
+#### 不能通过的测试
+
+测试未通过时结果是什么样的呢?
+
+我们来修改`get_formatted_name()`，使其能够处理中间名，但这样做时，故意让这个函数无法正确地处理像Janis Joplin这样只有名和姓的姓名。
+
+下面是函数`get_formatted_name()`的新版本，它要求通过一个实参指定中间名:
 
 
 
