@@ -92,6 +92,7 @@
     - [测试类](#测试类)
         - [各种断言方法](#各种断言方法)
         - [一个要测试的类](#一个要测试的类)
+        - [测试AnonymousSurvey类](#测试AnonymousSurvey类)
         - [lalala]()
         - [haha]()
         
@@ -2672,6 +2673,109 @@ Python在`unittest.TestCase`类中提供了很多断言方法。
 
 `survey.py`：
 
+```
+class AnonymousSurvey():
+    '''收集匿名调查问卷的答案'''
+
+    def __init__(self,question):
+        '''存储一个问题，并为存储答案做准备！'''
+        self.question = question
+        self.responses = []
+
+    def show_question(self):
+        '''显示调查问卷'''
+        print(self.question)
+
+    def store_response(self,new_response):
+        '''存储单份调查答卷'''
+        self.responses.append(new_response)
+
+    def show_results(self):
+        '''显示收集到的所有答卷'''
+        print("Survey results:")
+        for response in self.responses:
+            print("- " + response)
+```
+
+这个类首先存储了一个你指定的调查问题(见第一个方法)，并创建了一个空列表，用于存储答案。
+
+这个类包含打印调查问题的方法(见第二个方法)
+
+在答案列表中添加新答案的方法(见第三个方法)
+
+以及将存储在列表中的答案都打印出来的方法(见第四个方法)。
+
+要创建这个类的实例，只需提供一个问题即可。
+
+有了表示调查的实例后，就可使用`show_question()`来显示其中的问题，可使用`store_response()`来存储答案，并使用`show_results()`来显示调查结果。
+
+为证明`AnonymousSurvey`类能够正确地工作，我们来编写一个使用它的程序:
+
+
+`language_survey.py`
+
+```
+from survey import AnonymousSurvey
+
+# 定义一个问题，并创建一个表示调查的AnonymousSurvey对象
+qusetion = "What language did you first learn to speak? "
+my_survey = AnonymousSurvey(qusetion)
+
+# 显示问题并存储答案
+my_survey.show_question()
+print("Enter 'q' at any time to quit!")
+while True:
+    response = input("Language: ")
+    if response == "q":
+        break
+    else:
+        my_survey.store_response(response.title())
+# 显示调查结果
+print("Thank you to everyone who participated in the survey!")
+my_survey.show_results()
+
+```
+这个程序定义了一个问题(`What language did you first learn to speak?`)，并使用这个问题创建了一个`AnonymousSurvey`对象。
+
+接下来，这个程序调用`show_question()`来显示问题，并提示用户输入答案。
+
+收到每个答案的同时将其存储起来。用户输入所有答案(输入q要求退出)后，调用`show_results()`来打印调查结果:
+```
+What language did you first learn to speak?
+Enter 'q' at any time to quit!
+Language: chinese
+Language: english
+Language: spanish
+Language: q
+
+Thank you to everyone who participated in the survey!
+Survey results:
+- Chinese
+- English
+- Spanish
+```
+
+`AnonymousSurvey`类可用于进行简单的匿名调查。
+
+假设我们将它放在了模块`survey`中，并想进行改进:让每位用户都可输入多个答案
+编写一个方法，它只列出不同的答案，并指出每个答案出现了多少次
+再编写一个类，用于管理非匿名调查。
+
+进行上述修改存在风险，可能会影响`AnonymousSurvey `类的当前行为。
+
+例如，允许每位用户输入多个答案时，可能不小心修改了处理单个答案的方式。
+
+要确认在开发这个模块时没有破坏既有行为，可以编写针对这个类的测试。
+
+
+<a id = "测试AnonymousSurvey类"></a>
+#### 测试AnonymousSurvey类
+
+下面来编写一个测试，对`AnonymousSurvey`类的行为的一个方面进行验证:如果用户面对调查问题时只提供了一个答案，这个答案也能被妥善地存储。
+
+为此，我们将在这个答案被存储后，使用方法`assertIn()`来核实它包含在答案列表中:
+
+`test_survey.py`：
 
 
 
