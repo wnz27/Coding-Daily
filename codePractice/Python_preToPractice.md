@@ -94,6 +94,7 @@
         - [一个要测试的类](#一个要测试的类)
         - [测试AnonymousSurvey类](#测试AnonymousSurvey类)
         - [方法setUp()](#方法setUp())
+    - [测试代码小结](#测试代码小结)
         - [lalala]()
         - [haha]()
         
@@ -2857,8 +2858,95 @@ OK
 这样，在你编写的每个测试方法中都可使用在方法`setUp()`中创建的对象了。
 
 下面使用`setUp()`来创建一个调查对象和一组答案，供方法`test_store_single_response`和`test_store_three_response()`使用:
+```
+import unittest
+from survey import AnonymousSurvey
+
+class TestAnonymousSurvey(unittest.TestCase):
+    '''针对AnonymousSurvey类的测试'''
+
+    def setUp(self):
+        '''创建一个调查对象和一组答案，供使用的测试方法使用'''
+        question = "What language did you first learn to speak?"
+        self.my_survey = AnonymousSurvey(question)
+        self.responses = ["Chinese","English","Spanish"]
+
+    def test_store_single_response(self):
+        '''测试单个答案会被妥善保管'''
+         self.my_survey.store_response(self.responses[0]) #把self.responses中第一个答案存入对象
+        self.assertIn(self.responses[0],self.my_survey.responses) #查看self.responses中第一个答案是否存在在对象的答案中
+
+    def test_store_three_response(self):
+        '''测试三个答案会被妥善保管'''
+        for response in self.responses: # 遍历列表存入对象
+            self.my_survey.store_response(response)
+        for response in self.responses: # 检查列表里三个答案是否都存入了对象
+            self.assertIn(response,self.my_survey.responses)
+
+unittest.main()
+```
+方法`setUp()`做了两件事情:创建一个调查对象;创建一个答案列表。
+
+存储这两样东西的变量名包含前缀`self`(即存储在属性中)，因此可在这个类的任何地方使用。这让两个测试方法都更简单，因为它们都不用创建调查对象和答案。
+
+方法`test_store_single_response()`核实`self.responses`中的第一个答案 ——`self.responses[0]`——被妥善地存储，
+而方法`test_store_three_response()`核实`self.responses`中的全部三个答案都被妥善地存储。
+
+再次运行`test_survey.py`时，这两个测试也都通过了:
+```
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+```
+如果要扩展`AnonymousSurvey`，使其允许每位用户输入多个答案，这些测试将很有用。
+修改代码以接受多个答案后，可运行这些测试，确认存储单个答案或一系列答案的行为未受影响。
+
+测试自己编写的类时，方法`setUp()`让测试方法编写起来更容易:可在`setUp()`方法中创建一系列实例并设置它们的属性，再在测试方法中直接使用这些实例。
+相比于在每个测试方法中都创建实例并设置其属性，这要容易得多。
+
+注意：运行测试用例时，每完成一个单元测试，Python都打印一个字符:
+
+- 测试通过时打印一个句点
+
+- 测试引发错误时打印一个`E`
+
+- 测试导致断言失败时打印一个`F`。 
+
+这就是你运行测试用例时，在输出的第一行中看到的句点和字符数量各不相同的原因。
+如果测试用例包含很多单元测试，需要运行很长时间，就可通过观察这些结果来获悉有多少个测试通过了。
 
 
+<a id = "测试代码小结"></a>
+### 测试代码小结
+
+如何使用模块`unittest`中的工具来为函数和类编写测试
+
+如何编写继承`unittest.TestCase`的类
+
+如何编写测试方法，以核实函数和类的行为符合预期
+
+如何使用方法`setUp()`来根据类高效地创建实例并设置其属性，以便在类的所有测试方法中都可使用它们。 
+
+测试是很多初学者都不熟悉的主题。作为初学者，并非必须为你尝试的所有项目编写测试。
+
+但参与工作量较大的项目时，你应对自己编写的函数和类的重要行为进行测试。
+这样你就能够更加确定自己所做的工作不会破坏项目的其他部分，你就能够随心所欲地改进既有代码了。
+如果不小心破坏了原来的功能，你马上就会知道，从而能够轻松地修复问题。
+相比于等到不满意的用户报告bug后再采取措施，在测试未通过时采取措施要容易得多。 
+
+如果你在项目中包含了初步测试，其他程序员将更敬佩你，他们将能够更得心应手地尝试使用你编写的代码，也更愿意与你合作开发项目。
+如果你要跟其他程序员开发的项目共享代码，就必须证明你编写的代码通过了既有测试，通常还需要为你添加的新行为编写测试。
+
+请通过多开展测试来熟悉代码测试过程。对于自己编写的函数和类，请编写针对其重要行为的测试，
+但在项目早期，不要试图去编写全覆盖的测试用例，除非有充分的理由这样做。
+
+---
+
+基础部分结束
+
+---
 
 
 
