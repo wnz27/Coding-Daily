@@ -2657,12 +2657,12 @@ Python在`unittest.TestCase`类中提供了很多断言方法。
 
 `unittest Module`中的断言方法:
 
-* 方法：`assertEqual(a,b)`用途：`核实a == b`
-* 方法：`assertNotEqual(a,b)`用途：`核实a != b`
-* 方法：`assertTrue(x)`用途：`核实x为True`
-* 方法：`assertFalse(x)`用途：`核实x为False`
-* 方法：`assertIn(item,list)`用途：`核实item在list中`
-* 方法：`assertNotIn(item,list)`用途：`核实item不在list中`
+* 方法：`assertEqual(a,b)`               用途：`核实a == b`
+* 方法：`assertNotEqual(a,b)`            用途：`核实a != b`
+* 方法：`assertTrue(x)`                  用途：`核实x为True`
+* 方法：`assertFalse(x)`                 用途：`核实x为False`
+* 方法：`assertIn(item,list)`            用途：`核实item在list中`
+* 方法：`assertNotIn(item,list)`         用途：`核实item不在list中`
 
 
 <a id = "一个要测试的类"></a>
