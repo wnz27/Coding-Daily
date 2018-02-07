@@ -93,6 +93,7 @@
         - [各种断言方法](#各种断言方法)
         - [一个要测试的类](#一个要测试的类)
         - [测试AnonymousSurvey类](#测试AnonymousSurvey类)
+        - [方法setUp()](#方法setUp())
         - [lalala]()
         - [haha]()
         
@@ -2776,6 +2777,86 @@ Survey results:
 为此，我们将在这个答案被存储后，使用方法`assertIn()`来核实它包含在答案列表中:
 
 `test_survey.py`：
+```
+import unittest
+from survey import AnonymousSurvey
+
+class TestAnonymousSurvey(unittest.TestCase):
+    '''针对AnonymousSurvey类的测试'''
+    def test_store_single_response(self):
+        '''测试单个答案会被妥善保管'''
+        question = "What language did you first learn to speak?"
+        my_survey = AnonymousSurvey(question)
+        my_survey.store_response("English")
+
+        self.assertIn("English",my_survey.responses)
+
+unittest.main()
+```
+我们首先导入了模块`unittest`以及要测试的类`AnonymousSurvey`。
+我们将**测试用例**命名为`TestAnonymousSurvey`，它也继承了`unittest.TestCase`。
+
+第一个测试方法验证调查问题的单个答案被存储后，会包含在调查结果列表中。
+
+对于这个方法，一个不错的描述性名称是`test_store_single_response()`。
+如果这个测试未通过，我们就能通过输出中的方法名得知，在存储单个调查答案方面存在问题。
+
+要测试类的行为，需要创建其实例。
+我们使用问题`What language did you first learn to speak?`创建了一个名为`my_survey`的实例，
+然后使用方法`store_response()`存储了单个答案`English`。
+
+接下来，我们检查`English`是否包含在列表`my_survey.responses`中，以核实这个答案是否被妥善地存储了。
+
+当我们运行`test_survey.py`时，测试通过了:
+```
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+```
+这很好，但只能收集一个答案的调查用途不大。下面来核实用户提供三个答案时，它们也将被妥善地存储。
+
+为此，我们在`TestAnonymousSurvey`中再添加一个方法:
+```
+def test_store_three_response(self):
+        '''测试三个答案会被妥善保管'''
+        question = "What language did you first learn to speak?"
+        my_survey = AnonymousSurvey(question)
+        responses = ["Chinese","English","Spanish"]
+        for response in responses: # 遍历列表存入对象
+            my_survey.store_response(response)
+        for response in responses: # 检查列表里三个答案是否都存入了对象
+            self.assertIn(response,my_survey.responses)
+```
+我们将这个方法命名为`test_store_three_response()`，并像`test_store_single_response`一样，在其中创建一个调查对象。
+
+我们定义了一个包含三个不同答案的列表，再对其中每个答案都调用`store_response()`。
+存储这些答案后，我们使用一个循环来确认每个答案都包含在`my_survey.responses`中。 
+
+我们再次运行`test_survey.py`时，两个测试(针对单个答案的测试和针对三个答案的测试)都通过了:
+```
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+```
+前述做法的效果很好，但这些测试有些重复的地方。下面使用`unittest`的另一项功能来提高它们的效率。
+
+
+<a id = "方法setUp()"></a>
+#### 方法setUp()
+
+在前面的`test_survey.py`中，我们在每个测试方法中都创建了一个`AnonymousSurvey`实例，并在每个方法中都创建了答案。
+
+`unittest.TestCase`类包含方法`setUp()`，让我们只需创建这些对象一次，并在每个测试方法中使用它们。
+
+如果你在`TestCase`类中包含了方法`setUp()`，Python将**先运行它**，**再运行各个以`test`打头的方法**。
+
+这样，在你编写的每个测试方法中都可使用在方法`setUp()`中创建的对象了。
+
+下面使用`setUp()`来创建一个调查对象和一组答案，供方法`test_store_single_response`和`test_store_three_response()`使用:
 
 
 
