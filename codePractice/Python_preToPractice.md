@@ -89,6 +89,9 @@
         - [不能通过的测试](#不能通过的测试)
         - [测试未通过时怎么办](#测试未通过时怎么办)
         - [添加新测试](#添加新测试)
+    - [测试类](#测试类)
+        - [各种断言方法](#各种断言方法)
+        - [一个要测试的类](#一个要测试的类)
         - [lalala]()
         - [haha]()
         
@@ -2593,6 +2596,81 @@ OK
 确定`get_formatted_name()`又能正确地处理简单的姓名后，我们再编写一个测试，用于测试包含中间名的姓名。
 
 为此，我们在`NameTestCase`类中再添加一个方法:
+```
+import unittest
+from test_prctice import get_formatted_name
+
+class NameTestCase(unittest.TestCase):
+    '''测试test_practice.py'''
+    def test_first_last_name(self):
+        '''能够正确处理像Janis Joplin这样的姓名吗？'''
+        formatted_name = get_formatted_name("janis","joplin")
+        self.assertEqual(formatted_name,"Janis Joplin")
+
+    def test_first_last_middle_name(self):
+        '''能够正确处理像Wolfgang Amadeus Mozart这样的姓名吗？'''
+        formoatted_name = get_formatted_name("wolfgang","mozart","amadeus")
+        self.assertEqual(formoatted_name,"Wolfgang Amadeus Mozart")
+
+unittest.main()
+```
+我们将这个方法命名为`test_first_last_middle_name()`。方法名必须以`test`打头，这样它才会在我们运行`test_name_function.py`时自动运行。
+
+这个方法名清楚地指出了它测试的是`get_formatted_name()`的哪个行为，这样，如果该测试未通过，我们就会马上知道受影响的是哪种类型的姓名。
+
+在`NameTestCase`类中使用很长的方法名是可以的;这些方法的名称必须是描述性的，这才能让你明白测试未通过时的输出;
+这些方法由Python自动调用，你根本不用编写调用它们的代码。
+
+为测试函数`get_formatted_name()`，我们使用名、姓和中间名调用它，再使用`assertEqual()`检查返回的姓名是否与预期的姓名(名、中间名和姓)一致。
+
+我们再次运行`test_name_function.py`时，两个测试都通过了:
+```
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK
+```
+现在我们知道，这个函数又能正确地处理像Janis Joplin这样的姓名了，我们还深信它也能够正确地处理像Wolfgang Amadeus Mozart这样的姓名。
+
+
+<a id = "测试类"></a>
+### 测试类
+
+在本章前半部分，你编写了针对单个函数的测试，下面来编写针对类的测试。
+很多程序中都会用到类，因此能够证明你的类能够正确地工作会大有裨益。
+
+如果针对类的测试通过了，你就能确信对类所做的改进没有意外地破坏其原有的行为。
+
+
+<a id = "各种断言方法"></a>
+#### 各种断言方法
+
+Python在`unittest.TestCase`类中提供了很多断言方法。
+
+前面说过，断言方法检查你认为应该满足的条件是否确实满足。如果该条件确实满足，你对程序行为的假设就得到了确认，你就可以确信其中没有错误。
+如果你认为应该满足的条件实际上并不满足，Python将引发异常。 
+
+下面的表描述了6个常用的断言方法。使用这些方法可核实返回的值等于或不等于预期的值、返回的值为`True`或`False`、返回的值在列表中或不在列表中。
+
+你只能在继承`unittest.TestCase`的类中使用这些方法，后面会试试如何在测试类时使用其中的一个。
+
+`unittest Module`中的断言方法:
+
+* 方法：`assertEqual(a,b)`用途：`核实a == b`
+* 方法：`assertNotEqual(a,b)`用途：`核实a != b`
+* 方法：`assertTrue(x)`用途：`核实x为True`
+* 方法：`assertFalse(x)`用途：`核实x为False`
+* 方法：`assertIn(item,list)`用途：`核实item在list中`
+* 方法：`assertNotIn(item,list)`用途：`核实item不在list中`
+
+
+<a id = "一个要测试的类"></a>
+#### 一个要测试的类
+
+类的测试与函数的测试相似——你所做的大部分工作都是测试类中方法的行为，但存在一些不同之处，下面来编写一个类进行测试。来看一个帮助管理匿名调查的类:
+
+`survey.py`：
 
 
 
