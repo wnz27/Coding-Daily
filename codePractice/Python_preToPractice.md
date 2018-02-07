@@ -87,6 +87,7 @@
         - [单元测试和测试用例](#单元测试和测试用例)
         - [可通过的测试](#可通过的测试)
         - [不能通过的测试](#不能通过的测试)
+        - [测试未通过时怎么办](#测试未通过时怎么办)
         - [lalala]()
         - [haha]()
         
@@ -2500,6 +2501,51 @@ OK
 
 下面是函数`get_formatted_name()`的新版本，它要求通过一个实参指定中间名:
 
+```
+def get_formatted_name(first,middle,last):
+    '''生成简洁的格式'''
+    full_name = first + " " + middle + " " + last
+    return full_name
+```
+这个版本应该能够正确地处理包含中间名的姓名，但对其进行测试时，我们发现它再也不能正确地处理只有名和姓的姓名。
+
+这次运行程序`test_name_function.py`时，输出如下:
+```
+E
+======================================================================
+ERROR: test_first_last_name (__main__.NameTestCase)
+能够正确处理Janis Joplin这样的姓名吗？
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/fzk27/fzk27/Practice_Python/test_name_function.py", line 8, in test_first_last_name
+    formatted_name = get_formatted_name("janis","joplin")
+TypeError: get_formatted_name() missing 1 required positional argument: 'last'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+```
+其中包含的信息很多，因为测试未通过时，需要让你知道的事情可能有很多。
+
+第1行输出只有一个字母`E`，它指出测试用例中有一个单元测试导致了错误。
+
+接下来，我们 看到`NameTestCase`中的`test_first_last_name()`导致了错误。测试用例包含众多单元测试时，知道哪个测试未通过至关重要。
+
+我们看到了一个标准 的traceback，它指出函数调用`get_formatted_name("janis","joplin")`有问题，因为它缺少一个必不可少的位置实参。
+
+我们还看到运行了一个单元测试(Ran 1 test in 0.000s)。
+
+最后，还看到了一条消息，它指出整个测试用例都未通过，因为运行该测试用例时发生了一个错误(FAILED (errors=1))。
+这条消息位于输出末尾，让你一眼就能看到——你可不希望为获悉有多少测试未通过而翻阅长长的输出。
+
+
+<a id = "测试未通过时怎么办"></a>
+#### 测试未通过时怎么办
+
+测试未通过时怎么办呢?如果你检查的条件没错，测试通过了意味着函数的行为是对的，而测试未通过意味着你编写的新代码有错。
+
+因此，测试未通过时，不要修改测试，而应修复导致测试不能通过的代码:检查刚才对函数所做的修改，找出导致函数行为不符合预期的修改。
 
 
 
