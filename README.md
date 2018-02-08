@@ -29,8 +29,8 @@
 
 * Python练习笔记，关于这个网站:[Python Practice Book](http://anandology.com/python-practice-book/index.html)的练习笔记：[Python_Practice_note](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/Python_Practice_note.md)
 
-* Python类书籍学习笔记:
-    - [《Python编程：从入门到实践》（笔记有目录）](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/Python_preToPractice.md)
+* Python类书籍学习笔记--（笔记有目录）:
+    - [《Python编程：从入门到实践》](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/Python_preToPractice.md)
     - [《数据分析实战》笔记](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/Python%20Data%20Analytics%E2%80%99s%20note.md)
 
 
