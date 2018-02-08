@@ -95,8 +95,6 @@
         - [测试AnonymousSurvey类](#测试AnonymousSurvey类)
         - [方法setUp()](#方法setUp())
     - [测试代码小结](#测试代码小结)
-        - [lalala]()
-        - [haha]()
         
         
         
