@@ -50,6 +50,8 @@
 * [HTML_Practice](https://github.com/wnz27/webLearn/blob/master/HTML_Practice.md)
 * [CSS_Practice](https://github.com/wnz27/webLearn/blob/master/CSS_Practice.md)
 * [HTML&CSS](https://github.com/wnz27/webLearn/blob/master/HTML&CSS_practice.md)
+* [JS_Note](https://github.com/wnz27/webLearn/blob/master/JS_Note.md)
+
 
 ---
 <a id = "4"></a>
