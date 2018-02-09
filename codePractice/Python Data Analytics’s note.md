@@ -49,7 +49,7 @@ from functools import reduce
 print(list(filter(lambda x : x <4 , items))) # 过滤出比4小的数
 print(reduce(lambda x,y : x/y , items)) # 对列表从第一个数依次计算前一个除以后一个
 ```
-解释一下`reduce（）`：
+filter应该不需要解释了。解释一下`reduce（）`：
 
 `items`中是，1，2，3，4，5。这个函数就是计算：(((1/2)/3)/4)/5。
 
