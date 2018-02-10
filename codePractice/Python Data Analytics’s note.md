@@ -13,7 +13,8 @@ Python Data Analytics’s note
 <a id = 函数式编程简单探索></a>
 ## 函数式编程简单探索
 
-应尽量避免显示循环，Python提供了几种方法，诸如函数式编程（functional programing，亦即expression—oriented programing，面向表达式的编程）等编程技巧。
+应尽量避免显示循环，Python提供了几种方法，
+诸如函数式编程（functional programing，亦即expression—oriented programing，面向表达式的编程）等编程技巧。
 
 Python提供的用于函数式编程开发的函数有：
 
