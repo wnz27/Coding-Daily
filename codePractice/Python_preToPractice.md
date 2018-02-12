@@ -95,6 +95,8 @@
         - [测试AnonymousSurvey类](#测试AnonymousSurvey类)
         - [方法setUp()](#方法setUp())
     - [测试代码小结](#测试代码小结)
+- [项目篇](#项目篇)
+    - [在OSX系统中安装Pygame](#在OSX系统中安装Pygame)
         
         
         
@@ -2945,6 +2947,37 @@ OK
 基础部分结束
 
 ---
+
+
+<a id = "项目篇"></a>
+## 项目篇
+
+
+<a id = "在OSX系统中安装Pygame"></a>
+### 在`OS X`系统中安装`Pygame`
+
+要安装`Pygame`依赖的有些包，需要`Homebrew`。
+
+为安装Pygame依赖的库，请执行下面的命令:
+```
+$ brew install hg sdl sdl_image sdl_ttf
+```
+这将安装运行游戏《外星人入侵》所需的库。每安装一个库后，输出都会向上滚动。
+
+如果你还想启用较高级的功能，如在游戏中包含声音，可安装下面两个额外的库:
+```
+$ brew install sdl_mixer portmidi
+```
+使用下面的命令来安装Pygame(如果你运行的是Python 2.7，请将`pip3`替换为`pip`):
+```
+$ pip3 install --user hg+http://bitbucket.org/pygame/pygame
+```
+启动一个Python终端会话，并导入Pygame以检查安装是否成功(如果你运行的是Python 2.7，请将`python3`替换为`python`):
+```
+$ python3
+>>> import pygame
+>>> 
+```
 
 
 
