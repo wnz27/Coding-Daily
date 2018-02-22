@@ -145,7 +145,7 @@
 <a id = "13"></a>
 ## Self Works___个人习得收获
 
-- []()
+- [学习学习](https://github.com/wnz27/Cultivate__harvest/blob/master/Self_Works/Learn_Learn.md)，一些学习方法论的习得
 
 
 
