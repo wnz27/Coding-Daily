@@ -39,4 +39,8 @@ Python中所有正则表达式的函数堵在re模块中。
 首先导入该模块，然后向`re.compile()`传入一个字符串值，表示正则表达式，它将返回一个Regex模式对象（或者简称为Regex对象）。
 
 我们必须创建一个变量接收这个Regex对象用它来匹配字符串。我们仍然用电话号码来做例子，上代码：
+```
+import re
+phoneNumberRegex = re.compile(r"\d\d\d-\d\d\d-\d\d\d\d")
+```
 
