@@ -44,3 +44,8 @@ import re
 phoneNumberRegex = re.compile(r"\d\d\d-\d\d\d-\d\d\d\d")
 ```
 
+现在，phoneNumberRegex变量包含了一个匹配`\d\d\d-\d\d\d-\d\d\d\d`模式的Regex对象。
+
+
+
+
