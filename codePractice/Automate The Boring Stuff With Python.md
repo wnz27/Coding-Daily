@@ -46,6 +46,7 @@ phoneNumberRegex = re.compile(r"\d\d\d-\d\d\d-\d\d\d\d")
 
 现在，phoneNumberRegex变量包含了一个匹配`\d\d\d-\d\d\d-\d\d\d\d`模式的Regex对象。
 
+Ps：字符串中的r表示raw representation，称为原始表示。
 
 
 
