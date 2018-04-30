@@ -17,6 +17,7 @@
 * [Other----------------------------其他](#11)
 * [Linux_Learn-----------------Linux学习](#12)
 * [Self Works-----------------个人习得收获](#13)
+* [LeetCode -- Algorithms--------算法学习](#14)
 * 
 
 ---
@@ -148,6 +149,9 @@
 
 - [学习学习](https://github.com/wnz27/Cultivate__harvest/blob/master/Self_Works/Learn_Learn.md)，一些学习方法论的习得
 
+---
+<a id = "14"> </a>
+- [LeetCode -- Algorithms--------算法学习](),算法学习笔记
 
 
 ---
