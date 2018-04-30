@@ -151,7 +151,7 @@
 
 ---
 <a id = "14"> </a>
-- [LeetCode -- Algorithms--------算法](),学习笔记
+- [LeetCode -- Algorithms--------算法](https://github.com/wnz27/Cultivate__harvest/blob/master/Algorithms/Algorithms'sNote.md),学习笔记
 
 
 ---
