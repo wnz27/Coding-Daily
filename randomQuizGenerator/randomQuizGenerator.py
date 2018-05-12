@@ -93,3 +93,11 @@ for quizNum in range(35):
     quizFile.close()
     answerKeyFile.close()
 
+
+
+#先要import os
+#os.getcwd()获取当前目录名
+#os.chdir(目录名)更换到目录名位置
+#.当目录名时指的当前目录
+#..当目录名时指的是父目录，也就是上一层目录
+#os.makedirs()创建新文件夹，不管你用相对路径还是绝对路径，路径里经过的所有文件目录名如果没有都会被新建
