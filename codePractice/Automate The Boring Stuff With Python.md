@@ -7,6 +7,7 @@
   - [创建正则表达式对象](#创建正则表达式对象)
   - [正则表达式综合笔记](#正则表达式综合笔记)
 - [文件操作笔记](#文件操作笔记)
+  - [文件综合练习-试卷随机生成](#文件综合练习)
 - [ddd]()
 
 
@@ -56,6 +57,10 @@ Ps：字符串中的r表示raw representation，称为原始表示。
 
 <a id = "文件操作笔记"></a>
 ## 文件操作笔记
+
+<a id = "文件综合练习"></a>
+### 文件综合练习-试卷随机生成
+[试卷随机生成](https://github.com/wnz27/Cultivate__harvest/blob/master/randomQuizGenerator/randomQuizGenerator.py)
 
 
 
