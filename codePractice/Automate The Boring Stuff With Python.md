@@ -5,8 +5,9 @@
 - [正则表达式](#正则表达式)
   - [用正则表达式表示数字字符](#用正则表达式表示数字字符)
   - [创建正则表达式对象](#创建正则表达式对象)
-  - [匹配Regex对象](#匹配Regex对象)
-  - [lalala]()
+  - [正则表达式综合笔记](#正则表达式综合笔记)
+- [文件操作笔记](#文件操作笔记)
+   -[lsllsls]()
 
 
 ---
@@ -49,6 +50,15 @@ phoneNumberRegex = re.compile(r"\d\d\d-\d\d\d-\d\d\d\d")
 
 Ps：字符串中的r表示raw representation，称为原始表示。
 
-<a id = "匹配Regex对象"></a>
-### 匹配Regex对象
+<a id = "正则表达式综合笔记"></a>
+### 正则表达式综合笔记
+[正则表达式综合笔记](https://github.com/wnz27/Algorithms_Note/blob/master/re_practice.py)
+
+<a id = "文件操作笔记"></a>
+## 文件操作笔记
+
+
+
+
+
 
