@@ -71,7 +71,7 @@
 ## Computer Science 
   Learn about some university curriculum
    
-*  **《How Net works Work》__Note**  [**《网络是怎样连接的》——笔记**](https://github.com/wnz27/Computer-Science/blob/master/%E7%BD%91%E7%BB%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
+*  [**《How Net works Work》__Note《网络是怎样连接的》——笔记**](https://github.com/wnz27/Computer-Science/blob/master/%E7%BD%91%E7%BB%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
 
 ---
 <a id = "7"></a>
