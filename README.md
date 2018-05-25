@@ -31,6 +31,8 @@
 
 * Python练习笔记，关于这个网站:[Python Practice Book](http://anandology.com/python-practice-book/index.html)的练习笔记：[Python_Practice_note](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/Python_Practice_note.md)
 
+* [简单正则练习](https://github.com/wnz27/Algorithms_Note/blob/master/re_practice.py)
+
 * Python类书籍学习笔记--（笔记有目录）:
     - [《Python编程：从入门到实践》](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过）
     - [《Python编程快速上手———让繁琐工作自动化》](https://github.com/wnz27/Cultivate__harvest/blob/master/codePractice/Automate%20The%20Boring%20Stuff%20With%20Python.md)（基础部分略过）
