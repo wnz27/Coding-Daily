@@ -8,7 +8,7 @@
 * [Practice of C----------------C语言练习](#2)
 * [Practice of Web-----------网页编程练习](#3)
 * [Practice of Git---------------Git练习](#4)
-* [Practice of .......](#5)
+* [Translate Book -----------翻译系列练习](#5)
 * [Computer Science---------计算机科学学习](#6)
 * [Database's Learn record--数据库学习记录](#7)
 * [About Math--------------------关于数学](#8)
@@ -23,7 +23,7 @@
 ---
 
 <a id = "1"> </a> 
-## Practice of Python ~~~~
+## Practice of Python 
 
 * Python的小白探索之旅，日常练习：[Python_practice](https://github.com/wnz27/Cultivate__harvest/blob/master/Python_harvest.md)
 
@@ -66,7 +66,8 @@
 
 ---
 <a id = "5"></a>
-## Practice of ....... 
+## Translate Book
+- [Dive Into Python 3----------《深入pyhton3》]()
 
 ---
 <a id = "6"></a>
