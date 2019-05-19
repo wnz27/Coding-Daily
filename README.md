@@ -67,7 +67,7 @@
 ---
 <a id = "5"></a>
 ## Translate Book
-- [Dive Into Python 3----------《深入pyhton3》]()
+- [Dive Into Python 3----------《深入pyhton3》](https://github.com/wnz27/Coding-Daily/blob/master/translate_book_prac/Dive_into_Python3.md)
 
 ---
 <a id = "6"></a>
