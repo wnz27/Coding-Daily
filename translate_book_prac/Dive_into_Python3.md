@@ -60,8 +60,10 @@ you@localhost:~/diveintopython3/examples$ python3 humansize.py
 ```
 
 发生了什么呢？你执行了你第一个python程序，你在命令行调用了pyhton的解释器，然后你给pyhton传递了你希望它执行的脚本的名字。
+这个脚本定义了一个单一的函数，`approximate_size()`,这个函数接收一个以比特（字节）为单位的确切的文件大小，计算出一个“漂亮”（但大约）的大小。
+（你可能在windows的资源管理器，或者Mac OS X）
 
-The script defines a single function, the approximate_size() function, which takes an exact file size in bytes and calculates a “pretty” (but approximate) size. (You’ve probably seen this in Windows Explorer, or the Mac OS X Finder, or Nautilus or Dolphin or Thunar on Linux. If you display a folder of documents as a multi-column list, it will display a table with the document icon, the document name, the size, type, last-modified date, and so on. If the folder contains a 1093-byte file named TODO, your file manager won’t display TODO 1093 bytes; it’ll say something like TODO 1 KB instead. That’s what the approximate_size() function does.)
+(You’ve probably seen this in Windows Explorer, or the Mac OS X Finder, or Nautilus or Dolphin or Thunar on Linux. If you display a folder of documents as a multi-column list, it will display a table with the document icon, the document name, the size, type, last-modified date, and so on. If the folder contains a 1093-byte file named TODO, your file manager won’t display TODO 1093 bytes; it’ll say something like TODO 1 KB instead. That’s what the approximate_size() function does.)
 
 Look at the bottom of the script, and you’ll see two calls to print(approximate_size(arguments)). These are function calls — first calling the approximate_size() function and passing a number of arguments, then taking the return value and passing it straight on to the print() function. The print() function is built-in; you’ll never see an explicit declaration of it. You can just use it, anytime, anywhere. (There are lots of built-in functions, and lots more functions that are separated into modules. Patience, grasshopper.)
 
