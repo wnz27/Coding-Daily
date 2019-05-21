@@ -2,7 +2,7 @@
 
 首先这本书是免费的并且作者授权了可以进行任何自由使用，[授权声明](https://creativecommons.org/licenses/by-sa/3.0/deed.zh)
 
-然后英文的原版链接在这，[Dive into Python3](http://diveinto.org/python3/index.html)
+英文的原版链接在这，[Dive into Python3](http://diveinto.org/python3/index.html)
 
 ## -1、这本书有哪些新特性
 先略，先把主要内容搞定
@@ -11,7 +11,7 @@
 这章我就略过了，主要内容如果我不幸翻译完也一样不啰嗦了~~~~~~
 
 ## 1、你的第一个Python程序
-### 1.1深入进去
+### 1.1 深入进去
 传统的叙述就是我应该跟你念叨一些基础的编程的代码块，让我们可以逐步的构建一些有用的东西。让我们跳过这些，这是一个完整的可以运行的pyhton程序。
 它也许会让你不能完全理解。不用担心，因为你将要逐行的分析它，如果可以的话，看看你能做些什么！
 
@@ -73,7 +73,7 @@ you@localhost:~/diveintopython3/examples$ python3 humansize.py
 （这有非常多的内置函数，还有更多函数分开在不同的模块。Patiencce， grasshopper）
 
 所以为什么每次在命令行运行这个脚本都会给你相同的输出？我们会做到这点。首先让我们看看`approximate_size()`这个函数
-### 1.2函数声明
+### 1.2 函数声明
 侧边贴士：当你需要一个函数，声明它就可以了。
 
 Python像其它很多语言一样有很多函数，但是它不像C++有分离的头文件或者不想Pascal有接口/执行这样部分的区分。
@@ -106,3 +106,35 @@ if __name__ == '__main__':
     print(approximate_size(1000000000000, False))  ①
     print(approximate_size(1000000000000))         ②
 ```
+①  调用这个函数的时候传递了两个参数，。所以在函数里面`a_kilobyte_is_1024_bytes`的值将会是False，因为明确的把False作为第二个参数传递进去
+
+②  调用这个函数的时候仅仅传递了一个参数。但是这是完全ojbk的，因为第二个参数是可选的！因为调用者没有明确参数，所以第二个参数默认是True，就像函数声明的定义一样。
+
+你可以通过名称给函数传值：
+```
+>>> from humansize import approximate_size
+>>> approximate_size(4000, a_kilobyte_is_1024_bytes=False)       ①
+'4.0 KB'
+>>> approximate_size(size=4000, a_kilobyte_is_1024_bytes=False)  ②
+'4.0 KB'
+>>> approximate_size(a_kilobyte_is_1024_bytes=False, size=4000)  ③
+'4.0 KB'
+>>> approximate_size(a_kilobyte_is_1024_bytes=False, 4000)       ④
+  File "<stdin>", line 1
+SyntaxError: non-keyword arg after keyword arg
+>>> approximate_size(size=4000, False)                           ⑤
+  File "<stdin>", line 1
+SyntaxError: non-keyword arg after keyword arg
+```
+
+①	这个调用用4000作为第一个参数，而False用了名称传递
+
+②	这个调用两个参数都是用名称调用的 （这两个名称调用的顺序与函数声明里是一样的）
+
+③	这两个参数也都是用名称调用的 但是顺序与函数声明里不一样，也可以函数调用成功
+
+④	这个函数调用失败了，因为你使用了名称调用，然后跟了一个位置参数（非名称调用），它没有成功。函数读取参数列表是从左至右的，当参数顺序变了（我自己加的一句话），一旦你使用了一个名称调用，那么另一个参数也必须使用名称来调用
+
+⑤	这个调用也失败了，原因和上一个调用时一样的。惊喜吗老铁？4000你用名称调用，那么显然False就应该是`a_kilobyte_is_1024_bytes`参数的值。但是Python并不能成功运行，一旦你使用了一个名称调用，（上面我已经提到函数读取参数列表是从左至右的），那么位于这个参数**右边**的所有参数也都要使用名称调用
+
+### 1.3 书写具有可读性的代码
