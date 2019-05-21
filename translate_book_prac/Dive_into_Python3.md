@@ -61,23 +61,47 @@ you@localhost:~/diveintopython3/examples$ python3 humansize.py
 
 发生了什么呢？你执行了你第一个python程序，你在命令行调用了pyhton的解释器，然后你给pyhton传递了你希望它执行的脚本的名字。
 这个脚本定义了一个单一的函数，`approximate_size()`,这个函数接收一个以比特（字节）为单位的确切的文件大小，计算出一个“漂亮”（但大约）的大小。
+
 （你可能在windows的资源管理器，或者Mac OS X访达，或者Ubuntu里的Nautilus或者海豚或者运行于linux和类unix平台的Thunar文件管理器，如果你用多行
 列表的形式去展示文件夹的文件，他会用一个表来显示文件图标，文件名称，大小，类型，最后修改时间等等。如果文件夹包含一个1093字节的名为TODO的文件，那么
 你的文件管理器不会显示TODO 1093bytes，而是会显示TODO 1KB，这就是`approximate_size()`函数所做的事情）
-看看这个脚本的最下面，你将会看到打印两次调用这个函数。这些就是函数调用，一次调用传递一些参数，然后把函数返回值直接传递给`print()`函数。
-`print()`函数是python内置的；你绝对不会看到任何一个对它的明确的声明。你就是可以使用它，任何时间，任何地点，只要小爷喜欢。
-（这有非常多的内置函数，还有更多函数分开在不同的模块。Patiencce， grasshopper）
-所以为什么每次在命令行运行这个脚本都会给你相同的输出？我们会做到这点。首先让我们看看`approximate_size()`这个函数
 
+看看这个脚本的最下面，你将会看到打印两次调用这个函数。这些就是函数调用，一次调用传递一些参数，然后把函数返回值直接传递给`print()`函数。
+
+`print()`函数是Python内置的；你绝对不会看到任何一个对它的明确的声明。你就是可以使用它，任何时间，任何地点，只要小爷喜欢。
+（这有非常多的内置函数，还有更多函数分开在不同的模块。Patiencce， grasshopper）
+
+所以为什么每次在命令行运行这个脚本都会给你相同的输出？我们会做到这点。首先让我们看看`approximate_size()`这个函数
 ### 1.2函数声明
 侧边贴士：当你需要一个函数，声明它就可以了。
 
+Python像其它很多语言一样有很多函数，但是它不像C++有分离的头文件或者不想Pascal有接口/执行这样部分的区分。
+当你需要一个函数，声明它就可以了。就像这样：
+`def approximate_size(size, a_kilobyte_is_1024_bytes=True):`
 
-Python has functions like most other languages, but it does not have separate header files like c++ or interface/implementation sections like Pascal. When you need a function, just declare it, like this:
+函数声明需要以`def`为关键字作为声明的开始，紧接着就是函数名称，后面跟着带圆括号的参数。多个参数用逗号分开。
 
-def approximate_size(size, a_kilobyte_is_1024_bytes=True):
-The keyword def starts the function declaration, followed by the function name, followed by the arguments in parentheses. Multiple arguments are separated with commas.
-Also note that the function doesn’t define a return datatype. Python functions do not specify the datatype of their return value; they don’t even specify whether or not they return a value. (In fact, every Python function returns a value; if the function ever executes a return statement, it will return that value, otherwise it will return None, the Python null value.)
-> In some languages, functions (that return a value) start with function, and subroutines (that do not return a value) start with sub. There are no subroutines in Python. Everything is a function, all functions return a value (even if it’s None), and all functions start with def.
-The approximate_size() function takes the two arguments — size and a_kilobyte_is_1024_bytes — but neither argument specifies a datatype. In Python, variables are never explicitly typed. Python figures out what type a variable is and keeps track of it internally.
-> In Java and other statically-typed languages, you must specify the datatype of the function return value and each function argument. In Python, you never explicitly specify the datatype of anything. Based on what value you assign, Python keeps track of the datatype internally.
+也要注意这个函数没有定义返回的数据类型。Python的函数都不会给他们的返回值特别的指定数据类型；它们甚至都不会去管返回的是不是一个值。
+（事实上，每个Python函数都返回一个值；如果这个函数已经执行了返回语句，它都将会返回那个值，除非它返回None，Python的空值。）
+> 在一些语言里，有返回值的函数一般以function开头，没有返回值的子程序一般以sub开头。在Python里没有子程序这种说法。所有都是叫函数，所有函数都返回值，即使是None，而且所有的函数都以def开头
+
+`approximate_size()`函数需要两个参数`size`和`a_kilobyte_is_1024_bytes`，但是没有一个参数明确的指定了数据类型。在Pyhton里，
+变量绝对不需要明确类型。Python会明白一个变量的类型还有会保持追踪每一个变量的本质。
+
+> 在Java或者其他的一些静态语言，你必须声明函数返回值以及参数的数据类型。在Python里，你绝对不需要明确给任何东西声明数据类型。在你分配的值的基础上，Python会保持对它内在的数据类型的追踪。
+
+#### 1.2.1 可选参数和参数命名
+Python允许函数参数有它的默认值；如果函数调用的时候没有提供参数，那么这些参数会获得它们的默认值。更进一步说，使用名字参数的时候，它们可以用任意的顺序指定。
+
+让我们再来看一下`approximate_size()`函数的声明：
+`def approximate_size(size, a_kilobyte_is_1024_bytes=True):`
+
+第二个参数`a_kilobyte_is_1024_bytes`，明确指定了一个默认值是True。这样的意思就是这个参数是可选的，在你调用函数的时候可以不需要提供这个参数，
+在python执行函数的时候就好像你提供了一个True作为第二个参数一样。
+
+现在让我们看看脚本的最后两行：
+```
+if __name__ == '__main__':
+    print(approximate_size(1000000000000, False))  ①
+    print(approximate_size(1000000000000))         ②
+```
