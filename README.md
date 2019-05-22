@@ -18,7 +18,7 @@
 * [Linux_Learn-----------------Linux学习](#12)
 * [Self Works-----------------个人习得收获](#13)
 * [LeetCode -- Algorithms--------算法学习笔记](#14)
-* 
+* [Ruby practice ---------------- ruby练习](#15)
 
 ---
 
@@ -156,7 +156,11 @@
 
 ---
 <a id = "14"> </a>
-- [LeetCode -- Algorithms--------算法](https://github.com/wnz27/Algorithms_Note/blob/master/README.md),学习笔记
+- [LeetCode -- Algorithms--------算法学习笔记](https://github.com/wnz27/Algorithms_Note/blob/master/README.md)
+
+---
+<a id = "15"> </a>
+- [Ruby practice----------Ruby学习笔记](https://github.com/wnz27/Ruby-Guide)
 
 
 ---
