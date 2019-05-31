@@ -57,6 +57,7 @@
 * [HTML&CSS](https://github.com/wnz27/webLearn/blob/master/HTML&CSS_practice.md)
 * [JS_Note](https://github.com/wnz27/webLearn/blob/master/JS_Note.md)
 * [Web_Note---网络基础知识笔记](https://github.com/wnz27/webLearn/blob/master/Web_note.md)
+* [React_learn --- React基础知识学习](https://github.com/wnz27/JS-Daily/blob/master/react-test/basic.md)
 
 
 ---
