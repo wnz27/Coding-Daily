@@ -1,2 +1,8 @@
 - [type and class object](./type_class_obj.py)
   - ![type_class_object struct image](../some_img/type_class_obj.png)
+- [python常见内置类型](./python常见内置类型.py)
+- [什么是魔法函数](./什么是魔法函数.py)
+- [python数据模型对python的影响](./python数据模型对python的影响.py)
+- [魔法函数一览](./魔法函数一览.py)
+- [魔法函数字符串表示](./魔法函数字符串表示.py)
+- [len方法](./len方法.py)
