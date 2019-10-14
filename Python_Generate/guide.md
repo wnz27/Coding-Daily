@@ -1,0 +1,2 @@
+- [type and class object](./type_class_obj.py)
+  - ![type_class_object struct image](../some_img/type_class_obj.png)

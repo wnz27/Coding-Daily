@@ -27,7 +27,7 @@
 
 * Python的小白探索之旅，日常练习：[Python_practice](./Python_harvest.md)
 
-* Python中级进阶,日常练习：[Python_middle_practice](./PythonPractice/pythonMiddle.md)
+* Python中级进阶,日常练习：[Python_middle_practice](./PythonPractice/pythonMiddle.md)|[Python_Generate](./Python_Generate/guide.md)
 
 * Python练习笔记，关于这个网站:[Python Practice Book](http://anandology.com/python-practice-book/index.html)的练习笔记：[Python_Practice_note](./PythonPractice/Python_Practice_note.md)
 
