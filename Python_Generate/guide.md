@@ -8,3 +8,7 @@
 - [len方法](./len方法.py)
 - [鸭子类型和多态](./鸭子类型和多态.py)
 - [抽象基类](./抽象基类.py)
+- [isinstance和type的区别](./type_instance.py)
+- [类变量和实例变量](./class_var.py)
+- [类和实例属性的查找顺序](./类和实例属性的查找顺序_mro.py)
+- [类方法、静态方法和实例方法](./class_method.py)
