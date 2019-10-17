@@ -1,3 +1,5 @@
+#! -*- encoding=utf-8 -*-
+
 class Date:
     # 构造函数
     def __init__(self, year, month, day):

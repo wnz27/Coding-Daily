@@ -1,3 +1,5 @@
+#! -*- encoding=utf-8 -*-
+
 class A:
     aa = 1                          # 类变量
     def __init__(self, x, y):

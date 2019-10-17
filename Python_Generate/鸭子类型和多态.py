@@ -1,3 +1,5 @@
+#! -*- encoding=utf-8 -*-
+
 class Cat(object):
     def say(self):
         print("i am a cat")

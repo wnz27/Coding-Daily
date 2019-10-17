@@ -1,3 +1,5 @@
+#! -*- encoding=utf-8 -*-
+
 '''
 应用场景一：
 检查某个类是否有某种方法
@@ -67,7 +69,7 @@ class RedisCache(CacheBase):
 
 redis_cache = RedisCache()
 '''
-如果没实现抽象方法，则会在初始化的时候报错
+如果没实现抽象方法，在方法前使用@abc.abstractmethod这个装饰器的时候则会在初始化的时候报错
 Traceback (most recent call last):
   File "/Users/fzk27/fzk27/Coding-Daily/Python_Generate/抽象基类.py", line 67, in <module>
     redis_cache = RedisCache()

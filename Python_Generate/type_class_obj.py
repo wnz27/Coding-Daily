@@ -1,3 +1,5 @@
+#! -*- encoding=utf-8 -*-
+
 a = 1
 b = "abc"
 print(type(1))
