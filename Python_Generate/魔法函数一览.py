@@ -62,12 +62,65 @@ __aexit__
 __neg__ 负数
 __pos__ 正数
 __abs__ 绝对值
-二元运算符
-算术运算符
-反向算术运算符
-增量赋值算术运算符
-位运算符
-反向位运算符
-增量赋值位运算符
+
+二元运算符：
+__lt__      (<)
+__le__      <= 
+__eq__      == 
+__ne__      != 
+__gt__      > 
+__ge__      >=
+
+算术运算符：
+__add__         + 
+__sub__         - 
+__mul__         * 
+__truediv__     / 
+__floordiv__    // 
+__mod__         % 
+__divmod__      divmod() 
+__pow__         ** 或 pow() 
+__round__       round()
+
+反向算术运算符：
+__radd__ 
+__rsub__ 
+__rmul__ 
+__rtruediv__ 
+__rfloordiv__ 
+__rmod__
+__rdivmod__ 
+__rpow__
+
+增量赋值算术运算符：
+__iadd__ 
+__isub__ 
+__imul__ 
+__itruediv__ 
+__ifloordiv__ 
+__imod__
+__ipow__
+
+位运算符：
+__invert__      ~ 
+__lshift__      << 
+__rshift__      >> 
+__and__         & 
+__or__          | 
+__xor__         ^
+
+反向位运算符：
+__rlshift__ 
+__rrshift__ 
+__rand__ 
+__rxor__ 
+__ror__
+
+增量赋值位运算符：
+__ilshift__ 
+__irshift__ 
+__iand__ 
+__ixor__ 
+__ior__
 '''
 
