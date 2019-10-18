@@ -26,4 +26,6 @@
     - [collections概述](./Python自定义序列类/collections模块/CollectionOverview.py)
     - [collections-tuple讲解](./Python自定义序列类/collections模块/collections_tuple.py)
     - [namedtuple功能详解](./Python自定义序列类/collections模块/namedtuple_test.py)
+    - [defaultdict功能详解](./Python自定义序列类/collections模块/defaultdict_test.py)
+    - [deque功能详解](./Python自定义序列类/collections模块/deque_test.py)
   - [Python中的序列分类](./Python自定义序列类/Python中的序列分类.py)
