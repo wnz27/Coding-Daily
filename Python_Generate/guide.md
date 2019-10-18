@@ -22,4 +22,8 @@
   - [Pyhon中的with语句](./Python深入类和对象/with_test.py)
   - [contextlib简化上下文管理器](./Python深入类和对象/contextlib_with.py)
 - 自定义序列类
+  - [collections模块学习]
+    - [collections概述](./Python自定义序列类/collections模块/CollectionOverview.py)
+    - [collections-tuple讲解](./Python自定义序列类/collections模块/collections_tuple.py)
+    - [namedtuple功能详解](./Python自定义序列类/collections模块/namedtuple_test.py)
   - [Python中的序列分类](./Python自定义序列类/Python中的序列分类.py)
