@@ -35,4 +35,9 @@
     - [序列分类举例](./Python自定义序列类/sequence_test.py)
   - [序列中的+、+=和extend的区别](./Python自定义序列类/list_+_+=_extend.py)
   - [list切片详解](./Python自定义序列类/list切片详解.py)
-  - [实现可切片对象](./Python自定义序列类/实现可切片对象.py)
+  - [实现可切片对象](./Python自定义序列类/slice_object.py)
+  - [bisect维护已排序序列](./Python自定义序列类/bisect_test.py)
+  - [什么时候不该使用列表](./Python自定义序列类/array_test.py)
+  - [列表推导式、生成器表达式、字典推导式](./Python自定义序列类/list_gen.py)
+- 深入Python的set和dict
+  -[]()
