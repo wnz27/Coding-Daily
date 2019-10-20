@@ -40,4 +40,4 @@
   - [什么时候不该使用列表](./Python自定义序列类/array_test.py)
   - [列表推导式、生成器表达式、字典推导式](./Python自定义序列类/list_gen.py)
 - 深入Python的set和dict
-  -[]()
+  - [dict的常用方法](./深入Python的set和dict/dict_method.py)
