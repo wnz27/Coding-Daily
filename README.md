@@ -167,7 +167,7 @@
 
 ---
 <a id = "16"></a>
-- [Shell Learn ---------------- Shell学习笔记]()
+- [Shell Learn ---------------- Shell学习笔记](https://github.com/wnz27/Learn_Linux/blob/master/RoadToShell/guide.md)
 
 
 ---
