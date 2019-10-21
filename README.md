@@ -147,7 +147,7 @@
 ## Linux_Learn
   Linux学习
   
-- [Linux_习得](https://github.com/wnz27/Learn_Linux/blob/master/Learn_Linux.md)
+- [Linux_习得](https://github.com/wnz27/Learn_Linux)
 
 ---
 <a id = "13"></a>
