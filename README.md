@@ -15,10 +15,11 @@
 * [Recommendation of Books-------书籍推荐](#9)
 * [Recommendation of Essays------文章推荐](#10)
 * [Other----------------------------其他](#11)
-* [Linux_Learn-----------------Linux学习](#12)
+* [Linux_Learn-----------------Linux学习手记](#12)
 * [Self Works-----------------个人习得收获](#13)
 * [LeetCode -- Algorithms--------算法学习笔记](#14)
 * [Ruby practice ---------------- ruby练习](#15)
+* [Shell Learn ---------------- Shell学习笔记](#16)
 
 ---
 
@@ -27,7 +28,8 @@
 
 * Python的小白探索之旅，日常练习：[Python_practice](./Python_harvest.md)
 
-* Python中级进阶,日常练习：[Python_middle_practice](./PythonPractice/pythonMiddle.md)|[Python_Generate](./Python_Generate/guide.md)
+* Python中级,日常练习：[Python_middle_practice](./PythonPractice/pythonMiddle.md)
+* Python进阶，学习笔记[Python_Generate](./Python_Generate/guide.md)
 
 * Python练习笔记，关于这个网站:[Python Practice Book](http://anandology.com/python-practice-book/index.html)的练习笔记：[Python_Practice_note](./PythonPractice/Python_Practice_note.md)
 
@@ -162,6 +164,10 @@
 ---
 <a id = "15"> </a>
 - [Ruby practice----------Ruby学习笔记](https://github.com/wnz27/Ruby-Guide)
+
+---
+<a id = "16"></a>
+- [Shell Learn ---------------- Shell学习笔记]()
 
 
 ---
