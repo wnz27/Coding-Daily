@@ -15,10 +15,11 @@
 * [Recommendation of Books-------书籍推荐](#9)
 * [Recommendation of Essays------文章推荐](#10)
 * [Other----------------------------其他](#11)
-* [Linux_Learn-----------------Linux学习](#12)
+* [Linux_Learn-----------------Linux学习手记](#12)
 * [Self Works-----------------个人习得收获](#13)
 * [LeetCode -- Algorithms--------算法学习笔记](#14)
 * [Ruby practice ---------------- ruby练习](#15)
+* [Shell Learn ---------------- Shell学习笔记](#16)
 
 ---
 
@@ -163,6 +164,10 @@
 ---
 <a id = "15"> </a>
 - [Ruby practice----------Ruby学习笔记](https://github.com/wnz27/Ruby-Guide)
+
+---
+<a id = "16"></a>
+- [Shell Learn ---------------- Shell学习笔记]()
 
 
 ---
