@@ -43,3 +43,4 @@
   - [dict的常用方法](./深入Python的set和dict/dict_method.py)
   - [dict的子类](./深入Python的set和dict/dict_subclass.py)
   - [set和frozenset](./深入Python的set和dict/set_test.py)
+  - [dict和set实现原理](/深入Python的set和dict/dict_performance.py)
