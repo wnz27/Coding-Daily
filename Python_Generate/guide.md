@@ -41,3 +41,5 @@
   - [列表推导式、生成器表达式、字典推导式](./Python自定义序列类/list_gen.py)
 - 深入Python的set和dict
   - [dict的常用方法](./深入Python的set和dict/dict_method.py)
+  - [dict的子类](./深入Python的set和dict/dict_subclass.py)
+  - [set和frozenset](./深入Python的set和dict/set_test.py)
