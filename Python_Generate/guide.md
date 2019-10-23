@@ -44,3 +44,8 @@
   - [dict的子类](./深入Python的set和dict/dict_subclass.py)
   - [set和frozenset](./深入Python的set和dict/set_test.py)
   - [dict和set实现原理](/深入Python的set和dict/dict_performance.py)
+- 对象引用、可变性和垃圾回收
+  - [Pyhon中的变量是什么？](./对象引用、可变性和垃圾回收/what_is_var.py)
+  - [is和==的区别](./对象引用、可变性和垃圾回收/is_==_diff.py)
+  - [del语句和垃圾回收](./对象引用、可变性和垃圾回收/delete.py)
+  - [一个经典的参数错误](./对象引用、可变性和垃圾回收/an_error.py)
