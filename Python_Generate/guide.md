@@ -51,3 +51,4 @@
   - [一个经典的参数错误](./对象引用、可变性和垃圾回收/an_error.py)
 - 元类编程
   - [property动态属性](./元类编程/property_test.py)
+  - [__getattr__、__getattribute__魔法函数](./元类编程/getattr.py)
