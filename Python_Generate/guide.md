@@ -52,3 +52,4 @@
 - 元类编程
   - [property动态属性](./元类编程/property_test.py)
   - [__getattr__、__getattribute__魔法函数](./元类编程/getattr.py)
+  - [属性描述符和属性查找过程](./元类编程/attr_description.py)
