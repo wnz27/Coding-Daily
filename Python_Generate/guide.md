@@ -54,3 +54,4 @@
   - [__getattr__、__getattribute__魔法函数](./元类编程/getattr.py)
   - [属性描述符和属性查找过程](./元类编程/attr_description.py)
   - [__new__和__init__的区别](./元类编程/new_init.py)
+  - [自定义元类](./元类编程/metaclass_test.py)
