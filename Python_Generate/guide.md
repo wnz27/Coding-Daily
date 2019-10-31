@@ -56,3 +56,9 @@
   - [__new__和__init__的区别](./元类编程/new_init.py)
   - [自定义元类](./元类编程/metaclass_test.py)
   - [通过元类实现ORM](./元类编程/MyOrm.py)
+- 迭代器和生成器
+  - [Python的迭代协议](./迭代器和生成器/iterable.py)
+  - [什么是迭代器和可迭代对象](./迭代器和生成器/iterable_iterator.py)
+  - [生成器函数的使用](./迭代器和生成器/gen_func.py)
+  - [python生成器是如何实现的](./迭代器和生成器/how_gen_work.py)
+  - [生成器如何读取大文件](./迭代器和生成器/read_file.py)
