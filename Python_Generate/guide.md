@@ -62,3 +62,9 @@
   - [生成器函数的使用](./迭代器和生成器/gen_func.py)
   - [python生成器是如何实现的](./迭代器和生成器/how_gen_work.py)
   - [生成器如何读取大文件](./迭代器和生成器/read_file.py)
+- Python socket编程
+  - [弄懂HTTP、Socket、TCP这几个概念](./Python_socket编程/HTTP_Socket_TCP.py)
+  - python [client](./Python_socket编程/socket_client.py) 和 [server](./Python_socket编程/socket_server.py)
+  - [socket模拟http请求](./Python_socket编程/socket_http.py)
+- 多线程、多进程和线程池编程
+  - []()
