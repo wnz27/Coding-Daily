@@ -71,4 +71,6 @@
   - [python多线程编程](./多线程、多进程和线程池编程/python_thread.py)
   - [线程间通信--共享变量](./多线程、多进程和线程池编程/thread_sharevar.py)
   - [线程间通信--queue]](./多线程、多进程和线程池编程/thread_queue.py)
-  - [线程同步--Lock]()
+  - [线程同步--Lock、RLock](./多线程、多进程和线程池编程/thread_sync_lock_rlock.py)
+  - [线程同步--条件变量condition使用以及源码分析](./多线程、多进程和线程池编程/thread_condition.py)
+  - []()
