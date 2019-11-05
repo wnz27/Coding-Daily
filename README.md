@@ -66,6 +66,7 @@
 <a id = "4"></a>
 ## Practice of Git 
 - [Skills](https://github.com/wnz27/gitskills/blob/master/git%E4%B9%A0%E5%BE%97.md)
+- [方便的.gitignore配置命令使用](https://gitignore.io)
 
 ---
 <a id = "5"></a>
