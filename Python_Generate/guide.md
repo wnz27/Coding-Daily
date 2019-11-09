@@ -80,4 +80,4 @@
   - [进程间通信--Queue、Pipe、Manager](./多线程、多进程和线程池编程/progress_queue.py)
 - 协程和异步IO
   - [并发、并行、同步、异步、阻塞、非阻塞](./协程和异步IO/并发、并行、同步、异步、阻塞、非阻塞.md)
-  - []()
+  - [C10K的问题和IO多路复用(select、poll、epoll)](./协程和异步IO/c10k_io_test.py)
