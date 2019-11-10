@@ -80,4 +80,5 @@
   - [进程间通信--Queue、Pipe、Manager](./多线程、多进程和线程池编程/progress_queue.py)
 - 协程和异步IO
   - [并发、并行、同步、异步、阻塞、非阻塞](./协程和异步IO/并发、并行、同步、异步、阻塞、非阻塞.md)
-  - [IO多路复用(select、poll、epoll)](./协程和异步IO/select_poll_epoll_io_test.py)
+  - [通过非阻塞io实现http请求](./协程和异步IO/setblocking.py)
+  - [通过select完成http请求](./协程和异步IO/select_test.py)
