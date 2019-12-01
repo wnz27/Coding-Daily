@@ -17,38 +17,54 @@ def pivotIndex(nums):
                 return i
             left += nums[i]
         return -1
-# 值类型互不影响，开辟了新的内存空间
-a = 1
-b = a
-print(id(a), id(b))
-a = 2
-print(b)
-print(id(a), id(b))
+# # 值类型互不影响，开辟了新的内存空间
+# a = 1
+# b = a
+# print(id(a), id(b))
+# a = 2
+# print(b)
+# print(id(a), id(b))
 
-print("*" * 80)
+# print("*" * 80)
 
-# 引用类型影响，他们指向同一个对象
-c = {"age":2}
-d = c
-print(id(c), id(d))
-d["age"] = 3
-print(c.get("age"))
-print(id(c), id(d))
+# # 引用类型影响，他们指向同一个对象
+# c = {"age":2}
+# d = c
+# print(id(c), id(d))
+# d["age"] = 3
+# print(c.get("age"))
+# print(id(c), id(d))
 
-print("*" * 80)
-# 值类型互不影响，开辟了新的内存空间
-e = None
-f = e
-print(id(e), id(f))
-f = "123"
-print(e)
-print(id(e), id(f))
+# print("*" * 80)
+# # 值类型互不影响，开辟了新的内存空间
+# e = None
+# f = e
+# print(id(e), id(f))
+# f = "123"
+# print(e)
+# print(id(e), id(f))
 
-print("*" * 80)
-# 值类型互不影响，开辟了新的内存空间
-g = True
-h = g
-print(id(g), id(h))
-h = False
-print(g)
-print(id(g), id(h))
+# print("*" * 80)
+# # 值类型互不影响，开辟了新的内存空间
+# g = True
+# h = g
+# print(id(g), id(h))
+# h = False
+# print(g)
+# print(id(g), id(h))
+
+d1 = {'name': 'jason', 'age': 20, 'gender': 'male'}
+d2 = dict({'name': 'jason', 'age': 20, 'gender': 'male'})
+d3 = dict([('name', 'jason'), ('age', 20), ('gender', 'male')])
+d4 = dict(name='jason', age=20, gender='male') 
+print(d1 == d2 == d3 ==d4)
+print(id(d1), id(d2), id(d3), id(d4))
+
+
+s1 = 'hello'
+s2 = "hello"
+s3 = """hello"""
+print(id(s1),id(s2), id(s3))
+
+
+
