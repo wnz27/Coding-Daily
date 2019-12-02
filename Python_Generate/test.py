@@ -67,4 +67,50 @@ s3 = """hello"""
 print(id(s1),id(s2), id(s3))
 
 
+l1 = [1, 2, 3]
+l2 = [1, 2, 3]
+l3 = l2
+print(id(l1), id(l2))
 
+def func(d):
+    d['a'] = 10
+    d['b'] = 20
+d = {'a': 1, 'b': 2}
+func(d)
+print(d)
+
+import time
+import functools
+import dis
+def log_execution_time(func): 
+    @functools.wraps(func) 
+    def wrapper(*args, **kwargs): 
+        start = time.perf_counter() 
+        res =func(*args, **kwargs) 
+        end = time.perf_counter() 
+        print('{} took {} ms'.format(func.__name__, (end - start) * 1000)) 
+        return res
+    return wrapper
+
+@log_execution_time
+def calculate_similarity(message):
+    print(message)
+print(dis.dis(calculate_similarity))
+calculate_similarity("123")
+
+# 以下一样
+
+def log_execution_time2(func): 
+    @functools.wraps(func) 
+    def wrapper(*args, **kwargs): 
+        start = time.perf_counter() 
+        func(*args, **kwargs) 
+        end = time.perf_counter() 
+        print('{} took {} ms'.format(func.__name__, (end - start) * 1000)) 
+    return wrapper
+
+@log_execution_time
+def calculate_similarity2(message):
+    print(message)
+print(dis.dis(calculate_similarity2))
+calculate_similarity2("123")
