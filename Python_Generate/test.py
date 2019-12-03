@@ -53,64 +53,74 @@ def pivotIndex(nums):
 # print(g)
 # print(id(g), id(h))
 
-d1 = {'name': 'jason', 'age': 20, 'gender': 'male'}
-d2 = dict({'name': 'jason', 'age': 20, 'gender': 'male'})
-d3 = dict([('name', 'jason'), ('age', 20), ('gender', 'male')])
-d4 = dict(name='jason', age=20, gender='male') 
-print(d1 == d2 == d3 ==d4)
-print(id(d1), id(d2), id(d3), id(d4))
+# d1 = {'name': 'jason', 'age': 20, 'gender': 'male'}
+# d2 = dict({'name': 'jason', 'age': 20, 'gender': 'male'})
+# d3 = dict([('name', 'jason'), ('age', 20), ('gender', 'male')])
+# d4 = dict(name='jason', age=20, gender='male') 
+# print(d1 == d2 == d3 ==d4)
+# print(id(d1), id(d2), id(d3), id(d4))
 
 
-s1 = 'hello'
-s2 = "hello"
-s3 = """hello"""
-print(id(s1),id(s2), id(s3))
+# s1 = 'hello'
+# s2 = "hello"
+# s3 = """hello"""
+# print(id(s1),id(s2), id(s3))
 
 
-l1 = [1, 2, 3]
-l2 = [1, 2, 3]
-l3 = l2
-print(id(l1), id(l2))
+# l1 = [1, 2, 3]
+# l2 = [1, 2, 3]
+# l3 = l2
+# print(id(l1), id(l2))
 
-def func(d):
-    d['a'] = 10
-    d['b'] = 20
-d = {'a': 1, 'b': 2}
-func(d)
-print(d)
+# def func(d):
+#     d['a'] = 10
+#     d['b'] = 20
+# d = {'a': 1, 'b': 2}
+# func(d)
+# print(d)
 
-import time
-import functools
-import dis
-def log_execution_time(func): 
-    @functools.wraps(func) 
-    def wrapper(*args, **kwargs): 
-        start = time.perf_counter() 
-        res =func(*args, **kwargs) 
-        end = time.perf_counter() 
-        print('{} took {} ms'.format(func.__name__, (end - start) * 1000)) 
-        return res
-    return wrapper
+# import time
+# import functools
+# import dis
+# def log_execution_time(func): 
+#     @functools.wraps(func) 
+#     def wrapper(*args, **kwargs): 
+#         start = time.perf_counter() 
+#         res =func(*args, **kwargs) 
+#         end = time.perf_counter() 
+#         print('{} took {} ms'.format(func.__name__, (end - start) * 1000)) 
+#         return res
+#     return wrapper
 
-@log_execution_time
-def calculate_similarity(message):
-    print(message)
-print(dis.dis(calculate_similarity))
-calculate_similarity("123")
+# @log_execution_time
+# def calculate_similarity(message):
+#     print(message)
+# print(dis.dis(calculate_similarity))
+# calculate_similarity("123")
 
-# 以下一样
+# # 以下一样
 
-def log_execution_time2(func): 
-    @functools.wraps(func) 
-    def wrapper(*args, **kwargs): 
-        start = time.perf_counter() 
-        func(*args, **kwargs) 
-        end = time.perf_counter() 
-        print('{} took {} ms'.format(func.__name__, (end - start) * 1000)) 
-    return wrapper
+# def log_execution_time2(func): 
+#     @functools.wraps(func) 
+#     def wrapper(*args, **kwargs): 
+#         start = time.perf_counter() 
+#         func(*args, **kwargs) 
+#         end = time.perf_counter() 
+#         print('{} took {} ms'.format(func.__name__, (end - start) * 1000)) 
+#     return wrapper
 
-@log_execution_time
-def calculate_similarity2(message):
-    print(message)
-print(dis.dis(calculate_similarity2))
-calculate_similarity2("123")
+# @log_execution_time
+# def calculate_similarity2(message):
+#     print(message)
+# print(dis.dis(calculate_similarity2))
+# calculate_similarity2("123")
+
+# import dis
+# def index_generator(L, target): 
+#     for i, num in enumerate(L): 
+#         if num == target: 
+#             yield i
+
+# print(list(index_generator([1, 6, 2, 4, 5, 2, 8, 6, 3, 2], 2)))
+# print(dis.dis(index_generator([1, 6, 2, 4, 5, 2, 8, 6, 3, 2], 2)))
+
