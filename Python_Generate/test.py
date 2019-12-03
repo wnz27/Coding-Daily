@@ -124,3 +124,48 @@ def pivotIndex(nums):
 # print(list(index_generator([1, 6, 2, 4, 5, 2, 8, 6, 3, 2], 2)))
 # print(dis.dis(index_generator([1, 6, 2, 4, 5, 2, 8, 6, 3, 2], 2)))
 
+
+# import dis
+# def gen_func():
+#     yield 1
+#     yield 2
+#     yield 3
+#     return "fzk"
+
+# if __name__ == "__main__":
+#     gen = gen_func()
+#     a = list(gen)
+#     print(a,gen)
+
+# import dis
+# def gen_func():
+#     html = yield "lalalalalala"
+#     print(html)
+#     yield 2
+#     yield 3
+#     return "fzk"
+
+# if __name__ == "__main__":
+#     gen = gen_func()
+#     print(gen.send(None))
+#     html = "fzk"
+#     print(gen.send(html))
+#     print(next(gen))
+
+
+# def gen_func():
+#     try:
+#         yield "fzkfzkfzfk"
+#     except Exception as e:
+#         pass
+#     yield 2
+#     yield 3
+#     return "123230482309481343243"
+
+# if __name__ == "__main__":
+#     gen = gen_func()
+#     print(next(gen))
+#     print(gen.throw(Exception, "download error"))   # 把2yield出来
+#     print(next(gen))
+
+
