@@ -36,11 +36,9 @@
 * [简单正则练习](https://github.com/wnz27/Algorithms_Note/blob/master/re_practice.py)
 
 * Python类书籍学习笔记--（笔记有目录）:
-    - [《Python编程：从入门到实践》](./PythonPractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过） 
+    - [《Python编程：从入门到实践》](./PythonPractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过）
     - [《Python编程快速上手———让繁琐工作自动化》](./PythonPractice/Automate The Boring Stuff With Python.md)（基础部分略过）
     - [《数据分析实战》](./PythonPractice/Python Data Analytics’s note.md)
-
-
 
 ---
 <a id = "2"></a>
