@@ -20,7 +20,7 @@
 * [LeetCode -- Algorithms--------算法学习笔记](#14)
 * [Ruby practice ---------------- ruby练习](#15)
 * [Shell Learn ---------------- Shell学习笔记](#16)
-* [Self works](#17)
+* [Self works ----------------- 个人文章](#17)
 
 ---
 
