@@ -20,6 +20,7 @@
 * [LeetCode -- Algorithms--------算法学习笔记](#14)
 * [Ruby practice ---------------- ruby练习](#15)
 * [Shell Learn ---------------- Shell学习笔记](#16)
+* [Self works](#17)
 
 ---
 
@@ -39,6 +40,13 @@
     * [《Python编程：从入门到实践》](./PythonPractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过）
     * [《Python编程快速上手———让繁琐工作自动化》](./PythonPractice/Automate_The_Boring_Stuff_With_Python.md)（基础部分略过）
     * [《数据分析实战》](./PythonPractice/Python_Data_Analytics’s_note.md)
+
+---
+<a id = "17"> </a> 
+## Self works
+
+* [个人文章](https://github.com/wnz27/self-article)
+
 
 ---
 <a id = "2"></a>
