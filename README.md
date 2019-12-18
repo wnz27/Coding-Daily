@@ -166,7 +166,6 @@
 ## Self Works___个人习得收获
 - [解决Mac安装应用系统提示已损坏的问题](./Self_Works/solve_broken.md)
 - [vscode因权限阻止更新解决办法](./Self_Works/vs_code.md)
-- [学习学习](https://github.com/wnz27/Cultivate__harvest/blob/master/Self_Works/Learn_Learn.md)，一些学习方法论的习得
 - [中国投资机构信息筛选汇总](./Self_Works/中国投资机构信息筛选汇总.md)
 - [杭州孵化器信息筛选汇总](./Self_Works/杭州孵化器信息筛选汇总.md)
 
