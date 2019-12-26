@@ -40,6 +40,7 @@
 ## Self works
 
 * [个人文章](https://github.com/wnz27/self-article)
+* [个人小demo-todolist, 基于django和react](https://github.com/wnz27/prework-todolist)
 
 
 ---
