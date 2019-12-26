@@ -46,7 +46,6 @@
 <a id = "2"></a>
 
 ## Practice of C 
-* C语言练习:[Practice_C](./C_language/C_Practice.md)
 
 
 ---
