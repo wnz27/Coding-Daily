@@ -6,16 +6,10 @@
 
 * [Practice of Python---------Python练习](#1)
 * [Practice of C----------------C语言练习](#2)
-* [Practice of Web-----------网页编程练习](#3)
 * [Practice of Git---------------Git练习](#4)
 * [Translate Book -----------翻译系列练习](#5)
-* [Computer Science---------计算机科学学习](#6)
-* [Database's Learn record--数据库学习记录](#7)
-* [About Math--------------------关于数学](#8)
 * [Recommendation of Books-------书籍推荐](#9)
 * [Recommendation of Essays------文章推荐](#10)
-* [Other----------------------------其他](#11)
-* [Linux_Learn-----------------Linux学习手记](#12)
 * [Self Works-----------------个人习得收获](#13)
 * [LeetCode -- Algorithms--------算法学习笔记](#14)
 * [Ruby practice ---------------- ruby练习](#15)
@@ -25,24 +19,24 @@
 ---
 
 <a id = "1"> </a> 
+
 ## Practice of Python 
 
 * Python的小白探索之旅，日常练习：[Python_practice](./Python_harvest.md)
 
 * Python中级,日常练习：[Python_middle_practice](./PythonPractice/pythonMiddle.md)
-* Python进阶，学习笔记[Python_Generate](./Python_Generate/guide.md)
 
-* Python练习笔记，关于这个网站:[Python Practice Book](http://anandology.com/python-practice-book/index.html)的练习笔记：[Python_Practice_note](./PythonPractice/Python_Practice_note.md)
+* Python进阶，学习笔记[Python_Generate](./Python_Generate/guide.md)
 
 * [简单正则练习](https://github.com/wnz27/Algorithms_Note/blob/master/re_practice.py)
 
 * Python类书籍学习笔记--（笔记有目录）:
     * [《Python编程：从入门到实践》](./PythonPractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过）
     * [《Python编程快速上手———让繁琐工作自动化》](./PythonPractice/Automate_The_Boring_Stuff_With_Python.md)（基础部分略过）
-    * [《数据分析实战》](./PythonPractice/Python_Data_Analytics’s_note.md)
 
 ---
 <a id = "17"> </a> 
+
 ## Self works
 
 * [个人文章](https://github.com/wnz27/self-article)
@@ -50,61 +44,27 @@
 
 ---
 <a id = "2"></a>
-## Practice of C 
 
+## Practice of C 
 * C语言练习:[Practice_C](./C_language/C_Practice.md)
 
 
 ---
-<a id = "3"></a>
-## Practice of Web 
-   Learn about Web
-   
-* [HTML_Practice](https://github.com/wnz27/webLearn/blob/master/HTML_Practice.md)
-* [CSS_Practice](https://github.com/wnz27/webLearn/blob/master/CSS_Practice.md)
-* [HTML&CSS](https://github.com/wnz27/webLearn/blob/master/HTML&CSS_practice.md)
-* [JS_Note](https://github.com/wnz27/webLearn/blob/master/JS_Note.md)
-* [Web_Note---网络基础知识笔记](https://github.com/wnz27/webLearn/blob/master/Web_note.md)
-* [React_learn --- React基础知识学习](https://github.com/wnz27/JS-Daily/blob/master/react-test/basic.md)
-
-
----
 <a id = "4"></a>
+
 ## Practice of Git 
 - [Skills](https://github.com/wnz27/gitskills/blob/master/git%E4%B9%A0%E5%BE%97.md)
 - [方便的.gitignore配置命令使用](https://gitignore.io)
 
 ---
 <a id = "5"></a>
+
 ## Translate Book
-- [Dive Into Python 3----------《深入pyhton3》](https://github.com/wnz27/Coding-Daily/blob/master/translate_book_prac/Dive_into_Python3.md)
 
----
-<a id = "6"></a>
-## Computer Science 
-  Learn about some university curriculum
-   
-*  [**《How Net works Work》__Note《网络是怎样连接的》——笔记**](https://github.com/wnz27/Computer-Science/blob/master/%E7%BD%91%E7%BB%9C%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)
-
----
-<a id = "7"></a>
-## Database's Learn record 
-   Process of Learn Database
-     
-### SQL 
-* [SQL's pre(SQL初探)](https://github.com/wnz27/Database-s-Learn-Note/blob/master/SQL's%20pre.md)
-
----
-<a id = "8"></a>
-## About Math 
-   Path to Math
-   
-*  **《The Calculalus Lifesaver》** [**《普林斯顿微积分读本》**](https://github.com/wnz27/About-Math/blob/master/%E3%80%8AThe%20Calculalus%20Lifesaver%E3%80%8B%20%E3%80%8A%E6%99%AE%E6%9E%97%E6%96%AF%E9%A1%BF%E5%BE%AE%E7%A7%AF%E5%88%86%E8%AF%BB%E6%9C%AC%E3%80%8B.md)
-
-*  **《Linear Algebra and its Application (Fourth Edition)》**[**《线性代数及其应用》**](https://github.com/wnz27/About-Math/blob/master/%E3%80%8ALinear%20Algebra%20and%20its%20Application%20(Fourth%20Edition)%E3%80%8B%E3%80%8A%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8%E3%80%8B.md)
 
 ---
 <a id = "9"></a>
+
 ## Recommendation of Books 
 
 *  **《自控力》**    从心理和实践帮你重塑对自控的认识
@@ -123,6 +83,7 @@
 
 ---
 <a id = "10"></a>
+
 ## Recommendation of Essays 
    网站推荐
    
@@ -148,21 +109,8 @@
     - [【译文】Material Design 新手？来瞅瞅你需要知道的12条原则](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/%E8%AF%91%E6%96%87/%E3%80%90%E8%AF%91%E6%96%87%E3%80%91Material%20Design%20%E6%96%B0%E6%89%8B%EF%BC%9F%E6%9D%A5%E7%9E%85%E7%9E%85%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%8412%E6%9D%A1%E5%8E%9F%E5%88%99.md)-------翻译：[ecmadao](https://github.com/ecmadao)
 
 ---
-<a id = "11"></a>
-## Other 
-  其他
-  
-- [Markdown-skills](https://github.com/wnz27/Cultivate__harvest/blob/master/Other_Learn/Markdown_skills.md)
-
----
-<a id = "12"></a>
-## Linux_Learn
-  Linux学习
-  
-- [Linux_习得](https://github.com/wnz27/Learn_Linux)
-
----
 <a id = "13"></a>
+
 ## Self Works___个人习得收获
 - [解决Mac安装应用系统提示已损坏的问题](./Self_Works/solve_broken.md)
 - [vscode因权限阻止更新解决办法](./Self_Works/vs_code.md)
