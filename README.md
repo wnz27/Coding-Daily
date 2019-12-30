@@ -10,11 +10,10 @@
 * [Translate Book -----------翻译系列练习](#5)
 * [Recommendation of Books-------书籍推荐](#9)
 * [Recommendation of Essays------文章推荐](#10)
-* [Self Works-----------------个人习得收获](#13)
 * [LeetCode -- Algorithms--------算法学习笔记](#14)
 * [Ruby practice ---------------- ruby练习](#15)
 * [Shell Learn ---------------- Shell学习笔记](#16)
-* [Self works ----------------- 个人文章](#17)
+* [Self Works ----------------- 个人文章及练习](#17)
 
 ---
 
@@ -41,7 +40,11 @@
 
 * [个人文章](https://github.com/wnz27/self-article)
 * [个人小demo-todolist, 基于django和react](https://github.com/wnz27/prework-todolist)
-
+- [解决Mac安装应用系统提示已损坏的问题](./Self_Works/solve_broken.md)
+- [vscode因权限阻止更新解决办法](./Self_Works/vs_code.md)
+- [中国投资机构信息筛选汇总](./Self_Works/中国投资机构信息筛选汇总.md)
+- [杭州孵化器信息筛选汇总](./Self_Works/杭州孵化器信息筛选汇总.md)
+- [MongoDB安装配置方法](./Self_Works/MongoDB安装配置方法.md)
 
 ---
 <a id = "2"></a>
@@ -107,15 +110,6 @@
     - [【译文】扁平化设计成了网页设计的标配了吗？10名设计师的心声](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/%E8%AF%91%E6%96%87/%E3%80%90%E8%AF%91%E6%96%87%E3%80%91%E6%89%81%E5%B9%B3%E5%8C%96%E8%AE%BE%E8%AE%A1%E6%88%90%E4%BA%86%E7%BD%91%E9%A1%B5%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%87%E9%85%8D%E4%BA%86%E5%90%97%EF%BC%9F10%E5%90%8D%E8%AE%BE%E8%AE%A1%E5%B8%88%E7%9A%84%E5%BF%83%E5%A3%B0.md)----翻译：[ecmadao](https://github.com/ecmadao)
     - [【译文】构建积极友好的 UI](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/%E8%AF%91%E6%96%87/%E3%80%90%E8%AF%91%E6%96%87%E3%80%91%E6%9E%84%E5%BB%BA%E7%A7%AF%E6%9E%81%E5%8F%8B%E5%A5%BD%E7%9A%84%20UI.md)----------------------------------------翻译：[ecmadao](https://github.com/ecmadao)
     - [【译文】Material Design 新手？来瞅瞅你需要知道的12条原则](https://github.com/ecmadao/Coding-Guide/blob/master/Notes/%E8%AF%91%E6%96%87/%E3%80%90%E8%AF%91%E6%96%87%E3%80%91Material%20Design%20%E6%96%B0%E6%89%8B%EF%BC%9F%E6%9D%A5%E7%9E%85%E7%9E%85%E4%BD%A0%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%8412%E6%9D%A1%E5%8E%9F%E5%88%99.md)-------翻译：[ecmadao](https://github.com/ecmadao)
-
----
-<a id = "13"></a>
-
-## Self Works___个人习得收获
-- [解决Mac安装应用系统提示已损坏的问题](./Self_Works/solve_broken.md)
-- [vscode因权限阻止更新解决办法](./Self_Works/vs_code.md)
-- [中国投资机构信息筛选汇总](./Self_Works/中国投资机构信息筛选汇总.md)
-- [杭州孵化器信息筛选汇总](./Self_Works/杭州孵化器信息筛选汇总.md)
 
 ---
 <a id = "14"> </a>
