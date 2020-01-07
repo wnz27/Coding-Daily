@@ -13,7 +13,7 @@
 * [Recommendation of Essays------文章推荐](#10)
 * [LeetCode -- Algorithms--------算法学习笔记](#14)
 * [Ruby practice ---------------- ruby练习](#15)
-* [Shell Learn ---------------- Shell学习笔记](#16)
+* [Linux Learn ---------------- Linux学习相关](https://github.com/wnz27/Learn_Linux)
 * [Self Works ----------------- 个人文章及练习](#17)
 
 ---
@@ -119,11 +119,6 @@
 ---
 <a id = "15"> </a>
 - [Ruby practice----------Ruby学习笔记](https://github.com/wnz27/Ruby-Guide)
-
----
-<a id = "16"></a>
-- [Shell Learn ---------------- Shell学习笔记](https://github.com/wnz27/Learn_Linux/blob/master/RoadToShell/guide.md)
-
 
 ---
 ------------------------------------------------------------------------------------------------------------[返回顶部](#0)
