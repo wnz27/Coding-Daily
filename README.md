@@ -6,15 +6,16 @@
 
 * [Practice of Python---------Python练习](#1)
 * [Practice of Database------------数据库练习](https://github.com/wnz27/Database-s-Learn-Note)
+* [LeetCode -- Algorithms--------算法学习笔记](#14)
+* [Linux Learn ---------------- Linux学习相关](https://github.com/wnz27/Learn_Linux)
+* [Self Works ----------------- 个人文章及练习](#17)
+* [Design Pattern ---------  设计模式学习](#3)
 * [Practice of C----------------C语言练习](#2)
 * [Practice of Git---------------Git练习](#4)
 * [Translate Book -----------翻译系列练习](#5)
 * [Recommendation of Books-------书籍推荐](#9)
 * [Recommendation of Essays------文章推荐](#10)
-* [LeetCode -- Algorithms--------算法学习笔记](#14)
 * [Ruby practice ---------------- ruby练习](#15)
-* [Linux Learn ---------------- Linux学习相关](https://github.com/wnz27/Learn_Linux)
-* [Self Works ----------------- 个人文章及练习](#17)
 
 ---
 
@@ -38,7 +39,6 @@
 <a id = "17"> </a> 
 
 ## Self works
-
 * [个人文章](https://github.com/wnz27/self-article)
 * [个人小demo-todolist, 基于django和react](https://github.com/wnz27/prework-todolist)
 - [解决Mac安装应用系统提示已损坏的问题](./Self_Works/solve_broken.md)
@@ -46,6 +46,12 @@
 - [中国投资机构信息筛选汇总](./Self_Works/中国投资机构信息筛选汇总.md)
 - [杭州孵化器信息筛选汇总](./Self_Works/杭州孵化器信息筛选汇总.md)
 - [MongoDB安装配置方法](./Self_Works/MongoDB安装配置方法.md)
+
+---
+<a id = "3"></a>
+
+## Design Pattern
+- [设计模式学习](./DesignPattern/learnDesignPattern.md)
 
 ---
 <a id = "2"></a>
