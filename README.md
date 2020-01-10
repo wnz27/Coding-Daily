@@ -39,7 +39,7 @@
 <a id = "17"> </a> 
 
 ## Self works
-* [个人文章](https://github.com/wnz27/self-article)
+* [个人原创文章](https://github.com/wnz27/self-article)
 * [个人小demo-todolist, 基于django和react](https://github.com/wnz27/prework-todolist)
 - [解决Mac安装应用系统提示已损坏的问题](./Self_Works/solve_broken.md)
 - [vscode因权限阻止更新解决办法](./Self_Works/vs_code.md)
