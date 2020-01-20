@@ -9,6 +9,7 @@
 * [LeetCode -- Algorithms--------算法学习笔记](https://github.com/wnz27/Algorithms_Note/blob/master/README.md)
 * [Linux Learn ---------------- Linux学习相关](https://github.com/wnz27/Learn_Linux)
 * [Self Works ----------------- 个人文章与学习记录](https://github.com/wnz27/self-article)
+* [消息代理学习](#2)
 * [Self Demo practice --------------个人demo练习](#7)
 * [Design Pattern ---------  设计模式学习](./DesignPattern/learnGuide.md)
 * [Practice of C----------------C语言练习](./C_language/C_Guide.md)
@@ -32,6 +33,15 @@
 * Python类书籍学习笔记--（笔记有目录）:
     * [《Python编程：从入门到实践》](./PythonPractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过）
     * [《Python编程快速上手———让繁琐工作自动化》](./PythonPractice/Automate_The_Boring_Stuff_With_Python.md)（基础部分略过）
+
+---
+
+<a id = "2"> </a> 
+
+## 消息代理学习
+- [rabbitmq官方Tutorial简单解析---------【Python语言】](./RabbitMQ/rabbitmqTutorials简单解析.md)
+- [rabbitmq异常总结-----------【遇见了会持续更新】](./RabbitMQ/rabbitmq异常总结.md)
+- [rabbitmqRPC注意点----------【遇见了会持续更新】](./RabbitMQ/remote_producer_call_rpc.md)
 
 ---
 <a id = "7"> </a> 
