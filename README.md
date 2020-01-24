@@ -11,7 +11,7 @@
 * [Self Works ----------------- 个人文章与学习记录](https://github.com/wnz27/self-article)
 * [消息代理学习](#2)
 * [Self Demo practice --------------个人demo练习](#7)
-* [Design Pattern ---------  设计模式学习](./DesignPattern/learnGuide.md)
+* [Design Pattern ---------  设计模式学习，python语言](./DesignPattern/learnGuide.md)
 * [Practice of C----------------C语言练习](./C_language/C_Guide.md)
 * [Practice of Git---------------Git练习](#6)
 * [Ruby practice ---------------- ruby练习](https://github.com/wnz27/Ruby-Guide)
