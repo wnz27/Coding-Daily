@@ -790,7 +790,122 @@ Product类，同时为Product接口中的所有方法提供相应的实现。
 假设我们想在不同类型的社交网络（例如LinkedIn、Facebook等）上为个人或公司建立简介。
 那么，每个简介都有某些特定的组成章节。
 
-在LinkedIn的简介中，有
+在LinkedIn的简介中，有一个章节是关于个人申请的专利或出版作品的。
+在Facebook上，你将在相册中看到最近度假地点的照片区。
+此外，在这两个简介中，都有一个个人信息的区。简而言之，
+我们要通过将正确的区添加到相应的简介中来创建不同类型的简介。
+
+下面来看具体实现。在下面代码示例中，首先定义接口Product。
+
+我们将创建一个Section抽象类来定义一个区是关于哪方面内容的，让它尽量保持简单，
+同时还提供一个抽象方法`description()`。
+然后，我们会创建多个ConcreteProduct，PersonalSection、AlbumSection、
+PatentSection和PublicationSection类。
+这些类用于实现`describe()`抽象方法并打印它们各自的区名称。
+```
+from abc import ABCMeta, abstractmethod
+
+# Product
+class Section(metaclass = ABCMeta):
+    @abstractmethod
+    def describe(self):
+        pass
+
+# ConcreteProduct
+class PersonalSection(Section):
+    def describe(self):
+        print("Personal Section!!!")
+
+# ConcreteProduct
+class AlbumSection(Section):
+    def describe(self):
+        print("Album Section!!!")
+
+# ConcreteProduct
+class PatentSection(Section):
+    def describe(self):
+        print("Patent Section!!!")
+
+# ConcreteProduct
+class PublicationSection(Section):
+    def describe(self):
+        print("Publication Section!!!")
+```
+
+我们创建了一个名为Profile的抽象类Creator。Profile[Creator]抽象类
+提供了一个工厂方法，即`createProfile()`。
+`createProfile()`方法应该由ConcreteCreator类来实现，
+来实际创建带有适当区的简介。
+
+Profile抽象类不知道每个简介应具有哪些区。例如，Facebook的简介应该
+提供个人信息区和相册区。所以，我们将让子类决定这些事情。
+
+我们创建了两个ConcreteCreator类，即linkedin和facebook。每个类都
+实现createProfile()抽象方法，
+由该方法在运行时创建（实例化）多个区（ConcreteProduct）：
+```
+# Creator
+class Profile(metaclass=ABCMeta):
+    def __init__(self):
+        self.sections = []
+        self.createProfile()
+    @abstractmethod
+    def createProfile(self):
+        pass
+    def getSections(self):
+        return self.sections
+    def addSections(self, section):
+        self.sections.append(section)
+
+# ConcreteCreator
+class linkedin(Profile):
+    def createProfile(self):
+        self.addSections(PersonalSection())
+        self.addSections(PatentSection())
+        self.addSections(PublicationSection())
+
+# ConcreteCreator
+class facebook(Profile):
+    def createProfile(self):
+        self.addSections(PersonalSection())
+        self.addSections(AlbumSection())
+```
+最后我们开始编写决定实例化哪个ConcreteCreator类的客户端代码，
+以便让它根据指定的选项创建所需的简介：
+```
+# client
+if __name__ == "__main__":
+    profile_type = input("Which Profile you'd like to create? [LinkedIn or Facebook]")
+    profile = eval(profile_type.lower())()
+    print("Creating Profile...", type(profile).__name__)
+    print("Profile has sections --", profile.getSections())
+```
+现在, 运行完整代码，它会首先要求输入要创建的简介名称。在以下输出示例中我们以
+facebook为例。然后它实例化facebook[ConcreteCreator]类。
+它会在内部创建ConcreteProduct，也就是说，将实例化PersonalSection和AlbumSection。
+最后以上三段代码合起来会输出以下：
+```
+Which Profile you'd like to create? [LinkedIn or Facebook]facebook
+Creating Profile... facebook
+Profile has sections -- [<__main__.PersonalSection object at 0x100f53700>, <__main__.AlbumSection object at 0x100f53760>]
+```
+如果选择LinkedIn，则会创建PersonalSection、PatentSection和PublicationSection。
+如下
+```
+Which Profile you'd like to create? [LinkedIn or Facebook]linkedin
+Creating Profile... linkedin
+Profile has sections -- [<__main__.PersonalSection object at 0x10aad0700>, <__main__.PatentSection object at 0x10aad0760>, <__main__.PublicationSection object at 0x10aad0730>]
+```
+#### 3.3.2 工厂方法模式的优点
+* 它具有更大的灵活性，使得代码更加通用，因为它不是单纯地实例化某个类。
+这样实现哪些类取决于接口（Product），而不是ConcreteProduct类。
+* 它们是松耦合的，因为创建对象的代码与使用它的代码是分开的。
+客户端完全不需要关心传递哪些参数以及需要实例化哪些类。
+由于添加新类更加容易，所以降低了维护成本。
+### 3.4 抽象工厂模式
+
+
+
 
 
 
