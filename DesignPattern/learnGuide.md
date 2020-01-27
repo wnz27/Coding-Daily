@@ -603,13 +603,194 @@ Python的特殊方法`__call__`可以通过元类创建单例。
 所有这一切都可以借助单例模式来完成。当添加或删除服务器时，运行状况的检查工作
 必须由了解基础设施变动情况的同一个对象来完成：
 ```
+class HealthCheck:
+    _instance = None
+    def __new__(cls, *args, **kwargs):
+        if not HealthCheck._instance:
+            HealthCheck._instance = super().__new__(cls, *args, **kwargs)
+        return HealthCheck._instance
+    
+    def __init__(self):
+        self._servers = []
+    
+    def addServer(self):
+        self._servers.append("Server 1")
+        self._servers.append("Server 2")
+        self._servers.append("Server 3")
+        self._servers.append("Server 4")
+    
+    def changeServer(self):
+        self._servers.pop()
+        self._servers.append("Server 5")
+
+hc1 = HealthCheck()
+hc2 = HealthCheck()
+
+hc1.addServer()
+print("Schedule health check for servers (1)..")
+for i in range(4):
+    print("Checking ", hc1._servers[i])
+
+hc2.changeServer()
+print("Schedule health check for servers (2)..")
+for i in range(4):
+    print("Checking ", hc2._servers[i])
 ```
 输出：
 ```
+Schedule health check for servers (1)..
+Checking  Server 1
+Checking  Server 2
+Checking  Server 3
+Checking  Server 4
+Schedule health check for servers (2)..
+Checking  Server 1
+Checking  Server 2
+Checking  Server 3
+Checking  Server 5
 ```
+### 2.8 单例模式的缺点
+虽然单例模式在许多情况下效果很好，但是这种模式仍然存在一些缺陷。
+由于单例具有全局访问权限，因此可能出现以下问题：
+* 全局变量可能在某处已经被误改，但是开发人员仍然认为它们没有发生
+变化，而该变量还在应用程序的其他位置被使用。
+* 可能会对同一对象创建多个引用。由于单例只创建一个对象，因此这种
+情况下会对同一个对象创建多个引用。
+* 所有依赖于全局变量的类都会由于一个类的改变而紧密耦合为全局数据，
+从而可能在无意中影响另一个类。
 
+### 提示，小结
+关于单例模式以下几点需牢记：
+* 在许多实际应用程序中，我们只需要创建一个对象，如线程池、缓存、
+对话框、注册表设置等。如果我们为每个应用程序创建多个实例，则会
+导致资源的过度使用。单例模式在这种情况下工作得很好。
+* 单例是一种经过时间考验的成熟方法，能够在不带来太多缺陷的情况
+下提供全局访问点。
+* 该模式也有一些缺点。当使用全局变量或类实例化非常耗费资源但最终
+却没有用到它们的情况下，单例的影响可以忽略不计。
 
+## 第三章 工厂模式：建立创建对象的工厂
+这一章继续学洗另一种创建型模式，即工厂模式。
+工厂模式可以说是最常用的设计模式。本章了解现实世界的应用场景以及
+基于Python V3.8.0的实现。此外还会对工厂方法和抽象工厂方法进行比较。
+简要介绍以下主题：
+* 了解简单工厂设计模式
+* 讨论工厂方法和抽象工厂方法及其差异
+* 利用Python代码实现真实场景
+* 讨论模式的优缺点并进行相应的比较
 
+### 3.1 了解工厂模式
+在面向对象编程中，术语“工厂”表示一个负责创建其他类型对象的类。
+
+通常情况下，作为一个工厂的类有一个对象以及与它关联的多个方法。
+
+客户端使用某些参数调用此方法，之后，工厂会据此创建所需类型的对象，
+然后将它们返回给客户端。
+
+所以，这里的问题实际上是，既然客户端可以直接创建对象，那为什么我们还需要
+一个工厂呢？答案在于，工厂具有下列优点。
+* 松耦合，即对象的创建可以独立于类的实现。
+* 客户端无需了解创建对象的类，但是照样可以使用它来创建对象。它只需要知道
+需要传递的接口、方法和参数，就能够创建所需类型的对象了。这简化了客户端的实现。
+* 可以轻松地在工厂中添加其他类来创建其他类型的对象，而这无需更改客户端代码。
+最简单的情况下，客户端只需要传递另一个参数就可以了。
+* 工厂还可以重用现有对象。但是，如果客户端直接创建对象的话，总是创建一个新
+对象。
+
+让我们探讨制造玩具车或玩偶的公司的情况。假设公司里的一台机器目前正在制造玩具车。
+
+后来，公司的CEO认为，迫切需要根据市场的需求来制造玩偶。这时，工厂模式就派上
+用场了。
+
+在这种情况下，机器成为接口，CEO是客户端。CEO只关心要制造的对象（或玩具）和创建
+对象的接口--机器。
+
+Factory模式有3种变体。
+1. 简单工厂模式：允许接口创建对象，但不会暴露对象的创建逻辑。
+2. 工厂方法模式：允许接口创建对象，但使用哪个类来创建对象，则是交由子类决定的。
+3. 抽象工厂模式：抽象工厂是一个能够创建一系列相关的对象而无需指定\公开其具体类的接口。
+该模式能够提供其他工厂的对象，在其内部创建其他对象。
+
+### 3.2 简单工厂模式
+对于一些人来说，简单工厂本身不是一种模式。开发人员在进一步了解这个概念之前，
+首先需要详细了解工厂方法。工厂可以帮助开发人员创建不同类型的对象，
+而不是直接将对象实例化。
+
+客户端使用的是Factory类，该类具有create_type()方法。当客户端使用类型参数
+调用create_type()方法时，Factory会根据传入的参数，返回Product1还是Product2。
+
+现在让我们用代码示例来进一步理解简单工厂模式。
+在下面代码段中，我们将创建一个名为Animal的抽象产品。
+
+Animal是一个抽象的基类（ABCMeta是一个Python的特殊元类，用来生成类Abstract），
+它带有方法`do_say()`。我们利用Animal接口创建了两种产品(Cat和Dog)，并实现了
+`do_say()`方法来提供这些动物的相应的叫声。
+
+ForestFactory是一个带有make_sound()方法的工厂。根据客户端传递的参数类型，
+它就可以在运行时创建适当的Animal实例，并输出正确的声音。
+```
+from abc import ABCMeta, abstractmethod
+class Animal(metaclass = ABCMeta):
+    @abstractmethod
+    def do_say(self):
+        pass
+
+class Dog(Animal):
+    def do_say(self):
+        print("Bhow Bhow!!!!")
+
+class Cat(Animal):
+    def do_say(self):
+        print("Meow Meow!!!!")
+
+## forest factory defined
+class ForestFactory(object):
+    def make_sound(self, object_type):
+        return eval(object_type)().do_say()
+
+## client code
+if __name__ == '__main__':
+    ff = ForestFactory()
+    animal = input("Which animal should make_sound Dog or Cat?")
+    ff.make_sound(animal)
+```
+输出：
+```
+Which animal should make_sound Dog or Cat?Cat
+Meow Meow!!!!
+```
+或者输出：
+```
+Which animal should make_sound Dog or Cat?Dog
+Bhow Bhow!!!!
+```
+### 3.3 工厂方法模式
+以下几点可以帮助我们了解工厂方法模式。
+* 我们定义了一个接口来创建对象，但是工厂本身并不负责创建对象，
+而是将这一任务交由子类来完成，即子类决定了要实例化哪些类。
+* Factory方法的创建是通过继承而不是通过实例化来完成的。
+* 工厂方法使设计更加具有可定制性。它可以返回相同的实例或子类，
+而不是某种类型的对象（就像在简单工厂方法中的那样）。
+
+有一个包含factoryMethod()方法的抽象类Creator。
+factoryMethod()方法负责创建指定类型的对象。
+
+ConcreteCreator类提供了一个实现Creator抽象类的
+factoryMethod()方法，这种方法可以在运行时修改已创建的对象。
+
+ConcreteCreator创建ConcreteProduct，并确保其创建的对象实现了
+Product类，同时为Product接口中的所有方法提供相应的实现。
+
+简而言之，Creator接口的factoryMethod()方法和ConcreteCreator类
+共同决定了要创建Product的哪个子类。因此，工厂方法模式定义了一个接口
+来创建对象，但具体实例化哪个类则是它的子类决定的。
+#### 3.3.1 实现工厂方法
+让我们拿一个现实世界的场景来理解工厂方法的实现。
+
+假设我们想在不同类型的社交网络（例如LinkedIn、Facebook等）上为个人或公司建立简介。
+那么，每个简介都有某些特定的组成章节。
+
+在LinkedIn的简介中，有
 
 
 
