@@ -649,6 +649,7 @@ Checking  Server 2
 Checking  Server 3
 Checking  Server 5
 ```
+[代码版本：Python v3.8.0](./相关代码/第二章/2.7.py)
 ### 2.8 单例模式的缺点
 虽然单例模式在许多情况下效果很好，但是这种模式仍然存在一些缺陷。
 由于单例具有全局访问权限，因此可能出现以下问题：
@@ -716,6 +717,9 @@ Factory模式有3种变体。
 首先需要详细了解工厂方法。工厂可以帮助开发人员创建不同类型的对象，
 而不是直接将对象实例化。
 
+uml图如下：
+![简单工厂模式](./img/简单工厂模式.png)
+
 客户端使用的是Factory类，该类具有create_type()方法。当客户端使用类型参数
 调用create_type()方法时，Factory会根据传入的参数，返回Product1还是Product2。
 
@@ -764,6 +768,7 @@ Meow Meow!!!!
 Which animal should make_sound Dog or Cat?Dog
 Bhow Bhow!!!!
 ```
+[代码版本：Python v3.8.0](./相关代码/第三章/3.2.py)
 ### 3.3 工厂方法模式
 以下几点可以帮助我们了解工厂方法模式。
 * 我们定义了一个接口来创建对象，但是工厂本身并不负责创建对象，
@@ -771,6 +776,9 @@ Bhow Bhow!!!!
 * Factory方法的创建是通过继承而不是通过实例化来完成的。
 * 工厂方法使设计更加具有可定制性。它可以返回相同的实例或子类，
 而不是某种类型的对象（就像在简单工厂方法中的那样）。
+
+uml图如下：
+![工厂方法模式](./img/工厂方法模式.png)
 
 有一个包含factoryMethod()方法的抽象类Creator。
 factoryMethod()方法负责创建指定类型的对象。
@@ -896,6 +904,7 @@ Which Profile you'd like to create? [LinkedIn or Facebook]linkedin
 Creating Profile... linkedin
 Profile has sections -- [<__main__.PersonalSection object at 0x10aad0700>, <__main__.PatentSection object at 0x10aad0760>, <__main__.PublicationSection object at 0x10aad0730>]
 ```
+[代码版本：Python v3.8.0](./相关代码/第三章/3.3.py)
 #### 3.3.2 工厂方法模式的优点
 * 它具有更大的灵活性，使得代码更加通用，因为它不是单纯地实例化某个类。
 这样实现哪些类取决于接口（Product），而不是ConcreteProduct类。
@@ -903,6 +912,201 @@ Profile has sections -- [<__main__.PersonalSection object at 0x10aad0700>, <__ma
 客户端完全不需要关心传递哪些参数以及需要实例化哪些类。
 由于添加新类更加容易，所以降低了维护成本。
 ### 3.4 抽象工厂模式
+抽象工厂模式的主要目的是提供一个接口来创建一系列相关对象，而无需指定具体的类。
+工厂方法将创建实例的任务委托给了子类，而抽象工厂方法的目标是创建一系列相关对象。
+如下UML图所示，ConcreteFactory1和ConcreteFactory2是通过AbstractFactory
+接口创建的。此接口具有创建多种产品的相应方法。
+![抽象工厂模式](./img/抽象工厂模式.jpg)
+ConcreteFactory1和ConcreteFactory2实现了AbstractFactory，并创建实例
+ConcreteProduct1、ConcreteProduct2、AnotherConcreteProduct1和
+AnotherConcreteProduct2。
+
+在这里，ConcreteProduct1和ConcreteProduct2是通过AbstractProduct接口
+创建的，而AnotherConcreteProduct1和AnotherConcreteProduct2则是通过
+AnotherAbstractProduct接口创建的。
+
+实际上抽象工厂模式不仅确保客户端与对象的创建相互隔离，同时还确保客户端能够使用创建的对象。
+但是，客户端只能通过接口访问对象。
+
+如果要使用一个系列中的多个产品，那么抽象工厂模式能够帮助客户端一次使用来自一个产品/系列的多个对象。
+例如，如果正在开发的应用应该是平台无关的，则它需要对各种依赖项进行抽象处理，
+这些依赖项包括操作系统、文件系统调用，等等。抽象工厂模式负责为整个平台创建所需的服务，
+这样的话，客户端就不必直接创建平台对象了。
+#### 实现抽象工厂模式
+设想一下你最喜欢的披萨店的情况。它提供多种披萨饼，对吧？
+现在想象一下，我们开办了一家披萨店，供应美味的印式和美式披萨饼。
+
+为此我们首先创建一个抽象基类--PizzaFactory（AbstractFactory，见前面UML图）。
+PizzaFactory类有两个抽象方法即`createVegPizza()`和`createNonVegPizza()`，
+它们需要通过ConcreteFactory实现。在这个例子中，我们创造了两个具体的工厂，分别命名为
+IndianpizzaFactory和USPizzaFactory。下面看看这两个具体工厂的实现代码：
+```
+from abc import ABCMeta, abstractmethod
+
+# AbstractFactory
+class PizzaFactory(metaclass=ABCMeta):
+    @abstractmethod
+    def createVegPizza(self):
+        pass
+
+    @abstractmethod
+    def createNonVegPizza(self):
+        pass
+
+# ConcreteFactory1
+class IndianPizzaFactory(PizzaFactory):
+    def createVegPizza(self):
+        return DeluxVeggiePizza()
+    def createNonVegPizza(self):
+        return ChickenPizza()
+
+# ConcreteFactory2
+class USPizzaFactory(PizzaFactory):
+    def createVegPizza(self):
+        return MexicanVegPizza()
+    def createNonVegPizza(self):
+        return HamPizza()
+```
+现在让我们进一步定义AbstractProducts。在下面的代码中，我们将创建两个抽象类：
+VegPizza和NonVegPizza(AbstractProduct和AnotherAbstractProduct见前面的UML图)。
+它们都定义了自己的方法，分别是prepare()和serve()。
+
+这里的想法是，素食披萨饼配有适当的外皮、蔬菜和调味料，非素食披萨饼在素食披萨并上面搭配非素食食材。
+
+然后我们为每个AbstractProducts定义ConcreteProducts。现在，就本例而言，我们将创建
+DeluxVeggiePizza和MexicanVegPizza，并事项prepare()方法。
+ConcreteProduct1和ConcreteProduct2将代表UML图中的这些类。
+
+接下来，我们来定义ChickenPizza和HamPizza，并实现serve()方法--它们代表
+AnotherConcreteProduct1和AnotherConcreteProduct2:
+```
+# AbtractProduct
+class VegPizza(metaclass=ABCMeta):
+    @abstractmethod
+    def prepare(self, VegPizza):
+        pass
+
+# AnotherAbstractProduct
+class NonVegPizza(metaclass=ABCMeta):
+    @abstractmethod
+    def serve(self, VegPizza):
+        pass
+
+# ConcreteProduct1
+class DeluxVeggiePizza(VegPizza):
+    def prepare(self):
+        print("Prepare ", type(self).__name__)
+
+# ConcreteProduct2
+class MexicanVegPizza(VegPizza):
+    def prepare(self):
+        print("Prepare ", type(self).__name__)
+
+# AnotherConcreteProduct1
+class ChickenPizza(NonVegPizza):
+    def serve(self, VegPizza):
+        print(type(self).__name__, "is served with Chicken on ", type(VegPizza).__name__)
+
+# AnotherConcreteProduct2
+class HamPizza(NonVegPizza):
+    def serve(self, VegPizza):
+        print(type(self).__name__, "is served with Ham on ", type(VegPizza).__name__)
+```
+当最终用户来到PizzaStore并要一份美式非素食披萨的时候，USPizzaFactory负责准备素食，
+然后在上面加上火腿，马上就变成非素食披萨了！
+```
+# use
+class PizzaStore:
+    def __init__(self):
+        pass
+    def makePizzas(self):
+        for factory in [IndianPizzaFactory(), USPizzaFactory()]:
+            self.factory = factory
+            self.NonVegPizza = self.factory.createNonVegPizza()
+            self.VegPizza = self.factory.createVegPizza()
+            self.VegPizza.prepare()
+            self.NonVegPizza.serve(self.VegPizza)
+
+pizza = PizzaStore()
+pizza.makePizzas()
+```
+输出如下：
+```
+Prepare  DeluxVeggiePizza
+ChickenPizza is served with Chicken on  DeluxVeggiePizza
+Prepare  MexicanVegPizza
+HamPizza is served with Ham on  MexicanVegPizza
+```
+[代码版本：Python v3.8.0](./相关代码/第三章/3.4.py)
+### 3.5 工厂方法与抽象工厂方法
+比较二者：
+|工厂方法|抽象工厂方法|
+|:-:|:-:|
+它向客户端开放了一个创建对象的方法|抽象工厂方法包含一个或多个工厂方法来创建一个系列的相关对象
+它使用继承和子类来决定要创建哪个对象|它使用组合将创建对象的任务委托给其他类
+工厂方法用于创建一个产品|抽象工厂方法用于创建相关产品的系列
+### 小结
+* 简单工厂模式：它可以在运行时根据客户端传入的参数类型来创建相应的实例。
+* 工厂方法模式：他是简单工厂的一个变体。在这种模式中，我们定义了一个接口来创建对象，
+但是对象的创建却是交由子类完成的。
+* 抽象工厂方法模式：它提供了一个接口，无需指定具体的类型就可以创建一系列的相关对象。
+
+## 第四章 门面模式--与门面相适
+这一章我们学习另外一种类型的设计模式，即结构型设计模式。
+
+这里，我们要介绍的是门面设计模式，以及如何将其应用于软件应用程序开发。
+本章讨论下列主题：
+* 结构型设计模式概要
+* 利用UML图理解门面设计模式
+* 实现代码的真实用例
+* 门面模式与最少知识原则
+### 4.1 理解结构型设计模式
+以下几点有助于我们更好了解结构型设计模式。
+* 结构型模式描述如何将对象和类组合成更大的结构。
+* 结构型模式是一种能够简化设计工作的模式，因为它能够找出更简单的方法来认识或
+表示实体之间的关系。在面向对象世界中，实体指的是对象或类。
+* 类模式可以通过继承来描述抽象，从而提供更有用的程序接口，而对象模式则描述了
+如何将对象联系起来从而组合成更大的对象。结构型模式是类和对象模式的综合体。
+
+下面给出结构型设计模式的几个例子。它们都是通过对象或类之间的交互来实现更高级的
+设计或架构目标的。
+* 适配器模式：将一个接口转换成客户希望的另外一个接口。它试图根据客户端的需求来
+匹配不同类的接口
+* 桥接模式：该模式将对象的接口与其实现进行解耦，使得两者可以独立工作。
+* 装饰器模式：该模式允许在运行时或以动态的方式为对象添加职责。我们可以通过
+接口给对象添加某些属性。
+
+### 4.2 理解门面设计模式
+门面（facade）通常是指建筑物的表面，尤其是最有吸引力的那一面。它也可以表示一种
+容易让人误解某人的真实感受或情况的行为或面貌。当人们从建筑物外面经过时，可以欣赏
+其外部面貌，却不了解建筑物结构的复杂性。这就是门面模式的使用方式。门面在隐藏内部
+系统复杂性的同时，为客户端提供了一个接口，以便它们可以非常轻松地访问系统。
+
+下面我们以店主为例进行介绍。现在假设你要到某个商店去买东西，但是你对这个商店的布局
+并不清楚。通常情况下，你会去找店主，因为店主对整个商店都很清楚。只要你告诉他/她要买
+什么，店主就会把这些商品拿给你。这不是很容易吗？顾客不必了解店面的情况，可以通过
+一个简单的接口来完成购物，这里的接口就是店主。
+
+门面设计模式实际上完成了下列事项：
+* 它为子系统中的一组接口提供一个统一的接口，并定义一个高级接口来帮助客户端通过
+更加简单的方式使用子系统。
+* 门面所解决的问题是，如何用单个接口对象来表示复杂的子系统。实际上，它并不是
+封装子系统，而是对底层子系统进行组合。
+* 它促进了实现与多个客户端的解耦。
+
+### 4.3 UML类图
+借助UML图来深入探讨门面模式
+![门面模式](./img/门面模式.png)
+在图中看到，这个模式有三个主要的参与者
+* 门面：门面主要责任是，将一组复杂系统封装起来，从而为外部世界提供一个舒适的外观。
+* 系统：这代表一组不同的子系统，使整个系统混杂在一起，难以观察或使用。
+* 客户端：客户端与门面进行交互，这样就可以轻松地与子系统进行通信并完成工作了。
+不必担心系统的复杂性。
+
+现在我们将会从数据结构的角度进一步介绍这3个主要参与者。
+#### 4.3.1 门面
+
+
 
 
 
