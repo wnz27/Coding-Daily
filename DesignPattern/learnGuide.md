@@ -1105,8 +1105,212 @@ HamPizza is served with Ham on  MexicanVegPizza
 
 现在我们将会从数据结构的角度进一步介绍这3个主要参与者。
 #### 4.3.1 门面
+* 它是一个接口，它知道某个请求可以交由那个子系统进行处理。
+* 它使用组合将客户端的请求委派给相应的子系统对象。
+
+例如，如果客户端正在了解哪些工作已经完成，则不需要到各个子系统去，
+相反，它只需要联系完成工作的接口（门面）就可以了。
+
+#### 4.3.2 系统
+在门面的世界里，系统就是执行以下操作的实体。
+* 它实现子系统的功能，同时，系统由一个类表示。
+理想情况下，系统应该由一组负责不同任务的类来表示。
+* 它处理门面对象分配的工作，但并不知道门面，而且不引用它。
+
+例如，当客户端向门面请求某项服务时，门面会根据服务的类型来选择提供该服务的相应子系统。
+
+#### 4.3.3 客户端
+以下是对客户端的描述。
+* 客户端是实例化门面的类。
+* 为了让子系统完成相应的工作，客户端需要向门面提出请求。
+
+### 4.4 在显示世界中实现门面模式
+举个生活中的例子。
+假设你要在家中举行一场婚礼，并且由你来张罗这一切。这真是一个艰巨的任务。
+你必须预定一家酒店或场地，与餐饮人员交代酒菜、布置场景，并且安排背景音乐。
+
+在不久以前，你已经自己搞定了一切，例如找相关人员谈话、与他们进行协调、敲定价格等。
+此外，你还可以去找会务经理，让他/她为你处理这些事情。
+会务经理负责跟哥哥服务提供商交涉，并为你争取最优惠的价格。
+
+下面我们从门面模式的角度来看待这些事情。
+* 客户端：你需要在婚礼前及时完成所有的准备工作。每一项安排都应该是顶级的，
+这样客人才会喜欢这些庆祝活动。
+* 门面：会务经理负责与所有相关人员进行交涉，这些人员负责处理食物、花卉装饰等。
+* 子系统：它们代表提供餐饮、酒店管理和花卉装饰等服务的系统。
+
+现在，让我们利用Python开发一个应用程序，实现这个示例。我们首先从客户端开始。
+记住，你是确保婚姻准备工作和事件顺利的总负责人。
+
+接下来要谈论的的是Facade类。Facade类简化了客户端的接口。就本例来说，
+EventManager扮演了门面的角色，并简化了你的工作。
+Facade与子系统进行交流，并代表你为婚姻完成所有的预定和准备工作。
+下面是EventManager类的Python代码：
+```
+# Facade 门面
+class EventManager(object):
+    def __init__(self):
+        print("Event Manager::Let me talk to the folks\n")
+    
+    def arrange(self):
+        self.hotelier = Hotelier()
+        self.hotelier.bookHotel()
+
+        self.florist = Florist()
+        self.florist.setFlowerRequirements()
+
+        self.caterer = Caterer()
+        self.caterer.setCuisine()
+
+        self.musician = Musician()
+        self.musician.setMusicType()
+```
+现在我们已经搞定了门面和客户端，下面让我们开始深入了解子系统。
+
+我们为这个应用场景开发了以下类。
+* Hotelier类用于预定酒店。它有一个方法，用于检查当天是否有可预订的酒店（`__isAvailable`）
+* Florist类负责花卉装饰。这个类提供了`setFlowerRequirements()`方法，
+用于指定要使用哪些种类的花卉来装饰婚礼。
+* Caterer类用于跟备办宴席者打交道，并负责安排餐饮。Caterer提供了一个公开的
+`setCuisine()`方法，用来指定婚宴的菜肴类型。
+* Musicina类用来安排婚礼的音乐，它使用`setMusicType()`方法来了解会务的音乐要求。
+
+接下来，让我们去定义这些子系统。
+```
+# 子系统
+class Hotelier(object):
+    def __init__(self):
+        print("Arrange the Hotel for Marriage? --")
+    
+    def __isAvailable(self):
+        print("Is the Hotel free for the event on given day?")
+        return True
+    
+    def bookHotel(self):
+        if self.__isAvailable():
+            print("Registered the Booking\n\n")
+
+# 子系统
+class Florist(object):
+    def __init__(self):
+        print("Flower Decorations for the Event? --")
+    
+    def setFlowerRequirements(self):
+        print("Carnations, Roses and Lilies would be used for Decorations\n\n")
+    
+# 子系统
+class Caterer(object):
+    def __init__(self):
+        print("Food Arrangements for the Event --")
+    
+    def setCuisine(self):
+        print("Chinese & Continental Cuisine to be served\n\n")
+
+# 子系统
+class Musician(object):
+    def __init__(self):
+        print("Musical Arrangements for the Marriage --")
+    
+    def setMusicType(self):
+        print("Jazz and Classical will be played\n\n")
+```
+这些事都委托了会务经理，不是吗？我们现在来看看You类。
+在本例中，创建了一个`EventManager`类的对象，这样经理就会通过与相关人员进行
+交涉来筹备婚礼，而你则可以找个地方喝茶了。
+```
+class You(object):
+    def __init__(self):
+        print("You::Whoa! Marriage Arrangements??!!!")
+    def askEventManager(self):
+        print("You::Let's Contact the Event Manager\n\n")
+        em = EventManager()
+        em.arrange()
+    def __del__(self):
+        print("You:: Thanks to Event Manager, all preparations done! Phew!")
+```
+以上输出：
+```
+You::Whoa! Marriage Arrangements??!!!
+You::Let's Contact the Event Manager
 
 
+Event Manager::Let me talk to the folks
+
+Arrange the Hotel for Marriage? --
+Is the Hotel free for the event on given day?
+Registered the Booking
+
+
+Flower Decorations for the Event? --
+Carnations, Roses and Lilies would be used for Decorations
+
+
+Food Arrangements for the Event --
+Chinese & Continental Cuisine to be served
+
+
+Musical Arrangements for the Marriage --
+Jazz and Classical will be played
+
+
+You:: Thanks to Event Manager, all preparations done! Phew!
+```
+[代码版本：Python v3.8.0](./相关代码/第四章/4.4.py)
+
+我们可以通过以下方式将门面模式与真实世界场景相关联。
+* EventManager类是简化接口的门面。
+* EventManager通过组合创建子系统的对象，如Hotelier、Caterer等等。
+### 4.5 最少知识原则
+门面为我们提供了一个统一的系统，它使得子系统更加易于使用。它还将客户端与子系统解耦。
+门面模式背后的设计原理就是最少知识原则。
+
+最少知识原则知道我们减少对象之间的交互，就像跟你亲近的只有某几个朋友那样。
+实际上，它意味着：
+* 再设计系统时，对于创建的每个对象，都应该考察与之交互的类的数量，以及交互的方式
+* 遵循这个原则，就能够避免创建许多彼此紧密耦合的类的情况。
+* 如果类之间存在大量依赖关系，那么系统就会变得难以维护。如果对系统中的任何一部分进行修改，
+都可能导致系统的其他部分被无意改变，这意味着系统会退化，是应该坚决避免的。
+
+### 4.6 常见问答
+Q1. 迪米特法则是什么，它与工厂模式有何关联？
+
+A：迪米特法则是一个设计准则，涉及以下内容：
+* 每个单元对系统中其他单元知道的越少越好
+* 单位应该只与其朋友交流
+* 单元不应该知道它操作的对象的内部细节
+
+最少知识原则和迪米特法则是一致的，都是指向松耦合理论。就像它的名称所暗示的那样，
+最少知识原则适用于门面模式的用例，并且“原则”这个词是指导方针的意思，
+而不是严格遵守的意思，并且只在有需求的时候才用。
+
+Q2. 子系统可以有多个门面吗？
+
+A：是的，可以为一组子系统组件实现多个门面。
+
+Q3. 最少知识原则的缺点是什么？
+
+A：门面提供了一个简化的接口供客户端与子系统交互。本着提供简化接口的精神，
+应用可能会建立多个不必要的接口，这增加了系统的复杂性并且降低了运行时的性能。
+
+Q4. 客户端可以独立访问子系统吗？
+
+A：是的，事实上，由于门面模式提供了简化的接口，这使得客户端不必担心子系统的复杂性。
+
+Q5. 门面是否可以添加自己的功能？
+
+A：门面可以将其“想法”添加到子系统中，例如确保子系统的改进顺序由门面来决定。
+
+## 第五章 代理模式--控制对象的访问
+本章进一步学习结构型设计模式中的代理模式。我们讨论一下主题：
+* 介绍代理和代理设计模式
+* 代理模式的UML
+* 代理模式的变体
+* 代码实现真实示例
+* 代理模式的优点
+* 门面模式和代理模式之间的比较
+* 常见问答
+
+### 5.1 理解代理设计模式
 
 
 

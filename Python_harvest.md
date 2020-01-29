@@ -279,8 +279,9 @@ to help you here.
 
 Remember: `"*" * 4 equals "****"`
 
-After splitting the string with string.split(), you can loop through the indices in the list 
-and replace the words you are looking for with their asterisk equivalent. 
+After splitting the string with string.split(), 
+you can loop through the indices in the list and replace the words 
+you are looking for with their asterisk equivalent. 
 
 Join the list at the end to get your sentence!
 
