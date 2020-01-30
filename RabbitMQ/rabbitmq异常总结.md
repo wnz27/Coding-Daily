@@ -18,6 +18,8 @@ An attempt to use an exclusive queue from a different connection will
 result in a channel-level exception `RESOURCE_LOCKED` with an error message  
 that says `cannot obtain exclusive access to locked queue`.
 
+###### 4、AMQPConnectionError
+我没启动RabbitMQ服务就运行python脚本，报了这个错误。
 
 
 

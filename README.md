@@ -11,7 +11,7 @@
 * [Self Works ----------------- 个人文章与学习记录](https://github.com/wnz27/self-article)
 * [消息代理学习](#2)
 * [Self Demo practice --------------个人demo练习](#7)
-* [Design Pattern ---------  设计模式学习，python语言](./DesignPattern/learnGuide.md)
+* [Design Pattern ---------  设计模式学习，python语言](./DesignPattern/Python设计模式/learnGuide.md)
 * [Practice of C----------------C语言练习](./C_language/C_Guide.md)
 * [Practice of Git---------------Git练习](#6)
 * [Ruby practice ---------------- ruby练习](https://github.com/wnz27/Ruby-Guide)
@@ -39,7 +39,7 @@
 <a id = "2"> </a> 
 
 ## 消息代理学习
-- [rabbitmq官方Tutorial简单解析---------【Python语言】](./RabbitMQ/rabbitmqTutorials简单解析.md)
+- [rabbitmq官方Tutorial简单解析---------【Python语言】](./RabbitMQ/rabbitmq.md)
 - [rabbitmq异常总结-----------【遇见了会持续更新】](./RabbitMQ/rabbitmq异常总结.md)
 - [rabbitmqRPC注意点----------【遇见了会持续更新】](./RabbitMQ/remote_producer_call_rpc.md)
 
