@@ -101,10 +101,63 @@ Observer2 :: Got ('notification',) From <__main__.Subject object at 0x108c6faf0>
 让我们把这些角色放在一个UML图中，看看这些类如何交互的。
 ![观察者模式UML图]()
 通过观察这个UML图可以发现，这个模式有3个主要角色。
-* 
-* 
-* 
+* 主题（Subject）：类Subject需要了解Observer。Subject类具有许多方法，
+诸如register()和deregister()等，Observer可以通过这些方法注册到Subject类中。
+因此，一个Subject可以处理多个Observer。
+* 观察者（Observer）：它为关注主题的对象定义了一个接口。它定义了Observer需要
+实现的各个方法，以便在主题发生变化时能获得相应的通知。
+* 具体观察者（ConcreteObserver）：它用来保存应该与Subject的状态保持一致的状态。
+它实现了Observer接口以保持其状态与主题中的变化相一致。
 
+这个流程非常简单，具体观察者通过实现观察者提供的接口向主题注册自己。
+每当状态发生变化的时候，该主题都会使用观察者提供的通知方法来通告所有具体观察者。
+### 6.3 现实世界中的观察者模式
+我们将以新闻机构为例来展示观察者模式的现实世界场景。
+新闻机构通常从不同地点收集新闻，并将其发布给订阅者。
+下面我们来看看这个用例的设计注意事项。
 
+由于信息是实时发送或者接收的，所以新闻机构应该尽快向其订阅用户公布该消息。
+此外，随着技术的进步，订阅用户不仅可以订阅报纸，而且可以通过其他的形式进行订阅，
+例如电子邮件、移动设备、短信、或语音呼叫。所以，我们还应该具备在将来添加任意其他
+订阅形式的能力，以便为未来的新技术做好准备。
+
+让我们用Python来开发一个应用程序，实现上面的用例。
+我们将从主题开始，这里的主题是新闻发布者：
+* 主题的行为由NewsPublisher类表示
+* Newspublisher提供了一个供订阅用户使用的接口
+* `attach()`方法供观察者(Observer)来注册NewsPublisherObserver
+`detach()`方法用于注销
+* `subscriber()`方法返回已经使用NewsPublisher注册的所有用户的列表
+* `notifySubscriber()`方法可以用来遍历一已向NewsPublisher注册的所有订阅用户，执行某些操作。
+* 发布者可以使用`addNews()`方法创建新消息，getNews()用于返回最新消息，并通知观察者。
+
+现在我们来考察一下NewsPublisher类：
+```
+class NewsPublisher:
+    def __init__(self):
+        self.__subscribers = []
+        self.__latestNews = None
+    
+    def attach(self, subscriber):
+        self.__subscribers.append(subscriber)
+    
+    def detach(self):
+        return self.__subscribers.pop()
+    
+    def subscribers(self):
+        return [type(x).__name__ for x in self.__subscribers]
+    
+    def notifySubscribers(self):
+        for sub in self.__subscribers:
+            sub.update()
+    
+    def addNews(self, news):
+        self.__latestNews = news
+    
+    def getNews(self):
+        return "Got News:", self.__latestNews
+```
+现在我们来讨论观察者（Observer）接口：
+* 
 
 

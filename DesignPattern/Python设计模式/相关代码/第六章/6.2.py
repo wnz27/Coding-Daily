@@ -13,17 +13,17 @@ class Observer1:
     def __init__(self, subject):
         subject.register(self)
     
-    def notify(self, subject, *args):
-        print(type(self).__name__, ':: Got', args, 'From', subject)
+    def notify(self, subject, *args, **kwargs):
+        print(type(self).__name__, ':: Got', args, 'and', kwargs, 'From', subject)
 
 class Observer2:
     def __init__(self, subject):
         subject.register(self)
     
-    def notify(self, subject, *args):
+    def notify(self, subject, *args, **kwargs):
         print(type(self).__name__, ':: Got', args, 'From', subject)
 
 subject = Subject()
 ob1 = Observer1(subject)
 ob2 = Observer2(subject)
-subject.notifyAll('notification')
+subject.notifyAll('notification', name = "27")
