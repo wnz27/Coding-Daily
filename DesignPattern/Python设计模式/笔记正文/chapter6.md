@@ -158,6 +158,29 @@ class NewsPublisher:
         return "Got News:", self.__latestNews
 ```
 现在我们来讨论观察者（Observer）接口：
-* 
+* 在这个例子中，Subscriber表示Observer，它是一个抽象的基类，代表其他ConcreteObserver
+* Subscriber有一个`update()`方法，但是它需要由ConcreteObserver实现
+* `update()`方法是由ConcreteObserver实现的，这样只要有新闻发布的时候，
+它们都能得到Subject（NewsPublishers）的相应通知。
 
+现在让我们看看Subscriber抽象类的代码：
+```
+from abc import ABCMeta, abstractmethod
 
+class Subscriber(metaclass=ABCMeta):
+    @abstractmethod
+    def update(self):
+        pass
+```
+我们还开发了代表具体观察者的一些类：
+* 在本例中，我们有两个主要观察者，分别是实现订阅用户接口的`EmailSubscriber`
+和`SMSSubscriber`。
+* 除了这两个之外，我们建立了另一个观察者`AnyOtherObserver`，它是用来演示
+Observer和Subject的松耦合关系的。
+* 每个拘役的观察者的`__init__()`方法都是使用`attach()`方法向NewsPublisher
+进行注册.
+* 具体观察者的`update()`方法由NewsPublisher在内部用来通知添加了新的新闻。
+
+下面是实现SMSSubscriber类的具体代码：
+```
+```

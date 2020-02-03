@@ -1,3 +1,10 @@
+from abc import ABCMeta, abstractmethod
+
+class Subscriber(metaclass=ABCMeta):
+    @abstractmethod
+    def update(self):
+        pass
+
 class NewsPublisher:
     def __init__(self):
         self.__subscribers = []
@@ -21,4 +28,5 @@ class NewsPublisher:
     
     def getNews(self):
         return "Got News:", self.__latestNews
+
 
