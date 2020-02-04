@@ -96,6 +96,7 @@ subject.notifyAll('notification')
 Observer1 :: Got ('notification',) From <__main__.Subject object at 0x108c6faf0>
 Observer2 :: Got ('notification',) From <__main__.Subject object at 0x108c6faf0>
 ```
+[代码版本：Python v3.8.0](../相关代码/第六章/6.2.py)
 #### 观察者模式的UML类图
 观察者模式主要有两个角色：主题和观察者。
 让我们把这些角色放在一个UML图中，看看这些类如何交互的。
@@ -181,6 +182,137 @@ Observer和Subject的松耦合关系的。
 进行注册.
 * 具体观察者的`update()`方法由NewsPublisher在内部用来通知添加了新的新闻。
 
-下面是实现SMSSubscriber类的具体代码：
+下面是实现Subscriber类的具体代码：
 ```
+class SMSSubscriber(Subscriber):
+    def __init__(self, publisher):
+        self.publisher = publisher
+        self.publisher.attach(self)
+    
+    def updata(self):
+        print(type(self).__name__, self.publisher.getNews())
+
+class EmailSubscriber(Subscriber):
+    def __init__(self, publisher):
+        self.publisher = publisher
+        self.publisher.attach(self)
+    
+    def update(self):
+        print(type(self).__name__, self.publisher.getNews())
+
+class AnyOtherSubscriber(Subscriber):
+    def __init__(self, publisher):
+        self.publisher = publisher
+        self.publisher.attach(self)
+    
+    def update(self):
+        print(type(self).__name__, self.publisher.getNews())
 ```
+现在，所需的订阅用户都已经实现好了，下面让我们来考察NewsPublisher和SMSSubscriber类
+* 客户端为NewsPublisher创建一个对象，以供具体观察者用于各种操作。
+* 使用发布者的对象初始化SMSSubscriber、EmailSubscriber和AnyOtherSubscriber类
+* 在Python中，当我们创建对象时，`__init__()`方法就会被调用。
+在ConcreteObserver类中，`__init__()`方法在内部使用NewsPublisher的`attach()`
+方法进行注册以获取新闻更新。
+* 然后我们打印出已经通过主题注册的所有订阅用户（具体观察者）的列表。
+* 接着使用NewsPublisher(news_publisher)的对象通过addNews()方法创建新消息。
+* NewsPublisher的notifySubscribers()方法用于通知所有订阅用户出现了新消息。
+notifySubscribers()方法在内部调用由具体观察者实现的update()方法，以便
+它们可以获得最新的消息。
+* NewsPublisher还提供了detach()方法，可以从注册订阅用户列表中删除订阅用户。
+
+以下代码展示了发布者和观察者之间的交互：
+```
+if __name__ == "__main__":
+    news_publisher = NewsPublisher()
+    for Subscribers in [SMSSubscriber, EmailSubscriber, AnyOtherSubscriber]:
+        Subscribers(news_publisher)
+    print("\nSubscribers:", news_publisher.subscribers())
+    
+    news_publisher.addNews('Hello World!')
+    news_publisher.notifySubscribers()
+
+    print("\nDetached:", type(news_publisher.detach()).__name__)
+    print("\nSubscribers:", news_publisher.subscribers())
+
+    news_publisher.addNews("My second news!!")
+    news_publisher.notifySubscribers()
+```
+输出结果为：
+```
+Subscribers: ['SMSSubscriber', 'EmailSubscriber', 'AnyOtherSubscriber']
+SMSSubscriber ('Got News:', 'Hello World!')
+EmailSubscriber ('Got News:', 'Hello World!')
+AnyOtherSubscriber ('Got News:', 'Hello World!')
+
+Detached: AnyOtherSubscriber
+
+Subscribers: ['SMSSubscriber', 'EmailSubscriber']
+SMSSubscriber ('Got News:', 'My second news!!')
+EmailSubscriber ('Got News:', 'My second news!!')
+```
+[代码版本：Python v3.8.0](../相关代码/第六章/6.3.py)
+### 6.4 观察者模式的通知方式
+有两种不同的方式可以通知观察者在主题中发生的变化。
+它们可以被分为**推模型**或**拉模型**
+#### 6.4.1 拉模型
+在拉模型中，观察者扮演积极的角色
+* 每当变化发生时，主题（发布者）都会向所有已注册的观察者进行广播。
+* 主题（发布者）出现变化时，观察者负责获取相应的变化情况，或者从订阅用户那里拉取数据。
+* 拉模型的效率较低，因为它涉及两个步骤，第一步，主题（发布者）通知观察者；
+第二步，观察者从主题（发布者）那里提取所需的数据。
+#### 6.4.2 推模型
+在推模型中，主题（发布者）是起主导作用的一方，如下所示
+* 与拉模型不同，变化由主题（发布者）推送到观察者的。
+* 在拉模型中，主题（发布者）可以向观察者发送详细的信息（即使可能不需要）。
+当主题发送大量观察者用不到的数据时，会使响应时间过长。
+* 由于只从主题发送所需的数据，所以能够提高性能。
+### 6.5 松耦合与观察者模式
+松耦合是软件开发应该采用的重要设计原理之一。松耦合的主要目的是争取在彼此交互的对象之间
+实现松散耦合设计。耦合是指一个对象对于与其交互的其他对象的了解程度。
+
+松耦合设计允许我们构建灵活的面向对象的系统，有效应对各种变化，因为它们降低了多个对象之间的依赖性。
+
+松耦合架构具有以下特性：
+* 它降低了在一个元素内发生的更改可能对其他元素产生意外影响的风险。
+* 它使得测试、维护和故障排除工作更加简单。
+* 系统可以轻松地分解为可定义的元素。
+
+观察者模式提供了一种实现主题（发布者或者核心服务）与观察者松耦合的对象设计模式。
+以下几条可以更好地解释这一点。
+* 主题对观察者唯一的了解就是它实现一个特定的接口。同时，它不需要了解具体的观察者类。
+* 可以随时添加任意的新观察者（如之前的示例）
+* 添加新的观察者时，根本不需要修改主题。在本例中，我们看到任意其他观察者可以任意添加/删除，
+而无需在主题中进行任何的更改。
+* 观察者或主题没有绑定在一起，所以可以彼此独立使用。如果需要的话，观察者可以在任何地方重复使用。
+* 主题或观察者中的变化不会互相影响。由于两者都是独立的或松散耦合的，
+所以它们可以自由地做出自己的改变。
+
+### 6.6 观察者模式：优点和缺点
+观察者模式具有以下**优点**：
+* 它使得彼此交互的对象之间保持松耦合
+* 它使得我们可以在无需对主题或观察者进行任何修改的情况下高效地发送数据到其他对象。
+* 可以随时添加/删除观察者
+
+观察者模式具有以下**缺点**：
+* 观察者接口必须由具体观察者实现，而这涉及继承。无法进行组合，因为观察者接口可以实例化。
+* 如果实现不当的话，观察者可能会增加复杂性，并导致性能降低。
+* 在软件应用程序中，通知有时可能是不可靠的，并导致竞争条件或不一致。
+
+### 6.7 常见问答
+Q1. 可能存在多个主题和观察者吗？
+
+A：当一个软件应用程序建立了多个主题和观察者的时候，是可能的。在这种情况下，
+要想正常工作，需要通知观察者哪些主题发生了变化以及各个主题中发生了哪些变化。
+
+Q2. 谁负责触发更新？
+
+A：正如之前讲述的，观察者模式可以在推模型和拉模型中工作。通常情况下，当发生更新时，
+主题会触发更新方法，但有时可以根据应用程序的需要，观察者也是可以触发通知的。
+然而，需要注意的是频率不应该太高，否则可能导致性能下降，特别是当主题的更新不太频繁时。
+
+Q3. 主题或观察者可以在任何其他用例中访问吗？
+
+A：是的，这就是松耦合的力量在观察者模式中的强大体现。主题和观察者是可以独立使用的。
+
+
