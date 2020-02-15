@@ -55,4 +55,47 @@
 在向导中单机Finish按钮时，就会调用`execute()`方法。
 之后，`execute()`方法将会根据首选项来开始安装：
 ```
+#! -*- conding=utf-8 -*-
+class Wizard():
+    def __init__(self, src, rootdir):
+        self.choices = []
+        self.rootdir = rootdir
+        self.src = src
+    
+    def preferences(self, command):
+        self.choices.append(command)
+    
+    def execute(self):
+        for choice in self.choices:
+            if list(choice.values())[0]:
+                print("Copying binaries --", self.src, "to", self.rootdir)
+            else:
+                print("No Operation")
+    
+if __name__ == "__main__":
+    ## Client code
+    wizard = Wizard("python 3.8.gizp", "/usr/bin/")
+    ## Users chooses to install Python only
+    wizard.preferences({'python':True})
+    wizard.preferences({'java':False})
+    wizard.execute()
 ```
+上述代码的输出如下：
+```
+Copying binaries -- python 3.8.gizp to /usr/bin/
+No Operation
+```
+[代码版本：Python v3.8.0](../相关代码/第七章/7.2.py)
+#### 命令模式的UML类图
+命令模式的主要参与者为：Command、ConcreteCommand、Receiver、Invoker、Client。
+
+让我们看UML图，这些类是如何交互的
+![]()
+通过UML类图不难发现，该模式主要涉及5个参与者。
+* Command：声明执行操作的接口。
+* ConcreteCommand：讲一个Receiver对象和一个操作绑定在一起。
+* Client：创建ConcreteCommand对象并设定其接收者。
+* Invoker：要求该ConcreteCommand执行这个请求。
+* 
+
+[代码版本：Python v3.8.0](../相关代码/第七章/7.2.uml.py)
