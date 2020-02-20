@@ -16,9 +16,9 @@ print(max(1, 1))
 
 print("fzk".join(" 13 13 21 ".split(" ")))
 
-# from numpy import random
-# lala = random.randint(1,5, 10)
-# print(lala)
+from numpy import random
+lala = random.randint(1,5, 10)
+print("*"*40,lala)
 
 print(list(range(0, 10, 3)))
 
