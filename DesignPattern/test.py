@@ -20,3 +20,8 @@ print("fzk".join(" 13 13 21 ".split(" ")))
 # lala = random.randint(1,5, 10)
 # print(lala)
 
+print(list(range(0, 10, 3)))
+
+a = [2,2,2,2,2,2,2]
+b = []
+print(max(b, default=100))

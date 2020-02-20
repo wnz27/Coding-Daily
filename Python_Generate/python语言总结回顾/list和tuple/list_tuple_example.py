@@ -175,6 +175,70 @@ t[:-1]：原列表切掉最后一个元素；
 t[1:]：原列表切掉第一个元素；
 
 zip(iter1, iter2)，实现 iter1 和 iter2 的对应索引处的元素拼接。
-In [32]: list(zip([1,2],[2,3]))
-Out[32]: [(1, 2), (2, 3)]
+In [32]: list(zip([1,3],[4,7]))
+Out[32]: [(1, 4), (3, 7)]
+
+利用这个特性，我们实现一个列表中每个元素和后面一个元素组成对：
+'''
+def pair(lst):
+    return list(zip(lst[:-1], lst[1:]))
+
+def test_pair():
+    assert pair([1,5,10]) == [(1,5), (5,10)]
+    assert pair(range(0,10,3)) == [(0,3),(3,6),(6,9)]
+
+'''
+样本抽样
+
+内置 random 模块中，有一个 sample 函数，实现“抽样”功能。
+
+下面例子从 100 个样本中，随机抽样 10 个。
+首先，使用列表生成式，创建长度为 100 的列表 lst；
+然后，sample 抽样 10 个样本。
+'''
+from random import randint, sample
+
+def my_sample():
+    lst = [randint(0,50) for _ in range(100)]
+    print(lst[:5])
+    lst_sample = sample(lst, 10)
+    print(lst_sample)
+my_sample()
+
+'''
+重洗数据集
+
+内置 random 中的 shuffle 函数，能冲洗数据。
+shuffle 是对输入列表就地（in place）洗牌，节省存储空间。
+'''
+from random import shuffle
+def shuffle_exmple():
+    lst = [randint(0,50) for _ in range(10)]
+    print(lst)
+    shuffle(lst)
+    print(lst)
+shuffle_exmple()
+
+'''
+生成满足均匀分布的坐标点
+
+random 模块，uniform(a,b) 生成 [a,b) 内的一个随机数。
+如下，借助列表生成式，生成 100 个均匀分布的坐标点。
+'''
+from random import uniform
+from pyecharts.charts import Scatter
+import pyecharts.options as opts
+
+def draw_uniform_points():
+    x,y = [i for i in range(100)], [round(uniform(0,10), 2) for _ in range(100)]
+    print(y)
+    c = (
+        Scatter()
+        .add_xaxis(x)
+        .add_yaxis('y', y)
+    )
+    c.render()
+draw_uniform_points()
+'''
+生成了一个图像的html文件，在当前文件夹里。
 '''

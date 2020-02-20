@@ -34,6 +34,8 @@
     * [《Python编程：从入门到实践》](./PythonPractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过）
     * [《Python编程快速上手———让繁琐工作自动化》](./PythonPractice/Automate_The_Boring_Stuff_With_Python.md)（基础部分略过）
 
+* [python语言零碎知识点体系记录](./Python_Generate/python语言总结回顾/python语言知识点记录.md)
+
 ---
 
 <a id = "2"> </a> 
