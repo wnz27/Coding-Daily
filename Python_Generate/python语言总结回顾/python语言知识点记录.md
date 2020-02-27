@@ -127,6 +127,7 @@ RuntimeError: You can't use a negative number
 ```
 除了RuntimeError以外，还可以抛出很多不同类型的异常。
 
+
 ## 数据类型总结
 
 #### print
@@ -148,6 +149,16 @@ The     banana costs     24.00 cents
 >>> print("The %(item)s costs %(cost)7.1f cents" % itemdict)
 The banana costs    24.0 cents
 ```
+
+##### 转义字符表
+转义字符|描述|转义字符|描述
+-:|:-:|:-:|:-
+\\|续行符|\b|退格
+\\\\|反斜杠符号|\e|转义
+\\'|单引号|\000|空
+\\''|双引号|\v|纵向制表符
+\a|响铃|\r|回车
+\t|横向制表符|\n|换行符
 
 ###  容器类数据类型
 * [list 和 tuple 使用小案例](./list和tuple/list_tuple_example.py)

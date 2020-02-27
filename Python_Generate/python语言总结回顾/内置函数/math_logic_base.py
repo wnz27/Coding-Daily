@@ -1,4 +1,12 @@
 '''
+@Author: 27
+@LastEditors: 27
+@Date: 2020-02-19 19:47:00
+@LastEditTime: 2020-02-26 13:55:35
+@FilePath: /Coding-Daily/Python_Generate/python语言总结回顾/内置函数/math_logic_base.py
+@description: type some description
+'''
+'''
 官方文档中介绍函数的说明,比如：
 max(iterable,*[, key, default])
 max 函数的几个形参，为什么有 * 符号，又有 []？
@@ -16,3 +24,18 @@ func(2,b=1)  # 不会报错
 会报错：
 TypeError: func() takes 1 positional argument but 2 were given
 '''
+
+print("*" * 80)
+
+# upper、lower、capitalize、title
+tmp_str = "kobe bryant"
+tmp_str2 = "kobe824*#bryant"
+t3 = "koBe brYant"
+# upper 字符串所有字母变大写
+print(tmp_str.upper(), tmp_str2.upper())
+# lower 字符串所有字母变小写
+print(t3.lower())
+# capitalize 字符串首字母变大写
+print(tmp_str.capitalize(), tmp_str2.capitalize())
+# title 字符串的所有单词首字母大写，只要不是字母隔开就都首字母大写
+print(tmp_str.title(), tmp_str2.title())
