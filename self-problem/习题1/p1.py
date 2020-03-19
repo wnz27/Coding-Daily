@@ -2,7 +2,7 @@
 @Author: 27
 @LastEditors: 27
 @Date: 2020-03-19 12:04:52
-@LastEditTime: 2020-03-20 04:58:52
+@LastEditTime: 2020-03-20 05:08:22
 @FilePath: /Coding-Daily/self-problem/习题1/p1.py
 @description: type some description
 '''
@@ -26,7 +26,7 @@ class Node:
         self.next = {}          # 存储：segment(str) : Node
 class URLTrie:
     def __init__(self):
-        self.size = 0
+        self.size = 0   # 可以统计传入的域名个数
         self.root = Node()
     def getSize(self):
         return self.size
@@ -39,11 +39,12 @@ class URLTrie:
         if not cur.isSeg:
             cur.isSeg = True
             self.size += 1
-    def contains(self, formated_domain):
+    def isPrefix(self, formated_domain):
         '''
         写到这发现正着加有问题，判断子域名的话，前缀作用不大，
         字典树应该从后往前匹配。而且从头往尾添加的话头是不齐的，尾巴是齐的
-        往往第一个可能就匹配不到，但是尾巴不会骗人~~，所以改一下添加的策略，反着添加
+        往往第一个可能就匹配不到，但是尾巴不会骗人~~，所以改一下添加的策略，
+        反着添加，查询前缀
         '''
         cur = self.root
         for segment in formated_domain[::-1]:
@@ -51,8 +52,8 @@ class URLTrie:
                 return False
             else:
                 cur = cur.next[segment]
-        # 反向无需关心标识，标识是完全匹配，肯定是有问题的。
-        # 只要都在树里，那么就是子域名了
+        # 反向无需关心标识，利用标识是完全匹配，肯定是有问题的。
+        # 只要都在树里，那么就是子域名了,也就是前缀查询
         return True
         
 class HandleURL:
@@ -98,6 +99,6 @@ class HandleURL:
         来判断url是否在这些域名之下
         '''
         domain = self.__format_domain(row_domain)
-        return self.urlTrie.contains(domain)
+        return self.urlTrie.isPrefix(domain)
     
 

@@ -2,7 +2,7 @@
 @Author: 27
 @LastEditors: 27
 @Date: 2020-03-19 12:05:01
-@LastEditTime: 2020-03-20 02:15:18
+@LastEditTime: 2020-03-20 05:04:29
 @FilePath: /Coding-Daily/self-problem/习题1/p3.py
 @description: type some description
 '''
@@ -46,7 +46,7 @@ class CacheFuncResult:
         实例化一个执行缓存和清除缓存的对象
         '''
         self.func = func
-        self.cache_container = self.set_cache_container(self_pattern.lower())
+        self.cache_container = self.__set_cache_container(self_pattern.lower())
         self.clock = exp
     def __call__(self, *args, **kwargs):
         print("缓存方式为：", self.cache_container)
@@ -54,12 +54,12 @@ class CacheFuncResult:
         print("传进来的参数为:------>", *args, **kwargs)
         result = self.func(*args, **kwargs)     # 暂存函数执行结果
         self.cache_container.setCache(result)   # 增加缓存
-        threading.Timer(self.clock, self.expiretion_clear).start()  # 非阻塞的定时器清除缓存
+        threading.Timer(self.clock, self.__expiretion_clear).start()  # 非阻塞的定时器清除缓存
         return result
-    def expiretion_clear(self):
+    def __expiretion_clear(self):
         self.cache_container.clearCache()
         
-    def set_cache_container(self, self_pattern):
+    def __set_cache_container(self, self_pattern):
         if self_pattern == "mysql":
             return MySQLDB()
         elif self_pattern == "redis":
