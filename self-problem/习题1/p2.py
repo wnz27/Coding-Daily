@@ -2,7 +2,7 @@
 @Author: 27
 @LastEditors: 27
 @Date: 2020-03-19 12:04:56
-@LastEditTime: 2020-03-20 00:04:54
+@LastEditTime: 2020-03-20 05:14:45
 @FilePath: /Coding-Daily/self-problem/习题1/p2.py
 @description: type some description
 '''
@@ -24,12 +24,12 @@ def my_import_from_path(module_path):
     file_name_list = os.listdir(module_path)
     print(file_name_list)
     # 使用自定义函数格式化文件名去掉后缀以及过滤不是包的东西
-    module_name_list = format_filename_to_module_name(file_name_list)
+    module_name_list = __format_filename_to_module_name(file_name_list)
     print(module_name_list)
     for package_name in module_name_list:
         tem = importlib.import_module(".", package_name)
         print(dir(tem))
-def format_filename_to_module_name(file_list):
+def __format_filename_to_module_name(file_list):
     '''
     type: file list, list[str]
     rtype: module_name_list, list[str]
