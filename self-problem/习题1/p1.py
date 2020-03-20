@@ -2,7 +2,7 @@
 @Author: 27
 @LastEditors: 27
 @Date: 2020-03-19 12:04:52
-@LastEditTime: 2020-03-20 09:26:40
+@LastEditTime: 2020-03-20 11:41:28
 @FilePath: /Coding-Daily/self-problem/习题1/p1.py
 @description: type some description
 '''
@@ -68,20 +68,20 @@ class HandleURL:
         构建字典树, 深度优先即可，从顶级域名加起
         '''
         # 拿到格式化好的二元数组
-        format_domain_list = self.__format_domain_list(domain_list)
+        format_domain_list = self.__format_domain_list(raw_domain_list)
         urltrie = URLTrie()
         for formated_domain in format_domain_list:
             urltrie.add(formated_domain)
         return urltrie
 
     def __format_domain_list(self, raw_domain_list):
-            '''
+        '''
         辅助构建字典树，格式化一下传进来的域名字符串列表去掉点保留顺序，
         变成列表
         O(n), 与所给域名个数有关
         '''
         res = []
-        for raw_domain in domain_list:
+        for raw_domain in raw_domain_list:
             res.append(self.__format_domain(raw_domain))
         return res
 
@@ -90,7 +90,7 @@ class HandleURL:
         单一的格式化domain的方法，因为最后判断域名的那个方法可以使用
         返回分割好的list
         '''
-        return domain.replace(".", " ").replace("/", " ").replace(":", " ").split()
+        return raw_domain.replace(".", " ").replace("/", " ").replace(":", " ").split()
    
     
     def judge_domain_is_in(self, row_domain):
@@ -101,4 +101,5 @@ class HandleURL:
         domain = self.__format_domain(row_domain)
         return self.urlTrie.isPrefix(domain)
     
-
+s = HandleURL(["www.baidu.com", "http://www.qq.com"])
+print(s.judge_domain_is_in("qq.com"))
