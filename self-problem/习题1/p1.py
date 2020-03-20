@@ -2,7 +2,7 @@
 @Author: 27
 @LastEditors: 27
 @Date: 2020-03-19 12:04:52
-@LastEditTime: 2020-03-20 05:08:22
+@LastEditTime: 2020-03-20 09:26:40
 @FilePath: /Coding-Daily/self-problem/习题1/p1.py
 @description: type some description
 '''
@@ -23,7 +23,7 @@
 class Node:
     def __init__(self, isSeg=False):
         self.isSeg = isSeg      # 在这个节点是否是一段域名
-        self.next = {}          # 存储：segment(str) : Node
+        self.next = {}          # 存储：segment(str) : Node，这里要是有个平衡的哈希结构性能肯定更好，比如java的treemap
 class URLTrie:
     def __init__(self):
         self.size = 0   # 可以统计传入的域名个数
