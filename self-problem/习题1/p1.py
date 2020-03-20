@@ -2,7 +2,7 @@
 @Author: 27
 @LastEditors: 27
 @Date: 2020-03-19 12:04:52
-@LastEditTime: 2020-03-20 11:41:28
+@LastEditTime: 2020-03-20 11:41:49
 @FilePath: /Coding-Daily/self-problem/习题1/p1.py
 @description: type some description
 '''
@@ -100,6 +100,7 @@ class HandleURL:
         '''
         domain = self.__format_domain(row_domain)
         return self.urlTrie.isPrefix(domain)
-    
+
+# 小测试
 s = HandleURL(["www.baidu.com", "http://www.qq.com"])
 print(s.judge_domain_is_in("qq.com"))
