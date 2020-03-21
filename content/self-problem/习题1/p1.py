@@ -2,8 +2,8 @@
 @Author: 27
 @LastEditors: 27
 @Date: 2020-03-19 12:04:52
-@LastEditTime: 2020-03-20 11:41:49
-@FilePath: /Coding-Daily/self-problem/习题1/p1.py
+@LastEditTime: 2020-03-21 19:06:14
+@FilePath: /Coding-Daily/content/self-problem/习题1/p1.py
 @description: type some description
 '''
 '''
@@ -44,7 +44,7 @@ class URLTrie:
         写到这发现正着加有问题，判断子域名的话，前缀作用不大，
         字典树应该从后往前匹配。而且从头往尾添加的话头是不齐的，尾巴是齐的
         往往第一个可能就匹配不到，但是尾巴不会骗人~~，所以改一下添加的策略，
-        反着添加，查询前缀
+        反着添加，查询前缀，其实是变相查询后缀
         '''
         cur = self.root
         for segment in formated_domain[::-1]:
@@ -88,7 +88,7 @@ class HandleURL:
     def __format_domain(self, raw_domain):
         '''
         单一的格式化domain的方法，因为最后判断域名的那个方法可以使用
-        返回分割好的list
+        返回分割好的域名段的list
         '''
         return raw_domain.replace(".", " ").replace("/", " ").replace(":", " ").split()
    
@@ -98,8 +98,8 @@ class HandleURL:
         这个方法里使用我们构建的字典树self.urlTrie
         来判断url是否在这些域名之下
         '''
-        domain = self.__format_domain(row_domain)
-        return self.urlTrie.isPrefix(domain)
+        formated_domain = self.__format_domain(row_domain)
+        return self.urlTrie.isPrefix(formated_domain)
 
 # 小测试
 s = HandleURL(["www.baidu.com", "http://www.qq.com"])

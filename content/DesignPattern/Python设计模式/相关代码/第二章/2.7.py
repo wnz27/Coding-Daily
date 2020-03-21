@@ -1,9 +1,17 @@
+'''
+@Author: 27
+@LastEditors: 27
+@Date: 2020-01-26 10:30:15
+@LastEditTime: 2020-03-21 18:30:46
+@FilePath: /Coding-Daily/content/DesignPattern/Python设计模式/相关代码/第二章/2.7.py
+@description: type some description
+'''
 class HealthCheck:
     _instance = None
     def __new__(cls, *args, **kwargs):
-        if not HealthCheck._instance:
-            HealthCheck._instance = super().__new__(cls, *args, **kwargs)
-        return HealthCheck._instance
+        if not cls._instance:
+            cls._instance = super().__new__(cls, *args, **kwargs)
+        return cls._instance
     
     def __init__(self):
         self._servers = []

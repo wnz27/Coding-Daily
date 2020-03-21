@@ -1,3 +1,14 @@
+<!--
+ * @Author: 27
+ * @LastEditors: 27
+ * @Date: 2020-01-19 17:01:14
+ * @LastEditTime: 2020-03-21 17:20:06
+ * @FilePath: /Coding-Daily/content/RabbitMQ/rabbitmq异常总结.md
+ * @description: type some description
+ -->
+[回到目录](../../README.md)
+---
+
 ###### 1、403 (ACCESS_REFUSED)
 Queue names starting with "amq." are reserved for internal use by the broker. 
 Attempts to declare a queue with a name that violates this rule 

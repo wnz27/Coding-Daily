@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2019-11-05 09:46:08
- * @LastEditTime: 2020-03-03 16:07:40
+ * @LastEditTime: 2020-03-21 17:32:07
  * @FilePath: /Coding-Daily/README.md
  * @description: type some description
  -->
@@ -19,8 +19,8 @@
 * [Self Works ----------------- 个人文章与学习记录](https://github.com/wnz27/self-article)
 * [消息代理学习](#2)
 * [Self Demo practice --------------个人demo练习](#7)
-* [Design Pattern ---------  设计模式学习，python语言](./DesignPattern/Python设计模式/learnGuide.md)
-* [Practice of C----------------C语言练习](./C_language/C_Guide.md)
+* [Design Pattern ---------  设计模式学习，python语言](./content/DesignPattern/Python设计模式/learnGuide.md)
+* [Practice of C----------------C语言练习](./content/C_language/C_Guide.md)
 * [Practice of Git---------------Git练习](#6)
 * [Ruby practice ---------------- ruby练习](https://github.com/wnz27/Ruby-Guide)
 
@@ -30,28 +30,32 @@
 
 ## Practice of Python 
 
-* Python的小白探索之旅，日常练习：[Python_practice](./Python_harvest.md)
+* Python的小白探索之旅，日常练习：[Python_practice](./content/PythonPractice/Python_harvest.md)
 
-* Python中级,日常练习：[Python_middle_practice](./PythonPractice/pythonMiddle.md)
+* Python中级,日常练习：[Python_middle_practice](./content/PythonPractice/pythonMiddle.md)
 
-* Python进阶，学习笔记[Python_Generate](./Python_Generate/guide.md)
+* Python进阶，学习笔记[Python_Generate](./content/Python_Generate/guide.md)
 
 * [简单正则练习](https://github.com/wnz27/Algorithms_Note/blob/master/re_practice.py)
 
 * Python类书籍学习笔记--（笔记有目录）:
-    * [《Python编程：从入门到实践》](./PythonPractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过）
-    * [《Python编程快速上手———让繁琐工作自动化》](./PythonPractice/Automate_The_Boring_Stuff_With_Python.md)（基础部分略过）
+    * [《Python编程：从入门到实践》](./content/PythonPractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过）
+    * [《Python编程快速上手———让繁琐工作自动化》](./content/PythonPractice/Automate_The_Boring_Stuff_With_Python.md)（基础部分略过）
 
-* [python语言零碎知识点体系记录](./Python_Generate/python语言总结回顾/python语言知识点记录.md)
+* [python语言零碎知识点体系记录](./content/Python_Generate/python语言总结回顾/python语言知识点记录.md)
+
+#### 网站推荐！
+- [Python最佳实践指南！](http://pythonguidecn.readthedocs.io/zh/latest/)
+- [Google 开源项目风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
 ---
 
 <a id = "2"> </a> 
 
-## 消息代理学习
-- [rabbitmq官方Tutorial简单解析---------【Python语言】](./RabbitMQ/rabbitmq.md)
-- [rabbitmq异常总结-----------【遇见了会持续更新】](./RabbitMQ/rabbitmq异常总结.md)
-- [rabbitmqRPC注意点----------【遇见了会持续更新】](./RabbitMQ/remote_producer_call_rpc.md)
+## 消息代理学习(待更新~~~~)
+- [rabbitmq官方Tutorial简单解析---------【Python语言】](./content/RabbitMQ/rabbitmq.md)
+- [rabbitmq异常总结-----------【遇见了会持续更新】](./content/RabbitMQ/rabbitmq异常总结.md)
+- [rabbitmqRPC注意点----------【遇见了会持续更新】](./content/RabbitMQ/remote_producer_call_rpc.md)
 
 ---
 <a id = "7"> </a> 
