@@ -2,7 +2,7 @@
 @Author: 27
 @LastEditors: 27
 @Date: 2020-03-19 12:05:01
-@LastEditTime: 2020-03-20 05:04:29
+@LastEditTime: 2020-03-21 09:29:16
 @FilePath: /Coding-Daily/self-problem/习题1/p3.py
 @description: type some description
 '''
@@ -16,7 +16,7 @@ from abc import ABCMeta, abstractmethod
 import time
 import threading
 # 先模拟存储方式？先做个统一设置和清理缓存的接口？？
-class HandleDB:
+class HandleDB(metaclass=ABCMeta):
     @abstractmethod
     def clearCache():
         pass
