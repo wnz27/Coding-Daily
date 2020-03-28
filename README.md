@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2019-11-05 09:46:08
- * @LastEditTime: 2020-03-21 17:32:07
+ * @LastEditTime: 2020-03-26 23:15:54
  * @FilePath: /Coding-Daily/README.md
  * @description: type some description
  -->
@@ -13,16 +13,16 @@
 ---
 
 * [Practice of Python---------Python练习](#1)
-* [Practice of Database------------数据库练习](https://github.com/wnz27/Database-s-Learn-Note)
-* [LeetCode -- Algorithms--------算法学习笔记](https://github.com/wnz27/Algorithms_Note/blob/master/README.md)
+* [Practice of Database------------数据库学习](https://github.com/wnz27/Database-s-Learn-Note)
+* [LeetCode -- Algorithms--------算法学习](https://github.com/wnz27/Algorithms_Note/blob/master/README.md)
 * [Linux Learn ---------------- Linux学习相关](https://github.com/wnz27/Learn_Linux)
-* [Self Works ----------------- 个人文章与学习记录](https://github.com/wnz27/self-article)
+* [Self Works ----------------- 个人文章与学习收获提炼](https://github.com/wnz27/self-article)
 * [消息代理学习](#2)
-* [Self Demo practice --------------个人demo练习](#7)
+* [Self Demo practice ------------- 个人demo练习](#7)
 * [Design Pattern ---------  设计模式学习，python语言](./content/DesignPattern/Python设计模式/learnGuide.md)
-* [Practice of C----------------C语言练习](./content/C_language/C_Guide.md)
+* ~~[Practice of C----------------C语言练习](./content/C_language/C_Guide.md)~~
 * [Practice of Git---------------Git练习](#6)
-* [Ruby practice ---------------- ruby练习](https://github.com/wnz27/Ruby-Guide)
+* [Math  ---------------------  数学学习](./content/Python数据相关/线性代数学习/guide.md)
 
 ---
 
