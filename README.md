@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2019-11-05 09:46:08
- * @LastEditTime: 2020-03-26 23:15:54
+ * @LastEditTime: 2020-04-01 18:13:34
  * @FilePath: /Coding-Daily/README.md
  * @description: type some description
  -->
@@ -29,20 +29,12 @@
 <a id = "1"> </a> 
 
 ## Practice of Python 
-
-* Python的小白探索之旅，日常练习：[Python_practice](./content/PythonPractice/Python_harvest.md)
-
-* Python中级,日常练习：[Python_middle_practice](./content/PythonPractice/pythonMiddle.md)
-
 * Python进阶，学习笔记[Python_Generate](./content/Python_Generate/guide.md)
 
-* [简单正则练习](https://github.com/wnz27/Algorithms_Note/blob/master/re_practice.py)
-
 * Python类书籍学习笔记--（笔记有目录）:
-    * [《Python编程：从入门到实践》](./content/PythonPractice/Python_preToPractice.md)（感觉pygame很不常用，项目部分暂时略过）
-    * [《Python编程快速上手———让繁琐工作自动化》](./content/PythonPractice/Automate_The_Boring_Stuff_With_Python.md)（基础部分略过）
+    * [《Python编程：从入门到实践》](./content/PythonPractice/Python_preToPractice.md)（项目部分暂时略过）
 
-* [python语言零碎知识点体系记录](./content/Python_Generate/python语言总结回顾/python语言知识点记录.md)
+* [【精萃】python语言零碎知识点体系记录](./content/Python_Generate/python语言总结回顾/python语言知识点记录.md)
 
 #### 网站推荐！
 - [Python最佳实践指南！](http://pythonguidecn.readthedocs.io/zh/latest/)

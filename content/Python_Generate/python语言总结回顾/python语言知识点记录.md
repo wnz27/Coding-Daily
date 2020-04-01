@@ -1,6 +1,9 @@
 ## Python语言特性
 
-#### 动态语言
+### 进程、线程、GIL
+- [一文讲清线程与GIL](https://github.com/wnz27/self-article/blob/master/content/%E6%8A%80%E6%9C%AF%E6%9D%82%E7%AF%87/python%E7%9B%B8%E5%85%B3/GIL%E8%BF%9B%E7%A8%8B%E4%BB%A5%E5%8F%8A%E7%BA%BF%E7%A8%8B.md)
+
+### 动态语言
 讲动态与静态之前先清楚什么叫类型检查，
 类型检查是验证类型约束的过程，**编译器或解释器通常在编译阶段或运行阶段**做类型检查。
 类型检查就是查看“变量”和它们的”类型”，然后判断表达式是否合理。
@@ -19,7 +22,7 @@
 - C#
 - Scala
 
-#### 强类型语言
+### 强类型语言
 强类型语言是指：不管是在编译阶段还是运行阶段，一旦某种类型绑定到变量后，
 此变量便会持有此类型，并且不能同其他类型在计算表达式时，混合使用。
 常见的强类型语言有：
@@ -150,7 +153,15 @@ The     banana costs     24.00 cents
 The banana costs    24.0 cents
 ```
 
-##### 转义字符表
+###  容器类数据类型
+* [list 和 tuple 使用小案例](./list和tuple/list_tuple_example.py)
+* [dict 和 set基本操作](./dict和set/dict_set_basic.py)
+* [dict 和 set 使用小案例](./dict和set/dict_set_example.py)
+* [数学运算、逻辑运算以及进制转化相关内置函数](./内置函数/math_logic_base.py)
+
+## 其他
+#### 转义字符表
+
 转义字符|描述|转义字符|描述
 -:|:-:|:-:|:-
 \\|续行符|\b|退格
@@ -160,11 +171,8 @@ The banana costs    24.0 cents
 \a|响铃|\r|回车
 \t|横向制表符|\n|换行符
 
-###  容器类数据类型
-* [list 和 tuple 使用小案例](./list和tuple/list_tuple_example.py)
-* [dict 和 set基本操作](./dict和set/dict_set_basic.py)
-* [dict 和 set 使用小案例](./dict和set/dict_set_example.py)
-* [数学运算、逻辑运算以及进制转化相关内置函数](./内置函数/math_logic_base.py)
-
+## 进阶
+### 协程
+- [协程学习笔记 --《流畅的python》](./协程（流畅的python学习）/协程学习.md)
 
 

@@ -50,7 +50,7 @@ __get__
 __set__
 __delete__
 
-协程：
+协程（流畅的python学习）：
 __await__
 __aiter__
 __anext__
