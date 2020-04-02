@@ -168,4 +168,9 @@ def pivotIndex(nums):
 #     print(gen.throw(Exception, "download error"))   # 把2yield出来
 #     print(next(gen))
 
-
+a = {10:2, 4:5, 6:7}
+b = sorted(a.items())
+print(b)
+args = ("!", "werqwer")
+c = ', '.join(repr(arg) for arg in args)
+print(c)

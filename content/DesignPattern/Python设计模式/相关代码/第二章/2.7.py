@@ -3,7 +3,7 @@
 @LastEditors: 27
 @Date: 2020-01-26 10:30:15
 @LastEditTime: 2020-03-21 18:30:46
-@FilePath: /Coding-Daily/content/DesignPattern/Python设计模式/相关代码/第二章/2.7.py
+@FilePath: /Coding-Daily/content/DesignPattern/Python设计模式/相关代码/第二章/2.5.py
 @description: type some description
 '''
 class HealthCheck:
