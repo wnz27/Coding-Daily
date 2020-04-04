@@ -174,3 +174,22 @@ print(b)
 args = ("!", "werqwer")
 c = ', '.join(repr(arg) for arg in args)
 print(c)
+
+class Zombin:
+    def __init__(self):
+        self.__zombin_blood = None
+        self.__zombinBlood = None
+
+    def run(self):
+        pass
+
+    def pace(self):
+        pass
+
+    def runtype(self):
+        pass
+
+
+class Plant:
+    pass
+
