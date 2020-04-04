@@ -159,6 +159,13 @@ The banana costs    24.0 cents
 * [dict 和 set 使用小案例](./dict和set/dict_set_example.py)
 * [数学运算、逻辑运算以及进制转化相关内置函数](./内置函数/math_logic_base.py)
 
+## 进阶
+### 协程
+- [装饰器闭包学习笔记 -- 《流畅的python》](./装饰器和闭包（流畅的python学习）/装饰器闭包学习.md)
+- [协程学习笔记 --《流畅的python》](./协程（流畅的python学习）/协程学习.md)
+
+
+
 ## 其他
 #### 转义字符表
 
@@ -170,9 +177,4 @@ The banana costs    24.0 cents
 \\''|双引号|\v|纵向制表符
 \a|响铃|\r|回车
 \t|横向制表符|\n|换行符
-
-## 进阶
-### 协程
-- [协程学习笔记 --《流畅的python》](./协程（流畅的python学习）/协程学习.md)
-
 
