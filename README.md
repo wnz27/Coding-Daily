@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2019-11-05 09:46:08
- * @LastEditTime: 2020-04-01 18:13:34
+ * @LastEditTime: 2020-04-11 19:40:08
  * @FilePath: /Coding-Daily/README.md
  * @description: type some description
  -->
@@ -17,6 +17,7 @@
 * [LeetCode -- Algorithms--------算法学习](https://github.com/wnz27/Algorithms_Note/blob/master/README.md)
 * [Linux Learn ---------------- Linux学习相关](https://github.com/wnz27/Learn_Linux)
 * [Self Works ----------------- 个人文章与学习收获提炼](https://github.com/wnz27/self-article)
+* [Nginx学习](./content/Nginx相关/Nginx.md)
 * [消息代理学习](#2)
 * [Self Demo practice ------------- 个人demo练习](#7)
 * [Design Pattern ---------  设计模式学习，python语言](./content/DesignPattern/Python设计模式/learnGuide.md)
