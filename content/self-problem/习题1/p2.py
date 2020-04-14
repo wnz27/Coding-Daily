@@ -2,8 +2,8 @@
 @Author: 27
 @LastEditors: 27
 @Date: 2020-03-19 12:04:56
-@LastEditTime: 2020-03-20 05:14:45
-@FilePath: /Coding-Daily/self-problem/习题1/p2.py
+@LastEditTime: 2020-04-14 08:56:01
+@FilePath: /Coding-Daily/content/self-problem/习题1/p2.py
 @description: type some description
 '''
 '''
@@ -43,7 +43,5 @@ def __format_filename_to_module_name(file_list):
     return res
 
 # 测试一下
-path1 = '/Users/fzk27/fzk27/Coding-Daily/DesignPattern/Python设计模式/相关代码/第一章'
+path1 = '/Users/fzk27/fzk27/Coding-Daily/content/self-problem/testtesttest哈哈哈'
 my_import_from_path(path1)
-
-    
