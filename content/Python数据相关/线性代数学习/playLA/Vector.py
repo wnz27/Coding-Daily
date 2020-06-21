@@ -43,6 +43,18 @@ class Vector:
         """
         return self * k
 
+    def __pos__(self):
+        """
+        :return: 返回向量取正的结果
+        """
+        return 1 * self
+
+    def __neg__(self):
+        """
+        :return: 返回向量取负的结果
+        """
+        return -1 * self
+
     def __iter__(self):
         """
         防止直接使用_values，被for之类调用的时候直接使用实例即可，不用显式访问私有变量。
