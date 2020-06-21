@@ -27,9 +27,26 @@ class Vector:
         assert len(self) == len(other), "Error in adding. Length of vectors must be same."
         return Vector([a - b for a, b in zip(self, other)])
 
+    def __mul__(self, k):
+        """
+        注意这个只定义了向量乘以一个数的行为，也就是一个右乘，只定义这个方法反过来就会报错
+        :param k: 数量
+        :return: 返回数量乘法的结果向量： self * k
+        """
+        return Vector([k * e for e in self])
+
+    def __rmul__(self, k):
+        """
+        只定义了一个数乘以一个向量的行为，也就是一个左乘，只定义这个方法反过来就会报错
+        :param k: 数量
+        :return: 返回数量乘法的结果向量，k * self
+        """
+        return self * k
+
     def __iter__(self):
         """
         防止直接使用_values，被for之类调用的时候直接使用实例即可，不用显式访问私有变量。
+        对向量迭代就是对实际向量里维护的lst迭代。
         :return: 向量的迭代器
         """
         return self._values.__iter__()
