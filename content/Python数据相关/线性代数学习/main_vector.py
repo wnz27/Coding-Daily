@@ -9,7 +9,7 @@
 # -*- coding:utf-8 -*-
 # Create by 27
 # @Time : 2020/3/29 23:12
-from playLA.Vector import Vector
+from .playLA.Vector import Vector
 
 __author__ = '27'
 

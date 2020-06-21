@@ -3,7 +3,7 @@
 @LastEditors: 27
 @Date: 2020-03-19 22:19:24
 @LastEditTime: 2020-03-20 00:02:35
-@FilePath: /Coding-Daily/self-problem/testtesttest哈哈哈/test1.py
+@FilePath: /Coding-Daily/self-problem/testtesttest哈哈哈/attempt1.py
 @description: type some description
 '''
 import selffunc

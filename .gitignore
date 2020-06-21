@@ -672,5 +672,7 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 
+*.db
+
 # End of https://www.toptal.com/developers/gitignore/api/python,macos
 n

@@ -3,7 +3,7 @@
 @LastEditors: 27
 @Date: 2020-03-19 11:51:18
 @LastEditTime: 2020-03-20 04:49:03
-@FilePath: /Coding-Daily/self-problem/testtesttest哈哈哈/test.py
+@FilePath: /Coding-Daily/self-problem/testtesttest哈哈哈/attempt.py
 @description: type some description
 '''
 # import threading

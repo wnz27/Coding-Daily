@@ -3,7 +3,7 @@
 @LastEditors: 27
 @Date: 2020-02-14 09:28:12
 @LastEditTime: 2020-02-26 15:06:56
-@FilePath: /Coding-Daily/DesignPattern/test.py
+@FilePath: /Coding-Daily/DesignPattern/attempt.py
 @description: type some description
 '''
 b = [1,7,5,9,2,12,3]
