@@ -6,7 +6,12 @@
  * @FilePath: /Coding-Daily/content/Python数据相关/线性代数学习/guide.md
  * @description: type some description
  -->
-## 线性代数学习笔记
+# 线性代数学习笔记
+
+## 什么是向量 
+两个视角：
+- 几何：有向线段
+- 现实：数据点
 
 ### 向量运算的基本性质
 - 加法交换律
