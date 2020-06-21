@@ -13,3 +13,6 @@ print(a)
 
 b = random.randint(0, 10)
 print(b)
+
+# assert 1 == 2, "1 不等于 2"
+assert 1 == 1, "1 等于 1"
