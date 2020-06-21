@@ -9,7 +9,7 @@
 # -*- coding:utf-8 -*-
 # Create by 27
 # @Time : 2020/3/29 23:12
-from .playLA.Vector import Vector
+from content.Python数据相关.线性代数学习.playLA.Vector import Vector
 
 __author__ = '27'
 
@@ -32,3 +32,8 @@ if __name__ == "__main__":
     # 正负尝试
     print("+{} = {}".format(vec, +vec))
     print("-{} = {}".format(vec, -vec))
+
+    # 零向量
+    zero2 = Vector.zero(2)
+    print(zero2)
+    print("{} + {} = {}".format(vec, zero2, vec + zero2))

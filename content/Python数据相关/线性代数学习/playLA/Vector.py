@@ -9,6 +9,14 @@ class Vector:
         # 防止引用在外部被修改，所以复制一份
         self._values = list(lst)
 
+    @classmethod
+    def zero(cls, dimension):
+        """
+        :param dimension: 维度
+        :return: 该维度下的0向量
+        """
+        return cls([0] * dimension)
+
     def __add__(self, other):
         """
         向量加法，返回结果向量
