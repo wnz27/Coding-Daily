@@ -1,22 +1,24 @@
 #! -*- encoding=utf-8 -*-
 
 def pivotIndex(nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        # 空数组
-        if not nums:
-            return -1
-        
-        sum_nums = sum(nums)
-        left = 0        # 左起求的和
-        # 遍历比较
-        for i in range(len(nums)):
-            if left * 2 == sum_nums - nums[i]:
-                return i
-            left += nums[i]
+    """
+    :type nums: List[int]
+    :rtype: int
+    """
+    # 空数组
+    if not nums:
         return -1
+
+    sum_nums = sum(nums)
+    left = 0  # 左起求的和
+    # 遍历比较
+    for i in range(len(nums)):
+        if left * 2 == sum_nums - nums[i]:
+            return i
+        left += nums[i]
+    return -1
+
+
 # # 值类型互不影响，开辟了新的内存空间
 # a = 1
 # b = a
@@ -168,12 +170,13 @@ def pivotIndex(nums):
 #     print(gen.throw(Exception, "download error"))   # 把2yield出来
 #     print(next(gen))
 
-a = {10:2, 4:5, 6:7}
+a = {10: 2, 4: 5, 6: 7}
 b = sorted(a.items())
 print(b)
 args = ("!", "werqwer")
 c = ', '.join(repr(arg) for arg in args)
 print(c)
+
 
 class Zombin:
     def __init__(self):
@@ -190,6 +193,30 @@ class Zombin:
         pass
 
 
+z = Zombin()
+
+
 class Plant:
     pass
 
+
+from itertools import islice
+
+batch_size = 10
+t = [i for i in range(100)]
+objs = (i for i in range(100))
+print(objs)
+while True:
+    batch = list(islice(objs, batch_size))
+    if not batch:
+        break
+    print(batch)
+
+def testttt(args):
+    print(args)
+    print(*args)
+    for a in args:
+        print(a)
+
+a = ["a", "b", "c", "www"]
+testttt(a)
