@@ -53,3 +53,6 @@ class TestVector(Helper):
         vec2 = Vector([3, 3, 3, 3])
         self._eq(vec.norm(), 4)
         self._eq(vec2.norm(), 6)
+        vec3 = Vector([0] * 3)
+        self._eq(vec3.norm(), 0)
+
