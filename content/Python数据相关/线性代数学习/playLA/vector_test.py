@@ -6,7 +6,12 @@ from content.Python数据相关.线性代数学习.playLA.Vector import Vector
 import os
 
 
-class TestVector(unittest.TestCase):
+class Helper(unittest.TestCase):
+    def _eq(self, item1, item2):
+        return self.assertEquals(item1, item2)
+
+
+class TestVector(Helper):
     def testVectorAssociativeLaw(self):
         """
         测试向量结合律
@@ -16,8 +21,8 @@ class TestVector(unittest.TestCase):
         k = 2
         res1 = k * vec2 + k * vec
         res2 = k * (vec + vec2)
-        self.assertEquals(res1[0], res2[0])
-        self.assertEquals(res1[1], res2[1])
+        self._eq(res1[0], res2[0])
+        self._eq(res1[1], res2[1])
 
     def testZeroVector(self):
         """
@@ -27,9 +32,9 @@ class TestVector(unittest.TestCase):
         l = len(vec)
         zero_vec = Vector([0] * l)
         new_vec = zero_vec + vec
-        self.assertEquals(new_vec[0], vec[0])
-        self.assertEquals(new_vec[1], vec[1])
-        self.assertEquals(new_vec[2], vec[2])
+        self._eq(new_vec[0], vec[0])
+        self._eq(new_vec[1], vec[1])
+        self._eq(new_vec[2], vec[2])
 
     def testNegativeVector(self):
         """
@@ -39,6 +44,12 @@ class TestVector(unittest.TestCase):
         l = len(vec)
         neg_vec = -1 * vec
         new_vec = neg_vec + vec
-        self.assertEquals(new_vec[0], 0)
-        self.assertEquals(new_vec[1], 0)
-        self.assertEquals(new_vec[2], 0)
+        self._eq(new_vec[0], 0)
+        self._eq(new_vec[1], 0)
+        self._eq(new_vec[2], 0)
+
+    def testNorm(self):
+        vec = Vector([2, 2, 2, 2])
+        vec2 = Vector([3, 3, 3, 3])
+        self._eq(vec.norm(), 4)
+        self._eq(vec2.norm(), 6)

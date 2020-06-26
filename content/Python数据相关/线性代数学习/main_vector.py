@@ -37,3 +37,9 @@ if __name__ == "__main__":
     zero2 = Vector.zero(2)
     print(zero2)
     print("{} + {} = {}".format(vec, zero2, vec + zero2))
+
+    # 模
+    vec_n = Vector([2, 2, 2, 2])
+    print("norm({}) = {}".format(vec_n, vec_n.norm()))
+    vec_n2 = Vector([3, 3, 3, 3])
+    print("norm({}) = {}".format(vec_n2, vec_n2.norm()))

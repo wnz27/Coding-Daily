@@ -2,6 +2,7 @@
 # Create by 27
 # @Time : 2020/3/29 23:01
 __author__ = '27'
+import math
 
 
 class Vector:
@@ -16,6 +17,12 @@ class Vector:
         :return: 该维度下的0向量
         """
         return cls([0] * dimension)
+
+    def norm(self):
+        """
+        :return: 返回向量的模
+        """
+        return math.sqrt(sum(e**2 for e in self))
 
     def __add__(self, other):
         """
