@@ -220,3 +220,14 @@ def testttt(args):
 
 a = ["a", "b", "c", "www"]
 testttt(a)
+
+print(len({1:2}))
+print({} is None)
+
+
+print(" ".join(["1", "2", "44"]))
+
+import re
+
+ttt = re.split(r'([A-Z][a-z]*)', "BowAndTax")
+print(" ".join(ttt).strip())
