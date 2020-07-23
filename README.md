@@ -23,7 +23,8 @@
 * [Design Pattern ---------  设计模式学习，python语言](./content/DesignPattern/Python设计模式/learnGuide.md)
 * ~~[Practice of C----------------C语言练习](./content/C_language/C_Guide.md)~~
 * [Practice of Git---------------Git练习](#6)
-* [Math  ---------------------  数学学习](./content/Python数据相关/线性代数学习/guide.md)
+* [Math  ---------------------  数学学习](https://github.com/wnz27/About-Math)
+* [Python --------------------   统计学习](./content/Python数据相关/statistic_guid.md)
 
 ---
 
