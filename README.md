@@ -25,6 +25,7 @@
 * [Practice of Git---------------Git练习](#6)
 * [Math  ---------------------  数学学习](https://github.com/wnz27/About-Math)
 * [Python --------------------   统计学习](./content/Python数据相关/statistic_guid.md)
+* [Rust --------------------   rust编程语言学习](https://github.com/wnz27/Road-Rust)
 
 ---
 
