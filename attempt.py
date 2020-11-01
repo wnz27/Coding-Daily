@@ -1,9 +1,9 @@
 '''
 @Author: 27
-@LastEditors: 27
+LastEditors: 27
 @Date: 2020-05-08 01:55:10
-@LastEditTime: 2020-05-08 02:04:35
-@FilePath: /Coding-Daily/attempt.py
+LastEditTime: 2020-11-01 22:59:39
+FilePath: /Coding-Daily/attempt.py
 @description: type some description
 '''
 import random
@@ -18,3 +18,6 @@ print(b)
 assert 1 == 1, "1 等于 1"
 
 print([0] * 10)
+
+for i in range(5, 0, -1):
+    print(i)
