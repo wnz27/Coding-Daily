@@ -53,11 +53,6 @@
 - [rabbitmq异常总结-----------【遇见了会持续更新】](./content/RabbitMQ/rabbitmq异常总结.md)
 - [rabbitmqRPC注意点----------【遇见了会持续更新】](./content/RabbitMQ/remote_producer_call_rpc.md)
 
----
-<a id = "7"> </a> 
-
-## 个人demo练习
-* [todolist小demo, 基于django和react，写完自己看了看觉得emmmmm....代码重构空间好大](https://github.com/wnz27/prework-todolist)
 
 ---
 <a id = "6"></a>
