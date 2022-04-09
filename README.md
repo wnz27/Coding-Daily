@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2019-11-05 09:46:08
- * @LastEditTime: 2020-04-11 19:40:08
+ * @LastEditTime: 2022-04-09 09:56:56
  * @FilePath: /Coding-Daily/README.md
  * @description: type some description
  -->
@@ -44,15 +44,15 @@
 - [Python最佳实践指南！](http://pythonguidecn.readthedocs.io/zh/latest/)
 - [Google 开源项目风格指南](http://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
+<!-- 
 ---
-
 <a id = "2"> </a> 
 
 ## 消息代理学习(待更新~~~~)
 - [rabbitmq官方Tutorial简单解析---------【Python语言】](./content/RabbitMQ/rabbitmq.md)
 - [rabbitmq异常总结-----------【遇见了会持续更新】](./content/RabbitMQ/rabbitmq异常总结.md)
 - [rabbitmqRPC注意点----------【遇见了会持续更新】](./content/RabbitMQ/remote_producer_call_rpc.md)
-
+ -->
 
 ---
 <a id = "6"></a>
