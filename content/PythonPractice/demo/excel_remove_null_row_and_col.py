@@ -2,7 +2,7 @@
 Author: 27
 LastEditors: 27
 Date: 2023-08-17 15:46:30
-LastEditTime: 2023-08-17 17:55:26
+LastEditTime: 2023-08-18 11:46:54
 FilePath: /Coding-Daily/content/PythonPractice/demo/excel_remove_null_row_and_col.py
 description: type some description
 '''
@@ -26,7 +26,10 @@ def test11_iter():
     print(titles)
     contents: List[List] = []
     # 收集前两列的数据到 contents 当两列都是空的时候跳过 第一行也跳过
-    for row in ws.iter_rows(min_row=2):
+
+    for row in ws.iter_rows():
+        if row[0].row == 1:
+            continue
         if all([cell.value is None or (isinstance(cell.value, str) and cell.value.strip()) == '' for cell in row]):
             continue
         # 取每行前两列的cell
