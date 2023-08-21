@@ -2,7 +2,7 @@
 Author: 27
 LastEditors: 27
 Date: 2023-08-17 15:46:30
-LastEditTime: 2023-08-18 11:46:54
+LastEditTime: 2023-08-22 05:40:10
 FilePath: /Coding-Daily/content/PythonPractice/demo/excel_remove_null_row_and_col.py
 description: type some description
 '''
@@ -10,6 +10,7 @@ from typing import List
 from openpyxl import load_workbook
 from openpyxl.workbook import Workbook
 from openpyxl.worksheet.worksheet import Worksheet
+from openpyxl.utils.exceptions import InvalidFileException
 
 
 def read_excel_file_2_workbook() -> (Workbook, Worksheet):
@@ -75,10 +76,33 @@ def test1():
     print(isinstance(a, int))
     print(isinstance(b, str))
     print(isinstance(c, list))
+import re
 
+def extract_file_format(input_string):
+    # 使用正则表达式匹配文件格式字符串
+    match = re.search(r'\.\w+\s*file format', input_string)
+    if match:
+        file_format = match.group(0).split()[0]
+        return file_format
+    return "未知文件类型"
+
+
+
+
+def test2():
+    # 使用 load_workbook 校验文件后缀，如果不是 xlsx 结尾的文件，报错
+    try:
+        # wb = load_workbook('/Users/f27/self_repo/Coding-Daily/content/PythonPractice/demo/发布流程 2.png')
+        wb = load_workbook('/Users/f27/self_repo/Coding-Daily/content/PythonPractice/demo/t1.txt')
+    except InvalidFileException as e:
+        # print(str(e))
+        a = extract_file_format(str(e))
+        print(a)
+    pass
 
 if __name__ == "__main__":
     # iter_excel_and_remove_null_row_and_col()
     # test1()
-    test11_iter()
+    # test11_iter()
+    test2()
     pass
