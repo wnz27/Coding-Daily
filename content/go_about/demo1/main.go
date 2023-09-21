@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-08-18 00:08:36
- * @LastEditTime: 2023-08-18 00:12:30
+ * @LastEditTime: 2023-08-18 00:22:15
  * @FilePath: /Coding-Daily/content/go_about/demo1/main.go
  * @description: type some description
  */
@@ -29,9 +29,17 @@ func t1() {
 	}
 }
 
+func isPowerOfTwo(x int) bool {
+	return (x & (-x)) == x
+}
+
 func main() {
-	t1()
+	// t1()
 	// for k, v := range caches {
 	// 	fmt.Println(k, v)
 	// }
+
+	fmt.Println(isPowerOfTwo(4))
+	fmt.Println(isPowerOfTwo(5))
+	fmt.Println(isPowerOfTwo(8))
 }
