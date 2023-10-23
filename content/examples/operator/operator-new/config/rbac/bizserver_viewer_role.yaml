@@ -1,0 +1,27 @@
+# permissions for end users to view bizservers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: bizserver-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: operator-new
+    app.kubernetes.io/part-of: operator-new
+    app.kubernetes.io/managed-by: kustomize
+  name: bizserver-viewer-role
+rules:
+- apiGroups:
+  - backend.tutorial.kubebuilder.io
+  resources:
+  - bizservers
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - backend.tutorial.kubebuilder.io
+  resources:
+  - bizservers/status
+  verbs:
+  - get
