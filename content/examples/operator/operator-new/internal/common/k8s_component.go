@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-23 10:03:13
- * @LastEditTime: 2023-10-23 16:06:41
+ * @LastEditTime: 2023-10-23 17:24:54
  * @FilePath: /Coding-Daily/content/examples/operator/operator-new/internal/common/k8s_component.go
  * @description: type some description
  */

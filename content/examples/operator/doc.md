@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-20 12:11:02
- * @LastEditTime: 2023-10-23 11:25:00
+ * @LastEditTime: 2023-10-23 17:28:32
  * @FilePath: /Coding-Daily/content/examples/operator/doc.md
  * @description: type some description
 -->
@@ -104,9 +104,15 @@ kubectl apply -f ./config/samples/backend_v1_bizserver.yaml
 ```
 
 ### 更新 controller 代码
+以下这个 创建组件逻辑耦合在controller
 ```shell
 make docker-buildx docker-push IMG=wnz27/kubebuilder-backend:v2
 make deploy IMG=wnz27/kubebuilder-backend:v2
+```
+#### 携带 common 包的 镜像
+```shell
+make docker-buildx docker-push IMG=wnz27/kubebuilder-backend:v3
+make deploy IMG=wnz27/kubebuilder-backend:v3
 ```
 
 
