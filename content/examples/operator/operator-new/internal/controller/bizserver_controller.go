@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-23 09:49:24
- * @LastEditTime: 2023-10-23 17:24:57
+ * @LastEditTime: 2023-10-23 19:19:18
  * @FilePath: /Coding-Daily/content/examples/operator/operator-new/internal/controller/bizserver_controller.go
  * @description: type some description
  */
@@ -30,6 +30,7 @@ import (
 	"github.com/go-logr/logr"
 	appsv1 "k8s.io/api/apps/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
@@ -73,11 +74,14 @@ func (r *BizServerReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 		r.Log.Info("Geeting from Kubebuilder to", obj.Spec.Image, obj.Spec.MysqlSecret)
 	}
 
-	// 查询 deployment
+	// 获取需要权限的k8s 配置
+	targetClient := common.BuildTargetClient("op-demo-operator-svc-account")
 	serverDeployment := &appsv1.Deployment{}
-	if err := r.Get(ctx, client.ObjectKey{
-		Namespace: obj.NameSpace(), Name: obj.ServerName()}, serverDeployment); err != nil {
-		if errors.IsNotFound(err) {
+	var deployFindErr error
+	// 执行 Get 操作
+	serverDeployment, deployFindErr = targetClient.AppsV1().Deployments(obj.NameSpace()).Get(ctx, obj.ServerName(), metav1.GetOptions{})
+	if deployFindErr != nil {
+		if errors.IsNotFound(deployFindErr) {
 			// 如果 Deployment 不存在，创建一个新的 Deployment
 			// 构造 deployment
 			r.Log.Info("new deployment", "server name", obj.ServerName())
@@ -94,11 +98,10 @@ func (r *BizServerReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 				obj.ReqMemory(),
 			)
 			// 部署 deployment
-			if err := r.Create(ctx, serverDeployment); err != nil {
+			if _, err := targetClient.AppsV1().Deployments(obj.NameSpace()).Create(ctx, serverDeployment, metav1.CreateOptions{}); err != nil {
 				return ctrl.Result{}, err
 			}
 		}
-		return ctrl.Result{}, err
 	}
 
 	// 如果 Deployment 已存在，检查镜像和配置是否需要更新
@@ -118,7 +121,8 @@ func (r *BizServerReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 			obj.ReqCPU(),
 			obj.ReqMemory(),
 		)
-		if err := r.Update(ctx, newDeployment); err != nil {
+		// 更新 deployment
+		if _, err := targetClient.AppsV1().Deployments(obj.NameSpace()).Update(ctx, newDeployment, metav1.UpdateOptions{}); err != nil {
 			return ctrl.Result{}, err
 		}
 	}
@@ -127,16 +131,21 @@ func (r *BizServerReconciler) Reconcile(ctx context.Context, req ctrl.Request) (
 	r.Log.Info("new service", "service name", obj.ServiceName())
 	newService := common.BuildService(obj.ServiceName(), obj.NameSpace(), obj.MatchLabels())
 	// 部署 service
-	if err := r.Create(ctx, &newService); err != nil {
+	if _, err := targetClient.CoreV1().Services(obj.NameSpace()).Create(context.TODO(), &newService, metav1.CreateOptions{}); err != nil {
 		return ctrl.Result{}, err
 	}
 
 	// virtualservice
 	r.Log.Info("new virtual service", "server name", obj.VirtualServiceName())
 	newVirtualService := common.BuildVirtualService(obj.NameSpace(), obj.VirtualServiceName())
-	if err := r.Create(ctx, &newVirtualService); err != nil {
-		return ctrl.Result{}, err
+	res := targetClient.RESTClient().Post().Resource("virtualservices").Namespace(obj.NameSpace()).Body(&newVirtualService).Do(context.TODO())
+	if res.Error() != nil {
+		return ctrl.Result{}, res.Error()
 	}
+	// if err := r.Create(ctx, &newVirtualService); err != nil {
+	// return ctrl.Result{}, err
+	// }
+	r.Log.Info("VirtualService created successfully")
 
 	// 初始化 CR 的 Status 为 Running
 	obj.Status.Status = "Running"

@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-23 10:03:13
- * @LastEditTime: 2023-10-23 17:24:54
+ * @LastEditTime: 2023-10-23 18:49:42
  * @FilePath: /Coding-Daily/content/examples/operator/operator-new/internal/common/k8s_component.go
  * @description: type some description
  */
@@ -18,7 +18,21 @@ import (
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/intstr"
+	"k8s.io/client-go/kubernetes"
+	"k8s.io/client-go/rest"
 )
+
+func EmptyDeployment() *appsv1.Deployment {
+	return &appsv1.Deployment{
+		Spec: appsv1.DeploymentSpec{
+			Template: corev1.PodTemplateSpec{
+				Spec: corev1.PodSpec{
+					ServiceAccountName: "op-demo-operator-svc-account",
+				},
+			},
+		},
+	}
+}
 
 // 创建 deployment
 func NewDeployment(ctx context.Context,
@@ -77,6 +91,7 @@ func buildDeploySpec(replicas int32, matchLabels map[string]string, container co
 					{Name: "domains-public-volume",
 						VolumeSource: corev1.VolumeSource{ConfigMap: &corev1.ConfigMapVolumeSource{LocalObjectReference: corev1.LocalObjectReference{Name: "domains-public-config"}}}},
 				},
+				ServiceAccountName: "op-demo-operator-svc-account",
 			},
 		},
 	}
@@ -249,4 +264,24 @@ func BuildVirtualService(nameSpace, virtualServiceName string) istio.VirtualServ
 			},
 		},
 	}
+}
+
+// kube config with service account
+func BuildTargetClient(serviceAccountName string) *kubernetes.Clientset {
+	// 指定要使用的 ServiceAccount 名称和命名空间
+
+	// 创建一个 rest.Config 对象并设置 ServiceAccount
+	config, err := rest.InClusterConfig()
+	if err != nil {
+		panic(err.Error())
+	}
+	// 设置要使用的 ServiceAccount 名称和命名空间
+	config.Impersonate = rest.ImpersonationConfig{UserName: serviceAccountName, Groups: []string{""}}
+
+	// 创建一个 Kubernetes 客户端
+	clientset, err := kubernetes.NewForConfig(config)
+	if err != nil {
+		panic(err.Error())
+	}
+	return clientset
 }

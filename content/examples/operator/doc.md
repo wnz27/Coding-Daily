@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-20 12:11:02
- * @LastEditTime: 2023-10-23 17:28:32
+ * @LastEditTime: 2023-10-23 18:21:58
  * @FilePath: /Coding-Daily/content/examples/operator/doc.md
  * @description: type some description
 -->
@@ -111,8 +111,8 @@ make deploy IMG=wnz27/kubebuilder-backend:v2
 ```
 #### 携带 common 包的 镜像
 ```shell
-make docker-buildx docker-push IMG=wnz27/kubebuilder-backend:v3
-make deploy IMG=wnz27/kubebuilder-backend:v3
+make docker-buildx docker-push IMG=wnz27/kubebuilder-backend:v5
+make deploy IMG=wnz27/kubebuilder-backend:v5
 ```
 
 

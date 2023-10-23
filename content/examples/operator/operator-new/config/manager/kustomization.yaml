@@ -5,4 +5,4 @@ kind: Kustomization
 images:
 - name: controller
   newName: wnz27/kubebuilder-backend
-  newTag: v1
+  newTag: v5
