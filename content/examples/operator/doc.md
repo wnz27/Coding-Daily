@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-20 12:11:02
- * @LastEditTime: 2023-10-23 18:21:58
+ * @LastEditTime: 2023-10-24 12:22:36
  * @FilePath: /Coding-Daily/content/examples/operator/doc.md
  * @description: type some description
 -->
@@ -103,6 +103,16 @@ make deploy IMG=wnz27/kubebuilder-backend:v1
 kubectl apply -f ./config/samples/backend_v1_bizserver.yaml
 ```
 
+### 设定可以访问目标namespace 的 角色和绑定
+```shell
+
+```
+校验 权限
+```shell
+kubectl auth can-i list deployments --as=system:serviceaccount:operator-new-system:operator-new-controller-manager -n op-demo
+
+```
+
 ### 更新 controller 代码
 以下这个 创建组件逻辑耦合在controller
 ```shell
@@ -111,14 +121,19 @@ make deploy IMG=wnz27/kubebuilder-backend:v2
 ```
 #### 携带 common 包的 镜像
 ```shell
-make docker-buildx docker-push IMG=wnz27/kubebuilder-backend:v5
-make deploy IMG=wnz27/kubebuilder-backend:v5
+make docker-buildx docker-push IMG=wnz27/kubebuilder-backend:v10
+make deploy IMG=wnz27/kubebuilder-backend:v10
 ```
 
-
+#### 替换个镜像名
+```shell
+make docker-buildx docker-push IMG=wnz27/kubebuilder-demo-backend:v2
+make deploy IMG=wnz27/kubebuilder-demo-backend:v2
+```
 
 ## TODO 
 - [ ] 定一个web部署的领域模型
+- [ ] 重构 crd 模型
 - [ ] 领域模型到 k8s 核心 api model transform
 
 

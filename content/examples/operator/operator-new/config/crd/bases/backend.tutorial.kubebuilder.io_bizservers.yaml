@@ -59,6 +59,8 @@ spec:
                 type: string
               service_name:
                 type: string
+              virtual_service_host:
+                type: string
               virtual_service_name:
                 type: string
             required:
@@ -68,6 +70,7 @@ spec:
             - public_config
             - server_name
             - service_name
+            - virtual_service_host
             - virtual_service_name
             type: object
           status:

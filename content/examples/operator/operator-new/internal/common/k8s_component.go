@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-23 10:03:13
- * @LastEditTime: 2023-10-23 18:49:42
+ * @LastEditTime: 2023-10-24 15:03:24
  * @FilePath: /Coding-Daily/content/examples/operator/operator-new/internal/common/k8s_component.go
  * @description: type some description
  */
@@ -27,7 +27,8 @@ func EmptyDeployment() *appsv1.Deployment {
 		Spec: appsv1.DeploymentSpec{
 			Template: corev1.PodTemplateSpec{
 				Spec: corev1.PodSpec{
-					ServiceAccountName: "op-demo-operator-svc-account",
+					// ServiceAccountName: "op-demo-operator-svc-account",
+					// ServiceAccountName: "operator-new-controller-manager",
 				},
 			},
 		},
@@ -75,8 +76,14 @@ func NewDeployment(ctx context.Context,
 }
 
 func buildDeploySpec(replicas int32, matchLabels map[string]string, container corev1.Container) appsv1.DeploymentSpec {
+
 	return appsv1.DeploymentSpec{
 		Replicas: &replicas,
+		// RevisionHistoryLimit: 0,
+		Strategy: appsv1.DeploymentStrategy{
+			Type: appsv1.DeploymentStrategyType("RollingUpdate"),
+			// RollingUpdate: &appsv1.RollingUpdateDeployment{},
+		},
 		Selector: &metav1.LabelSelector{
 			MatchLabels: matchLabels,
 		},
@@ -91,7 +98,8 @@ func buildDeploySpec(replicas int32, matchLabels map[string]string, container co
 					{Name: "domains-public-volume",
 						VolumeSource: corev1.VolumeSource{ConfigMap: &corev1.ConfigMapVolumeSource{LocalObjectReference: corev1.LocalObjectReference{Name: "domains-public-config"}}}},
 				},
-				ServiceAccountName: "op-demo-operator-svc-account",
+				// ServiceAccountName: "op-demo-operator-svc-account",
+				// ServiceAccountName: "operator-new-controller-manager",
 			},
 		},
 	}
@@ -230,7 +238,7 @@ func buildServicePort() []corev1.ServicePort {
 }
 
 // 创建 vs
-func BuildVirtualService(nameSpace, virtualServiceName string) istio.VirtualService {
+func BuildVirtualService(nameSpace, virtualServiceName, vsHost, serviceName string) istio.VirtualService {
 	uri := networkingv1alpha3.StringMatch_Prefix{Prefix: "/"}
 	// 创建 VirtualService
 	return istio.VirtualService{
@@ -239,8 +247,8 @@ func BuildVirtualService(nameSpace, virtualServiceName string) istio.VirtualServ
 			Namespace: nameSpace,
 		},
 		Spec: networkingv1alpha3.VirtualService{
-			Hosts:    []string{"server-demo.newtest.internal.guanmai.cn"}, // 定义主机
-			Gateways: []string{"istio-system/istio-gateway-internal"},     // 关联到 Istio 网关
+			Hosts:    []string{vsHost},                                // 定义主机
+			Gateways: []string{"istio-system/istio-gateway-internal"}, // 关联到 Istio 网关
 			Http: []*networkingv1alpha3.HTTPRoute{
 				{
 					Match: []*networkingv1alpha3.HTTPMatchRequest{
@@ -253,7 +261,7 @@ func BuildVirtualService(nameSpace, virtualServiceName string) istio.VirtualServ
 					Route: []*networkingv1alpha3.HTTPRouteDestination{
 						{
 							Destination: &networkingv1alpha3.Destination{
-								Host: virtualServiceName, // 与你的 Service 名称匹配
+								Host: serviceName, // 与你的 Service 名称匹配
 								Port: &networkingv1alpha3.PortSelector{
 									Number: 8000, // 与 Service 暴露的端口匹配
 								},

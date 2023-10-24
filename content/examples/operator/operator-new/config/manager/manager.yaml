@@ -99,4 +99,5 @@ spec:
             cpu: 10m
             memory: 64Mi
       serviceAccountName: controller-manager
+      # serviceAccountName: op-demo-operator-svc-account
       terminationGracePeriodSeconds: 10

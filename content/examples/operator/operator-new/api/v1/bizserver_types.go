@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-23 09:49:24
- * @LastEditTime: 2023-10-23 16:01:16
+ * @LastEditTime: 2023-10-24 11:03:30
  * @FilePath: /Coding-Daily/content/examples/operator/operator-new/api/v1/bizserver_types.go
  * @description: type some description
  */
@@ -49,6 +49,7 @@ type BizServerSpec struct {
 	LimitMemory        string `json:"limit_memory,omitempty"`
 	ReqCPU             string `json:"req_cpu,omitempty"`
 	ReqMemory          string `json:"req_memory,omitempty"`
+	VirtualServiceHost string `json:"virtual_service_host"`
 }
 
 // BizServerStatus defines the observed state of BizServer
@@ -68,6 +69,11 @@ type BizServer struct {
 
 	Spec   BizServerSpec   `json:"spec,omitempty"`
 	Status BizServerStatus `json:"status,omitempty"`
+}
+
+// Getter to virtual service host
+func (s *BizServer) VirtualServiceHost() string {
+	return s.Spec.VirtualServiceHost
 }
 
 // Getter to  replicas
