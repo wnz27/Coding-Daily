@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-23 10:03:13
- * @LastEditTime: 2023-10-24 15:03:24
+ * @LastEditTime: 2023-10-24 15:35:08
  * @FilePath: /Coding-Daily/content/examples/operator/operator-new/internal/common/k8s_component.go
  * @description: type some description
  */
@@ -219,7 +219,7 @@ func buildServicePort() []corev1.ServicePort {
 		{
 			Name:     "http-svc",
 			Protocol: corev1.ProtocolTCP,
-			Port:     8000,
+			Port:     80, // service 暴露端口
 			TargetPort: intstr.IntOrString{
 				Type:   intstr.Int,
 				IntVal: 8000,
@@ -263,7 +263,7 @@ func BuildVirtualService(nameSpace, virtualServiceName, vsHost, serviceName stri
 							Destination: &networkingv1alpha3.Destination{
 								Host: serviceName, // 与你的 Service 名称匹配
 								Port: &networkingv1alpha3.PortSelector{
-									Number: 8000, // 与 Service 暴露的端口匹配
+									Number: 80, // 与 Service 暴露的端口匹配
 								},
 							},
 						},
