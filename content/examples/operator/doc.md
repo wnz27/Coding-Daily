@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-20 12:11:02
- * @LastEditTime: 2023-10-24 12:22:36
+ * @LastEditTime: 2023-10-26 08:10:32
  * @FilePath: /Coding-Daily/content/examples/operator/doc.md
  * @description: type some description
 -->
@@ -135,6 +135,9 @@ make deploy IMG=wnz27/kubebuilder-demo-backend:v2
 - [ ] 定一个web部署的领域模型
 - [ ] 重构 crd 模型
 - [ ] 领域模型到 k8s 核心 api model transform
+###  高阶：
+- [ ] 金丝雀发布
+- [ ] 计算 pod 数量， 利用之前数量计算当前灰度 replica 为几个
 
 
 
