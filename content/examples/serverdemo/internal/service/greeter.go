@@ -1,7 +1,16 @@
+/*
+ * @Author: 27
+ * @LastEditors: 27
+ * @Date: 2023-10-21 20:07:02
+ * @LastEditTime: 2023-10-26 14:46:03
+ * @FilePath: /Coding-Daily/content/examples/serverdemo/internal/service/greeter.go
+ * @description: type some description
+ */
 package service
 
 import (
 	"context"
+	"os"
 
 	v1 "serverdemo/api/helloworld/v1"
 	"serverdemo/internal/biz"
@@ -25,5 +34,10 @@ func (s *GreeterService) SayHello(ctx context.Context, in *v1.HelloRequest) (*v1
 	if err != nil {
 		return nil, err
 	}
-	return &v1.HelloReply{Message: "Hello " + g.Hello}, nil
+	// 获取配置
+	// 从 环境变量获取信息
+	user_name := os.Getenv("username")
+	config1 := os.Getenv("domains_public.yaml")
+	msg := "Hello " + g.Hello + " " + user_name + " " + config1
+	return &v1.HelloReply{Message: msg}, nil
 }

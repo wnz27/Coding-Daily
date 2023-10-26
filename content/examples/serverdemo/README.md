@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-21 20:07:02
- * @LastEditTime: 2023-10-24 13:57:08
+ * @LastEditTime: 2023-10-26 14:25:01
  * @FilePath: /Coding-Daily/content/examples/serverdemo/README.md
  * @description: type some description
 -->
@@ -55,7 +55,7 @@ docker build -t <your-docker-image-name> .
 ```
 ```shell
 # buildx
-docker buildx build --platform linux/amd64 -t wnz27/test_server_demo:v0.0.2 -f Dockerfile .
+docker buildx build --platform linux/amd64 -t wnz27/test_server_demo:v0.0.4 -f Dockerfile .
 ```
 # run
 docker run --rm -p 8000:8000 -p 9000:9000 -v </path/to/your/configs>:/data/conf <your-docker-image-name>

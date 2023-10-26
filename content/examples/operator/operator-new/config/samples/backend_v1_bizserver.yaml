@@ -12,7 +12,7 @@ metadata:
 spec:
   # TODO(user): Add fields here
   server_name: test-demo-server
-  image: wnz27/test_server_demo:v0.0.3
+  image: wnz27/test_server_demo:v0.0.4
   mysql_secret: mysql-test
   public_config: domains-public-config
   virtual_service_name: test-demo-vs
