@@ -2,13 +2,13 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2023-10-20 12:11:02
- * @LastEditTime: 2023-10-26 08:10:32
+ * @LastEditTime: 2023-10-30 11:37:49
  * @FilePath: /Coding-Daily/content/examples/operator/doc.md
  * @description: type some description
 -->
 # operator 部署尝试
 
-## bukebuilder 架构图
+## kubebuilder 架构图
 ![](./imgs/architecture.png)
 
 ## 初始化
