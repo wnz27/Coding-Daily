@@ -2,7 +2,7 @@
  * @Author: 27
  * @LastEditors: 27
  * @Date: 2019-11-05 09:46:08
- * @LastEditTime: 2022-04-10 17:14:14
+ * @LastEditTime: 2024-09-03 09:30:43
  * @FilePath: /Coding-Daily/README.md
  * @description: type some description
  -->
@@ -52,7 +52,7 @@
 ## Practice of Git 
 - [特别好的一个练习git的网址](https://learngitbranching.js.org/)
 - [Skills](https://github.com/wnz27/gitskills/blob/master/git%E4%B9%A0%E5%BE%97.md)
-- [方便的.gitignore配置命令使用](https://gitignore.io)
+- [方便的.gitignore配置命令使用](https://docs.gitignore.io/)
 
 ---
 ------------------------------------------------------------------------------------------------------------[返回顶部](#0)
