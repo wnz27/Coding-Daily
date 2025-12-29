@@ -1,24 +1,43 @@
 #! -*- encoding=utf-8 -*-
-# try except finally
+# Python异常处理和with上下文管理器详解
+
 '''
+Python异常处理机制：
+
+1. try-except-else-finally 结构：
+   - try: 尝试执行可能出错的代码
+   - except: 捕获和处理异常
+   - else: 当没有异常时执行
+   - finally: 无论是否有异常都会执行
+
+2. finally 的特殊性：
+   - 一定会执行，用于资源清理
+   - 即使有return也会执行
+   - finally中的return会覆盖try/except中的return
+
+3. with 上下文管理器：
+   - 更优雅的资源管理方式
+   - 自动处理资源的获取和释放
+   - 需要实现__enter__和__exit__方法
+'''
+
+print("=" * 50)
+print("1. 异常处理基础")
+print("=" * 50)
+
+# 示例1：捕获特定异常
+print("\n示例1：捕获特定异常")
 try:
     print("code started")
-    raise IndexError
+    raise KeyError("Test KeyError")
 except KeyError as e:
-    print("key error")
-# 没有捕获
-# 输出：
-code started
-Traceback (most recent call last):
-  File "/Users/fzk27/fzk27/Coding-Daily/Python_Generate/with_test.py", line 5, in <module>
-    raise IndexError
-IndexError
-'''
-try:
-    print("code started")
-    raise KeyError
-except KeyError as e:
-    print("key error")
+    print(f"key error: {e}")
+
+print("""
+注意：
+- 如果抛出的异常类型与except不匹配，异常会向上传递
+- 例如：raise IndexError 但except KeyError，会报错
+""")
 
 # else的用法，可以捕捉到前面没有捕捉到的异常
 try:
