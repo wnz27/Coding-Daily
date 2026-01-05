@@ -792,22 +792,39 @@ Lala is rolled over!
 #### car类
 
 下面来编写一个表示汽车的类，它存储了有关汽车的信息，还有一个汇总这些信息的方法:
-```
+```python
+# 定义Car类，用于模拟汽车
 class Car():
     '''模拟汽车的尝试'''
+    # 构造函数，创建Car实例时自动调用
     def __init__(self,make,model,year):
-        '''初始化汽车实例的属性'''
+        '''初始化汽车实例的属性
+        
+        参数:
+            make: 汽车的制造商
+            model: 汽车的型号
+            year: 汽车的生产年份
+        '''
+        # 设置汽车的制造商属性
         self.make = make
+        # 设置汽车的型号属性
         self.model = model
+        # 设置汽车的生产年份属性
         self.year = year
 
+    # 定义获取汽车描述信息的方法
     def get_descriptive_name(self):
         '''返回整洁的描述性信息'''
+        # 将年份、制造商和型号组合成描述字符串
         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        # 使用title()方法让每个单词首字母大写并返回
         return long_name.title()
 
-my_new_car = Car("audi","a4",2018)   # 创建 my_new_car 这个实例
-print my_new_car.get_descriptive_name() # 调用 描述方法
+# 创建Car类的实例my_new_car
+# 传入参数: 制造商"audi", 型号"a4", 年份2018
+my_new_car = Car("audi","a4",2018)
+# 调用实例的get_descriptive_name()方法并打印结果
+print my_new_car.get_descriptive_name()
 ```
 
 控制台会输出：
@@ -823,12 +840,17 @@ print my_new_car.get_descriptive_name() # 调用 描述方法
 如果你对某个属性这样做了，就**无需包含**为它提供初始值的**形参**。
 
 下面来添加一个名为`odometer_reading`的属性，其初始值总是为0。我们还添加了一个名为`read_odometer()`的方法，用于读取汽车的里程表:
-```
- def read_odometer(self):
-        '''打印一条指出汽车里程的消息'''
-        print "This car has " + str(self.odometer_reading) + " miles on it."
+```python
+# 定义读取里程表的方法
+def read_odometer(self):
+    '''打印一条指出汽车里程的消息'''
+    # str()函数将数字转换为字符串，便于拼接
+    # self.odometer_reading是实例的里程属性
+    print "This car has " + str(self.odometer_reading) + " miles on it."
 
-my_new_car.read_odometer() #调用 查看汽车里程的方法
+# 调用实例的read_odometer()方法查看汽车里程
+# 此时会显示默认里程数0
+my_new_car.read_odometer()
 ```
 在控制台输出为：
 ```
@@ -848,9 +870,13 @@ This car has 0 miles on it.
 ##### 1、直接通过实例进行修改
 
 要修改属性的值，最简单的方式是通过实例直接访问它。下面的代码直接将里程表读数设置为27:
-```
-my_new_car.read_odometer() #调用 查看汽车里程的方法
-my_new_car.odometer_reading = 27 #直接通过实例修改属性
+```python
+# 第一次读取里程，显示默认值0
+my_new_car.read_odometer()
+# 直接通过实例修改里程属性
+# 使用点号访问实例的odometer_reading属性并赋新值
+my_new_car.odometer_reading = 27
+# 再次读取里程，显示修改后的值27
 my_new_car.read_odometer()
 ```
 
@@ -871,16 +897,26 @@ This car has 27 miles on it.
 
 如果有替你更新属性的方法，将大有裨益。这样，你就无需直接访问属性，而可将值传递给一个方法，由它在内部进行更新。
 下面的示例演示了一个名为`update_odometer()`的方法:
-```
+```python
+# 定义更新里程表的方法
 def update_odometer(self,mileage):
-        '''将里程表的值设定为指定值'''
-        self.odometer_reading = mileage
+    '''将里程表的值设定为指定值
+    
+    参数:
+        mileage: 新的里程数
+    '''
+    # 将传入的mileage值赋给实例的odometer_reading属性
+    self.odometer_reading = mileage
 ```
 
 我们使用一下：
-```
-my_new_car.read_odometer() #调用 查看汽车里程的方法
-my_new_car.update_odometer(27) #使用方法修改里程数
+```python
+# 第一次读取里程，显示默认值0
+my_new_car.read_odometer()
+# 使用update_odometer()方法修改里程数
+# 传入新的里程值27
+my_new_car.update_odometer(27)
+# 再次读取里程，显示修改后的值27
 my_new_car.read_odometer()
 ```
 
@@ -1390,17 +1426,30 @@ Python标准库是一组模块，安装的Python都包含它。
 `OrderedDict`实例的行为几乎与字典相同，**区别只在于记录了键—值对的添加顺序**。 
 
 我们再来看一看第6章的`favorite_languages.py`示例，但这次将记录被调查者参与调查的顺序:
-```
+```python
+# 从collections模块导入OrderedDict类
+# OrderedDict是一个特殊的字典，会记住键值对的添加顺序
 from collections import OrderedDict
 
-favorite_languages = OrderedDict() #调用OrderedDict来创建一个空字典，将其存储在favorite_languages中
+# 创建一个OrderedDict实例，用于存储有序的键值对
+# 与普通字典不同，它会保持添加键值对的顺序
+favorite_languages = OrderedDict()
 
+# 按顺序添加键值对到有序字典中
+# 第一个添加的是jen，对应的语言是python
 favorite_languages["jen"] = "python"
+# 第二个添加的是sarah，对应的语言是c
 favorite_languages["sarah"] = "c"
+# 第三个添加的是edward，对应的语言是ruby
 favorite_languages["edward"] = "ruby"
+# 第四个添加的是phil，对应的语言是python
 favorite_languages["phil"] = "python"
 
-for name,language in favorite_languages.items(): #遍历字典，但知道将以添加的顺序获取调查结果。
+# 遍历有序字典，items()返回所有键值对
+# 因为使用了OrderedDict，遍历时会按照添加的顺序输出
+for name,language in favorite_languages.items():
+    # title()方法将每个单词的首字母大写
+    # 打印每个人喜欢的编程语言
     print(name.title() + "'s favorite language is " + language.title() + ".")
 ```
 这是一个很不错的类，它兼具列表和字典的主要优点(在将信息关联起来的同时保留原来的顺序)。
@@ -1796,10 +1845,16 @@ I really like cat!
 要将文本写入文件，你在调用`open()`时需要提供**另一个实参**，告诉Python你要写入打开的文件。
 
 为明白其中的工作原理，我们来将一条简单的消息**存储到文件中**，而不是将其打印到屏幕上:
-```
-file_name1 = "write_none.txt" #把文件名放进变量里
-with open(file_name1,"w") as file_obj:  #将要写入文件,并创建文件对象
-    file_obj.write("I love programing!") #写入的内容
+```python
+# 定义要写入的文件名
+file_name1 = "write_none.txt"
+# 以写入模式("w")打开文件
+# 如果文件不存在，Python会自动创建它
+# 如果文件已存在，会被清空后再写入
+with open(file_name1,"w") as file_obj:
+    # 使用write()方法向文件写入字符串
+    # 注意: write()只能写入字符串，数值需要先转换
+    file_obj.write("I love programing!")
 ```
 在这个示例中，调用`open()`时提供了两个实参：
 
@@ -1841,11 +1896,16 @@ with open(file_name1,"w") as file_obj:  #将要写入文件,并创建文件对�
 I love programing!I also like football!
 ```
 要让每个字符串都单独占一行，需要在`write()`语句中包含换行符:
-```
-file_name1 = "write_none.txt" #把文件名放进变量里
-with open(file_name1,"w") as file_obj:  #将要写入文件,并创建文件对象
-    file_obj.write("I love programing!\n") #写入的内容
-    file_obj.write("I also like football!\n") #继续写入
+```python
+# 定义要写入的文件名
+file_name1 = "write_none.txt"
+# 以写入模式打开文件
+with open(file_name1,"w") as file_obj:
+    # 写入第一行，\n是换行符
+    # 如果不加\n，所有内容会连在一起
+    file_obj.write("I love programing!\n")
+    # 写入第二行，同样以\n结尾
+    file_obj.write("I also like football!\n")
 ```
 运行后，文件`write_none.txt`变成这样：
 ```
@@ -1865,11 +1925,16 @@ I also like football!
 如果指定的文件不存在，Python将为你创建一个空文件。
 
 我们再修改一下写入的操作：
-```
-file_name1 = "write_none.txt" # 把文件名放进变量里
-with open(file_name1,"a") as file_obj1: # 创建文件对象，附加模式
-    file_obj1.write("Because football is very good!\n") #添加一句话
-    file_obj1.write("Because programing fell good!\n") #添加另一句话
+```python
+# 定义要附加内容的文件名
+file_name1 = "write_none.txt"
+# 以附加模式("a")打开文件
+# 附加模式不会清空文件，新内容会加到文件末尾
+with open(file_name1,"a") as file_obj1:
+    # 在文件末尾添加第一行新内容
+    file_obj1.write("Because football is very good!\n")
+    # 在文件末尾添加第二行新内容
+    file_obj1.write("Because programing fell good!\n")
 ```
 我们打开文件时指定了实参`"a"`，以便将内容附加到文件末尾，而不是覆盖文件原来的内容。
 
@@ -1999,19 +2064,30 @@ ZeroDivisionError: division by zero
 错误是执行除法运算的代码行导致的，因此我们需要将它放到`try--except`代码块中。
 
 这个示例还包含一个`else`代码块；依赖于`try`代码块成功执行的代码都应放到`else`代码块中，我们来修改一下上面的代码：
-```
+```python
+# 创建一个无限循环，直到用户输入'q'退出
 while True:
+    # 提示用户输入第一个数字
     first_number = input("\nFirst number: ")
+    # 如果用户输入'q'，则退出循环
     if first_number == "q":
         break
+    # 提示用户输入第二个数字
     second_number = input("\nSecond number: ")
+    # 如果用户输入'q'，则退出循环
     if second_number == "q":
         break
+    # try代码块：尝试执行可能引发错误的代码
     try:
+        # 将字符串转换为整数并执行除法运算
         answer = int(first_number) / int(second_number)
+    # except代码块：如果发生除零错误，执行这里的代码
     except ZeroDivisionError:
+        # 打印友好的错误提示，而不是让程序崩溃
         print("You can't divide by zero!\n")
+    # else代码块：只有try代码块成功执行时才运行
     else:
+        # 打印除法结果
         print(answer)
 ```
 我们让Python尝试执行`try`代码块中的除法运算，这个代码块只包含可能导致错误的代码。
@@ -2285,14 +2361,21 @@ Python的错误处理结构让你能够细致地控制与用户分享错误信�
 函数`json.dump()`接受两个实参：1、**要存储的数据**以及2、可用于存储数据的**文件对象**。
 
 下面演示了如何使用`json.dump()`来存储数字列表:
-```
-import json #导入json模块
+```python
+# 导入json模块，用于处理JSON格式的数据
+import json
 
+# 创建一个数字列表，这些是质数
 numbers = [2,3,5,7,11,13]
 
+# 定义要保存数据的文件名
+# .json扩展名表明这是一个JSON格式的文件
 file_name = "numbers.json"
+# 以写入模式打开文件
 with open(file_name,"w") as f_obj:
-    json.dump(numbers,f_obj) #把数字列表写入文件对象f_obj
+    # 使用json.dump()方法将数据写入文件
+    # 第一个参数是要存储的数据，第二个参数是文件对象
+    json.dump(numbers,f_obj)
 ```
 我们先导入模块`json`，再创建一个数字列表。我们指定了要将该数字列表存储到其中的文件的名称。
 
@@ -2849,27 +2932,51 @@ Python在`unittest.TestCase`类中提供了很多断言方法。
 
 `survey.py`：
 
-```
+```python
+# 定义匿名调查类
 class AnonymousSurvey():
-    '''收集匿名调查问卷的答案'''
+    '''收集匿名调查问卷的答案
+    
+    这个类用于管理调查问卷，可以显示问题、
+    收集答案并展示结果
+    '''
 
+    # 构造函数，创建调查实例时自动调用
     def __init__(self,question):
-        '''存储一个问题，并为存储答案做准备！'''
+        '''存储一个问题，并为存储答案做准备！
+        
+        参数:
+            question: 调查的问题文本
+        '''
+        # 将传入的问题存储为实例属性
         self.question = question
+        # 创建一个空列表，用于存储所有的答案
         self.responses = []
 
+    # 定义显示问题的方法
     def show_question(self):
-        '''显示调查问卷'''
+        '''显示调查问卷的问题'''
+        # 打印存储的调查问题
         print(self.question)
 
+    # 定义存储答案的方法
     def store_response(self,new_response):
-        '''存储单份调查答卷'''
+        '''存储单份调查答卷
+        
+        参数:
+            new_response: 用户提供的答案
+        '''
+        # 使用append()方法将新答案添加到responses列表末尾
         self.responses.append(new_response)
 
+    # 定义显示结果的方法
     def show_results(self):
         '''显示收集到的所有答卷'''
+        # 打印结果标题
         print("Survey results:")
+        # 遍历responses列表中的每个答案
         for response in self.responses:
+            # 打印每个答案，前面加上"-"符号
             print("- " + response)
 ```
 
