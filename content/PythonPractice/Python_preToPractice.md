@@ -116,9 +116,16 @@
 
 函数名底下用三个单引号的注释，告知看源码的人该函数的作用。
 
-```
+```python
+# 定义一个显示最喜欢书籍的函数
 def favoriate_book(title):
-    '''显示最喜欢的书籍的函数！'''
+    '''显示最喜欢的书籍的函数！
+    
+    参数:
+        title: 书籍的标题
+    '''
+    # 使用字符串格式化打印喜欢的书名
+    # %s 是字符串占位符，会被 title 的值替换
     print "One of my favoriate book is %s!" %title
 ```
 
@@ -138,13 +145,23 @@ def favoriate_book(title):
 
 使用默认值时，在形参列表中必须**先列出没有默认值的形参，再列出有默认值的实参**。比如：
 
-```
+```python
+# 定义一个显示宠物信息的函数，a_type参数有默认值"dog"
 def animals(a_name, a_type = "dog"):
-    '''显示宠物信息'''
+    '''显示宠物信息
+    
+    参数:
+        a_name: 宠物的名字（必需参数）
+        a_type: 宠物的类型（可选参数，默认为"dog"）
+    '''
+    # 使用字符串拼接，组合宠物类型和名字信息
+    # + 运算符用于连接多个字符串
     print "I have a " + a_type + ", It name is " + a_name +"!"
 
-animals("cat","dada")
-animals("duo")
+# 传入两个参数，将使用传入的值覆盖默认值
+animals("cat","dada")  # 输出: I have a cat, It name is dada!
+# 只传入一个参数（必需参数），第二个参数使用默认值"dog"
+animals("duo")  # 输出: I have a dog, It name is duo!
 ```
 
 
@@ -159,19 +176,38 @@ animals("duo")
 
 可以用**空字符**实现实参可选，比如：
 
-```
+```python
+# 定义一个格式化姓名的函数，中间名参数可选（默认为空字符串）
 def get_format_name(first_name, last_name, middle_name = ""):
+    '''格式化姓名，将名字各部分组合并首字母大写
+    
+    参数:
+        first_name: 名字（必需）
+        last_name: 姓氏（必需）
+        middle_name: 中间名（可选，默认为空字符串）
+    
+    返回:
+        格式化后的全名，每个单词首字母大写
+    '''
+    # 检查是否提供了中间名（空字符串被视为False）
     if middle_name:
+        # 如果有中间名，按 "名 中间名 姓" 的格式拼接
+        # 在各部分之间添加空格分隔
         full_name = first_name + " " + middle_name + " " + last_name
     else:
+        # 如果没有中间名，按 "名 姓" 的格式拼接
         full_name = first_name + " " + last_name
+    # title()方法将字符串中每个单词的首字母转为大写
+    # 返回格式化后的全名
     return full_name.title()
 
+# 示例1: 不提供中间名，只使用名和姓两个参数
 musician = get_format_name("little1","little2")
-print musician
+print musician  # 输出: Little1 Little2
 
+# 示例2: 提供中间名，使用全部三个参数
 musician = get_format_name("big1","big2","big3")
-print musician
+print musician  # 输出: Big1 Big3 Big2
 ```
 
 ---
@@ -186,16 +222,39 @@ print musician
 若要禁止，可以利用**切片技巧**：
 **切片表示法`[:]`创建列表的副本**。比如：
 
-```
+```python
+# 创建一个包含三个姓名的列表
 names = ["aaaaaa","bbbbb","ccccc"]
+
+# 定义一个处理姓名和年龄列表的函数
 def list_exampla(names,ages):
-    '''处理姓名和年龄列表'''
+    '''处理姓名和年龄列表
+    
+    参数:
+        names: 姓名列表
+        ages: 年龄信息
+    
+    功能:
+        遍历列表并逐个删除元素，演示列表修改
+    '''
+    # 使用for循环遍历姓名列表中的每个元素
     for name in names:
+        # pop()方法移除并返回列表的最后一个元素
+        # 注意: 在循环中修改列表长度可能导致意外行为
         names.pop()
+        # 打印当前列表的状态，观察列表变化
         print names
+    # 打印示例结束标识
     print "this is a example!"
+
+# 使用切片表示法names[:]创建列表的副本（浅拷贝）
+# 这样函数内部的修改不会影响原始列表
+# 第二个参数 18 是年龄信息
 list_exampla(names[:],18)
-print names
+
+# 打印原始列表，验证它没有被函数修改
+# 因为传递的是副本，所以原列表保持不变
+print names  # 输出: ['aaaaaa', 'bbbbb', 'ccccc']
 ```
 
 这个函数处理的就是names这个列表的副本，而不是names列表的本身。
@@ -212,10 +271,28 @@ print names
 
 若你预先不知道函数将会处理多少实参，Python的函数调用可以收集任意数量的实参来满足这种需求。比如：
 
-```
+```python
+# 定义一个接受任意数量实参的函数
+# *toppings 是一个特殊的参数形式，称为"可变参数"
+# 星号*会将所有传入的位置参数打包成一个元组(tuple)
 def make_pizza(*toppings):
+    '''制作披萨，可以添加任意数量的配料
+    
+    参数:
+        *toppings: 可变数量的配料参数
+                   会被自动打包成元组
+    '''
+    # 打印接收到的所有配料组成的元组
+    # 即使只传入一个参数，也会被打包成元组
     print toppings
+
+# 示例1: 传入一个参数
+# 输出: ('a',)  - 注意逗号，表示这是一个元组而不是字符串
 make_pizza("a")
+
+# 示例2: 传入多个参数
+# 所有参数都会被收集到toppings元组中
+# 输出: ('b', 'c')
 make_pizza("b","c")
 ```
 
@@ -242,16 +319,41 @@ make_pizza("b","c")
 一个这样的示例是创建用户简介:你知道你将收到有关用户的信息，但不确定会是什么样的信息。
 在下面的示例中，函数接受名和姓，同时还接受**任意数量**的关键字实参:
 
-```
+```python
+# 定义一个创建用户简介的函数
+# **user_info会将任意数量的关键字参数打包成一个字典
 def build_profile(first,last,**user_info):
-    '''创建字典，包含用户信息！'''
+    '''创建字典，包含用户信息！
+    
+    参数:
+        first: 用户的名字（必需）
+        last: 用户的姓氏（必需）
+        **user_info: 任意数量的关键字参数，会被打包成字典
+                     可以包含性别、年龄、地址等任意信息
+    
+    返回:
+        包含用户完整信息的字典
+    '''
+    # 创建一个空字典用于存储用户信息
     profile = {}
+    # 添加名字到字典，使用'first_name'作为键
     profile["first_name"] = first
+    # 添加姓氏到字典，使用'last_name'作为键
     profile["last_name"] = last
+    # 遍历user_info字典中的所有键值对
+    # items()方法返回字典中所有的(键, 值)对
     for key,value in user_info.items():
+        # 将每个键值对添加到profile字典中
+        # 这样就可以将任意额外的信息存储到用户简介中
         profile[key] = value
+    # 返回包含完整用户信息的字典
     return profile
+
+# 调用函数，传入必需参数和额外的关键字参数
+# 'aaaa'和'bbbb'是必需的名和姓
+# gender和age是额外的关键字参数，会被打包到user_info字典中
 user_profile = build_profile("aaaa","bbbb",gender = "male",age = "18")
+# 打印用户信息字典
 print user_profile
 ```
 
@@ -299,9 +401,14 @@ def test_print(some_message):
 ```
 
 3. 导入整个模块的方法是，你在`test.py`文件中用整体导入语句：
-```
-import testFun #使用需要导入的文件名，进行整体导入
-testFun.test_print("abc") #直接用导入的文件名，然后点语法+函数名就可直接使用。
+```python
+# 导入整个testFun模块
+# import语句将整个模块的所有内容导入到当前程序
+import testFun
+# 使用模块名.函数名的方式调用模块中的函数
+# testFun是模块名，test_print是函数名
+# 这种方式能清晰地看出函数来自哪个模块
+testFun.test_print("abc")
 ```
 
 <a id ="导入特定函数"></a>
@@ -310,20 +417,31 @@ testFun.test_print("abc") #直接用导入的文件名，然后点语法+函数�
 * 方法是使用这样形式的语句：`from module_name import function_name`
 
 还拿上面的例子说，我先把`testFun.py`文件加一个函数：
-```
+```python
+# 定义第一个打印函数
 def test_print(some_message):
     '''打印传入的信息'''
+    # 直接打印消息
     print some_message
+
+# 定义第二个打印函数
 def test_another_print(some_message):
     '''打印另一条传入的信息'''
+    # 在消息前添加"Another "后打印
     print "Another " + some_message
 ```
 
 这时候你在`test.py`文件中使用上面给出的形式：
-```
-from testFun import test_another_print #调用testFun模块中的test_another_print
-testFun.test_print("abc")  #错误语句
-test_another_print("aaaa") #正确语句
+```python
+# 从testFun模块中只导入test_another_print函数
+# 这种方式只导入指定的函数，而不是整个模块
+from testFun import test_another_print
+# 这是错误的，因为没有导入testFun模块，只导入了特定函数
+# 使用模块名调用会导致NameError：testFun未定义
+testFun.test_print("abc")
+# 正确的调用方式，直接使用函数名
+# 因为使用from...import语句时，函数名被直接导入到当前命名空间
+test_another_print("aaaa")
 ```
 
 如果你还留着上面整体导入的调用函数的语句，Python会给你报这样一个错误：
@@ -365,9 +483,14 @@ from module_name import function_name1，function_name2, function_name3
 `from module_name import function_name as fn`
 
 这个`fn`就是外号，这时候调用函数的时候使用外号就行。再用上面的例子：
-```
-from testFun import test_another_print as t_a_p #给函数指定别名t_a_p
-t_a_p("aaaaa") #这时别名就生效了
+```python
+# 从testFun模块导入test_another_print函数并给它指定别名t_a_p
+# as关键字用于为导入的函数或模块创建别名
+# 这在函数名过长或可能冲突时非常有用
+from testFun import test_another_print as t_a_p
+# 使用别名t_a_p调用函数
+# 注意: 一旦指定了别名，就不能再使用原始名称了
+t_a_p("aaaaa")
 ```
 这时你再用：`test_another_print（"aaaaa"）`也会报`NameError`的错误。
 意味着指定别名之后只能用别名来调用函数。
@@ -480,20 +603,43 @@ def function_name(
 #### 创建类
 
 我们以创建一个狗的类为列子，狗狗会有`名字`和`年龄`这**两项信息**，以及`蹲下`和`打滚`这**两项行为**，我们用类来实现它们：
-```
-class Dog():                         #1、定义类
-    '''一次模拟小狗类的尝试'''
-    def __init__(self,name,age):     #2、__init__方法
-        '''初始化名称和年龄'''
-        self.name = name             #3、前缀self
-        self.age = age
+```python
+# 1、定义Dog类，括号为空表示这是一个基础类（不继承其他类）
+class Dog():
+    '''一次模拟小狗类的尝试
     
-    def sit(self):                   #4、行为方法
-        '''模拟小狗被命令时坐下'''
+    这个类模拟了小狗的基本属性（名字、年龄）
+    和基本行为（坐下、打滚）
+    '''
+    
+    # 2、__init__方法是类的构造函数，创建实例时自动调用
+    def __init__(self,name,age):
+        '''初始化名称和年龄属性
+        
+        参数:
+            self: 指向实例本身的引用（自动传递）
+            name: 小狗的名字
+            age: 小狗的年龄
+        '''
+        # 3、self是实例本身的引用，self.name是实例的属性
+        # 将传入的name参数赋值给实例属性self.name
+        self.name = name  # 将传入的name赋值给实例属性
+        self.age = age    # 将传入的age赋值给实例属性
+    
+    # 4、定义小狗坐下的方法
+    def sit(self):
+        '''模拟小狗被命令时坐下
+        
+        注意: 所有实例方法的第一个参数必须是self
+        '''
+        # 打印小狗坐下的消息，title()方法使首字母大写
+        # 通过self.name访问实例的name属性
         print self.name.title() + " is now sitting!"
     
+    # 定义小狗打滚的方法
     def roll_over(self):
         '''模拟小狗被命令时打滚'''
+        # 打印小狗打滚的消息
         print self.name.title() + " is rolled over!"
 ``` 
 
@@ -528,7 +674,9 @@ class Dog():                         #1、定义类
 #### 根据类创建实例
 
 可将类视为有关如何创建实例的说明。上一节的类是一系列说明，让Python知道如何创建表示特定小狗的实例。 下面来创建一个表示特定小狗的实例:
-```
+```python
+# 使用Dog类创建一个实例，传入名字"haha"和年龄3
+# Python会自动调用__init__方法，将"haha"赋值给name，3赋值给age
 my_dog = Dog("haha",3)
 ```
 
@@ -544,8 +692,10 @@ my_dog = Dog("haha",3)
 
 用类方法创建实例之后我们就可以用**实例的名称**加**点语法**来访问创建实例时赋予它的属性了，我们上面已经赋予了`my_dog`名称和年龄的属性，
 下面就是访问的例子。
-```
+```python
+# 使用点号访问实例的name属性，title()使首字母大写
 print "My dog's name is " + my_dog.name.title() + "!"
+# 使用点号访问实例的age属性，str()将数字转换为字符串
 print "My dog's age is " + str(my_dog.age) + " years old!"
 ```
 
@@ -565,8 +715,10 @@ My dog's age is 3 years old!
 #### 调用方法
 
 根据`Dog`类创建实例后，就可以使用句点表示法来调用`Dog`类中定义的任何方法。下面来让小狗蹲下和打滚:
-```
+```python
+# 调用实例的sit方法，让小狗坐下
 my_dog.sit()
+# 调用实例的roll_over方法，让小狗打滚
 my_dog.roll_over()
 ```
 前提是`my_dog`这个实例被创建。在控制台输出结果是：
@@ -587,16 +739,27 @@ Haha is rolled over!
 #### 创建多个实例
 
 可按需求根据类创建任意数量的实例。
-```
+```python
+# 创建第一个Dog实例my_dog
+# 传入参数: 名字"haha", 年龄3
+# Python会自动调用__init__方法初始化实例
 my_dog = Dog("haha",3)
+# 打印第一只狗的信息
+# 使用点号访问实例的属性
 print "My dog's name is " + my_dog.name.title() + "!"
 print "My dog's age is " + str(my_dog.age) + " years old!"
-my_dog.sit()
-my_dog.roll_over()
+# 调用第一只狗的方法
+# 使用点号和方法名调用
+my_dog.sit()  # 调用sit()方法
+my_dog.roll_over()  # 调用roll_over()方法
 
+# 创建第二个Dog实例your_dog
+# 这是一个完全独立的实例，有自己的属性
 your_dog = Dog("lala","4")
+# 打印第二只狗的信息
 print "Your dog's name is " + your_dog.name.title() + "!"
 print "Your dog's age is " + str(your_dog.age) + " years old!"
+# 调用第二只狗的方法
 your_dog.sit()
 your_dog.roll_over()
 ```
@@ -629,22 +792,39 @@ Lala is rolled over!
 #### car类
 
 下面来编写一个表示汽车的类，它存储了有关汽车的信息，还有一个汇总这些信息的方法:
-```
+```python
+# 定义Car类，用于模拟汽车
 class Car():
     '''模拟汽车的尝试'''
+    # 构造函数，创建Car实例时自动调用
     def __init__(self,make,model,year):
-        '''初始化汽车实例的属性'''
+        '''初始化汽车实例的属性
+        
+        参数:
+            make: 汽车的制造商
+            model: 汽车的型号
+            year: 汽车的生产年份
+        '''
+        # 设置汽车的制造商属性
         self.make = make
+        # 设置汽车的型号属性
         self.model = model
+        # 设置汽车的生产年份属性
         self.year = year
 
+    # 定义获取汽车描述信息的方法
     def get_descriptive_name(self):
         '''返回整洁的描述性信息'''
+        # 将年份、制造商和型号组合成描述字符串
         long_name = str(self.year) + ' ' + self.make + ' ' + self.model
+        # 使用title()方法让每个单词首字母大写并返回
         return long_name.title()
 
-my_new_car = Car("audi","a4",2018)   # 创建 my_new_car 这个实例
-print my_new_car.get_descriptive_name() # 调用 描述方法
+# 创建Car类的实例my_new_car
+# 传入参数: 制造商"audi", 型号"a4", 年份2018
+my_new_car = Car("audi","a4",2018)
+# 调用实例的get_descriptive_name()方法并打印结果
+print my_new_car.get_descriptive_name()
 ```
 
 控制台会输出：
@@ -660,12 +840,17 @@ print my_new_car.get_descriptive_name() # 调用 描述方法
 如果你对某个属性这样做了，就**无需包含**为它提供初始值的**形参**。
 
 下面来添加一个名为`odometer_reading`的属性，其初始值总是为0。我们还添加了一个名为`read_odometer()`的方法，用于读取汽车的里程表:
-```
- def read_odometer(self):
-        '''打印一条指出汽车里程的消息'''
-        print "This car has " + str(self.odometer_reading) + " miles on it."
+```python
+# 定义读取里程表的方法
+def read_odometer(self):
+    '''打印一条指出汽车里程的消息'''
+    # str()函数将数字转换为字符串，便于拼接
+    # self.odometer_reading是实例的里程属性
+    print "This car has " + str(self.odometer_reading) + " miles on it."
 
-my_new_car.read_odometer() #调用 查看汽车里程的方法
+# 调用实例的read_odometer()方法查看汽车里程
+# 此时会显示默认里程数0
+my_new_car.read_odometer()
 ```
 在控制台输出为：
 ```
@@ -685,9 +870,13 @@ This car has 0 miles on it.
 ##### 1、直接通过实例进行修改
 
 要修改属性的值，最简单的方式是通过实例直接访问它。下面的代码直接将里程表读数设置为27:
-```
-my_new_car.read_odometer() #调用 查看汽车里程的方法
-my_new_car.odometer_reading = 27 #直接通过实例修改属性
+```python
+# 第一次读取里程，显示默认值0
+my_new_car.read_odometer()
+# 直接通过实例修改里程属性
+# 使用点号访问实例的odometer_reading属性并赋新值
+my_new_car.odometer_reading = 27
+# 再次读取里程，显示修改后的值27
 my_new_car.read_odometer()
 ```
 
@@ -708,16 +897,26 @@ This car has 27 miles on it.
 
 如果有替你更新属性的方法，将大有裨益。这样，你就无需直接访问属性，而可将值传递给一个方法，由它在内部进行更新。
 下面的示例演示了一个名为`update_odometer()`的方法:
-```
+```python
+# 定义更新里程表的方法
 def update_odometer(self,mileage):
-        '''将里程表的值设定为指定值'''
-        self.odometer_reading = mileage
+    '''将里程表的值设定为指定值
+    
+    参数:
+        mileage: 新的里程数
+    '''
+    # 将传入的mileage值赋给实例的odometer_reading属性
+    self.odometer_reading = mileage
 ```
 
 我们使用一下：
-```
-my_new_car.read_odometer() #调用 查看汽车里程的方法
-my_new_car.update_odometer(27) #使用方法修改里程数
+```python
+# 第一次读取里程，显示默认值0
+my_new_car.read_odometer()
+# 使用update_odometer()方法修改里程数
+# 传入新的里程值27
+my_new_car.update_odometer(27)
+# 再次读取里程，显示修改后的值27
 my_new_car.read_odometer()
 ```
 
@@ -1125,13 +1324,21 @@ print(my_tesla.get_descriptive_name())
 由于**创建类实例的代码都包含模块名**，因此**不会**与当前文件使用的任何名称发生冲突。
 
 下面的代码导入整个car模块，并创建一辆普通汽车和一辆电动汽车:
-```
-import car #导入整个模块
+```python
+# 导入整个car模块
+# 这种方式使用模块名.类名的方式访问
+# 能明确显示类来自哪个模块，避免命名冲突
+import car
 
+# 使用car模块中的Car类创建实例
+# 必须加上模块名前缀car.
 my_beetle = car.Car("volkswagen","beetle","2016")
+# 调用实例的方法
 print (my_beetle.get_descriptive_name())
 
+# 使用car模块中的ElectricCar类创建实例
 my_tesla = car.ElectricCar("tesla","roadster","2017")
+# 调用实例的方法
 print(my_tesla.get_descriptive_name())
 ```
 我们使用语法`module_name.class_name`访问需要的类。
@@ -1219,17 +1426,30 @@ Python标准库是一组模块，安装的Python都包含它。
 `OrderedDict`实例的行为几乎与字典相同，**区别只在于记录了键—值对的添加顺序**。 
 
 我们再来看一看第6章的`favorite_languages.py`示例，但这次将记录被调查者参与调查的顺序:
-```
+```python
+# 从collections模块导入OrderedDict类
+# OrderedDict是一个特殊的字典，会记住键值对的添加顺序
 from collections import OrderedDict
 
-favorite_languages = OrderedDict() #调用OrderedDict来创建一个空字典，将其存储在favorite_languages中
+# 创建一个OrderedDict实例，用于存储有序的键值对
+# 与普通字典不同，它会保持添加键值对的顺序
+favorite_languages = OrderedDict()
 
+# 按顺序添加键值对到有序字典中
+# 第一个添加的是jen，对应的语言是python
 favorite_languages["jen"] = "python"
+# 第二个添加的是sarah，对应的语言是c
 favorite_languages["sarah"] = "c"
+# 第三个添加的是edward，对应的语言是ruby
 favorite_languages["edward"] = "ruby"
+# 第四个添加的是phil，对应的语言是python
 favorite_languages["phil"] = "python"
 
-for name,language in favorite_languages.items(): #遍历字典，但知道将以添加的顺序获取调查结果。
+# 遍历有序字典，items()返回所有键值对
+# 因为使用了OrderedDict，遍历时会按照添加的顺序输出
+for name,language in favorite_languages.items():
+    # title()方法将每个单词的首字母大写
+    # 打印每个人喜欢的编程语言
     print(name.title() + "'s favorite language is " + language.title() + ".")
 ```
 这是一个很不错的类，它兼具列表和字典的主要优点(在将信息关联起来的同时保留原来的顺序)。
@@ -1625,10 +1845,16 @@ I really like cat!
 要将文本写入文件，你在调用`open()`时需要提供**另一个实参**，告诉Python你要写入打开的文件。
 
 为明白其中的工作原理，我们来将一条简单的消息**存储到文件中**，而不是将其打印到屏幕上:
-```
-file_name1 = "write_none.txt" #把文件名放进变量里
-with open(file_name1,"w") as file_obj:  #将要写入文件,并创建文件对象
-    file_obj.write("I love programing!") #写入的内容
+```python
+# 定义要写入的文件名
+file_name1 = "write_none.txt"
+# 以写入模式("w")打开文件
+# 如果文件不存在，Python会自动创建它
+# 如果文件已存在，会被清空后再写入
+with open(file_name1,"w") as file_obj:
+    # 使用write()方法向文件写入字符串
+    # 注意: write()只能写入字符串，数值需要先转换
+    file_obj.write("I love programing!")
 ```
 在这个示例中，调用`open()`时提供了两个实参：
 
@@ -1670,11 +1896,16 @@ with open(file_name1,"w") as file_obj:  #将要写入文件,并创建文件对�
 I love programing!I also like football!
 ```
 要让每个字符串都单独占一行，需要在`write()`语句中包含换行符:
-```
-file_name1 = "write_none.txt" #把文件名放进变量里
-with open(file_name1,"w") as file_obj:  #将要写入文件,并创建文件对象
-    file_obj.write("I love programing!\n") #写入的内容
-    file_obj.write("I also like football!\n") #继续写入
+```python
+# 定义要写入的文件名
+file_name1 = "write_none.txt"
+# 以写入模式打开文件
+with open(file_name1,"w") as file_obj:
+    # 写入第一行，\n是换行符
+    # 如果不加\n，所有内容会连在一起
+    file_obj.write("I love programing!\n")
+    # 写入第二行，同样以\n结尾
+    file_obj.write("I also like football!\n")
 ```
 运行后，文件`write_none.txt`变成这样：
 ```
@@ -1694,11 +1925,16 @@ I also like football!
 如果指定的文件不存在，Python将为你创建一个空文件。
 
 我们再修改一下写入的操作：
-```
-file_name1 = "write_none.txt" # 把文件名放进变量里
-with open(file_name1,"a") as file_obj1: # 创建文件对象，附加模式
-    file_obj1.write("Because football is very good!\n") #添加一句话
-    file_obj1.write("Because programing fell good!\n") #添加另一句话
+```python
+# 定义要附加内容的文件名
+file_name1 = "write_none.txt"
+# 以附加模式("a")打开文件
+# 附加模式不会清空文件，新内容会加到文件末尾
+with open(file_name1,"a") as file_obj1:
+    # 在文件末尾添加第一行新内容
+    file_obj1.write("Because football is very good!\n")
+    # 在文件末尾添加第二行新内容
+    file_obj1.write("Because programing fell good!\n")
 ```
 我们打开文件时指定了实参`"a"`，以便将内容附加到文件末尾，而不是覆盖文件原来的内容。
 
@@ -1828,19 +2064,30 @@ ZeroDivisionError: division by zero
 错误是执行除法运算的代码行导致的，因此我们需要将它放到`try--except`代码块中。
 
 这个示例还包含一个`else`代码块；依赖于`try`代码块成功执行的代码都应放到`else`代码块中，我们来修改一下上面的代码：
-```
+```python
+# 创建一个无限循环，直到用户输入'q'退出
 while True:
+    # 提示用户输入第一个数字
     first_number = input("\nFirst number: ")
+    # 如果用户输入'q'，则退出循环
     if first_number == "q":
         break
+    # 提示用户输入第二个数字
     second_number = input("\nSecond number: ")
+    # 如果用户输入'q'，则退出循环
     if second_number == "q":
         break
+    # try代码块：尝试执行可能引发错误的代码
     try:
+        # 将字符串转换为整数并执行除法运算
         answer = int(first_number) / int(second_number)
+    # except代码块：如果发生除零错误，执行这里的代码
     except ZeroDivisionError:
+        # 打印友好的错误提示，而不是让程序崩溃
         print("You can't divide by zero!\n")
+    # else代码块：只有try代码块成功执行时才运行
     else:
+        # 打印除法结果
         print(answer)
 ```
 我们让Python尝试执行`try`代码块中的除法运算，这个代码块只包含可能导致错误的代码。
@@ -2114,14 +2361,21 @@ Python的错误处理结构让你能够细致地控制与用户分享错误信�
 函数`json.dump()`接受两个实参：1、**要存储的数据**以及2、可用于存储数据的**文件对象**。
 
 下面演示了如何使用`json.dump()`来存储数字列表:
-```
-import json #导入json模块
+```python
+# 导入json模块，用于处理JSON格式的数据
+import json
 
+# 创建一个数字列表，这些是质数
 numbers = [2,3,5,7,11,13]
 
+# 定义要保存数据的文件名
+# .json扩展名表明这是一个JSON格式的文件
 file_name = "numbers.json"
+# 以写入模式打开文件
 with open(file_name,"w") as f_obj:
-    json.dump(numbers,f_obj) #把数字列表写入文件对象f_obj
+    # 使用json.dump()方法将数据写入文件
+    # 第一个参数是要存储的数据，第二个参数是文件对象
+    json.dump(numbers,f_obj)
 ```
 我们先导入模块`json`，再创建一个数字列表。我们指定了要将该数字列表存储到其中的文件的名称。
 
@@ -2678,27 +2932,51 @@ Python在`unittest.TestCase`类中提供了很多断言方法。
 
 `survey.py`：
 
-```
+```python
+# 定义匿名调查类
 class AnonymousSurvey():
-    '''收集匿名调查问卷的答案'''
+    '''收集匿名调查问卷的答案
+    
+    这个类用于管理调查问卷，可以显示问题、
+    收集答案并展示结果
+    '''
 
+    # 构造函数，创建调查实例时自动调用
     def __init__(self,question):
-        '''存储一个问题，并为存储答案做准备！'''
+        '''存储一个问题，并为存储答案做准备！
+        
+        参数:
+            question: 调查的问题文本
+        '''
+        # 将传入的问题存储为实例属性
         self.question = question
+        # 创建一个空列表，用于存储所有的答案
         self.responses = []
 
+    # 定义显示问题的方法
     def show_question(self):
-        '''显示调查问卷'''
+        '''显示调查问卷的问题'''
+        # 打印存储的调查问题
         print(self.question)
 
+    # 定义存储答案的方法
     def store_response(self,new_response):
-        '''存储单份调查答卷'''
+        '''存储单份调查答卷
+        
+        参数:
+            new_response: 用户提供的答案
+        '''
+        # 使用append()方法将新答案添加到responses列表末尾
         self.responses.append(new_response)
 
+    # 定义显示结果的方法
     def show_results(self):
         '''显示收集到的所有答卷'''
+        # 打印结果标题
         print("Survey results:")
+        # 遍历responses列表中的每个答案
         for response in self.responses:
+            # 打印每个答案，前面加上"-"符号
             print("- " + response)
 ```
 
