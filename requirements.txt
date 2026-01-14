@@ -315,7 +315,7 @@ torchvision==0.15.1
 tornado @ file:///Users/builder/ci_310/tornado_1642538510757/work
 tqdm @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_2adqcbsqqd/croots/recipe/tqdm_1664392689227/work
 traitlets @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_0dtilxc0bw/croot/traitlets_1671143889152/work
-transformers==4.19.2
+transformers==4.30.0
 Twisted @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_daykstm3mh/croots/recipe/twisted_1659592770155/work
 typed-ast==1.5.5
 typing_extensions==4.7.1
